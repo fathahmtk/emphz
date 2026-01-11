@@ -12,6 +12,7 @@ import { useInquiries } from '@/hooks/use-inquiries';
 import { Inquiry } from '@/lib/types';
 import { BarChart, MessageSquare, Package } from 'lucide-react';
 import InquiryStatusSelector from './inquiry-status-selector';
+import Link from 'next/link';
 
 function KpiCard({ title, value, icon: Icon }: { title: string, value: string | number, icon: React.ElementType }) {
     return (
@@ -103,35 +104,29 @@ export default function InquiriesPage() {
               <TableRow>
                 <TableHead>Date</TableHead>
                 <TableHead>Name</TableHead>
-                <TableHead>Company</TableHead>
                 <TableHead>Product</TableHead>
                 <TableHead>Routed To</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead className="text-right">Status</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {inquiries && inquiries.length > 0 ? (
                 inquiries.map((inquiry: Inquiry) => (
-                  <TableRow key={inquiry.id}>
+                  <TableRow key={inquiry.id} className="cursor-pointer" onClick={() => router.push(`/inquiries/${inquiry.id}`)}>
                     <TableCell>
-                      {inquiry.routedAt?.toDate ? format(inquiry.routedAt.toDate(), 'PPp') : 'N/A'}
+                      {inquiry.routedAt?.toDate ? format(inquiry.routedAt.toDate(), 'PP') : 'N/A'}
                     </TableCell>
-                    <TableCell>{inquiry.name}</TableCell>
-                    <TableCell>{inquiry.company || '-'}</TableCell>
+                    <TableCell className="font-medium">{inquiry.name}</TableCell>
                     <TableCell>{inquiry.product}</TableCell>
                     <TableCell>{inquiry.routedTo}</TableCell>
-                    <TableCell>
-                      {inquiry.id ? (
-                        <InquiryStatusSelector inquiryId={inquiry.id} currentStatus={inquiry.status} />
-                      ) : (
-                        <Badge variant="secondary">{inquiry.status}</Badge>
-                      )}
+                    <TableCell className="text-right">
+                       <Badge variant={inquiry.status === 'New' ? 'default' : 'secondary'}>{inquiry.status}</Badge>
                     </TableCell>
                   </TableRow>
                 ))
               ) : (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center">
+                  <TableCell colSpan={5} className="text-center">
                     No inquiries found.
                   </TableCell>
                 </TableRow>
