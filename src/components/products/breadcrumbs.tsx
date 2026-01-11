@@ -7,7 +7,7 @@ export default function Breadcrumbs() {
         <li className="inline-flex items-center">
           <Link
             href="/"
-            className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600">
+            className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary">
 
             <svg
               className="w-3 h-3 mr-2.5"
@@ -24,7 +24,7 @@ export default function Breadcrumbs() {
         <li aria-current="page">
           <div className="flex items-center">
             <svg
-              className="w-3 h-3 text-gray-400 mx-1"
+              className="w-3 h-3 text-muted-foreground mx-1"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -36,7 +36,7 @@ export default function Breadcrumbs() {
                 strokeWidth="2"
                 d="m1 9 4-4-4-4" />
             </svg>
-            <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">
+            <span className="ml-1 text-sm font-medium text-foreground md:ml-2">
               Products
             </span>
           </div>

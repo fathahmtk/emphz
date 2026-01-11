@@ -7,15 +7,15 @@ import FinalCTA from '@/components/home/final-cta';
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-background text-foreground">
       <Hero />
-      <div className="space-y-16 sm:space-y-24 py-16 sm:py-24 bg-background">
+      <div className="py-16 sm:py-24 space-y-16 sm:space-y-24">
         <Industries />
         <FeaturedProjects />
         <AboutSummary />
         <Certifications />
         <FinalCTA />
       </div>
-    </>
+    </div>
   );
 }
