@@ -11,7 +11,7 @@ export default function TeamCard({ member }: TeamCardProps) {
   const image = PlaceHolderImages.find(p => p.id === member.image_id);
   
   return (
-    <Card className="text-center flex flex-col">
+    <Card className="text-center flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
       <CardHeader>
         {image && (
           <div className="relative w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-primary/20">
