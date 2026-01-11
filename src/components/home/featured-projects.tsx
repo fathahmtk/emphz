@@ -29,6 +29,7 @@ export default function FeaturedProjects() {
                       data-ai-hint={image.imageHint}
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                    </div>
                 )}

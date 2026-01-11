@@ -32,6 +32,7 @@ export default function AboutSummary() {
               data-ai-hint={aboutImage.imageHint}
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           )}
         </div>

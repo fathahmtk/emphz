@@ -75,6 +75,7 @@ export default function Hero() {
                       fill
                       priority={index === 0}
                       className="object-cover"
+                      sizes="100vw"
                     />
                   )}
 
@@ -98,7 +99,7 @@ export default function Hero() {
                           <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </Button>
-                       <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+                       <Button asChild size="lg" variant="outline">
                         <Link href={slide.secondaryLink}>
                           {slide.secondaryText === 'Download Catalogue' && <FileDown className="mr-2 h-5 w-5" />}
                           {slide.secondaryText}

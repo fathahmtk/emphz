@@ -6,7 +6,7 @@ export type Product = {
   category: 'Electrical Enclosures' | 'Kiosks' | 'Portable Toilets';
   short_description: string;
   long_description: string;
-  features: { name: string, icon: any }[];
+  features: { name: string, icon: string }[];
   ip_rating: number;
   dimensions: {
     height: number;

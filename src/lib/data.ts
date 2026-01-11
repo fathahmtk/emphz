@@ -1,5 +1,5 @@
 import type { Product, Industry, Project, TeamMember, Certification, Resource } from '@/lib/types';
-import { Wrench, Zap, Building, HardHat, ShieldCheck, Sun, Flame } from 'lucide-react';
+import { Wrench, Zap, Building, HardHat } from 'lucide-react';
 
 export const industries: Industry[] = [
   { id: '1', name: 'Construction', description: 'Durable solutions for harsh construction environments.', icon: HardHat, image_id: 'industry-construction' },
@@ -18,9 +18,9 @@ export const products: Product[] = [
     short_description: 'Robust GRP enclosure for electrical components.',
     long_description: 'Our standard GRP Electrical Enclosure offers superior protection in a lightweight, cost-effective package. Designed for versatility, it is suitable for a wide range of applications, providing excellent resistance to impact and harsh weather conditions.',
     features: [
-      { name: 'Corrosion Resistant', icon: ShieldCheck },
-      { name: 'UV Stable', icon: Sun },
-      { name: 'Self-Extinguishing', icon: Flame }
+      { name: 'Corrosion Resistant', icon: 'ShieldCheck' },
+      { name: 'UV Stable', icon: 'Sun' },
+      { name: 'Self-Extinguishing', icon: 'Flame' }
     ],
     ip_rating: 66,
     dimensions: { height: 600, width: 400, depth: 230 },
@@ -45,9 +45,9 @@ export const products: Product[] = [
     short_description: 'Versatile and customizable GRP kiosks.',
     long_description: 'Our modular GRP kiosks are the perfect solution for a variety of outdoor and industrial applications, including security posts, information booths, and equipment housing. They are fully customizable to meet specific size and feature requirements.',
     features: [
-      { name: 'Corrosion Resistant', icon: ShieldCheck },
-      { name: 'UV Stable', icon: Sun },
-      { name: 'Self-Extinguishing', icon: Flame }
+      { name: 'Corrosion Resistant', icon: 'ShieldCheck' },
+      { name: 'UV Stable', icon: 'Sun' },
+      { name: 'Self-Extinguishing', icon: 'Flame' }
     ],
     ip_rating: 65,
     dimensions: { height: 2500, width: 2000, depth: 2000 },
@@ -72,9 +72,9 @@ export const products: Product[] = [
     short_description: 'Durable and hygienic GRP portable toilets.',
     long_description: 'EMPHZ GRP portable toilets are designed for durability and ease of maintenance. Ideal for construction sites, public events, and remote locations, they offer a hygienic and robust solution. Available with various plumbing and accessory options.',
     features: [
-      { name: 'Corrosion Resistant', icon: ShieldCheck },
-      { name: 'UV Stable', icon: Sun },
-      { name: 'Hygienic Surface', icon: ShieldCheck }
+      { name: 'Corrosion Resistant', icon: 'ShieldCheck' },
+      { name: 'UV Stable', icon: 'Sun' },
+      { name: 'Hygienic Surface', icon: 'ShieldCheck' }
     ],
     ip_rating: 0,
     dimensions: { height: 2300, width: 1200, depth: 1200 },
@@ -116,5 +116,5 @@ export const resources: Resource[] = [
   { id: '1', title: 'EE-001 Datasheet', description: 'Technical specifications for our Standard GRP Electrical Enclosure.', category: 'Electrical Enclosures', url: '/resources/EE-001-datasheet.pdf' },
   { id: '2', title: 'Kiosk-001 Brochure', description: 'Features and options for our Modular GRP Kiosks.', category: 'Kiosks', url: '/resources/Kiosk-001-datasheet.pdf' },
   { id: '3', title: 'PT-001 Installation Guide', description: 'Step-by-step guide for setting up GRP Portable Toilets.', category: 'Portable Toilets', url: '/resources/PT-001-datasheet.pdf' },
-  { id: '4', title: 'GRP Material Guide', description: 'Comprehensive guide to the benefits of Glass Reinforced Polyester.', category: 'General', url: '#' },
+  { id: '4', title: 'GRP Material Guide', description: 'Comprehensive guide to the benefits of Glass Reinforced Polyester.', category: 'General', url: '/resources/GRP-material-guide.pdf' },
 ];
