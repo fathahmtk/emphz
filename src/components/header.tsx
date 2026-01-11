@@ -27,7 +27,7 @@ export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const linkClasses = (href: string) => cn(
-    'text-sm font-medium transition-colors hover:text-primary',
+    'text-sm font-medium transition-colors',
     pathname === href ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
   );
 
@@ -36,7 +36,7 @@ export default function Header() {
 
 
   return (
-    <header className="border-b bg-card text-card-foreground">
+    <header className="border-b bg-card text-card-foreground sticky top-0 z-40 glass">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Logo />
@@ -54,7 +54,10 @@ export default function Header() {
             </Link>
           ))}
            {isLoggedIn && (
-             <Link href="/inquiries" className={linkClasses('/inquiries')}>Inquiries</Link>
+             <Link href="/inquiries" className={cn(linkClasses('/inquiries'), 'flex items-center gap-2')}>
+                <LayoutDashboard className="h-4 w-4" />
+                Inquiries
+             </Link>
            )}
         </nav>
 
@@ -69,7 +72,7 @@ export default function Header() {
             )}
           </Link>
           {isLoggedIn ? (
-            <Button onClick={logout} size="sm" variant="default" className={authButtonClasses}>Logout</Button>
+            <Button onClick={logout} size="sm" variant="outline" className={authButtonClasses}>Logout</Button>
           ) : (
             <Button asChild size="sm" variant="default" className={authButtonClasses}>
               <Link href="/login">Partner Login</Link>
@@ -112,12 +115,15 @@ export default function Header() {
                     </Link>
                   ))}
                   {isLoggedIn && (
-                     <Link href="/inquiries" onClick={() => setMobileMenuOpen(false)} className={cn('text-lg font-medium transition-colors hover:text-primary', pathname === '/inquiries' ? 'text-primary' : 'text-foreground')}>Inquiries</Link>
+                     <Link href="/inquiries" onClick={() => setMobileMenuOpen(false)} className={cn('text-lg font-medium transition-colors hover:text-primary flex items-center gap-2', pathname === '/inquiries' ? 'text-primary' : 'text-foreground')}>
+                        <LayoutDashboard className="h-5 w-5" />
+                        Inquiries
+                     </Link>
                   )}
                 </nav>
                  <div className="mt-auto pt-4 border-t">
                     {isLoggedIn ? (
-                        <Button onClick={() => {logout(); setMobileMenuOpen(false);}} size="sm" className="w-full rounded-full">Logout</Button>
+                        <Button onClick={() => {logout(); setMobileMenuOpen(false);}} size="sm" className="w-full rounded-full" variant="outline">Logout</Button>
                     ) : (
                         <Button asChild size="sm" onClick={() => setMobileMenuOpen(false)} className="w-full rounded-full">
                         <Link href="/login">Partner Login</Link>
