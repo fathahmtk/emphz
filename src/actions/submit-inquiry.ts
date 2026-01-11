@@ -58,13 +58,19 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
     };
   }
 
-  const { message, name, email, product } = validation.data;
+  const { message, name, email, product, quoteItems } = validation.data;
+  
+  const inquiryContent = `
+    Message: ${message}
+    Selected Product: ${product || 'N/A'}
+    Quote Basket Items: ${quoteItems && quoteItems.length > 0 ? quoteItems.map(item => item.name).join(', ') : 'None'}
+  `;
 
   try {
     // 1. Route inquiry using GenAI
     const routingResult = await routeInquiry({
-      inquiryType: product || 'General Inquiry',
-      inquiryDetails: message,
+      inquiryType: product || (quoteItems && quoteItems.length > 0 ? quoteItems.map(i=>i.name).join(', ') : 'General Inquiry'),
+      inquiryDetails: inquiryContent,
     });
     console.log('Inquiry routed to:', routingResult.expert);
     console.log('Justification:', routingResult.justification);

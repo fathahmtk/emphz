@@ -158,7 +158,7 @@ export default function ContactForm() {
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a product" />
+                    <SelectValue placeholder="Select a product or add from basket" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
