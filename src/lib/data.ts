@@ -134,5 +134,27 @@ export const heroSlides: HeroSlide[] = [
     primaryLink: "/contact",
     secondaryText: "Explore Products",
     secondaryLink: "/products",
-  }
+  },
+  {
+    id: "hero-2",
+    imageId: "hero-solar",
+    title: "ADVANCED SOLUTIONS FOR RENEWABLE ENERGY",
+    subtitle:
+      "Future-proof your solar and wind energy projects with our durable, weather-resistant GRP infrastructure.",
+    primaryText: "Renewable Solutions",
+    primaryLink: "/products",
+    secondaryText: "Our Industries",
+    secondaryLink: "/#industries",
+  },
+  {
+    id: "hero-3",
+    imageId: "hero-industrial",
+    title: "ROBUST INFRASTRUCTURE FOR HEAVY INDUSTRY",
+    subtitle:
+      "From power plants to manufacturing facilities, our GRP solutions provide unmatched protection and longevity.",
+    primaryText: "Industrial Applications",
+    primaryLink: "/products",
+    secondaryText: "Request a Quote",
+    secondaryLink: "/contact",
+  },
 ];
