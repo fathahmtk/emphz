@@ -7,7 +7,7 @@ export default function ContactPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Contact Us</h1>
         <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-          Have a question or need a quote? Our team is ready to help.
+          Our team supports both standard and custom requirements. Please fill out the form below.
         </p>
       </div>
 

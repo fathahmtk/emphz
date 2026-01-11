@@ -131,47 +131,5 @@ export const heroSlides: HeroSlide[] = [
     primaryLink: "/contact",
     secondaryText: "Explore Products",
     secondaryLink: "/products",
-  },
-  {
-    id: "hero-2",
-    imageId: "hero-solar",
-    title: "Utility & Power-Ready Solutions",
-    subtitle:
-      "Weather-resistant GRP enclosures and kiosks designed for electrical distribution, renewable energy, and utility networks.",
-    primaryText: "Utility Solutions",
-    primaryLink: "/products",
-    secondaryText: "Talk to Engineering",
-    secondaryLink: "/contact",
-  },
-  {
-    id: "hero-3",
-    imageId: "hero-industrial",
-    title: "Modular. Durable. Scalable.",
-    subtitle:
-      "From urban infrastructure to large EPC projects, EMPHZ delivers GRP systems optimised for lifecycle cost and rapid deployment.",
-    primaryText: "Request a Quote",
-    primaryLink: "/contact",
-    secondaryText: "Why EMPHZ",
-    secondaryLink: "/about",
-  },
-   {
-    id: "hero-animated-1",
-    imageId: "hero-animated-1",
-    title: "Global Supplier of GRP Solutions",
-    subtitle: "With a network of partners and distributors across the globe, we are a trusted supplier of GRP solutions to a wide range of industries.",
-    primaryText: "Our Network",
-    primaryLink: "/contact",
-    secondaryText: "Become a Partner",
-    secondaryLink: "/contact",
-  },
-  {
-    id: "hero-animated-2",
-    imageId: "hero-animated-2",
-    title: "GRP Products for the Oil and Gas Industry",
-    subtitle: "We offer a range of GRP products for the oil and gas industry, including blast-resistant enclosures and fire-rated doors.",
-    primaryText: "View Products",
-    primaryLink: "/products",
-    secondaryText: "Get a Quote",
-    secondaryLink: "/contact",
   }
 ];

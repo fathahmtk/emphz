@@ -7,7 +7,10 @@ const inquirySchema = z.object({
   name: z.string().min(2, 'Name is required.'),
   email: z.string().email('Invalid email address.'),
   company: z.string().optional(),
-  inquiryType: z.string({ required_error: 'Please select an inquiry type.'}).min(1, 'Please select an inquiry type.'),
+  projectType: z.string().optional(),
+  product: z.string().optional(),
+  quantity: z.string().optional(),
+  location: z.string().optional(),
   message: z.string().min(10, 'Message must be at least 10 characters.'),
   quoteItems: z.array(z.object({
     sku: z.string(),
@@ -22,7 +25,10 @@ export type InquiryState = {
     name?: string[];
     email?: string[];
     company?: string[];
-    inquiryType?: string[];
+    projectType?: string[];
+    product?: string[];
+    quantity?: string[],
+    location?: string[],
     message?: string[];
     quoteItems?: string[];
   } | null;
@@ -34,7 +40,10 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
     name: formData.get('name'),
     email: formData.get('email'),
     company: formData.get('company'),
-    inquiryType: formData.get('inquiryType'),
+    projectType: formData.get('projectType'),
+    product: formData.get('product'),
+    quantity: formData.get('quantity'),
+    location: formData.get('location'),
     message: formData.get('message'),
     quoteItems: JSON.parse(formData.get('quoteItems') as string || '[]'),
   }
@@ -49,12 +58,12 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
     };
   }
 
-  const { inquiryType, message, name, email } = validation.data;
+  const { message, name, email, product } = validation.data;
 
   try {
     // 1. Route inquiry using GenAI
     const routingResult = await routeInquiry({
-      inquiryType: inquiryType,
+      inquiryType: product || 'General Inquiry',
       inquiryDetails: message,
     });
     console.log('Inquiry routed to:', routingResult.expert);

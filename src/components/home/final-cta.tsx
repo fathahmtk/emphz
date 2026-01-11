@@ -11,8 +11,8 @@ export default function FinalCTA() {
     <div className="container">
       <div className="relative rounded-lg overflow-hidden p-8 md:p-12 bg-card">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="relative aspect-video rounded-lg overflow-hidden">
-            {ctaImage && 
+           <div className="relative aspect-video rounded-lg overflow-hidden">
+             {ctaImage && 
               <Image 
                 src={ctaImage.imageUrl} 
                 alt="Contact us for a quote" 
@@ -22,8 +22,8 @@ export default function FinalCTA() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             }
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-          </div>
+             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+           </div>
           <div className="text-left">
             <h2 className="text-3xl font-extrabold tracking-tight text-primary sm:text-4xl mb-4">
               Ready to Start Your Project?
@@ -33,10 +33,10 @@ export default function FinalCTA() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg">
-                <Link href="/contact?quote=true">Request a Quote <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                <Link href="/contact">Request a Quote <ArrowRight className="ml-2 h-5 w-5" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="tel:+91-987-654-3210"><Phone className="mr-2 h-5 w-5"/> Call Us</Link>
+                <Link href="tel:+919037874080"><Phone className="mr-2 h-5 w-5"/> Call Us</Link>
               </Button>
             </div>
           </div>

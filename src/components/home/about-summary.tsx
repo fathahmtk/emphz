@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import CallToAction from "@/components/shared/call-to-action";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -9,14 +8,12 @@ export default function AboutSummary() {
   return (
     <div className="container grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <CallToAction
-        title="A Legacy of Quality and Innovation"
+        title="About EMPHZ"
         description={
           <>
-            <p className="mb-4">
-              For over three decades, EMPHZ has been at the forefront of designing and manufacturing high-performance GRP products. Our mission is to provide durable, reliable infrastructure that stands the test of time, even in the harshest environments.
-            </p>
             <p>
-              We are committed to continuous innovation, superior quality, and unparalleled customer service.
+              EMPHZ is a manufacturer specialising in GRP and modular infrastructure solutions.
+              With long-standing engineering expertise, we support critical infrastructure, utilities, and industrial projects with durable, site-ready products.
             </p>
           </>
         }

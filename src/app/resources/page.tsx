@@ -24,9 +24,9 @@ export default function ResourcesPage() {
   return (
     <div className="container py-16 lg:py-24">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Resource Library</h1>
+        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Resource Centre</h1>
         <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-          Access technical datasheets, brochures, and installation guides for all our products.
+          Access technical and commercial documents, including product catalogues, technical datasheets, drawings, and compliance files.
         </p>
       </div>
 

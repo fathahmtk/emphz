@@ -12,14 +12,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { InquiryState, submitInquiry } from "@/actions/submit-inquiry";
-import { industries } from "@/lib/data";
+import { products } from "@/lib/data";
 import { useQuote } from "@/context/quote-context";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email." }),
   company: z.string().optional(),
-  inquiryType: z.string().min(1, { message: "Please select an inquiry type." }),
+  projectType: z.string().optional(),
+  product: z.string().optional(),
+  quantity: z.string().optional(),
+  location: z.string().optional(),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
@@ -27,7 +30,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full">
-      {pending ? "Submitting..." : "Submit Inquiry"}
+      {pending ? "Submitting..." : "Submit RFQ"}
     </Button>
   );
 }
@@ -45,7 +48,10 @@ export default function ContactForm() {
       name: "",
       email: "",
       company: "",
-      inquiryType: "",
+      projectType: "",
+      product: "",
+      quantity: "",
+      location: "",
       message: "",
     },
   });
@@ -58,7 +64,7 @@ export default function ContactForm() {
       });
       form.reset();
       clearQuote();
-    } else if (state.message && !state.errors) { // Only show general errors if there are no field errors
+    } else if (state.message && !state.errors) { 
       toast({
         title: "Error",
         description: state.message,
@@ -69,7 +75,6 @@ export default function ContactForm() {
 
   const quoteItemsForForm = quoteItems.map(item => ({ sku: item.sku, name: item.name }));
 
-  // This is a bit of a workaround to merge server errors with client-side validation
   useEffect(() => {
       if (state.errors) {
           Object.entries(state.errors).forEach(([key, value]) => {
@@ -83,9 +88,9 @@ export default function ContactForm() {
       }
   }, [state.errors, form]);
 
-
   return (
     <Form {...form}>
+      <h2 className="text-2xl font-bold mb-4">Request for Quote</h2>
       <form
         action={formAction}
         className="space-y-6"
@@ -123,7 +128,7 @@ export default function ContactForm() {
           name="company"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Company (Optional)</FormLabel>
+              <FormLabel>Organisation / Department</FormLabel>
               <FormControl>
                 <Input placeholder="Your Company Name" {...field} />
               </FormControl>
@@ -133,33 +138,74 @@ export default function ContactForm() {
         />
         <FormField
           control={form.control}
-          name="inquiryType"
+          name="projectType"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Inquiry Type</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select an industry" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  {industries.map(industry => (
-                    <SelectItem key={industry.id} value={industry.name}>{industry.name}</SelectItem>
-                  ))}
-                   <SelectItem value="Other">Other</SelectItem>
-                </SelectContent>
-              </Select>
+              <FormLabel>Project type</FormLabel>
+              <FormControl>
+                <Input placeholder="e.g. Industrial, Commercial" {...field} />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <FormField
           control={form.control}
+          name="product"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Product(s) required</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a product" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {products.map(product => (
+                    <SelectItem key={product.id} value={product.name}>{product.name}</SelectItem>
+                  ))}
+                   <SelectItem value="Other">Other / Multiple</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+           <FormField
+            control={form.control}
+            name="quantity"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Quantity</FormLabel>
+                <FormControl>
+                  <Input placeholder="e.g. 10" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="location"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Location</FormLabel>
+                <FormControl>
+                  <Input placeholder="e.g. Mumbai, India" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <FormField
+          control={form.control}
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>Technical or commercial notes</FormLabel>
               <FormControl>
                 <Textarea placeholder="Please describe your requirements..." className="min-h-[120px]" {...field} />
               </FormControl>

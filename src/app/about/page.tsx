@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { team } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function AboutPage() {
@@ -12,7 +10,7 @@ export default function AboutPage() {
         <div className="text-center">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">About EMPHZ</h1>
           <p className="mt-4 max-w-3xl mx-auto text-muted-foreground md:text-xl">
-            Pioneering excellence in modular infrastructure since 1990.
+             A trusted provider of engineered modular infrastructure solutions.
           </p>
         </div>
 
@@ -28,53 +26,26 @@ export default function AboutPage() {
             />
           )}
         </div>
+        
+        <div className="max-w-4xl mx-auto text-center mb-16">
+             <p className="text-lg text-muted-foreground">
+                EMPHZ is a manufacturer specialising in GRP and modular infrastructure solutions. With long-standing engineering expertise, we support critical infrastructure, utilities, and industrial projects with durable, site-ready products.
+             </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-muted-foreground mb-16">
-          <div>
-            <h2 className="text-2xl font-bold text-foreground mb-3">Our Mission</h2>
-            <p>To engineer and manufacture the world's most reliable and durable GRP modular solutions, empowering industries through innovation and unwavering quality.</p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg text-muted-foreground">
           <div>
             <h2 className="text-2xl font-bold text-foreground mb-3">Our Vision</h2>
-            <p>To be the global leader in GRP technology, setting new standards for performance, sustainability, and customer satisfaction in every product we create.</p>
+            <p>To be a trusted provider of engineered modular infrastructure solutions.</p>
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-foreground mb-3">Our History</h2>
-            <p>Founded over three decades ago, EMPHZ grew from a small workshop into an international powerhouse, driven by a passion for solving complex engineering challenges.</p>
+            <h2 className="text-2xl font-bold text-foreground mb-3">Our Mission</h2>
+             <ul className="space-y-2">
+                <li>Deliver products built for demanding operating environments</li>
+                <li>Maintain consistent quality and safety standards</li>
+                <li>Support infrastructure projects with reliable, value-driven solutions</li>
+            </ul>
           </div>
-        </div>
-
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Meet Our Leadership</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-            The driving force behind our success and innovation.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {team.map((member) => {
-            const memberImage = PlaceHolderImages.find(p => p.id === member.image_id);
-            return (
-              <Card key={member.id} className="text-center">
-                <CardContent className="p-6">
-                  {memberImage && (
-                    <div className="relative h-32 w-32 rounded-full mx-auto mb-4 overflow-hidden">
-                      <Image
-                        src={memberImage.imageUrl}
-                        alt={member.name}
-                        data-ai-hint={memberImage.imageHint}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <p className="text-primary font-medium mb-2">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.bio}</p>
-                </CardContent>
-              </Card>
-            );
-          })}
         </div>
       </div>
     </div>
