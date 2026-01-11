@@ -1,23 +1,27 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
-  const heroImageUrl = "https://lh3.googleusercontent.com/pw/AP1GczMVu08scEr9C4C_CeJec7f0PRTXBV-KjmTrvsTEvH7yobP5ddistqZgIJJVJ_71g040caTgJ9s6bpC6fQM6TsIwEn9V1wirCv2YjJHjYFSiMmqtun36MMMKn-UmeMuuEpz9dGZIDMtHbOk1PCTdQsckMw=w1344-h768-s-no-gm?authuser=0";
+  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
 
   return (
     <section className="relative h-screen w-full flex items-center justify-start text-white">
-      <Image
-        src={heroImageUrl}
-        alt="Modern building with a sleek, minimalist design"
-        fill
-        className="object-cover"
-        priority
-        sizes="100vw"
-      />
+      {heroImage && (
+        <Image
+          src={heroImage.imageUrl}
+          alt={heroImage.description}
+          data-ai-hint={heroImage.imageHint}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 to-slate-900/20"></div>
       <div className="container relative z-10 md:w-1/2 md:pl-8">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl mb-6">
