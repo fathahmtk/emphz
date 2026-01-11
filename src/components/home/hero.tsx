@@ -43,7 +43,7 @@ const heroSlides = [
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[700px] w-full -mt-[64px]">
+    <section className="relative h-[calc(100vh-64px)] min-h-[600px] w-full">
       <Carousel
         className="w-full h-full"
         plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
@@ -54,7 +54,7 @@ export default function Hero() {
             const image = PlaceHolderImages.find((p) => p.id === slide.imageId);
             return (
               <CarouselItem key={slide.id} className="h-full">
-                <div className="relative h-full w-full flex items-center justify-center text-white pt-[64px]">
+                <div className="relative h-full w-full flex items-center justify-center text-white">
                   {image && (
                     <Image
                       src={image.imageUrl}

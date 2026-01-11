@@ -27,8 +27,6 @@ export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
-  const isHomePage = pathname === '/';
-
   useEffect(() => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 10);
@@ -36,7 +34,6 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     
-    // Initial check
     handleScroll();
 
     return () => {
@@ -46,21 +43,21 @@ export default function Header() {
 
   const headerClasses = cn(
     "fixed top-0 z-50 w-full transition-colors duration-300",
-    isHomePage && !hasScrolled
-      ? "bg-transparent text-white"
-      : "bg-background/95 text-foreground backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 border-b"
+    hasScrolled
+      ? "bg-background/95 text-foreground backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 border-b"
+      : "bg-background text-foreground border-b"
   );
   
   const linkClasses = (href: string) => cn(
     'text-sm font-medium transition-colors hover:text-primary',
-    pathname === href ? 'text-primary' : (isHomePage && !hasScrolled ? 'text-slate-200 hover:text-white' : 'text-muted-foreground')
+    pathname === href ? 'text-primary' : 'text-muted-foreground'
   );
 
   return (
     <header className={headerClasses}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Logo className={cn(isHomePage && !hasScrolled ? "text-white" : "text-primary")} />
+          <Logo />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -78,7 +75,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2 sm:gap-4">
           <Link href="/contact" className="relative">
-            <Button variant="ghost" size="icon" className={cn(isHomePage && !hasScrolled && "text-white hover:text-white hover:bg-white/10")}>
+            <Button variant="ghost" size="icon">
               <ShoppingBasket className="h-5 w-5" />
               <span className="sr-only">Quote Basket</span>
             </Button>
@@ -87,16 +84,16 @@ export default function Header() {
             )}
           </Link>
           {isLoggedIn ? (
-            <Button onClick={logout} size="sm" variant={isHomePage && !hasScrolled ? "outline" : "default"} className={cn("hidden sm:inline-flex", isHomePage && !hasScrolled && "text-white border-white/50 hover:bg-white/10")}>Logout</Button>
+            <Button onClick={logout} size="sm" variant={"default"} className={cn("hidden sm:inline-flex")}>Logout</Button>
           ) : (
-            <Button asChild size="sm" variant="outline" className={cn("hidden sm:inline-flex", isHomePage && !hasScrolled && "text-white border-white/50 hover:bg-white/10")}>
+            <Button asChild size="sm" variant="outline" className={cn("hidden sm:inline-flex")}>
               <Link href="/login">Partner Login</Link>
             </Button>
           )}
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className={cn(isHomePage && !hasScrolled && "text-white hover:text-white hover:bg-white/10")}>
+              <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
