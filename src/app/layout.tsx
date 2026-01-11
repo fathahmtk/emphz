@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
 import { AuthProvider } from '@/context/auth-context';
 import { QuoteProvider } from '@/context/quote-context';
+import RootLayoutClient from './layout-client';
 
 export const metadata: Metadata = {
   title: 'EMPHZ Corporate | 30+ Years of Engineering Excellence',
@@ -26,10 +24,7 @@ export default function RootLayout({
       <body className="font-body antialiased flex flex-col min-h-screen bg-background">
         <AuthProvider>
           <QuoteProvider>
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-            <Toaster />
+            <RootLayoutClient>{children}</RootLayoutClient>
           </QuoteProvider>
         </AuthProvider>
       </body>
