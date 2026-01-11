@@ -4,7 +4,7 @@ import CallToAction from "@/components/shared/call-to-action";
 
 export default function AboutSummary() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div className="container grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <CallToAction
         title="A Legacy of Quality and Innovation"
         description={

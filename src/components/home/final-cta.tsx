@@ -8,7 +8,7 @@ export default function FinalCTA() {
   const ctaImage = PlaceHolderImages.find(p => p.id === 'cta-final');
 
   return (
-    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center">
       <div className="relative aspect-video rounded-lg overflow-hidden">
         {ctaImage && 
           <Image 
