@@ -70,7 +70,7 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
     // 3. Send email notification (simulated)
     console.log(`Email notification sent to ${routingResult.expert} about new inquiry from ${name} (${email}).`);
 
-    return { success: true, message: `Thank you! Your inquiry has been routed to our specialist, ${routingResult.expert}. We will be in touch shortly.` };
+    return { success: true, message: `Thank you! Your inquiry has been routed to our specialist, ${routingResult.expert}. We will be in touch shortly.`, errors: null };
   } catch (error) {
     console.error('Error processing inquiry:', error);
     return { success: false, message: 'An unexpected error occurred. Please try again.', errors: null };

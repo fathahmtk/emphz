@@ -58,7 +58,7 @@ export default function ContactForm() {
       });
       form.reset();
       clearQuote();
-    } else if (state.message) {
+    } else if (state.message && !state.errors) { // Only show general errors if there are no field errors
       toast({
         title: "Error",
         description: state.message,
@@ -68,6 +68,21 @@ export default function ContactForm() {
   }, [state, toast, form, clearQuote]);
 
   const quoteItemsForForm = quoteItems.map(item => ({ sku: item.sku, name: item.name }));
+
+  // This is a bit of a workaround to merge server errors with client-side validation
+  useEffect(() => {
+      if (state.errors) {
+          Object.entries(state.errors).forEach(([key, value]) => {
+              if (value && value.length > 0) {
+                  form.setError(key as keyof z.infer<typeof formSchema>, {
+                      type: 'server',
+                      message: value[0],
+                  });
+              }
+          });
+      }
+  }, [state.errors, form]);
+
 
   return (
     <Form {...form}>
@@ -85,7 +100,7 @@ export default function ContactForm() {
                 <FormControl>
                   <Input placeholder="John Doe" {...field} />
                 </FormControl>
-                <FormMessage>{state.errors?.name}</FormMessage>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -98,7 +113,7 @@ export default function ContactForm() {
                 <FormControl>
                   <Input placeholder="you@company.com" {...field} />
                 </FormControl>
-                <FormMessage>{state.errors?.email}</FormMessage>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -112,7 +127,7 @@ export default function ContactForm() {
               <FormControl>
                 <Input placeholder="Your Company Name" {...field} />
               </FormControl>
-              <FormMessage>{state.errors?.company}</FormMessage>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -132,9 +147,10 @@ export default function ContactForm() {
                   {industries.map(industry => (
                     <SelectItem key={industry.id} value={industry.name}>{industry.name}</SelectItem>
                   ))}
+                   <SelectItem value="Other">Other</SelectItem>
                 </SelectContent>
               </Select>
-              <FormMessage>{state.errors?.inquiryType}</FormMessage>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -147,7 +163,7 @@ export default function ContactForm() {
               <FormControl>
                 <Textarea placeholder="Please describe your requirements..." className="min-h-[120px]" {...field} />
               </FormControl>
-              <FormMessage>{state.errors?.message}</FormMessage>
+              <FormMessage />
             </FormItem>
           )}
         />
