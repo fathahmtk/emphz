@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Certifications() {
   return (
-    <section className="py-16 lg:py-24 bg-secondary/50">
+    <section>
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Quality & Compliance You Can Trust</h2>
@@ -19,7 +19,7 @@ export default function Certifications() {
             const image = PlaceHolderImages.find(p => p.id === cert.image_id);
             return (
               <Link key={cert.id} href="/contact" passHref>
-                <Card className="h-full flex flex-col items-center justify-center p-4 aspect-square hover:bg-card/80 hover:shadow-md transition-all">
+                <Card className="h-full flex flex-col items-center justify-center p-4 aspect-square glass hover:bg-card/80 hover:shadow-md transition-all">
                   <CardContent className="p-0 flex flex-col items-center justify-center text-center">
                     {image && (
                       <div className="relative h-16 w-24 mb-2">

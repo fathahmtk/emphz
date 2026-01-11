@@ -6,7 +6,7 @@ import ProjectCard from "@/components/home/project-card";
 
 export default function FeaturedProjects() {
   return (
-    <section className="py-16 lg:py-24 bg-secondary/50">
+    <section>
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Featured Projects</h2>
@@ -20,7 +20,7 @@ export default function FeaturedProjects() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" className="rounded-full">
             <Link href="/contact">Discuss Your Project</Link>
           </Button>
         </div>
