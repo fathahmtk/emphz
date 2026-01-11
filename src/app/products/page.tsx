@@ -1,9 +1,11 @@
 
+
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import { products, industries } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Breadcrumbs from '@/components/products/breadcrumbs';
@@ -11,14 +13,25 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Search } from 'lucide-react';
+import { Search, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
-export default function ProductsPage() {
+function ProductsPageContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const industryFilter = searchParams.get('industry');
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const filteredProducts = useMemo(() => {
     return products
+      .filter((product) => {
+        // Filter by industry
+        if (!industryFilter) return true;
+        return product.industry_ids?.includes(industryFilter);
+      })
       .filter((product) => {
         // Filter by category
         if (selectedCategory === 'all') return true;
@@ -33,9 +46,14 @@ export default function ProductsPage() {
           product.category.toLowerCase().includes(searchTerm.toLowerCase())
         );
       });
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, industryFilter]);
 
   const categories = ['all', ...Array.from(new Set(products.map(p => p.category)))];
+  const activeIndustry = industries.find(i => i.id === industryFilter);
+
+  const clearIndustryFilter = () => {
+    router.push('/products');
+  };
 
   return (
     <div className="bg-background text-foreground">
@@ -75,6 +93,16 @@ export default function ProductsPage() {
             </Select>
         </div>
 
+        {activeIndustry && (
+            <div className="mb-8 p-4 bg-secondary rounded-lg flex items-center justify-between">
+                <p className="text-sm font-medium text-secondary-foreground">
+                    Filtering for: <span className="font-bold">{activeIndustry.name}</span>
+                </p>
+                <Button variant="ghost" size="sm" onClick={clearIndustryFilter}>
+                    Clear Filter <X className="ml-2 h-4 w-4" />
+                </Button>
+            </div>
+        )}
 
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -115,4 +143,12 @@ export default function ProductsPage() {
       </div>
     </div>
   );
+}
+
+export default function ProductsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ProductsPageContent />
+        </Suspense>
+    )
 }

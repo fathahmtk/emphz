@@ -1,4 +1,5 @@
 
+
 export type Product = {
   id: string;
   sku: string;
@@ -21,6 +22,7 @@ export type Product = {
   download_url: string;
   cad_download_url: string;
   image_id: string;
+  industry_ids?: string[];
   standard_models: {
     height: number;
     width: number;

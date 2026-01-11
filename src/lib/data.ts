@@ -1,4 +1,5 @@
 
+
 import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide } from '@/lib/types';
 import { Wrench, Zap, Building, HardHat, Car, Factory, Shield, Wifi, Wind, Briefcase } from 'lucide-react';
 
@@ -34,6 +35,7 @@ export const products: Product[] = [
     download_url: '/resources/EE-001-datasheet.pdf',
     cad_download_url: '/resources/EE-001-cad.zip',
     image_id: 'product-enclosure-1',
+    industry_ids: ['1', '2', '3', '4', '5', '6'],
     standard_models: [
       { height: 400, width: 300, depth: 200, ip_rating: 66 },
       { height: 600, width: 400, depth: 230, ip_rating: 66 },
@@ -62,6 +64,7 @@ export const products: Product[] = [
     download_url: '/resources/Kiosk-001-datasheet.pdf',
     cad_download_url: '/resources/Kiosk-001-cad.zip',
     image_id: 'product-kiosk-1',
+    industry_ids: ['1', '2', '3', '5'],
      standard_models: [
       { height: 2200, width: 1500, depth: 1500, ip_rating: 65 },
       { height: 2500, width: 2000, depth: 2000, ip_rating: 65 },
@@ -90,6 +93,7 @@ export const products: Product[] = [
     download_url: '/resources/PT-001-datasheet.pdf',
     cad_download_url: '/resources/PT-001-cad.zip',
     image_id: 'product-toilet-1',
+    industry_ids: ['2', '6'],
      standard_models: [
       { height: 2300, width: 1200, depth: 1200, ip_rating: 0 },
     ]
