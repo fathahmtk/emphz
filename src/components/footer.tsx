@@ -1,10 +1,11 @@
+
 import Link from 'next/link';
 import { Twitter, Linkedin, Facebook, Phone, Mail, Globe } from 'lucide-react';
 import Logo from '@/components/logo';
 
 const navLinks = [
   { href: '/products', label: 'Products' },
-  { href: '/#industries', label: 'Industries' },
+  { href: '/industries', label: 'Industries' },
   { href: '/resources', label: 'Resources' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
