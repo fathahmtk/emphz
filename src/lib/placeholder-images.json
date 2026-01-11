@@ -1,3 +1,136 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A modern factory or industrial setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1546185058-592ead754d27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxpbmR1c3RyaWFsJTIwZmFjdG9yeXxlbnwwfHx8fDE3NjgwNDIwNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial factory"
+    },
+    {
+      "id": "industry-construction",
+      "description": "A construction site with cranes.",
+      "imageUrl": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb25zdHJ1Y3Rpb24lMjBzaXRlfGVufDB8fHx8MTc2ODExNzYxNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "construction site"
+    },
+    {
+      "id": "industry-energy",
+      "description": "An energy plant at dusk.",
+      "imageUrl": "https://images.unsplash.com/photo-1650785547184-7d64635c6b83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxlbmVyZ3klMjBwbGFudHxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "energy plant"
+    },
+    {
+      "id": "industry-public-works",
+      "description": "A modern bridge or public infrastructure.",
+      "imageUrl": "https://images.unsplash.com/photo-1669818207883-25f708d3482c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtb2Rlcm4lMjBicmlkZ2V8ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern bridge"
+    },
+    {
+      "id": "industry-verticals",
+      "description": "An abstract image of industrial gears.",
+      "imageUrl": "https://images.unsplash.com/photo-1715322506425-2fc19fe0fc5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxpbmR1c3RyaWFsJTIwZ2VhcnN8ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial gears"
+    },
+    {
+      "id": "product-enclosure-1",
+      "description": "A standard electrical enclosure.",
+      "imageUrl": "https://images.unsplash.com/photo-1696454822226-3c57759522ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbGVjdHJpY2FsJTIwZW5jbG9zdXJlfGVufDB8fHx8MTc2ODEyMDU1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical enclosure"
+    },
+    {
+      "id": "product-kiosk-1",
+      "description": "A modular GRP kiosk.",
+      "imageUrl": "https://images.unsplash.com/photo-1725801474186-5beabad76568?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxvdXRkb29yJTIwa2lvc2t8ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "outdoor kiosk"
+    },
+    {
+      "id": "product-toilet-1",
+      "description": "A portable toilet unit.",
+      "imageUrl": "https://images.unsplash.com/photo-1701637783855-da67ab363cfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3J0YWJsZSUyMHRvaWxldHxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portable toilet"
+    },
+    {
+      "id": "project-power-station",
+      "description": "A large power station complex.",
+      "imageUrl": "https://images.unsplash.com/photo-1514323277292-3b712a4b2406?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3dlciUyMHN0YXRpb258ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "power station"
+    },
+    {
+      "id": "project-dubai",
+      "description": "The skyline of Downtown Dubai.",
+      "imageUrl": "https://images.unsplash.com/photo-1579525612525-053cd3e8cbd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkdWJhaSUyMHNreWxpbmV8ZW58MHx8fHwxNzY4MDQzOTQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dubai skyline"
+    },
+    {
+      "id": "project-neom",
+      "description": "A futuristic cityscape representing NEOM.",
+      "imageUrl": "https://images.unsplash.com/photo-1536768139911-e290a59011e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnV0dXJpc3RpYyUyMGNpdHl8ZW58MHx8fHwxNzY4MTAxNzc2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "futuristic city"
+    },
+    {
+      "id": "project-qatar-gas",
+      "description": "A large gas refinery plant.",
+      "imageUrl": "https://images.unsplash.com/photo-1653352639753-8debcc830014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnYXMlMjByZWZpbmVyeXxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gas refinery"
+    },
+    {
+      "id": "about-us-main",
+      "description": "A modern and bright office interior.",
+      "imageUrl": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxvZmZpY2UlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjgwMzg3Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office interior"
+    },
+    {
+      "id": "team-john",
+      "description": "Portrait of a male CEO.",
+      "imageUrl": "https://images.unsplash.com/photo-1590086782792-42dd2350140d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4MTE5MDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male portrait"
+    },
+    {
+      "id": "team-jane",
+      "description": "Portrait of a female engineer.",
+      "imageUrl": "https://images.unsplash.com/photo-1634149134664-ca3598f29da5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmZW1hbGUlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjgwNDYzNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female portrait"
+    },
+    {
+      "id": "team-peter",
+      "description": "Portrait of a male sales director.",
+      "imageUrl": "https://images.unsplash.com/photo-1656338997878-279d71d48f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4MTE5MDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male portrait"
+    },
+    {
+      "id": "cert-iso-9001",
+      "description": "ISO 9001 certification logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1762330916233-221b49fce7f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "cert-iso-14001",
+      "description": "ISO 14001 certification logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1745970649913-2edb9dca4f74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "cert-nema",
+      "description": "NEMA certification logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1745970649913-2edb9dca4f74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "cert-ip66",
+      "description": "IP66 rating icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1643768479891-ea1066aadc6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyYXRpbmclMjBpY29ufGVufDB8fHx8MTc2ODEyMDU1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rating icon"
+    },
+    {
+      "id": "cert-ul",
+      "description": "UL Listed logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1762330916242-08b27b39e265?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "cert-ce",
+      "description": "CE Marking logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1762330907825-2864a45c124d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    }
+  ]
 }
