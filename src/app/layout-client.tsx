@@ -17,7 +17,7 @@ export default function RootLayoutClient({
     return (
         <>
             <Header />
-            <main className={cn("flex-grow", isHomePage ? "pt-16" : "pt-16")}>
+            <main className={cn("flex-grow", isHomePage ? "" : "pt-16")}>
                 {children}
             </main>
             <Footer />

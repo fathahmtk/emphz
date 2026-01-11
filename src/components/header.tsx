@@ -34,26 +34,41 @@ export default function Header() {
       setHasScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    handleScroll();
+    if (isHomePage) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+    }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (isHomePage) {
+        window.removeEventListener('scroll', handleScroll);
+      }
     };
-  }, []);
+  }, [isHomePage]);
 
   const headerClasses = cn(
-    "fixed top-4 inset-x-0 z-50 max-w-6xl mx-auto rounded-2xl transition-all duration-300",
+    "fixed top-0 inset-x-0 z-50 transition-colors duration-300",
     (hasScrolled || !isHomePage)
-      ? "glass text-foreground"
-      : "bg-transparent text-white border-b-transparent"
+      ? "bg-background/80 backdrop-blur-sm border-b"
+      : "bg-transparent border-b-transparent"
   );
   
   const linkClasses = (href: string) => cn(
     'text-sm font-medium transition-colors hover:text-primary',
-    pathname === href ? 'text-primary' : (hasScrolled || !isHomePage ? 'text-muted-foreground' : 'text-slate-200 hover:text-white')
+    pathname === href ? 'text-primary' : (hasScrolled || !isHomePage ? 'text-muted-foreground hover:text-foreground' : 'text-slate-200 hover:text-white')
   );
+
+  const iconButtonClasses = cn(
+    "rounded-full",
+    (hasScrolled || !isHomePage) ? 'text-foreground hover:bg-accent' : 'text-white hover:bg-white/10 hover:text-white'
+  );
+
+  const authButtonVariant = (!hasScrolled && isHomePage) ? 'outline' : 'default';
+  const authButtonClasses = cn(
+      "hidden sm:inline-flex rounded-full",
+      (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary'
+  );
+
 
   return (
     <header className={headerClasses}>
@@ -77,7 +92,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2 sm:gap-4">
           <Link href="/contact" className="relative">
-            <Button variant="ghost" size="icon" className={cn("rounded-full", (!hasScrolled && isHomePage) && 'text-white hover:bg-white/10 hover:text-white')}>
+            <Button variant="ghost" size="icon" className={iconButtonClasses}>
               <ShoppingBasket className="h-5 w-5" />
               <span className="sr-only">Quote Basket</span>
             </Button>
@@ -86,21 +101,21 @@ export default function Header() {
             )}
           </Link>
           {isLoggedIn ? (
-            <Button onClick={logout} size="sm" variant={(!hasScrolled && isHomePage) ? 'outline' : 'default'} className={cn("hidden sm:inline-flex rounded-full", (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary')}>Logout</Button>
+            <Button onClick={logout} size="sm" variant={authButtonVariant} className={authButtonClasses}>Logout</Button>
           ) : (
-            <Button asChild size="sm" variant="outline" className={cn("hidden sm:inline-flex rounded-full", (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary')}>
+            <Button asChild size="sm" variant={authButtonVariant} className={authButtonClasses}>
               <Link href="/login">Partner Login</Link>
             </Button>
           )}
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className={cn("rounded-full", (!hasScrolled && isHomePage) && 'text-white hover:bg-white/10 hover:text-white')}>
+              <Button variant="ghost" size="icon" className={iconButtonClasses}>
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] glass">
+            <SheetContent side="left" className="w-[300px] bg-background/80 backdrop-blur-xl">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
