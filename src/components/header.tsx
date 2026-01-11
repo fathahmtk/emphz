@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, ShoppingBasket, X } from 'lucide-react';
+import { Menu, ShoppingBasket, X, LayoutDashboard } from 'lucide-react';
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -53,6 +53,9 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+           {isLoggedIn && (
+             <Link href="/inquiries" className={linkClasses('/inquiries')}>Inquiries</Link>
+           )}
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-4">
@@ -108,6 +111,9 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
+                  {isLoggedIn && (
+                     <Link href="/inquiries" onClick={() => setMobileMenuOpen(false)} className={cn('text-lg font-medium transition-colors hover:text-primary', pathname === '/inquiries' ? 'text-primary' : 'text-foreground')}>Inquiries</Link>
+                  )}
                 </nav>
                  <div className="mt-auto pt-4 border-t">
                     {isLoggedIn ? (
