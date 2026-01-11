@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import { useInquiries } from '@/hooks/use-inquiries';
 import { Inquiry } from '@/lib/types';
-import { BarChart, MessageSquare, Package, TrendingUp } from 'lucide-react';
+import { BarChart, MessageSquare, Package } from 'lucide-react';
 import InquiryStatusSelector from './inquiry-status-selector';
 
 function KpiCard({ title, value, icon: Icon }: { title: string, value: string | number, icon: React.ElementType }) {
