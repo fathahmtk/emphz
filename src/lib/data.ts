@@ -16,7 +16,7 @@ export const products: Product[] = [
     name: 'GRP Electrical Enclosure - Standard',
     slug: 'grp-electrical-enclosure-standard',
     category: 'Electrical Enclosures',
-    short_description: 'Robust GRP enclosure for electrical components.',
+    short_description: 'Durable GRP enclosures for metering, control, and distribution applications.',
     long_description: 'Our standard GRP Electrical Enclosure offers superior protection in a lightweight, cost-effective package. Designed for versatility, it is suitable for a wide range of applications, providing excellent resistance to impact and harsh weather conditions.',
     features: [
       { name: 'Corrosion Resistant', icon: 'ShieldCheck' },
@@ -43,7 +43,7 @@ export const products: Product[] = [
     name: 'Modular GRP Kiosk',
     slug: 'modular-grp-kiosk',
     category: 'Kiosks',
-    short_description: 'Versatile and customizable GRP kiosks.',
+    short_description: 'Factory-built modular shelters for electrical, telecom, and control equipment.',
     long_description: 'Our modular GRP kiosks are the perfect solution for a variety of outdoor and industrial applications, including security posts, information booths, and equipment housing. They are fully customizable to meet specific size and feature requirements.',
     features: [
       { name: 'Corrosion Resistant', icon: 'ShieldCheck' },
@@ -70,7 +70,7 @@ export const products: Product[] = [
     name: 'GRP Portable Toilet',
     slug: 'grp-portable-toilet',
     category: 'Portable Toilets',
-    short_description: 'Durable and hygienic GRP portable toilets.',
+    short_description: 'Hygienic and durable sanitation units for public, construction, and industrial use.',
     long_description: 'EMPHZ GRP portable toilets are designed for durability and ease of maintenance. Ideal for construction sites, public events, and remote locations, they offer a hygienic and robust solution. Available with various plumbing and accessory options.',
     features: [
       { name: 'Corrosion Resistant', icon: 'ShieldCheck' },
@@ -124,12 +124,12 @@ export const heroSlides: HeroSlide[] = [
   {
     id: "hero-1",
     imageId: "hero-background",
-    title: "ENGINEERED MODULAR INFRASTRUCTURE SOLUTIONS",
+    title: "ENGINEERED FOR REAL-WORLD INFRASTRUCTURE",
     subtitle:
-      "30+ Years of Engineering Expertise in GRP Enclosures, Kiosks, Shelters & Utility Structures",
-    primaryText: "REQUEST A QUOTE",
+      "GRP Enclosures, Kiosks, Shelters & Utility Structures. Designed for continuous outdoor operation, critical services, and public infrastructure.",
+    primaryText: "Request a Quote",
     primaryLink: "/contact",
-    secondaryText: "VIEW PRODUCTS",
+    secondaryText: "Explore Products",
     secondaryLink: "/products",
   },
   {
