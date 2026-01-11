@@ -11,7 +11,6 @@ import { format } from 'date-fns';
 import { useInquiries } from '@/hooks/use-inquiries';
 import { Inquiry } from '@/lib/types';
 import { BarChart, MessageSquare, Package } from 'lucide-react';
-import InquiryStatusSelector from './inquiry-status-selector';
 import Link from 'next/link';
 
 function KpiCard({ title, value, icon: Icon }: { title: string, value: string | number, icon: React.ElementType }) {
@@ -112,7 +111,7 @@ export default function InquiriesPage() {
             <TableBody>
               {inquiries && inquiries.length > 0 ? (
                 inquiries.map((inquiry: Inquiry) => (
-                  <TableRow key={inquiry.id} className="cursor-pointer" onClick={() => router.push(`/inquiries/${inquiry.id}`)}>
+                  <TableRow key={inquiry.id} className="cursor-pointer hover:bg-muted/50" onClick={() => router.push(`/inquiries/${inquiry.id}`)}>
                     <TableCell>
                       {inquiry.routedAt?.toDate ? format(inquiry.routedAt.toDate(), 'PP') : 'N/A'}
                     </TableCell>
