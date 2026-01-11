@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { FirebaseClientProvider } from '@/firebase';
 import FirebaseErrorListener from '@/firebase/errors/FirebaseErrorListener';
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'EMPHZ Corporate | 30+ Years of Engineering Excellence',
@@ -19,24 +20,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700;900&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen bg-background">
-        <FirebaseClientProvider>
-          <QuoteProvider>
-            <Header />
-            <main className="flex-grow">
-                {children}
-            </main>
-            <Footer />
-            <Toaster />
-            <FirebaseErrorListener />
-          </QuoteProvider>
-        </FirebaseClientProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <FirebaseClientProvider>
+            <QuoteProvider>
+              <Header />
+              <main className="flex-grow">
+                  {children}
+              </main>
+              <Footer />
+              <Toaster />
+              <FirebaseErrorListener />
+            </QuoteProvider>
+          </FirebaseClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

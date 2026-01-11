@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
 import { useUser, logout, loginWithGoogle } from '@/firebase';
 import { useQuote } from '@/context/quote-context';
+import { ThemeToggleButton } from './theme-toggle';
 
 const navLinks = [
   { href: '/about', label: 'About Us' },
@@ -63,6 +64,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-4">
+          <ThemeToggleButton />
           <Link href="/contact" className="relative">
             <Button variant="ghost" size="icon" className={iconButtonClasses}>
               <ShoppingBasket className="h-5 w-5" />
