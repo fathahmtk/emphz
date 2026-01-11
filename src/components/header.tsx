@@ -14,7 +14,6 @@ import { useAuth } from '@/context/auth-context';
 import { useQuote } from '@/context/quote-context';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/products', label: 'Products' },
   { href: '/resources', label: 'Resources' },
@@ -35,19 +34,21 @@ export default function Header() {
       setHasScrolled(window.scrollY > 10);
     };
 
-    if (isHomePage) {
-      window.addEventListener('scroll', handleScroll);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }
-  }, [isHomePage]);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const headerClasses = cn(
     "fixed top-0 z-50 w-full transition-colors duration-300",
     isHomePage && !hasScrolled
       ? "bg-transparent text-white"
-      : "bg-background/95 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b"
+      : "bg-background/95 text-foreground backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 border-b"
   );
   
   const linkClasses = (href: string) => cn(
@@ -59,10 +60,11 @@ export default function Header() {
     <header className={headerClasses}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Logo className={cn(isHomePage && !hasScrolled && "text-white")} />
+          <Logo className={cn(isHomePage && !hasScrolled ? "text-white" : "text-primary")} />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
+          <Link href="/" className={linkClasses('/')}>Home</Link>
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -74,7 +76,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <Link href="/contact" className="relative">
             <Button variant="ghost" size="icon" className={cn(isHomePage && !hasScrolled && "text-white hover:text-white hover:bg-white/10")}>
               <ShoppingBasket className="h-5 w-5" />
@@ -85,9 +87,9 @@ export default function Header() {
             )}
           </Link>
           {isLoggedIn ? (
-            <Button onClick={logout} size="sm" variant={isHomePage && !hasScrolled ? "outline" : "default"} className={cn(isHomePage && !hasScrolled && "text-white border-white/50 hover:bg-white/10")}>Logout</Button>
+            <Button onClick={logout} size="sm" variant={isHomePage && !hasScrolled ? "outline" : "default"} className={cn("hidden sm:inline-flex", isHomePage && !hasScrolled && "text-white border-white/50 hover:bg-white/10")}>Logout</Button>
           ) : (
-            <Button asChild size="sm" variant="outline" className={cn(isHomePage && !hasScrolled && "text-white border-white/50 hover:bg-white/10")}>
+            <Button asChild size="sm" variant="outline" className={cn("hidden sm:inline-flex", isHomePage && !hasScrolled && "text-white border-white/50 hover:bg-white/10")}>
               <Link href="/login">Partner Login</Link>
             </Button>
           )}
@@ -99,7 +101,7 @@ export default function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left">
+            <SheetContent side="left" className="w-[300px]">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
@@ -113,6 +115,7 @@ export default function Header() {
                   </SheetTrigger>
                 </div>
                 <nav className="flex flex-col gap-4 mt-8">
+                  <Link href="/" onClick={() => setMobileMenuOpen(false)} className={cn('text-lg font-medium transition-colors hover:text-primary', pathname === '/' ? 'text-primary' : 'text-foreground')}>Home</Link>
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -127,6 +130,15 @@ export default function Header() {
                     </Link>
                   ))}
                 </nav>
+                 <div className="mt-auto pt-4 border-t">
+                    {isLoggedIn ? (
+                        <Button onClick={() => {logout(); setMobileMenuOpen(false);}} size="sm" className="w-full">Logout</Button>
+                    ) : (
+                        <Button asChild size="sm" onClick={() => setMobileMenuOpen(false)} className="w-full">
+                        <Link href="/login">Partner Login</Link>
+                        </Button>
+                    )}
+                 </div>
               </div>
             </SheetContent>
           </Sheet>

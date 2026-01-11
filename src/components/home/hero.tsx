@@ -43,18 +43,18 @@ const heroSlides = [
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[600px] w-full">
+    <section className="relative h-screen min-h-[700px] w-full -mt-[64px]">
       <Carousel
         className="w-full h-full"
         plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
         opts={{ loop: true }}
       >
         <CarouselContent className="h-full">
-          {heroSlides.map((slide) => {
+          {heroSlides.map((slide, index) => {
             const image = PlaceHolderImages.find((p) => p.id === slide.imageId);
             return (
               <CarouselItem key={slide.id} className="h-full">
-                <div className="relative h-full w-full flex items-center justify-center text-white">
+                <div className="relative h-full w-full flex items-center justify-center text-white pt-[64px]">
                   {image && (
                     <Image
                       src={image.imageUrl}
@@ -62,7 +62,7 @@ export default function Hero() {
                       data-ai-hint={image.imageHint}
                       fill
                       className="object-cover"
-                      priority={slide.id === 'hero-1'}
+                      priority={index === 0}
                     />
                   )}
                   <div className="absolute inset-0 bg-slate-900/60" />
@@ -73,7 +73,7 @@ export default function Hero() {
                     <p className="text-lg md:text-xl text-slate-200 mb-8 animate-fade-in-up">
                       {slide.subtitle}
                     </p>
-                    <Button asChild size="lg">
+                    <Button asChild size="lg" className="animate-fade-in-up">
                       <Link href={slide.buttonLink}>
                         {slide.buttonText} <ArrowRight className="ml-2 h-5 w-5" />
                       </Link>
@@ -84,7 +84,7 @@ export default function Hero() {
             );
           })}
         </CarouselContent>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-4">
           <CarouselPrevious className="static translate-y-0 text-white bg-white/10 border-white/20 hover:bg-white/20" />
           <CarouselNext className="static translate-y-0 text-white bg-white/10 border-white/20 hover:bg-white/20" />
         </div>
