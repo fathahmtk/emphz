@@ -26,6 +26,8 @@ export default function Header() {
   const { itemCount } = useQuote();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,22 +44,22 @@ export default function Header() {
   }, []);
 
   const headerClasses = cn(
-    "fixed top-0 z-50 w-full transition-colors duration-300",
-    hasScrolled
+    "fixed top-0 z-50 w-full transition-all duration-300",
+    (hasScrolled || !isHomePage)
       ? "bg-background/95 text-foreground backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 border-b"
-      : "bg-background text-foreground border-b"
+      : "bg-transparent text-white border-b-transparent"
   );
   
   const linkClasses = (href: string) => cn(
     'text-sm font-medium transition-colors hover:text-primary',
-    pathname === href ? 'text-primary' : 'text-muted-foreground'
+    pathname === href ? 'text-primary' : (hasScrolled || !isHomePage ? 'text-muted-foreground' : 'text-slate-200 hover:text-white')
   );
 
   return (
     <header className={headerClasses}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Logo />
+          <Logo className={cn((!hasScrolled && isHomePage) && "text-white")} />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -75,7 +77,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2 sm:gap-4">
           <Link href="/contact" className="relative">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className={cn((!hasScrolled && isHomePage) && 'text-white hover:bg-white/10 hover:text-white')}>
               <ShoppingBasket className="h-5 w-5" />
               <span className="sr-only">Quote Basket</span>
             </Button>
@@ -84,16 +86,16 @@ export default function Header() {
             )}
           </Link>
           {isLoggedIn ? (
-            <Button onClick={logout} size="sm" variant={"default"} className={cn("hidden sm:inline-flex")}>Logout</Button>
+            <Button onClick={logout} size="sm" variant={(!hasScrolled && isHomePage) ? 'outline' : 'default'} className={cn("hidden sm:inline-flex", (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary')}>Logout</Button>
           ) : (
-            <Button asChild size="sm" variant="outline" className={cn("hidden sm:inline-flex")}>
+            <Button asChild size="sm" variant="outline" className={cn("hidden sm:inline-flex", (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary')}>
               <Link href="/login">Partner Login</Link>
             </Button>
           )}
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className={cn((!hasScrolled && isHomePage) && 'text-white hover:bg-white/10 hover:text-white')}>
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>

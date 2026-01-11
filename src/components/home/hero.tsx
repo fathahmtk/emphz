@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileDown } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -18,32 +18,41 @@ const heroSlides = [
   {
     id: "hero-1",
     imageId: "hero-background",
-    title: "30+ Years of Engineering",
-    subtitle: "Delivering robust, reliable, and revolutionary GRP modular solutions for the world's most demanding industries.",
-    buttonText: "Explore Our Products",
-    buttonLink: "/products",
+    title: "Engineered GRP Infrastructure",
+    subtitle:
+      "High-performance GRP kiosks, enclosures, shelters, and modular structures built for utilities, EPCs, and public infrastructure.",
+    primaryText: "View Products",
+    primaryLink: "/products",
+    secondaryText: "Download Catalogue",
+    secondaryLink: "/resources",
   },
   {
     id: "hero-2",
     imageId: "hero-solar",
-    title: "Powering the Future",
-    subtitle: "Customized enclosures and kiosks for renewable energy projects, built to withstand the elements.",
-    buttonText: "Energy Sector Solutions",
-    buttonLink: "/products",
+    title: "Utility & Power-Ready Solutions",
+    subtitle:
+      "Weather-resistant GRP enclosures and kiosks designed for electrical distribution, renewable energy, and utility networks.",
+    primaryText: "Utility Solutions",
+    primaryLink: "/products",
+    secondaryText: "Talk to Engineering",
+    secondaryLink: "/contact",
   },
   {
     id: "hero-3",
     imageId: "hero-industrial",
-    title: "Industrial Grade Infrastructure",
-    subtitle: "From construction sites to public works, our products provide unparalleled durability and performance.",
-    buttonText: "View All Industries",
-    buttonLink: "/about",
+    title: "Modular. Durable. Scalable.",
+    subtitle:
+      "From urban infrastructure to large EPC projects, EMPHZ delivers GRP systems optimised for lifecycle cost and rapid deployment.",
+    primaryText: "Request a Quote",
+    primaryLink: "/contact",
+    secondaryText: "Why EMPHZ",
+    secondaryLink: "/about",
   },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative h-[calc(100vh-64px)] min-h-[600px] w-full">
+    <section className="relative h-[calc(100vh-64px)] min-h-[640px] w-full">
       <Carousel
         className="w-full h-full"
         plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
@@ -51,7 +60,10 @@ export default function Hero() {
       >
         <CarouselContent className="h-full">
           {heroSlides.map((slide, index) => {
-            const image = PlaceHolderImages.find((p) => p.id === slide.imageId);
+            const image = PlaceHolderImages.find(
+              (p) => p.id === slide.imageId
+            );
+
             return (
               <CarouselItem key={slide.id} className="h-full">
                 <div className="relative h-full w-full flex items-center justify-center text-white">
@@ -61,23 +73,38 @@ export default function Hero() {
                       alt={image.description}
                       data-ai-hint={image.imageHint}
                       fill
-                      className="object-cover"
                       priority={index === 0}
+                      className="object-cover"
                     />
                   )}
-                  <div className="absolute inset-0 bg-slate-900/60" />
-                  <div className="relative z-10 text-center p-4 max-w-4xl mx-auto">
-                    <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 animate-fade-in-down">
+
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-slate-900/55" />
+
+                  {/* Content */}
+                  <div className="relative z-10 max-w-5xl px-6 text-center">
+                    <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 animate-fade-in-down">
                       {slide.title}
                     </h1>
-                    <p className="text-lg md:text-xl text-slate-200 mb-8 animate-fade-in-up">
+
+                    <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-10 animate-fade-in-up">
                       {slide.subtitle}
                     </p>
-                    <Button asChild size="lg" className="animate-fade-in-up">
-                      <Link href={slide.buttonLink}>
-                        {slide.buttonText} <ArrowRight className="ml-2 h-5 w-5" />
-                      </Link>
-                    </Button>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
+                      <Button asChild size="lg">
+                        <Link href={slide.primaryLink}>
+                          {slide.primaryText}
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                      </Button>
+                       <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+                        <Link href={slide.secondaryLink}>
+                          {slide.secondaryText === 'Download Catalogue' && <FileDown className="mr-2 h-5 w-5" />}
+                          {slide.secondaryText}
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </CarouselItem>
