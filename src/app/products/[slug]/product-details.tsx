@@ -1,14 +1,14 @@
 
+
 'use client';
 
-import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Card } from '@/components/ui/card';
 import ProductActions from './product-actions';
 import { Product } from '@/lib/types';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ShieldCheck, Sun, Flame } from 'lucide-react';
+import ProductImageGallery from './product-image-gallery';
 
 const featureIcons: { [key: string]: React.ElementType } = {
     ShieldCheck,
@@ -21,23 +21,13 @@ type ProductDetailsProps = {
 };
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
-    const image = PlaceHolderImages.find((img) => img.id === product.image_id);
 
     return (
         <div className="container py-12 md:py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                <div className="relative aspect-square">
-                    {image && (
-                        <Image
-                            src={image.imageUrl}
-                            alt={product.name}
-                            data-ai-hint={image.imageHint}
-                            fill
-                            className="object-cover rounded-lg shadow-md"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                    )}
-                </div>
+                
+                <ProductImageGallery images={product.gallery} />
+
                 <div>
                     <Badge variant="secondary">{product.category}</Badge>
                     <h1 className="text-3xl md:text-4xl font-bold tracking-tighter mt-2 mb-4">{product.name}</h1>

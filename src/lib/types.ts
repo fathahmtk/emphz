@@ -22,6 +22,7 @@ export type Product = {
   download_url: string;
   cad_download_url: string;
   image_id: string;
+  gallery: { image_id: string; description: string }[];
   industry_ids?: string[];
   standard_models: {
     height: number;

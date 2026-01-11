@@ -49,16 +49,40 @@
       "imageHint": "electrical enclosure"
     },
     {
+      "id": "product-enclosure-2",
+      "description": "Side view of an electrical enclosure.",
+      "imageUrl": "https://images.unsplash.com/photo-1713230892215-708ba9feb04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxlY3RyaWNhbCUyMGVuY2xvc3VyZXxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical enclosure"
+    },
+    {
+      "id": "product-enclosure-3",
+      "description": "Interior of an electrical enclosure.",
+      "imageUrl": "https://images.unsplash.com/photo-1732800034063-2ae43b823d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlbmNsb3N1cmUlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjgxNTI1NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "enclosure interior"
+    },
+    {
       "id": "product-kiosk-1",
       "description": "A modular GRP kiosk.",
       "imageUrl": "https://images.unsplash.com/photo-1725801474186-5beabad76568?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxvdXRkb29yJTIwa2lvc2t8ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "outdoor kiosk"
     },
     {
+      "id": "product-kiosk-2",
+      "description": "A modular GRP kiosk in a field.",
+      "imageUrl": "https://images.unsplash.com/photo-1585218225329-fbac29c1c926?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxraW9zayUyMGZpZWxkfGVufDB8fHx8MTc2ODE1MjU3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kiosk field"
+    },
+    {
       "id": "product-toilet-1",
       "description": "A portable toilet unit.",
       "imageUrl": "https://images.unsplash.com/photo-1701637783855-da67ab363cfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3J0YWJsZSUyMHRvaWxldHxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "portable toilet"
+    },
+    {
+      "id": "product-toilet-2",
+      "description": "Interior of a portable toilet unit.",
+      "imageUrl": "https://images.unsplash.com/photo-1580750494923-a06004b452cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0b2lsZXQlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjgxNTI1NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "toilet interior"
     },
     {
       "id": "product-security-cabin",
@@ -117,7 +141,7 @@
     {
       "id": "project-qatar-gas",
       "description": "A large gas refinery plant.",
-      "imageUrl": "https://images.unsplash.com/photo-1653352639753-8debcc830014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnYXMlMjByZWZpbmVyeXxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653352639753-8debcc830014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnYXMlMjByZWZpbmVyeXxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "gas refinery"
     },
     {

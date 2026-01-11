@@ -35,6 +35,11 @@ export const products: Product[] = [
     download_url: '/resources/EE-001-datasheet.pdf',
     cad_download_url: '/resources/EE-001-cad.zip',
     image_id: 'product-enclosure-1',
+    gallery: [
+        { image_id: 'product-enclosure-1', description: 'Front view of the enclosure' },
+        { image_id: 'product-enclosure-2', description: 'Side view of the enclosure' },
+        { image_id: 'product-enclosure-3', description: 'Interior of the enclosure' }
+    ],
     industry_ids: ['1', '2', '3', '4', '5', '6'],
     standard_models: [
       { height: 400, width: 300, depth: 200, ip_rating: 66 },
@@ -64,6 +69,10 @@ export const products: Product[] = [
     download_url: '/resources/Kiosk-001-datasheet.pdf',
     cad_download_url: '/resources/Kiosk-001-cad.zip',
     image_id: 'product-kiosk-1',
+    gallery: [
+        { image_id: 'product-kiosk-1', description: 'Front view of the kiosk' },
+        { image_id: 'product-kiosk-2', description: 'Kiosk in a field' }
+    ],
     industry_ids: ['1', '2', '3', '5'],
      standard_models: [
       { height: 2200, width: 1500, depth: 1500, ip_rating: 65 },
@@ -93,6 +102,10 @@ export const products: Product[] = [
     download_url: '/resources/PT-001-datasheet.pdf',
     cad_download_url: '/resources/PT-001-cad.zip',
     image_id: 'product-toilet-1',
+    gallery: [
+        { image_id: 'product-toilet-1', description: 'Front view of the toilet' },
+        { image_id: 'product-toilet-2', description: 'Interior of the toilet' }
+    ],
     industry_ids: ['2', '6'],
      standard_models: [
       { height: 2300, width: 1200, depth: 1200, ip_rating: 0 },
