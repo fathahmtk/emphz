@@ -7,6 +7,18 @@
       "imageHint": "industrial factory"
     },
     {
+      "id": "hero-solar",
+      "description": "A field of solar panels under a clear sky.",
+      "imageUrl": "https://images.unsplash.com/photo-1558495033-60832438c64c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODkyNjZ8MHwxfGFsbHx8fHx8fHx8fDE2ODk3ODg4Njk&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "solar panels"
+    },
+    {
+      "id": "hero-industrial",
+      "description": "Interior of a large, modern industrial warehouse.",
+      "imageUrl": "https://images.unsplash.com/photo-1587825045434-2b99212a41a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODkyNjZ8MHwxfGFsbHx8fHx8fHx8fDE2ODk3ODg5MjI&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "industrial warehouse"
+    },
+    {
       "id": "industry-construction",
       "description": "A construction site with cranes.",
       "imageUrl": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb25zdHJ1Y3Rpb24lMjBzaXRlfGVufDB8fHx8MTc2ODExNzYxNHww&ixlib=rb-4.1.0&q=80&w=1080",
