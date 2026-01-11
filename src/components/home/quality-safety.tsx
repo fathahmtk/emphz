@@ -11,8 +11,7 @@ const qualityPoints = [
 
 export default function QualitySafety() {
   return (
-    <section className="bg-card py-16 sm:py-24">
-      <div className="container">
+    <section>
         <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">QUALITY, SAFETY & COMPLIANCE</h2>
             <p className="mt-4 text-lg text-muted-foreground">All EMPHZ products are designed and manufactured with focus on:</p>
@@ -33,7 +32,6 @@ export default function QualitySafety() {
                 <Link href="/contact">Request Details</Link>
             </Button>
         </div>
-      </div>
     </section>
   );
 }
