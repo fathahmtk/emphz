@@ -19,6 +19,7 @@ export type Product = {
   material_standard: string;
   fire_retardancy_class: string;
   download_url: string;
+  cad_download_url: string;
   image_id: string;
   standard_models: {
     height: number;

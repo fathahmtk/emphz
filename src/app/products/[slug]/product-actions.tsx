@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { useQuote } from "@/context/quote-context";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/lib/types";
 import { Download, PlusCircle } from "lucide-react";
+import Link from "next/link";
 
 type ProductActionsProps = {
   product: Product;
@@ -31,9 +33,11 @@ export default function ProductActions({ product }: ProductActionsProps) {
         Add to Quote
       </Button>
       {isLoggedIn && (
-         <Button size="lg" variant="outline">
-            <Download className="mr-2 h-5 w-5" />
-            Download 3D CAD
+         <Button size="lg" variant="outline" asChild>
+            <Link href={product.cad_download_url} target="_blank">
+                <Download className="mr-2 h-5 w-5" />
+                Download 3D CAD
+            </Link>
          </Button>
       )}
     </div>

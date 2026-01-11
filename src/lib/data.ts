@@ -30,6 +30,7 @@ export const products: Product[] = [
     material_standard: 'IS 13947',
     fire_retardancy_class: 'BS 476, Part 7, Class 2',
     download_url: '/resources/EE-001-datasheet.pdf',
+    cad_download_url: '/resources/EE-001-cad.zip',
     image_id: 'product-enclosure-1',
     standard_models: [
       { height: 400, width: 300, depth: 200, ip_rating: 66 },
@@ -57,6 +58,7 @@ export const products: Product[] = [
     material_standard: 'IS 14772',
     fire_retardancy_class: 'BS 476, Part 7, Class 1',
     download_url: '/resources/Kiosk-001-datasheet.pdf',
+    cad_download_url: '/resources/Kiosk-001-cad.zip',
     image_id: 'product-kiosk-1',
      standard_models: [
       { height: 2200, width: 1500, depth: 1500, ip_rating: 65 },
@@ -84,6 +86,7 @@ export const products: Product[] = [
     material_standard: 'N/A',
     fire_retardancy_class: 'BS 476, Part 7, Class 2',
     download_url: '/resources/PT-001-datasheet.pdf',
+    cad_download_url: '/resources/PT-001-cad.zip',
     image_id: 'product-toilet-1',
      standard_models: [
       { height: 2300, width: 1200, depth: 1200, ip_rating: 0 },
