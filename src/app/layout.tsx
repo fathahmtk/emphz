@@ -27,7 +27,7 @@ export default function RootLayout({
         <AuthProvider>
           <QuoteProvider>
             <Header />
-            <main className="flex-grow pt-16 md:pt-0">{children}</main>
+            <main className="flex-grow">{children}</main>
             <Footer />
             <Toaster />
           </QuoteProvider>

@@ -7,7 +7,7 @@ import Certifications from '@/components/home/certifications';
 
 export default function Home() {
   return (
-    <div className="md:mt-[-4rem]">
+    <div>
       <Hero />
       <Industries />
       <FeaturedProjects />
