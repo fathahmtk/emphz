@@ -20,7 +20,7 @@ export default function FeaturedProjects() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Button asChild variant="outline" className="rounded-full">
+          <Button asChild variant="outline">
             <Link href="/contact">Discuss Your Project</Link>
           </Button>
         </div>

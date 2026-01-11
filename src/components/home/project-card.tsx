@@ -13,7 +13,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const projectImage = PlaceHolderImages.find(p => p.id === project.imageId);
 
   return (
-    <Card className="overflow-hidden transition-transform duration-300 hover:scale-105 bg-card/50">
+    <Card className="overflow-hidden transition-transform duration-300 hover:scale-[1.02] bg-card">
       <Link href={`/contact`} className="block">
         <div className="aspect-video relative bg-muted">
           {projectImage && (

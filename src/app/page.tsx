@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="relative z-10 bg-transparent py-16 sm:py-24 space-y-16 sm:space-y-24">
+      <div className="relative z-10 bg-background space-y-16 sm:space-y-24 py-16 sm:py-24">
         <Industries />
         <FeaturedProjects />
         <AboutSummary />

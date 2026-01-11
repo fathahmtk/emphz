@@ -1,8 +1,11 @@
 
 import Image from "next/image";
 import CallToAction from "@/components/shared/call-to-action";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function AboutSummary() {
+  const aboutImage = PlaceHolderImages.find(p => p.id === 'about-us-main');
+
   return (
     <div className="container grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <CallToAction
@@ -21,14 +24,16 @@ export default function AboutSummary() {
         buttonLink="/about"
       />
       <div className="relative h-80 w-full rounded-lg overflow-hidden shadow-lg">
-        <Image
-          src="https://storage.googleapis.com/garden-prod/agave/agent_sandbox/3915762913/2024-04-01/16_29_23_571_p63A71yV.png"
-          alt="A modern, solar-powered kiosk in a park setting."
-          data-ai-hint="modern kiosk with solar panels"
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+        {aboutImage && (
+          <Image
+            src={aboutImage.imageUrl}
+            alt={aboutImage.description}
+            data-ai-hint={aboutImage.imageHint}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        )}
       </div>
     </div>
   );

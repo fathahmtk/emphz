@@ -16,7 +16,7 @@ export default function Certifications() {
           {certifications.map((cert) => {
             return (
               <Link key={cert.id} href="/contact" passHref>
-                <Card className="h-full flex flex-col items-center justify-center p-4 aspect-square bg-card/50 hover:bg-card/80 hover:shadow-md transition-all">
+                <Card className="h-full flex flex-col items-center justify-center p-4 aspect-square bg-card hover:bg-accent hover:shadow-md transition-all">
                   <CardContent className="p-0 flex flex-col items-center justify-center text-center">
                     <p className="text-sm font-semibold">{cert.name}</p>
                     <p className="text-xs text-muted-foreground">{cert.description}</p>
