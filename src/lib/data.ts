@@ -1,5 +1,5 @@
 import type { Product, Industry, Project, TeamMember, Certification, Resource } from '@/lib/types';
-import { Wrench, Zap, Building, HardHat, ShieldCheck, Sun, FlameOff } from 'lucide-react';
+import { Wrench, Zap, Building, HardHat, ShieldCheck, Sun, Flame } from 'lucide-react';
 
 export const industries: Industry[] = [
   { id: '1', name: 'Construction', description: 'Durable solutions for harsh construction environments.', icon: HardHat, image_id: 'industry-construction' },
@@ -20,7 +20,7 @@ export const products: Product[] = [
     features: [
       { name: 'Corrosion Resistant', icon: ShieldCheck },
       { name: 'UV Stable', icon: Sun },
-      { name: 'Self-Extinguishing', icon: FlameOff }
+      { name: 'Self-Extinguishing', icon: Flame }
     ],
     ip_rating: 66,
     dimensions: { height: 600, width: 400, depth: 230 },
@@ -47,7 +47,7 @@ export const products: Product[] = [
     features: [
       { name: 'Corrosion Resistant', icon: ShieldCheck },
       { name: 'UV Stable', icon: Sun },
-      { name: 'Self-Extinguishing', icon: FlameOff }
+      { name: 'Self-Extinguishing', icon: Flame }
     ],
     ip_rating: 65,
     dimensions: { height: 2500, width: 2000, depth: 2000 },
