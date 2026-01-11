@@ -5,8 +5,8 @@ const Logo = ({ className }: { className?: string }) => (
     <svg width="150" height="45" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="pGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#2AA7A3"/>
-          <stop offset="100%" stopColor="#0E6F73"/>
+          <stop offset="0%" stopColor="hsl(var(--primary))"/>
+          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.8"/>
         </linearGradient>
       </defs>
 
