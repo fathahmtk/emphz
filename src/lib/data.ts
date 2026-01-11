@@ -91,10 +91,10 @@ export const products: Product[] = [
 ];
 
 export const projects: Project[] = [
-  { id: '1', name: 'Jebel Ali Power Station', industry: 'Energy', description: 'Supply of custom GRP enclosures for critical power distribution units.', image_id: 'project-power-station' },
-  { id: '2', name: 'Downtown Dubai Public Works', industry: 'Public Works', description: 'Installation of modular GRP kiosks for information and ticketing.', image_id: 'project-dubai' },
-  { id: '3', name: 'NEOM Construction Site', industry: 'Construction', description: 'Deployment of over 500 GRP portable toilets for a large-scale construction project.', image_id: 'project-neom' },
-  { id: '4', name: 'Qatar Gas Refinery', industry: 'Energy', description: 'Provided specialized, fire-retardant GRP cabinets for sensitive equipment.', image_id: 'project-qatar-gas' },
+  { id: '1', title: 'Jebel Ali Power Station', location: 'Dubai, UAE', tags: ['Energy', 'GRP Enclosures'], imageId: 'project-power-station' },
+  { id: '2', title: 'Downtown Dubai Public Realm', location: 'Dubai, UAE', tags: ['Public Works', 'GRP Kiosks'], imageId: 'project-dubai' },
+  { id: '3', title: 'NEOM Smart City', location: 'Saudi Arabia', tags: ['Construction', 'Portable Toilets'], imageId: 'project-neom' },
+  { id: '4', title: 'Qatar Gas Refinery', location: 'Ras Laffan, Qatar', tags: ['Oil & Gas', 'Fire-Retardant Cabinets'], imageId: 'project-qatar-gas' },
 ];
 
 export const team: TeamMember[] = [
@@ -104,10 +104,10 @@ export const team: TeamMember[] = [
 ];
 
 export const certifications: Certification[] = [
-  { id: '1', name: 'ISO 9001', description: 'Quality Management System', image_id: 'cert-iso-9001' },
+  { id: '1', name: 'ISO 9001', description: 'Quality Management', image_id: 'cert-iso-9001' },
   { id: '2', name: 'ISO 14001', description: 'Environmental Management', image_id: 'cert-iso-14001' },
-  { id: '3', name: 'NEMA', description: 'Electrical Equipment Standards', image_id: 'cert-nema' },
-  { id: '4', name: 'IP66', description: 'Ingress Protection Rating', image_id: 'cert-ip66' },
+  { id: '3', name: 'NEMA', description: 'Electrical Standards', image_id: 'cert-nema' },
+  { id: '4', name: 'IP66', description: 'Ingress Protection', image_id: 'cert-ip66' },
   { id: '5', name: 'UL Listed', description: 'Safety Certification', image_id: 'cert-ul' },
   { id: '6', name: 'CE Marking', description: 'European Conformity', image_id: 'cert-ce' },
 ];
@@ -153,4 +153,24 @@ export const heroSlides: HeroSlide[] = [
     secondaryText: "Why EMPHZ",
     secondaryLink: "/about",
   },
+   {
+    id: "hero-animated-1",
+    imageId: "hero-animated-1",
+    title: "Global Supplier of GRP Solutions",
+    subtitle: "With a network of partners and distributors across the globe, we are a trusted supplier of GRP solutions to a wide range of industries.",
+    primaryText: "Our Network",
+    primaryLink: "/contact",
+    secondaryText: "Become a Partner",
+    secondaryLink: "/contact",
+  },
+  {
+    id: "hero-animated-2",
+    imageId: "hero-animated-2",
+    title: "GRP Products for the Oil and Gas Industry",
+    subtitle: "We offer a range of GRP products for the oil and gas industry, including blast-resistant enclosures and fire-rated doors.",
+    primaryText: "View Products",
+    primaryLink: "/products",
+    secondaryText: "Get a Quote",
+    secondaryLink: "/contact",
+  }
 ];

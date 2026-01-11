@@ -38,10 +38,10 @@ export type Industry = {
 
 export type Project = {
   id: string;
-  name: string;
-  industry: string;
-  description: string;
-  image_id: string;
+  title: string;
+  location: string;
+  tags: string[];
+  imageId: string;
 };
 
 export type TeamMember = {

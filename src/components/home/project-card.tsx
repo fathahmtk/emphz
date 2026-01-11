@@ -14,7 +14,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <Card className="overflow-hidden transition-transform duration-300 hover:scale-105 glass">
-      <Link href={`/products/${project.id}`} className="block">
+      <Link href={`/contact`} className="block">
         <div className="aspect-video relative bg-muted">
           {projectImage && (
             <Image 
