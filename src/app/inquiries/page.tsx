@@ -5,13 +5,13 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
 import { format, subMonths, startOfMonth } from 'date-fns';
 import { useInquiries } from '@/hooks/use-inquiries';
 import { Inquiry } from '@/lib/types';
 import { BarChart, MessageSquare, Package } from 'lucide-react';
 import InquiriesChart from './inquiries-chart';
 import { useUser } from '@/firebase';
+import StatusBadge from './status-badge';
 
 
 function KpiCard({ title, value, icon: Icon }: { title: string, value: string | number, icon: React.ElementType }) {
@@ -150,7 +150,7 @@ export default function InquiriesPage() {
                     <TableCell>{inquiry.product}</TableCell>
                     <TableCell>{inquiry.routedTo}</TableCell>
                     <TableCell className="text-right">
-                       <Badge variant={inquiry.status === 'New' ? 'default' : 'secondary'}>{inquiry.status}</Badge>
+                       <StatusBadge status={inquiry.status} />
                     </TableCell>
                   </TableRow>
                 ))
