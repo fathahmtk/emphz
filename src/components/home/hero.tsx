@@ -17,7 +17,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Hero() {
   return (
-    <section className="relative h-[calc(100vh-64px)] w-full">
+    <section className="relative h-screen w-full">
       <Carousel
         className="w-full h-full"
         plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
@@ -44,26 +44,26 @@ export default function Hero() {
                   )}
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-slate-900/55" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
 
                   {/* Content */}
-                  <div className="relative z-10 max-w-5xl px-6 text-center">
-                    <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+                  <div className="relative z-10 max-w-6xl px-6 text-center">
+                    <h1 className="text-4xl md:text-7xl font-extrabold tracking-tighter mb-6 animate-slide-in-down">
                       {slide.title}
                     </h1>
 
-                    <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-10">
+                    <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-10 animate-slide-in-up">
                       {slide.subtitle}
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in-up" style={{animationDelay: '0.4s', opacity: 0}}>
                       <Button asChild size="lg">
                         <Link href={slide.primaryLink}>
                           {slide.primaryText}
                           <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </Button>
-                      <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-slate-900">
+                      <Button asChild size="lg" variant="secondary">
                         <Link href={slide.secondaryLink}>
                           {slide.secondaryText}
                           <FileDown className="ml-2 h-5 w-5" />
@@ -76,8 +76,8 @@ export default function Hero() {
             );
           })}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white bg-white/20 hover:bg-white/30 border-none" />
-        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white bg-white/20 hover:bg-white/30 border-none" />
+        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white bg-white/10 hover:bg-white/20 border-none" />
+        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white bg-white/10 hover:bg-white/20 border-none" />
       </Carousel>
     </section>
   );
