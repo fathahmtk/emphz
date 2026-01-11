@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import FirebaseAuthProvider from '@/components/auth/firebase-auth-provider';
+import FirebaseErrorListener from '@/firebase/errors/FirebaseErrorListener';
 
 export const metadata: Metadata = {
   title: 'EMPHZ Corporate | 30+ Years of Engineering Excellence',
@@ -32,6 +33,7 @@ export default function RootLayout({
             </main>
             <Footer />
             <Toaster />
+            <FirebaseErrorListener />
           </QuoteProvider>
         </FirebaseAuthProvider>
       </body>
