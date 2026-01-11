@@ -25,56 +25,21 @@ export default function Header() {
   const { isLoggedIn, logout } = useAuth();
   const { itemCount } = useQuote();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
-  
-  const isHomePage = pathname === '/';
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setHasScrolled(window.scrollY > 10);
-    };
-
-    if (isHomePage) {
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll();
-    }
-
-    return () => {
-      if (isHomePage) {
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, [isHomePage]);
-
-  const headerClasses = cn(
-    "fixed top-0 inset-x-0 z-50 transition-colors duration-300",
-    (hasScrolled || !isHomePage)
-      ? "bg-background/80 backdrop-blur-sm border-b"
-      : "bg-transparent border-b-transparent"
-  );
   
   const linkClasses = (href: string) => cn(
     'text-sm font-medium transition-colors hover:text-primary',
-    pathname === href ? 'text-primary' : (hasScrolled || !isHomePage ? 'text-muted-foreground hover:text-foreground' : 'text-slate-200 hover:text-white')
+    pathname === href ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
   );
 
-  const iconButtonClasses = cn(
-    "rounded-full",
-    (hasScrolled || !isHomePage) ? 'text-foreground hover:bg-accent' : 'text-white hover:bg-white/10 hover:text-white'
-  );
-
-  const authButtonVariant = (!hasScrolled && isHomePage) ? 'outline' : 'default';
-  const authButtonClasses = cn(
-      "hidden sm:inline-flex rounded-full",
-      (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary'
-  );
+  const iconButtonClasses = "rounded-full text-foreground hover:bg-accent";
+  const authButtonClasses = "hidden sm:inline-flex rounded-full";
 
 
   return (
-    <header className={headerClasses}>
+    <header className="border-b bg-background">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Logo className={cn((!hasScrolled && isHomePage) && "text-white")} />
+          <Logo />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -101,9 +66,9 @@ export default function Header() {
             )}
           </Link>
           {isLoggedIn ? (
-            <Button onClick={logout} size="sm" variant={authButtonVariant} className={authButtonClasses}>Logout</Button>
+            <Button onClick={logout} size="sm" variant="default" className={authButtonClasses}>Logout</Button>
           ) : (
-            <Button asChild size="sm" variant={authButtonVariant} className={authButtonClasses}>
+            <Button asChild size="sm" variant="default" className={authButtonClasses}>
               <Link href="/login">Partner Login</Link>
             </Button>
           )}
