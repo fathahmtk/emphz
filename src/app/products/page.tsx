@@ -1,33 +1,12 @@
 
 
-import { portfolioItems } from '@/lib/data';
+import { productCategories } from '@/lib/data';
+import Breadcrumbs from '@/components/products/breadcrumbs';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import Breadcrumbs from '@/components/products/breadcrumbs';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
-import { CheckCircle2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
-function DetailList({ title, items }: { title: string, items: string[] }) {
-    return (
-        <div>
-            <h3 className="font-semibold text-lg mb-3 text-secondary-foreground">{title}</h3>
-            <ul className="space-y-2">
-                {items.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                        <span className="text-muted-foreground">{item}</span>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
-}
+import Link from 'next/link';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowRight } from 'lucide-react';
 
 
 export default function ProductsPage() {
@@ -39,7 +18,7 @@ export default function ProductsPage() {
         <Breadcrumbs />
       </div>
 
-       <section className="relative py-20 lg:py-32 text-white">
+       <section className="relative py-20 lg:py-32 text-white text-center">
         {headerImage && (
             <Image 
                 src={headerImage.imageUrl} 
@@ -50,7 +29,7 @@ export default function ProductsPage() {
             />
         )}
         <div className="absolute inset-0 bg-black/60" />
-        <div className="relative container text-center">
+        <div className="relative container">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
                 Product Portfolio
             </h1>
@@ -61,36 +40,38 @@ export default function ProductsPage() {
       </section>
 
       <div className="container py-16 lg:py-24">
-        <Accordion type="single" collapsible className="w-full space-y-4">
-            {portfolioItems.map((item) => (
-                 <AccordionItem key={item.id} value={`item-${item.id}`} className="border rounded-lg bg-card overflow-hidden">
-                    <AccordionTrigger className="p-6 text-xl font-bold hover:no-underline">
-                        {item.title}
-                    </AccordionTrigger>
-                    <AccordionContent className="p-6 pt-0">
-                        <p className="text-lg text-muted-foreground mb-8">{item.description}</p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <DetailList title="Applications" items={item.applications} />
-                            <DetailList title="Key Features" items={item.features} />
-                            <DetailList title="Customisation Options" items={item.customisation} />
-                        </div>
-                    </AccordionContent>
-                </AccordionItem>
-            ))}
-        </Accordion>
-
-         <Card className="mt-16 bg-secondary">
-             <CardHeader>
-                <CardTitle className="text-2xl text-center">Manufacturing Capabilities</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center text-muted-foreground">
-                 <p className="mb-4">In-house GRP fabrication, custom mould development, and panel, enclosure, and structural manufacturing for project-based and repeat production.</p>
-                 <h3 className="font-bold text-primary text-lg">If it can be made in GRP, EMPHZ can manufacture it.</h3>
-            </CardContent>
-         </Card>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {productCategories.map(category => {
+                const image = PlaceHolderImages.find(p => p.id === category.image_id);
+                return (
+                    <Link href={category.slug} key={category.id} className="group block">
+                        <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 group-hover:border-primary group-hover:shadow-xl">
+                            <div className="relative h-64 w-full">
+                                {image ? (
+                                    <Image 
+                                        src={image.imageUrl}
+                                        alt={category.name}
+                                        data-ai-hint={image.imageHint}
+                                        fill
+                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                    />
+                                ): (
+                                    <div className="w-full h-full bg-muted"></div>
+                                )}
+                            </div>
+                            <CardHeader>
+                                <CardTitle className="text-xl flex items-center justify-between">
+                                    {category.name}
+                                    <ArrowRight className="h-5 w-5 text-primary opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                                </CardTitle>
+                                <CardDescription>{category.description}</CardDescription>
+                            </CardHeader>
+                        </Card>
+                    </Link>
+                )
+            })}
+        </div>
       </div>
     </div>
   );
 }
-

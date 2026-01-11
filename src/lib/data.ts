@@ -1,7 +1,7 @@
 
 
-import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide, PortfolioItem } from '@/lib/types';
-import { Wrench, Zap, Building, HardHat, Car, Factory, Shield, Wifi, Wind, Briefcase } from 'lucide-react';
+import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide, PortfolioItem, ProductCategory } from '@/lib/types';
+import { Wrench, Zap, Building, HardHat, Car, Factory, Shield, Wifi, Wind, Briefcase, Boxes, Construction, Lamp, Cable } from 'lucide-react';
 
 export const industries: Industry[] = [
     { id: '1', name: 'Power Distribution & Utilities', description: 'Solutions for power distribution networks and utility infrastructure.', icon: Zap, image_id: 'industry-energy' },
@@ -12,104 +12,212 @@ export const industries: Industry[] = [
     { id: '6', name: 'Industrial & Manufacturing Units', description: 'Durable solutions for various manufacturing environments.', icon: HardHat, image_id: 'industry-construction' },
 ];
 
+export const productCategories: ProductCategory[] = [
+    {id: '1', name: "GRP Electrical Enclosures", description: "Safe housing for electrical, control, and metering equipment.", icon: Boxes, slug: "/products/grp-electrical-enclosures", image_id: "product-enclosure-1"},
+    {id: '2', name: "GRP Kiosks & Shelters", description: "Factory-built modular units for electrical and equipment housing.", icon: Construction, slug: "/products/grp-kiosks-equipment-shelters", image_id: "product-kiosk-1"},
+    {id: '3', name: "Portable GRP Toilets", description: "Hygienic and durable sanitation units for public and industrial use.", icon: Lamp, slug: "/products/portable-grp-toilets", image_id: "product-toilet-1"},
+    {id: '4', name: "Custom GRP Manufacturing", description: "Custom-manufactured GRP structures built as per project requirements.", icon: Cable, slug: "/products/custom-grp-manufacturing", image_id: "project-neom"},
+]
+
 export const products: Product[] = [
   {
     id: '1',
-    sku: 'EE-001',
-    name: 'GRP Electrical Enclosure - Standard',
-    slug: 'grp-electrical-enclosure-standard',
+    slug: 'grp-electrical-enclosures',
+    name: 'GRP Electrical Enclosures',
     category: 'Electrical Enclosures',
-    short_description: 'Durable GRP enclosures for metering, control, and distribution applications.',
-    long_description: 'Our standard GRP Electrical Enclosure offers superior protection in a lightweight, cost-effective package. Designed for versatility, it is suitable for a wide range of applications, providing excellent resistance to impact and harsh weather conditions.',
-    features: [
-      { name: 'Corrosion Resistant', icon: 'ShieldCheck' },
-      { name: 'UV Stable', icon: 'Sun' },
-      { name: 'Self-Extinguishing', icon: 'Flame' }
+    short_intro: 'Manufactured GRP enclosures designed for housing electrical and control equipment in outdoor and industrial environments. Built for durability, safety, and long service life.',
+    applications: [
+      'LT / HT metering',
+      'Control & automation panels',
+      'Distribution boards',
+      'Utility junction boxes',
+      'Industrial electrical systems'
     ],
-    ip_rating: 66,
-    dimensions: { height: 600, width: 400, depth: 230 },
-    material_specs: 'Glass Reinforced Polyester (GRP)',
-    authority_approval: ['BIS', 'CPRI'],
-    material_standard: 'IS 13947',
-    fire_retardancy_class: 'BS 476, Part 7, Class 2',
-    download_url: '/resources/EE-001-datasheet.pdf',
-    cad_download_url: '/resources/EE-001-cad.zip',
+    key_features: [
+      'Corrosion-resistant GRP construction',
+      'Fire-retardant material options',
+      'Suitable for outdoor installation',
+      'Dust and moisture protection',
+      'Low maintenance and long service life'
+    ],
+    standard_configurations: [
+      'Wall-mounted enclosures',
+      'Floor-standing enclosures',
+      'Single-door / double-door models',
+      'Indoor / outdoor variants'
+    ],
+    customisation_options: [
+      'Size as per drawing',
+      'Mounting plates and accessories',
+      'Cable entry provisions',
+      'Ventilation and louvers',
+      'Colour and surface finish'
+    ],
+    manufacturing_details: [
+      'Manufactured using high-quality GRP',
+      'In-house moulding and fabrication',
+      'Quality checks at each stage',
+      'Suitable for project and bulk supply'
+    ],
+    downloads: [
+      { title: 'Product Catalogue', url: '/resources/EE-001-datasheet.pdf' },
+      { title: 'Technical Datasheet', url: '/resources/EE-001-datasheet.pdf' }
+    ],
     image_id: 'product-enclosure-1',
-    gallery: [
-        { image_id: 'product-enclosure-1', description: 'Front view of the enclosure' },
-        { image_id: 'product-enclosure-2', description: 'Side view of the enclosure' },
-        { image_id: 'product-enclosure-3', description: 'Interior of the enclosure' }
-    ],
-    industry_ids: ['1', '2', '3', '4', '5', '6'],
-    standard_models: [
-      { height: 400, width: 300, depth: 200, ip_rating: 66 },
-      { height: 600, width: 400, depth: 230, ip_rating: 66 },
-      { height: 800, width: 600, depth: 250, ip_rating: 65 },
-    ]
+    gallery_image_ids: ['product-enclosure-1', 'product-enclosure-2', 'product-enclosure-3']
   },
   {
     id: '2',
-    sku: 'Kiosk-001',
-    name: 'Modular GRP Kiosk',
-    slug: 'modular-grp-kiosk',
+    slug: 'grp-kiosks-equipment-shelters',
+    name: 'GRP Kiosks & Equipment Shelters',
     category: 'Kiosks',
-    short_description: 'Factory-built modular shelters for electrical, telecom, and control equipment.',
-    long_description: 'Our modular GRP kiosks are the perfect solution for a variety of outdoor and industrial applications, including security posts, information booths, and equipment housing. They are fully customizable to meet specific size and feature requirements.',
-    features: [
-      { name: 'Corrosion Resistant', icon: 'ShieldCheck' },
-      { name: 'UV Stable', icon: 'Sun' },
-      { name: 'Self-Extinguishing', icon: 'Flame' }
+    short_intro: 'Factory-built modular GRP kiosks for housing electrical and equipment systems. Supplied as ready-to-install units.',
+    applications: [
+        'Distribution substations',
+        'Control and relay rooms',
+        'Equipment housing',
+        'Utility installations',
     ],
-    ip_rating: 65,
-    dimensions: { height: 2500, width: 2000, depth: 2000 },
-    material_specs: 'Glass Reinforced Polyester (GRP)',
-    authority_approval: ['Indian Standards'],
-    material_standard: 'IS 14772',
-    fire_retardancy_class: 'BS 476, Part 7, Class 1',
-    download_url: '/resources/Kiosk-001-datasheet.pdf',
-    cad_download_url: '/resources/Kiosk-001-cad.zip',
+    key_features: [
+        'Modular GRP panel construction',
+        'Thermal insulation',
+        'Weatherproof design',
+        'Long service life',
+        'Quick on-site installation',
+    ],
+    standard_configurations: [
+        'Single and multi-room layouts',
+        'Insulated and non-insulated panels',
+        'Integrated flooring systems',
+    ],
+    customisation_options: [
+        'Floor size and height',
+        'Door and ventilation layout',
+        'Cable trenches and base frames',
+        'Internal partitions',
+    ],
+    manufacturing_details: [
+      'Manufactured using high-quality GRP',
+      'In-house moulding and fabrication',
+      'Quality checks at each stage',
+      'Suitable for project and bulk supply'
+    ],
+    downloads: [
+      { title: 'Product Catalogue', url: '#' },
+      { title: 'Technical Datasheet', url: '#' }
+    ],
     image_id: 'product-kiosk-1',
-    gallery: [
-        { image_id: 'product-kiosk-1', description: 'Front view of the kiosk' },
-        { image_id: 'product-kiosk-2', description: 'Kiosk in a field' }
+    gallery_image_ids: ['product-kiosk-1', 'product-kiosk-2', 'project-power-station']
+  },
+   {
+    id: '3',
+    slug: 'portable-grp-toilets',
+    name: 'Portable GRP Toilets',
+    category: 'Portable Toilets',
+    short_intro: 'Durable, hygienic GRP toilet units suitable for public, industrial, and project-based usage.',
+    applications: [
+        'Construction sites',
+        'Public locations',
+        'Industrial facilities',
+        'Temporary installations',
     ],
-    industry_ids: ['1', '2', '3', '5'],
-     standard_models: [
-      { height: 2200, width: 1500, depth: 1500, ip_rating: 65 },
-      { height: 2500, width: 2000, depth: 2000, ip_rating: 65 },
-      { height: 2500, width: 3000, depth: 2500, ip_rating: 65 },
-    ]
+    key_features: [
+        'Smooth, easy-to-clean GRP interiors',
+        'Lightweight and relocatable',
+        'Strong structural design',
+        'Low maintenance',
+    ],
+    standard_configurations: [
+        'Single unit with Indian commode',
+        'Single unit with Western commode',
+        'Units with integrated wash basin',
+    ],
+    customisation_options: [
+        'Indian / Western layout',
+        'Wash basin integration',
+        'Ventilation systems',
+        'Colour and branding',
+    ],
+    manufacturing_details: [
+      'Manufactured using high-quality GRP',
+      'In-house moulding and fabrication',
+      'Quality checks at each stage',
+      'Suitable for project and bulk supply'
+    ],
+    downloads: [
+      { title: 'Product Catalogue', url: '#' },
+      { title: 'Technical Datasheet', url: '#' }
+    ],
+    image_id: 'product-toilet-1',
+    gallery_image_ids: ['product-toilet-1', 'product-toilet-2']
   },
   {
-    id: '3',
-    sku: 'PT-001',
-    name: 'GRP Portable Toilet',
-    slug: 'grp-portable-toilet',
-    category: 'Portable Toilets',
-    short_description: 'Hygienic and durable sanitation units for public, construction, and industrial use.',
-    long_description: 'EMPHZ GRP portable toilets are designed for durability and ease of maintenance. Ideal for construction sites, public events, and remote locations, they offer a hygienic and robust solution. Available with various plumbing and accessory options.',
-    features: [
-      { name: 'Corrosion Resistant', icon: 'ShieldCheck' },
-      { name: 'UV Stable', icon: 'Sun' },
-      { name: 'Hygienic Surface', icon: 'ShieldCheck' }
+    id: '4',
+    slug: 'grp-security-cabins',
+    name: 'GRP Security Cabins',
+    category: 'Kiosks',
+    short_intro: 'Compact GRP cabins designed for security personnel and access control points.',
+    applications: [
+        'Factory and site entrances',
+        'Residential complexes',
+        'Commercial premises',
+        'Infrastructure projects',
     ],
-    ip_rating: 0,
-    dimensions: { height: 2300, width: 1200, depth: 1200 },
-    material_specs: 'Glass Reinforced Polyester (GRP)',
-    authority_approval: ['Municipal Approval'],
-    material_standard: 'N/A',
-    fire_retardancy_class: 'BS 476, Part 7, Class 2',
-    download_url: '/resources/PT-001-datasheet.pdf',
-    cad_download_url: '/resources/PT-001-cad.zip',
-    image_id: 'product-toilet-1',
-    gallery: [
-        { image_id: 'product-toilet-1', description: 'Front view of the toilet' },
-        { image_id: 'product-toilet-2', description: 'Interior of the toilet' }
+    key_features: [
+        'Weather resistant construction',
+        'Clear visibility design',
+        'Long service life',
+        'Minimal maintenance',
     ],
-    industry_ids: ['2', '6'],
-     standard_models: [
-      { height: 2300, width: 1200, depth: 1200, ip_rating: 0 },
-    ]
+    standard_configurations: [
+        '1-2 person cabins',
+        'Cabins with writing ledge',
+    ],
+    customisation_options: [
+        'Size and layout',
+        'Sliding or hinged windows',
+        'Electrical fittings',
+        'Internal furniture',
+    ],
+    manufacturing_details: [
+      'Manufactured using high-quality GRP',
+      'In-house moulding and fabrication',
+      'Quality checks at each stage',
+      'Suitable for project and bulk supply'
+    ],
+    downloads: [
+      { title: 'Product Catalogue', url: '#' },
+      { title: 'Technical Datasheet', url: '#' }
+    ],
+    image_id: 'product-security-cabin',
+    gallery_image_ids: ['product-security-cabin', 'project-dubai']
+  },
+    {
+    id: '5',
+    slug: 'custom-grp-manufacturing',
+    name: 'Custom GRP Manufacturing',
+    category: 'Custom',
+    short_intro: 'EMPHZ specialises in custom-built GRP products, manufactured based on drawings, samples, or site requirements.',
+    applications: [
+      'Special electrical enclosures', 'Equipment covers', 'Utility boxes', 'Architectural GRP elements', 'Industrial housings', 'Non-standard kiosks and shelters'
+    ],
+    key_features: [
+      'Design-to-manufacture support', 'Mould-based fabrication', 'Hand lay-up GRP manufacturing', 'Small batch and bulk production'
+    ],
+    standard_configurations: [
+       "N/A (Fully custom)"
+    ],
+    customisation_options: [
+      'Any size', 'Any shape', 'Any application suitable for GRP'
+    ],
+    manufacturing_details: [
+      'If it can be made in GRP, EMPHZ can manufacture it.'
+    ],
+    downloads: [
+       { title: 'Manufacturing Capabilities', url: '#' },
+    ],
+    image_id: 'hero-industrial',
+    gallery_image_ids: ['hero-industrial', 'industry-factory', 'project-neom']
   },
 ];
 
@@ -261,4 +369,3 @@ export const portfolioItems: PortfolioItem[] = [
         customisation: ["Any size", "Any shape", "Any application suitable for GRP"],
     },
 ];
-
