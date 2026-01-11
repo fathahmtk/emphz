@@ -7,11 +7,12 @@ import { useEffect, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { format } from 'date-fns';
+import { format, subMonths, startOfMonth } from 'date-fns';
 import { useInquiries } from '@/hooks/use-inquiries';
 import { Inquiry } from '@/lib/types';
 import { BarChart, MessageSquare, Package } from 'lucide-react';
-import Link from 'next/link';
+import InquiriesChart from './inquiries-chart';
+
 
 function KpiCard({ title, value, icon: Icon }: { title: string, value: string | number, icon: React.ElementType }) {
     return (
@@ -38,8 +39,11 @@ export default function InquiriesPage() {
     }
   }, [user, authLoading, router]);
 
-  const kpiData = useMemo(() => {
-    if (!inquiries) return { total: 0, newCount: 0, topProduct: 'N/A' };
+  const { kpiData, chartData } = useMemo(() => {
+    if (!inquiries) return { 
+        kpiData: { total: 0, newCount: 0, topProduct: 'N/A' },
+        chartData: [] 
+    };
     
     const newCount = inquiries.filter(i => i.status === 'New').length;
     
@@ -56,11 +60,36 @@ export default function InquiriesPage() {
     const topProduct = Object.keys(productCounts).length > 0 
       ? Object.entries(productCounts).reduce((a, b) => a[1] > b[1] ? a : b)[0]
       : 'N/A';
+      
+    const twelveMonthsAgo = subMonths(new Date(), 11);
+    const monthlyData = Array.from({ length: 12 }).map((_, i) => {
+        const monthDate = startOfMonth(subMonths(new Date(), i));
+        return {
+            month: format(monthDate, 'MMM'),
+            total: 0,
+            date: monthDate,
+        };
+    }).reverse();
+
+    inquiries.forEach(inquiry => {
+        const inquiryDate = inquiry.routedAt?.toDate();
+        if (inquiryDate && inquiryDate >= twelveMonthsAgo) {
+            const monthIndex = monthlyData.findIndex(
+                m => m.date.getMonth() === inquiryDate.getMonth() && m.date.getFullYear() === inquiryDate.getFullYear()
+            );
+            if (monthIndex !== -1) {
+                monthlyData[monthIndex].total += 1;
+            }
+        }
+    });
 
     return {
-        total: inquiries.length,
-        newCount,
-        topProduct,
+        kpiData: {
+            total: inquiries.length,
+            newCount,
+            topProduct,
+        },
+        chartData: monthlyData,
     }
   }, [inquiries]);
 
@@ -79,19 +108,21 @@ export default function InquiriesPage() {
   }
 
   return (
-    <div className="container py-16 lg:py-24">
-      <div className="text-center mb-12">
+    <div className="container py-16 lg:py-24 space-y-12">
+      <div className="text-center">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Inquiries Dashboard</h1>
         <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
           View and manage all customer inquiries.
         </p>
       </div>
 
-       <div className="grid gap-4 md:grid-cols-3 mb-8">
+       <div className="grid gap-4 md:grid-cols-3">
             <KpiCard title="Total Inquiries" value={kpiData.total} icon={BarChart} />
             <KpiCard title="New Inquiries" value={kpiData.newCount} icon={MessageSquare} />
             <KpiCard title="Top Product" value={kpiData.topProduct} icon={Package} />
         </div>
+
+        <InquiriesChart data={chartData} />
 
       <Card>
         <CardHeader>
@@ -137,3 +168,4 @@ export default function InquiriesPage() {
     </div>
   );
 }
+
