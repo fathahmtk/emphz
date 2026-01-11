@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
@@ -87,6 +88,14 @@ export default function ContactForm() {
           });
       }
   }, [state.errors, form]);
+  
+  // Set a default value for the product field if the quote basket has items.
+  useEffect(() => {
+    if (quoteItems.length > 0 && form.getValues('product') === '') {
+      form.setValue('product', 'Other / Multiple');
+    }
+  }, [quoteItems, form]);
+
 
   return (
     <Form {...form}>
@@ -155,7 +164,7 @@ export default function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Product(s) required</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a product or add from basket" />
@@ -165,7 +174,7 @@ export default function ContactForm() {
                   {products.map(product => (
                     <SelectItem key={product.id} value={product.name}>{product.name}</SelectItem>
                   ))}
-                   <SelectItem value="Other">Other / Multiple</SelectItem>
+                   <SelectItem value="Other / Multiple">Other / Multiple</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
