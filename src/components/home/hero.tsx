@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, FileDown } from "lucide-react";
 import {
   Carousel,
@@ -16,7 +17,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full">
+    <section className="relative h-screen w-full overflow-hidden">
       <Carousel
         className="w-full h-full"
         plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
@@ -30,15 +31,18 @@ export default function Hero() {
 
             return (
               <CarouselItem key={slide.id} className="h-full">
-                <div 
-                  className="relative h-full w-full flex items-center justify-center text-white bg-cover bg-center"
-                  style={{ backgroundImage: image ? `url(${image.imageUrl})` : 'none' }}
-                  aria-label={image?.description}
-                >
-                  <div 
-                    className="absolute inset-0 bg-background/70"
-                    data-ai-hint={image?.imageHint}
-                  />
+                <div className="relative h-full w-full flex items-center justify-center text-white">
+                  {image && (
+                    <Image
+                      src={image.imageUrl}
+                      alt={image.description}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={image.imageHint}
+                      priority
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-background/70" />
 
                   {/* Content */}
                   <div className="relative z-10 max-w-6xl px-6 text-center">
