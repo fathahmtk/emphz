@@ -1,3 +1,4 @@
+
 import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide } from '@/lib/types';
 import { Wrench, Zap, Building, HardHat } from 'lucide-react';
 
@@ -123,13 +124,13 @@ export const heroSlides: HeroSlide[] = [
   {
     id: "hero-1",
     imageId: "hero-background",
-    title: "Engineered GRP Infrastructure",
+    title: "ENGINEERED MODULAR INFRASTRUCTURE SOLUTIONS",
     subtitle:
-      "High-performance GRP kiosks, enclosures, shelters, and modular structures built for utilities, EPCs, and public infrastructure.",
-    primaryText: "View Products",
-    primaryLink: "/products",
-    secondaryText: "Download Catalogue",
-    secondaryLink: "/resources",
+      "30+ Years of Engineering Expertise in GRP Enclosures, Kiosks, Shelters & Utility Structures",
+    primaryText: "REQUEST A QUOTE",
+    primaryLink: "/contact",
+    secondaryText: "VIEW PRODUCTS",
+    secondaryLink: "/products",
   },
   {
     id: "hero-2",

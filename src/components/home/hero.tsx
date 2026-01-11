@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -46,7 +47,7 @@ export default function Hero() {
 
                   {/* Content */}
                   <div className="relative z-10 max-w-6xl px-6 text-center">
-                    <h1 className="text-4xl md:text-7xl font-extrabold tracking-tighter mb-6 animate-slide-in-down">
+                    <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-6 animate-slide-in-down">
                       {slide.title}
                     </h1>
 
