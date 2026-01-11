@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -44,9 +44,9 @@ export default function Header() {
   }, []);
 
   const headerClasses = cn(
-    "fixed top-0 z-50 w-full transition-all duration-300",
+    "fixed top-4 inset-x-0 z-50 max-w-6xl mx-auto rounded-2xl transition-all duration-300",
     (hasScrolled || !isHomePage)
-      ? "bg-background/95 text-foreground backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 border-b"
+      ? "glass text-foreground"
       : "bg-transparent text-white border-b-transparent"
   );
   
@@ -77,7 +77,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2 sm:gap-4">
           <Link href="/contact" className="relative">
-            <Button variant="ghost" size="icon" className={cn((!hasScrolled && isHomePage) && 'text-white hover:bg-white/10 hover:text-white')}>
+            <Button variant="ghost" size="icon" className={cn("rounded-full", (!hasScrolled && isHomePage) && 'text-white hover:bg-white/10 hover:text-white')}>
               <ShoppingBasket className="h-5 w-5" />
               <span className="sr-only">Quote Basket</span>
             </Button>
@@ -86,28 +86,28 @@ export default function Header() {
             )}
           </Link>
           {isLoggedIn ? (
-            <Button onClick={logout} size="sm" variant={(!hasScrolled && isHomePage) ? 'outline' : 'default'} className={cn("hidden sm:inline-flex", (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary')}>Logout</Button>
+            <Button onClick={logout} size="sm" variant={(!hasScrolled && isHomePage) ? 'outline' : 'default'} className={cn("hidden sm:inline-flex rounded-full", (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary')}>Logout</Button>
           ) : (
-            <Button asChild size="sm" variant="outline" className={cn("hidden sm:inline-flex", (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary')}>
+            <Button asChild size="sm" variant="outline" className={cn("hidden sm:inline-flex rounded-full", (!hasScrolled && isHomePage) && 'text-white border-white hover:bg-white hover:text-primary')}>
               <Link href="/login">Partner Login</Link>
             </Button>
           )}
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className={cn((!hasScrolled && isHomePage) && 'text-white hover:bg-white/10 hover:text-white')}>
+              <Button variant="ghost" size="icon" className={cn("rounded-full", (!hasScrolled && isHomePage) && 'text-white hover:bg-white/10 hover:text-white')}>
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px]">
+            <SheetContent side="left" className="w-[300px] glass">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
                     <Logo />
                   </Link>
                   <SheetTrigger asChild>
-                     <Button variant="ghost" size="icon">
+                     <Button variant="ghost" size="icon" className="rounded-full">
                         <X className="h-6 w-6" />
                         <span className="sr-only">Close menu</span>
                       </Button>
@@ -131,9 +131,9 @@ export default function Header() {
                 </nav>
                  <div className="mt-auto pt-4 border-t">
                     {isLoggedIn ? (
-                        <Button onClick={() => {logout(); setMobileMenuOpen(false);}} size="sm" className="w-full">Logout</Button>
+                        <Button onClick={() => {logout(); setMobileMenuOpen(false);}} size="sm" className="w-full rounded-full">Logout</Button>
                     ) : (
-                        <Button asChild size="sm" onClick={() => setMobileMenuOpen(false)} className="w-full">
+                        <Button asChild size="sm" onClick={() => setMobileMenuOpen(false)} className="w-full rounded-full">
                         <Link href="/login">Partner Login</Link>
                         </Button>
                     )}
