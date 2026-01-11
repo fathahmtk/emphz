@@ -80,7 +80,7 @@ export type HeroSlide = {
 };
 
 export type Inquiry = {
-  id: string;
+  id?: string;
   name: string;
   email: string;
   company?: string;

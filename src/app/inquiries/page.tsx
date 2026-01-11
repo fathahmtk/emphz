@@ -11,6 +11,7 @@ import { format } from 'date-fns';
 import { useInquiries } from '@/hooks/use-inquiries';
 import { Inquiry } from '@/lib/types';
 import { BarChart, MessageSquare, Package, TrendingUp } from 'lucide-react';
+import InquiryStatusSelector from './inquiry-status-selector';
 
 function KpiCard({ title, value, icon: Icon }: { title: string, value: string | number, icon: React.ElementType }) {
     return (
@@ -120,7 +121,11 @@ export default function InquiriesPage() {
                     <TableCell>{inquiry.product}</TableCell>
                     <TableCell>{inquiry.routedTo}</TableCell>
                     <TableCell>
-                      <Badge variant="secondary">{inquiry.status}</Badge>
+                      {inquiry.id ? (
+                        <InquiryStatusSelector inquiryId={inquiry.id} currentStatus={inquiry.status} />
+                      ) : (
+                        <Badge variant="secondary">{inquiry.status}</Badge>
+                      )}
                     </TableCell>
                   </TableRow>
                 ))
