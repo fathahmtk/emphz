@@ -1,23 +1,48 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode } from 'react';
+import { useUser, User } from '@/firebase/auth/use-user';
+import { loginWithGoogle, logout as firebaseLogout } from '@/firebase/auth/api';
+
 
 interface AuthContextType {
+  user: User | null;
+  login: (() => Promise<void>) | null;
+  logout: (() => Promise<void>) | null;
+  loading: boolean;
   isLoggedIn: boolean;
-  login: () => void;
-  logout: () => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType>({
+  user: null,
+  login: null,
+  logout: null,
+  loading: true,
+  isLoggedIn: false,
+});
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { user, loading } = useUser();
+  const isLoggedIn = !loading && !!user;
 
-  const login = () => setIsLoggedIn(true);
-  const logout = () => setIsLoggedIn(false);
+  const login = async () => {
+    try {
+      await loginWithGoogle();
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await firebaseLogout();
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, loading, isLoggedIn }}>
       {children}
     </AuthContext.Provider>
   );

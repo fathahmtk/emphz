@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { AuthProvider } from '@/context/auth-context';
 import { QuoteProvider } from '@/context/quote-context';
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
+import FirebaseAuthProvider from '@/components/auth/firebase-auth-provider';
 
 export const metadata: Metadata = {
   title: 'EMPHZ Corporate | 30+ Years of Engineering Excellence',
@@ -24,7 +24,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen bg-background">
-        <AuthProvider>
+        <FirebaseAuthProvider>
           <QuoteProvider>
             <Header />
             <main className="flex-grow">
@@ -33,7 +33,7 @@ export default function RootLayout({
             <Footer />
             <Toaster />
           </QuoteProvider>
-        </AuthProvider>
+        </FirebaseAuthProvider>
       </body>
     </html>
   );
