@@ -57,13 +57,13 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in-up" style={{animationDelay: '0.4s', opacity: 0}}>
-                      <Button asChild size="lg" className="rounded-full">
+                      <Button asChild size="lg">
                         <Link href={slide.primaryLink}>
                           {slide.primaryText}
                           <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </Button>
-                      <Button asChild size="lg" variant="secondary" className="rounded-full">
+                      <Button asChild size="lg" variant="secondary">
                         <Link href={slide.secondaryLink}>
                           {slide.secondaryText}
                           <FileDown className="ml-2 h-5 w-5" />
