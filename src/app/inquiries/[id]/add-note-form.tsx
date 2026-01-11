@@ -8,7 +8,6 @@ import { useUser } from '@/firebase';
 import { addInquiryNote } from '@/actions/add-inquiry-note';
 import { useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
-import { Paperclip } from 'lucide-react';
 
 function SubmitButton() {
     const { pending } = useFormStatus();

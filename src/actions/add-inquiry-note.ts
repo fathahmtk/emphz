@@ -43,22 +43,26 @@ export async function addInquiryNote(formData: FormData) {
     authorId: authorId,
     createdAt: serverTimestamp(),
   };
+  
+  const updateData = {
+      notes: arrayUnion(newNote)
+  };
 
   // We use arrayUnion to atomically add a new note to the 'notes' array.
-  try {
-    await updateDoc(inquiryRef, {
-        notes: arrayUnion(newNote)
-    });
-    // Revalidate the inquiry detail page to show the new note
-    revalidatePath(`/inquiries/${inquiryId}`);
-    return { success: true, message: 'Note added successfully.' };
-  } catch (serverError) {
+  updateDoc(inquiryRef, updateData)
+    .then(() => {
+        // Revalidate the inquiry detail page to show the new note
+        revalidatePath(`/inquiries/${inquiryId}`);
+    })
+    .catch(async (serverError) => {
       const permissionError = new FirestorePermissionError({
           path: inquiryRef.path,
           operation: 'update',
           requestResourceData: { notes: `Adding new note by ${author}` },
       });
       errorEmitter.emit('permission-error', permissionError);
-      return { success: false, message: 'You do not have permission to add a note.' };
-  }
+  });
+
+  // Optimistically return success
+  return { success: true, message: 'Note added successfully.' };
 }

@@ -1,3 +1,4 @@
+
 type EventMap = {
   'permission-error': (error: Error) => void;
   [key: string]: (...args: any[]) => void;

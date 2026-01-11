@@ -31,18 +31,20 @@ export async function updateInquiryStatus(formData: FormData) {
   const inquiryRef = doc(firestore, 'inquiries', inquiryId);
   const updateData = { status: status };
 
-  try {
-      await updateDoc(inquiryRef, updateData);
-      revalidatePath('/inquiries');
-      revalidatePath(`/inquiries/${inquiryId}`);
-      return { success: true, message: `Inquiry status updated to ${status}.` };
-  } catch(serverError) {
+  updateDoc(inquiryRef, updateData)
+    .then(() => {
+        revalidatePath('/inquiries');
+        revalidatePath(`/inquiries/${inquiryId}`);
+    })
+    .catch(async (serverError) => {
       const permissionError = new FirestorePermissionError({
           path: inquiryRef.path,
           operation: 'update',
           requestResourceData: updateData,
       });
       errorEmitter.emit('permission-error', permissionError);
-      return { success: false, message: 'You do not have permission to update the status.' };
-  };
+  });
+  
+  // Optimistically return success
+  return { success: true, message: `Inquiry status updated to ${status}.` };
 }

@@ -1,7 +1,7 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
 import { errorEmitter } from './error-emitter';
 
 const FirebaseErrorListener = () => {

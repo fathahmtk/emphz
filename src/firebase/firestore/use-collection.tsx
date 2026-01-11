@@ -39,7 +39,7 @@ export const useCollection = <T extends DocumentData>(
         setError(null);
       },
       async (err: FirestoreError) => {
-        if (err.code === 'permission-denied' && 'path' in query) {
+        if (err.code === 'permission-denied') {
           const permissionError = new FirestorePermissionError({
               path: (query as any).path,
               operation: 'list',
