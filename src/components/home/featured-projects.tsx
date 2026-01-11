@@ -1,10 +1,8 @@
-import Image from "next/image";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { projects } from "@/lib/data";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
+import { projects } from "@/lib/data";
+import ProjectCard from "@/components/home/project-card";
 
 export default function FeaturedProjects() {
   return (
@@ -17,39 +15,14 @@ export default function FeaturedProjects() {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {projects.map((project) => {
-            const image = PlaceHolderImages.find(p => p.id === project.image_id);
-            return (
-              <Card key={project.id} className="overflow-hidden flex flex-col">
-                {image && (
-                   <div className="relative h-64 w-full">
-                     <Image
-                      src={image.imageUrl}
-                      alt={project.name}
-                      data-ai-hint={image.imageHint}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                   </div>
-                )}
-                <CardHeader>
-                  <CardTitle>{project.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-sm text-muted-foreground">{project.description}</p>
-                </CardContent>
-                <CardFooter>
-                  <Badge variant="secondary">{project.industry}</Badge>
-                </CardFooter>
-              </Card>
-            );
-          })}
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </div>
-         <div className="text-center mt-12">
-            <Button asChild variant="outline">
-                <Link href="/contact">Discuss Your Project</Link>
-            </Button>
+        <div className="text-center mt-12">
+          <Button asChild variant="outline">
+            <Link href="/contact">Discuss Your Project</Link>
+          </Button>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 import { industries } from "@/lib/data";
+import IndustryCard from "@/components/home/industry-card";
 
 export default function Industries() {
   return (
@@ -13,17 +14,7 @@ export default function Industries() {
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((industry) => (
-            <Card key={industry.id} className="text-center group hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="mx-auto bg-primary/10 text-primary h-16 w-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <industry.icon className="h-8 w-8" />
-                </div>
-                <CardTitle>{industry.name}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{industry.description}</p>
-              </CardContent>
-            </Card>
+            <IndustryCard key={industry.id} industry={industry} />
           ))}
         </div>
       </div>

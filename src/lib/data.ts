@@ -1,4 +1,4 @@
-import type { Product, Industry, Project, TeamMember, Certification, Resource } from '@/lib/types';
+import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide } from '@/lib/types';
 import { Wrench, Zap, Building, HardHat } from 'lucide-react';
 
 export const industries: Industry[] = [
@@ -117,4 +117,40 @@ export const resources: Resource[] = [
   { id: '2', title: 'Kiosk-001 Brochure', description: 'Features and options for our Modular GRP Kiosks.', category: 'Kiosks', url: '/resources/Kiosk-001-datasheet.pdf' },
   { id: '3', title: 'PT-001 Installation Guide', description: 'Step-by-step guide for setting up GRP Portable Toilets.', category: 'Portable Toilets', url: '/resources/PT-001-datasheet.pdf' },
   { id: '4', title: 'GRP Material Guide', description: 'Comprehensive guide to the benefits of Glass Reinforced Polyester.', category: 'General', url: '/resources/GRP-material-guide.pdf' },
+];
+
+export const heroSlides: HeroSlide[] = [
+  {
+    id: "hero-1",
+    imageId: "hero-background",
+    title: "Engineered GRP Infrastructure",
+    subtitle:
+      "High-performance GRP kiosks, enclosures, shelters, and modular structures built for utilities, EPCs, and public infrastructure.",
+    primaryText: "View Products",
+    primaryLink: "/products",
+    secondaryText: "Download Catalogue",
+    secondaryLink: "/resources",
+  },
+  {
+    id: "hero-2",
+    imageId: "hero-solar",
+    title: "Utility & Power-Ready Solutions",
+    subtitle:
+      "Weather-resistant GRP enclosures and kiosks designed for electrical distribution, renewable energy, and utility networks.",
+    primaryText: "Utility Solutions",
+    primaryLink: "/products",
+    secondaryText: "Talk to Engineering",
+    secondaryLink: "/contact",
+  },
+  {
+    id: "hero-3",
+    imageId: "hero-industrial",
+    title: "Modular. Durable. Scalable.",
+    subtitle:
+      "From urban infrastructure to large EPC projects, EMPHZ delivers GRP systems optimised for lifecycle cost and rapid deployment.",
+    primaryText: "Request a Quote",
+    primaryLink: "/contact",
+    secondaryText: "Why EMPHZ",
+    secondaryLink: "/about",
+  },
 ];

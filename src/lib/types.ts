@@ -1,3 +1,4 @@
+
 export type Product = {
   id: string;
   sku: string;
@@ -64,4 +65,15 @@ export type Resource = {
   description: string;
   category: string;
   url: string;
+};
+
+export type HeroSlide = {
+  id: string;
+  imageId: string;
+  title: string;
+  subtitle: string;
+  primaryText: string;
+  primaryLink: string;
+  secondaryText: string;
+  secondaryLink: string;
 };
