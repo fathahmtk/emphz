@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight, Check, ChevronRight, Download } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import AddToQuoteButton from './add-to-quote-button';
 
 export async function generateStaticParams() {
   return products.map((product) => ({
@@ -180,7 +181,8 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                         Share your requirement, quantity, or drawing. Our engineering team will review and provide a technical and commercial proposal.
                     </CardDescription>
                 </CardHeader>
-                <CardContent className="flex justify-center">
+                <CardContent className="flex flex-col sm:flex-row gap-4 justify-center">
+                     <AddToQuoteButton productId={product.id} />
                      <Button size="lg" asChild>
                         <Link href="/contact">
                             Request a Quote
