@@ -5,7 +5,7 @@
 import { useState, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { products, industries } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Breadcrumbs from '@/components/products/breadcrumbs';
@@ -15,30 +15,30 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Search, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
 
 function ProductsPageContent() {
-  const searchParams = useSearchParams();
   const router = useRouter();
-  const industryFilter = searchParams.get('industry');
+  const searchParams = useSearchParams();
+  
+  const industryFilter = searchParams.get('industry') || 'all';
+  const categoryFilter = searchParams.get('category') || 'all';
+  const searchTermFilter = searchParams.get('q') || '';
 
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchTerm, setSearchTerm] = useState(searchTermFilter);
+  const [selectedCategory, setSelectedCategory] = useState(categoryFilter);
+  const [selectedIndustry, setSelectedIndustry] = useState(industryFilter);
 
   const filteredProducts = useMemo(() => {
     return products
       .filter((product) => {
-        // Filter by industry
-        if (!industryFilter) return true;
-        return product.industry_ids?.includes(industryFilter);
+        if (selectedIndustry === 'all') return true;
+        return product.industry_ids?.includes(selectedIndustry);
       })
       .filter((product) => {
-        // Filter by category
         if (selectedCategory === 'all') return true;
         return product.category === selectedCategory;
       })
       .filter((product) => {
-        // Filter by search term
         if (!searchTerm) return true;
         return (
           product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -46,13 +46,32 @@ function ProductsPageContent() {
           product.category.toLowerCase().includes(searchTerm.toLowerCase())
         );
       });
-  }, [searchTerm, selectedCategory, industryFilter]);
+  }, [searchTerm, selectedCategory, selectedIndustry]);
+  
+  const handleFilterChange = (type: 'q' | 'category' | 'industry', value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value === 'all') {
+      params.delete(type);
+    } else {
+      params.set(type, value);
+    }
+    router.push(`/products?${params.toString()}`);
+  };
+  
+  // Update state when URL params change
+  useMemo(() => {
+    setSelectedIndustry(industryFilter);
+    setSelectedCategory(categoryFilter);
+    setSearchTerm(searchTermFilter);
+  }, [industryFilter, categoryFilter, searchTermFilter]);
+
 
   const categories = ['all', ...Array.from(new Set(products.map(p => p.category)))];
-  const activeIndustry = industries.find(i => i.id === industryFilter);
+  const activeIndustry = industries.find(i => i.id === selectedIndustry);
 
   const clearIndustryFilter = () => {
-    router.push('/products');
+    setSelectedIndustry('all');
+    handleFilterChange('industry', 'all');
   };
 
   return (
@@ -77,9 +96,27 @@ function ProductsPageContent() {
                     className="pl-10 w-full"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        handleFilterChange('q', (e.target as HTMLInputElement).value);
+                      }
+                    }}
                 />
             </div>
-            <Select onValueChange={setSelectedCategory} defaultValue={selectedCategory}>
+             <Select onValueChange={(value) => { setSelectedIndustry(value); handleFilterChange('industry', value); }} value={selectedIndustry}>
+                <SelectTrigger className="w-full md:w-[240px]">
+                    <SelectValue placeholder="Filter by industry" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="all">All Industries</SelectItem>
+                    {industries.map(industry => (
+                        <SelectItem key={industry.id} value={industry.id} className="capitalize">
+                            {industry.name}
+                        </SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
+            <Select onValueChange={(value) => { setSelectedCategory(value); handleFilterChange('category', value); }} value={selectedCategory}>
                 <SelectTrigger className="w-full md:w-[200px]">
                     <SelectValue placeholder="Filter by category" />
                 </SelectTrigger>
@@ -93,7 +130,7 @@ function ProductsPageContent() {
             </Select>
         </div>
 
-        {activeIndustry && (
+        {activeIndustry && selectedIndustry !== 'all' && (
             <div className="mb-8 p-4 bg-secondary rounded-lg flex items-center justify-between">
                 <p className="text-sm font-medium text-secondary-foreground">
                     Filtering for: <span className="font-bold">{activeIndustry.name}</span>
