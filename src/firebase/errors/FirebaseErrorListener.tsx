@@ -9,7 +9,7 @@ const FirebaseErrorListener = () => {
 
   useEffect(() => {
     const handlePermissionError = (error: Error) => {
-      console.log('Permission error detected, handling with boundary');
+      // This will be caught by the nearest error boundary
       handleError(error);
     };
 

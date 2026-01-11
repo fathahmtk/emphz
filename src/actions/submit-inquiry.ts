@@ -1,9 +1,12 @@
+
 "use server";
 
 import { z } from 'zod';
 import { routeInquiry } from '@/ai/flows/route-inquiries';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { initializeFirebase } from '@/firebase';
+import { errorEmitter } from '@/firebase/errors/error-emitter';
+import { FirestorePermissionError } from '@/firebase/errors/errors';
 
 const inquirySchema = z.object({
   name: z.string().min(2, 'Name is required.'),
@@ -78,13 +81,24 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
 
     // 2. Save to Firestore
     const { firestore } = initializeFirebase();
+    const inquiriesCollection = collection(firestore, 'inquiries');
     const inquiryData = {
       ...validation.data,
       routedTo: routingResult.expert,
       routedAt: new Date(),
       status: 'New',
     };
-    await addDoc(collection(firestore, 'inquiries'), inquiryData);
+    
+    addDoc(inquiriesCollection, inquiryData)
+      .catch(async (serverError) => {
+          const permissionError = new FirestorePermissionError({
+              path: inquiriesCollection.path,
+              operation: 'create',
+              requestResourceData: inquiryData,
+          });
+          errorEmitter.emit('permission-error', permissionError);
+      });
+      
     console.log('Inquiry saved to Firestore.');
 
     // 3. Send email notification (simulated)
