@@ -44,4 +44,3 @@ export default function InquiriesChart({ data }: InquiriesChartProps) {
     </Card>
   )
 }
-
