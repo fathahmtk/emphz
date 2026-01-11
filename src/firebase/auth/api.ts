@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   signOut,
 } from 'firebase/auth';
+import { useFirebaseAuth } from '..';
 
 const provider = new GoogleAuthProvider();
 
