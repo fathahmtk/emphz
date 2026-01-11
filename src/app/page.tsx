@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="space-y-16 sm:space-y-24 py-16 sm:py-24">
+      <div className="space-y-16 sm:space-y-24 py-16 sm:py-24 bg-background">
         <Industries />
         <FeaturedProjects />
         <AboutSummary />
