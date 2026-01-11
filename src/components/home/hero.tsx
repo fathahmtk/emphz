@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, FileDown } from "lucide-react";
 import {
@@ -17,34 +16,29 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Hero() {
   return (
-    <section className="relative h-[70vh] w-full">
+    <section className="relative h-screen w-full">
       <Carousel
         className="w-full h-full"
         plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
         opts={{ loop: true }}
       >
         <CarouselContent className="h-full">
-          {heroSlides.map((slide, index) => {
+          {heroSlides.map((slide) => {
             const image = PlaceHolderImages.find(
               (p) => p.id === slide.imageId
             );
 
             return (
               <CarouselItem key={slide.id} className="h-full">
-                <div className="relative h-full w-full flex items-center justify-center text-white">
-                  {image && (
-                    <Image
-                      src={image.imageUrl}
-                      alt={image.description}
-                      data-ai-hint={image.imageHint}
-                      fill
-                      priority={index === 0}
-                      className="object-cover"
-                    />
-                  )}
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-background/60" />
+                <div 
+                  className="relative h-full w-full flex items-center justify-center text-white bg-cover bg-center"
+                  style={{ backgroundImage: image ? `url(${image.imageUrl})` : 'none' }}
+                  aria-label={image?.description}
+                >
+                  <div 
+                    className="absolute inset-0 bg-background/70"
+                    data-ai-hint={image?.imageHint}
+                  />
 
                   {/* Content */}
                   <div className="relative z-10 max-w-6xl px-6 text-center">
