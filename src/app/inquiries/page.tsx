@@ -3,26 +3,18 @@
 
 import { useAuth } from '@/context/auth-context';
 import { useRouter } from 'next/navigation';
-import { useEffect, useMemo } from 'react';
-import { useCollection } from '@/firebase/firestore/use-collection';
-import { collection, query, orderBy } from 'firebase/firestore';
-import { useFirestore } from '@/firebase';
+import { useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
+import { useInquiries } from '@/hooks/use-inquiries';
+import { Inquiry } from '@/lib/types';
 
 export default function InquiriesPage() {
   const { user, loading: authLoading } = useAuth();
   const router = useRouter();
-  const firestore = useFirestore();
-
-  const inquiriesQuery = useMemo(() => {
-    if (!firestore) return null;
-    return query(collection(firestore, 'inquiries'), orderBy('routedAt', 'desc'));
-  }, [firestore]);
-
-  const { data: inquiries, loading: inquiriesLoading } = useCollection(inquiriesQuery);
+  const { inquiries, loading: inquiriesLoading } = useInquiries();
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -71,7 +63,7 @@ export default function InquiriesPage() {
             </TableHeader>
             <TableBody>
               {inquiries && inquiries.length > 0 ? (
-                inquiries.map((inquiry: any) => (
+                inquiries.map((inquiry: Inquiry) => (
                   <TableRow key={inquiry.id}>
                     <TableCell>
                       {inquiry.routedAt?.toDate ? format(inquiry.routedAt.toDate(), 'PPp') : 'N/A'}

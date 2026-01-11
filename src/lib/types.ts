@@ -78,3 +78,19 @@ export type HeroSlide = {
   secondaryText: string;
   secondaryLink: string;
 };
+
+export type Inquiry = {
+  id: string;
+  name: string;
+  email: string;
+  company?: string;
+  projectType?: string;
+  product?: string;
+  quantity?: string;
+  location?: string;
+  message: string;
+  quoteItems?: { sku: string; name: string }[];
+  routedTo: string;
+  routedAt: any; // Firestore Timestamp
+  status: string;
+};
