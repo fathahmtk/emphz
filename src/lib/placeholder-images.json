@@ -3,7 +3,7 @@
     {
       "id": "hero-background",
       "description": "A modern factory or industrial setting.",
-      "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMVu08scEr9C4C_CeJec7f0PRTXBV-KjmTrvsTEvH7yobP5ddistqZgIJJVJ_71g040caTgJ9s6bpC6fQM6TsIwEn9V1wirCv2YjJHjYFSiMmqtun36MMMKn-UmeMuuEpz9dGZIDMtHbOk1PCTdQsckMw=w1344-h768-s-no-gm?authuser=0",
+      "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO3QR_zgU5NrlwdA2evx824k4sb5JwDTl4OHCODq6pvYk0F5ScgKPCvtsjkMm-dJy0sFr6_n26KwNqFTm2s3U-ASDgf4kQHP2NHFiRGBpX7I_BSB5r9k6I8ULuWc9Z2zy0_lNEXNBFf9LlHspsnhdDErA=w1344-h768-s-no-gm?authuser=0",
       "imageHint": "industrial factory"
     },
     {
@@ -75,74 +75,73 @@
     {
       "id": "project-neom",
       "description": "A futuristic cityscape representing NEOM.",
-      "imageUrl": "https://images.unsplash.com/photo-1536768139911-e290a59011e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnV0dXJpc3RpYyUyMGNpdHl8ZW58MHx8fHwxNzY4MTAxNzc2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1536768139911-e290a59011e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnV0dXJpc3RpYyUyMGNpdHl8ZW58MHx8fHwxNzY4MTAxNzc2fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "futuristic city"
     },
     {
       "id": "project-qatar-gas",
       "description": "A large gas refinery plant.",
-      "imageUrl": "https://images.unsplash.com/photo-1653352639753-8debcc830014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnYXMlMjByZWZpbmVyeXxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653352639753-8debcc830014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnYXMlMjByZWZpbmVyeXxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "gas refinery"
     },
     {
       "id": "about-us-main",
       "description": "A modern and bright office interior.",
-      "imageUrl": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxvZmZpY2UlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjgwMzg3Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxvZmZpY2UlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjgwMzg3Mjl8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "office interior"
     },
     {
       "id": "team-john",
       "description": "Portrait of a male CEO.",
-      "imageUrl": "https://images.unsplash.com/photo-1590086782792-42dd2350140d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4MTE5MDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1590086782792-42dd2350140d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4MTE5MDUxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "male portrait"
     },
     {
       "id": "team-jane",
       "description": "Portrait of a female engineer.",
-      "imageUrl": "https://images.unsplash.com/photo-1634149134664-ca3598f29da5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmZW1hbGUlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjgwNDYzNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1634149134664-ca3598f29da5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmZW1hbGUlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjgwNDYzNjZ8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "female portrait"
     },
     {
       "id": "team-peter",
       "description": "Portrait of a male sales director.",
-      "imageUrl": "https://images.unsplash.com/photo-1656338997878-279d71d48f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4MTE5MDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1656338997878-279d71d48f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4MTE5MDUxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "male portrait"
     },
     {
       "id": "cert-iso-9001",
       "description": "ISO 9001 certification logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1762330916233-221b49fce7f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "certification logo"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_5rjmmt5rjmmt5rjm.png?alt=media&token=53f10d2e-1a0a-4f29-9673-94be5f9be2a8"
     },
     {
       "id": "cert-iso-14001",
       "description": "ISO 14001 certification logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1745970649913-2edb9dca4f74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "certification logo"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_bqoodzbqoodzbqoo.png?alt=media&token=74fddfdf-37a2-4a0a-9b86-b8124b6649b0"
     },
     {
       "id": "cert-nema",
       "description": "NEMA certification logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1745970649913-2edb9dca4f74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "certification logo"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_dgosifdgosifdgos.png?alt=media&token=9352758b-79be-47d2-b53a-9f7dc448aea3"
     },
     {
       "id": "cert-ip66",
       "description": "IP66 rating icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1643768479891-ea1066aadc6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyYXRpbmclMjBpY29ufGVufDB8fHx8MTc2ODEyMDU1MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "rating icon"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_fcok37fcok37fcok.png?alt=media&token=259f12fb-51fc-4cd9-84da-5826f57a004f"
     },
     {
       "id": "cert-ul",
       "description": "UL Listed logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1762330916242-08b27b39e265?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "certification logo"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_lrmb12lrmb12lrmb.png?alt=media&token=3900a657-1573-4dc9-8e0e-6419f2f3aeff"
     },
     {
       "id": "cert-ce",
       "description": "CE Marking logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1762330907825-2864a45c124d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "certification logo"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_nqtpvunqtpvunqtp.png?alt=media&token=e35f26ff-303c-4ae2-b92a-7430907023b9"
+    },
+    {
+      "id": "cert-new",
+      "description": "New certification logo.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_q5pggwq5pggwq5pg.png?alt=media&token=12f4604e-6431-4c50-9a4b-c7535783fc68"
     }
   ]
 }
