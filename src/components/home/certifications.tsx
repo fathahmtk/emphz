@@ -9,7 +9,7 @@ export default function Certifications() {
     <section>
         <div className="text-center mb-12">
           <h3 className="text-2xl font-bold tracking-tighter sm:text-3xl">Compliance You Can Trust</h3>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
+          <p className="mt-4 max-w-2xl mx-auto text-neutral-200 md:text-lg">
             Our products meet and exceed the most stringent international standards.
           </p>
         </div>
@@ -18,7 +18,7 @@ export default function Certifications() {
             const image = PlaceHolderImages.find(p => p.id === cert.image_id);
             return (
               <Link key={cert.id} href="/contact" passHref>
-                <Card className="h-full flex flex-col items-center justify-center p-4 aspect-square bg-background hover:bg-accent hover:shadow-md transition-all">
+                <Card className="h-full flex flex-col items-center justify-center p-4 aspect-square bg-card/80 backdrop-blur-sm hover:bg-accent/80 transition-all text-card-foreground">
                   <CardContent className="p-0 flex flex-col items-center justify-center text-center">
                     {image && 
                       <div className="relative w-16 h-16 mb-2">

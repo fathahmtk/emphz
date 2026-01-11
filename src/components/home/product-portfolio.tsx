@@ -1,6 +1,8 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const portfolioItems = [
     {
@@ -36,19 +38,31 @@ const portfolioItems = [
 ];
 
 export default function ProductPortfolio() {
+    const image = PlaceHolderImages.find(p => p.id === 'hero-industrial');
     return (
-        <section className="bg-card py-16 sm:py-24">
-            <div className="container">
+        <section className="relative container py-24 sm:py-32 rounded-lg overflow-hidden text-white">
+            {image && (
+                <Image 
+                src={image.imageUrl} 
+                alt={image.description} 
+                data-ai-hint={image.imageHint}
+                fill 
+                className="object-cover"
+                sizes="100vw"
+                />
+            )}
+            <div className="absolute inset-0 bg-black/70" />
+            <div className="relative z-10">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">PRODUCT PORTFOLIO</h2>
-                     <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
+                     <p className="mt-4 max-w-2xl mx-auto text-neutral-200 md:text-lg">
                         We manufacture a wide range of GRP-based products for infrastructure and industrial needs.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {portfolioItems.map((item) => (
                          <Link key={item.title} href={item.link} className="block h-full">
-                            <Card className="bg-background h-full flex flex-col hover:border-primary transition-colors">
+                            <Card className="bg-card/80 backdrop-blur-sm h-full flex flex-col hover:border-primary transition-colors text-card-foreground">
                                 <CardHeader>
                                     <CardTitle>{item.title}</CardTitle>
                                 </CardHeader>
