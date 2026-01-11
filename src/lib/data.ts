@@ -1,12 +1,14 @@
 
 import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide } from '@/lib/types';
-import { Wrench, Zap, Building, HardHat } from 'lucide-react';
+import { Wrench, Zap, Building, HardHat, Car, Factory, Shield, Wifi, Wind, Briefcase } from 'lucide-react';
 
 export const industries: Industry[] = [
-  { id: '1', name: 'Construction', description: 'Durable solutions for harsh construction environments.', icon: HardHat, image_id: 'industry-construction' },
-  { id: '2', name: 'Energy', description: 'Reliable infrastructure for the energy sector, from oil & gas to renewables.', icon: Zap, image_id: 'industry-energy' },
-  { id: '3', name: 'Public Works', description: 'Customizable products for municipal and public infrastructure projects.', icon: Building, image_id: 'industry-public-works' },
-  { id: '4', name: 'Industry Verticals', description: 'Versatile applications across a wide range of industrial verticals.', icon: Wrench, image_id: 'industry-verticals' },
+    { id: '1', name: 'Power Distribution & Utilities', description: 'Solutions for power distribution networks and utility infrastructure.', icon: Zap, image_id: 'industry-energy' },
+    { id: '2', name: 'Infrastructure & Public Works', description: 'Products for transport, water, and public-sector projects.', icon: Building, image_id: 'industry-public-works' },
+    { id: '3', name: 'Telecom & Digital Networks', description: 'Infrastructure for communication networks and data centers.', icon: Wifi, image_id: 'industry-telecom' },
+    { id: '4', name: 'Energy & Process Facilities', description: 'Enclosures for oil & gas, and other process industries.', icon: Factory, image_id: 'industry-factory' },
+    { id: '5', name: 'Renewable Energy & EV Infrastructure', description: 'Support for solar, wind, and electric vehicle charging projects.', icon: Wind, image_id: 'industry-renewable' },
+    { id: '6', name: 'Industrial & Manufacturing Units', description: 'Durable solutions for various manufacturing environments.', icon: HardHat, image_id: 'industry-construction' },
 ];
 
 export const products: Product[] = [

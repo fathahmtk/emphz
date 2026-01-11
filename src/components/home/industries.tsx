@@ -1,17 +1,6 @@
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import Link from "next/link";
-import { ArrowRight, Zap, Building, HardHat, Car, Factory, Shield, Wifi, Wind, Briefcase } from "lucide-react";
-
-const industries = [
-    { name: 'Power Distribution & Utilities', icon: Zap },
-    { name: 'Infrastructure & Public Works', icon: Building },
-    { name: 'Telecom & Digital Networks', icon: Wifi },
-    { name: 'Energy & Process Facilities', icon: Factory },
-    { name: 'Renewable Energy & EV Infrastructure', icon: Wind },
-    { name: 'Industrial & Manufacturing Units', icon: HardHat },
-];
+import { Card } from "@/components/ui/card";
+import { industries } from "@/lib/data";
 
 export default function Industries() {
   return (
