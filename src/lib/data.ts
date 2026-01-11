@@ -26,8 +26,8 @@ export const products: Product[] = [
     ip_rating: 66,
     dimensions: { height: 600, width: 400, depth: 230 },
     material_specs: 'Glass Reinforced Polyester (GRP)',
-    authority_approval: ['DEWA', 'ADDC'],
-    material_standard: 'BS EN 60529',
+    authority_approval: ['BIS', 'CPRI'],
+    material_standard: 'IS 13947',
     fire_retardancy_class: 'BS 476, Part 7, Class 2',
     download_url: '/resources/EE-001-datasheet.pdf',
     image_id: 'product-enclosure-1',
@@ -53,8 +53,8 @@ export const products: Product[] = [
     ip_rating: 65,
     dimensions: { height: 2500, width: 2000, depth: 2000 },
     material_specs: 'Glass Reinforced Polyester (GRP)',
-    authority_approval: ['KAHRAMAA', 'FEWA'],
-    material_standard: 'BS EN 60529',
+    authority_approval: ['Indian Standards'],
+    material_standard: 'IS 14772',
     fire_retardancy_class: 'BS 476, Part 7, Class 1',
     download_url: '/resources/Kiosk-001-datasheet.pdf',
     image_id: 'product-kiosk-1',
@@ -92,10 +92,10 @@ export const products: Product[] = [
 ];
 
 export const projects: Project[] = [
-  { id: '1', title: 'Jebel Ali Power Station', location: 'Dubai, UAE', tags: ['Energy', 'GRP Enclosures'], imageId: 'project-power-station' },
-  { id: '2', title: 'Downtown Dubai Public Realm', location: 'Dubai, UAE', tags: ['Public Works', 'GRP Kiosks'], imageId: 'project-dubai' },
-  { id: '3', title: 'NEOM Smart City', location: 'Saudi Arabia', tags: ['Construction', 'Portable Toilets'], imageId: 'project-neom' },
-  { id: '4', title: 'Qatar Gas Refinery', location: 'Ras Laffan, Qatar', tags: ['Oil & Gas', 'Fire-Retardant Cabinets'], imageId: 'project-qatar-gas' },
+  { id: '1', title: 'Mumbai High Offshore Platform', location: 'Mumbai, India', tags: ['Energy', 'GRP Enclosures'], imageId: 'project-power-station' },
+  { id: '2', title: 'Delhi Metro Expansion', location: 'Delhi, India', tags: ['Public Works', 'GRP Kiosks'], imageId: 'project-dubai' },
+  { id: '3', title: 'GIFT City Infrastructure', location: 'Gujarat, India', tags: ['Construction', 'Smart City'], imageId: 'project-neom' },
+  { id: '4', title: 'Jamnagar Refinery Complex', location: 'Gujarat, India', tags: ['Oil & Gas', 'Fire-Retardant Cabinets'], imageId: 'project-qatar-gas' },
 ];
 
 export const team: TeamMember[] = [
@@ -107,7 +107,7 @@ export const team: TeamMember[] = [
 export const certifications: Certification[] = [
   { id: '1', name: 'ISO 9001', description: 'Quality Management', image_id: 'cert-iso-9001' },
   { id: '2', name: 'ISO 14001', description: 'Environmental Management', image_id: 'cert-iso-14001' },
-  { id: '3', name: 'NEMA', description: 'Electrical Standards', image_id: 'cert-nema' },
+  { id: '3', name: 'BIS', description: 'Bureau of Indian Standards', image_id: 'cert-nema' },
   { id: '4', name: 'IP66', description: 'Ingress Protection', image_id: 'cert-ip66' },
   { id: '5', name: 'UL Listed', description: 'Safety Certification', image_id: 'cert-ul' },
   { id: '6', name: 'CE Marking', description: 'European Conformity', image_id: 'cert-ce' },

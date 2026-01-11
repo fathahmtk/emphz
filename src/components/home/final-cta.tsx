@@ -36,7 +36,7 @@ export default function FinalCTA() {
                 <Link href="/contact?quote=true">Request a Quote <ArrowRight className="ml-2 h-5 w-5" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="tel:+1-800-555-GRP1"><Phone className="mr-2 h-5 w-5"/> Call Us</Link>
+                <Link href="tel:+91-987-654-3210"><Phone className="mr-2 h-5 w-5"/> Call Us</Link>
               </Button>
             </div>
           </div>
