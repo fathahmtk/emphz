@@ -72,12 +72,14 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
   `;
 
   try {
-    // 1. Route inquiry using GenAI
+    // 1. Route inquiry and get summary using GenAI
     const routingResult = await routeInquiry({
       inquiryType: product || (quoteItems && quoteItems.length > 0 ? quoteItems.map(i=>i.name).join(', ') : 'General Inquiry'),
       inquiryDetails: inquiryContent,
     });
     console.log('Inquiry routed to:', routingResult.expert);
+    console.log('AI Summary:', routingResult.summary);
+
 
     // 2. Save to Firestore
     const { firestore } = initializeFirebase();
@@ -85,6 +87,7 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
     const inquiryData = {
       ...validation.data,
       routedTo: routingResult.expert,
+      summary: routingResult.summary,
       routedAt: new Date(),
       status: 'New',
     };

@@ -99,6 +99,7 @@ export type Inquiry = {
   message: string;
   quoteItems?: { sku: string; name: string }[];
   routedTo: string;
+  summary: string;
   routedAt: any; // Firestore Timestamp
   status: string;
   notes?: InquiryNote[];

@@ -24,6 +24,7 @@ export type RouteInquiryInput = z.infer<typeof RouteInquiryInputSchema>;
 const RouteInquiryOutputSchema = z.object({
   expert: z.string().describe('The name or email of the appropriate industry expert.'),
   justification: z.string().describe('Why the inquiry was routed to this expert.'),
+  summary: z.string().describe('A one-sentence summary of the customer inquiry.'),
 });
 export type RouteInquiryOutput = z.infer<typeof RouteInquiryOutputSchema>;
 
@@ -37,12 +38,14 @@ const prompt = ai.definePrompt({
   output: {schema: RouteInquiryOutputSchema},
   prompt: `You are an AI assistant responsible for routing customer inquiries to the appropriate industry expert within EMPHZ.
 
-  Analyze the inquiry type and details provided to determine the best expert to handle the inquiry. Provide a justification for your routing decision.
+  Analyze the inquiry type and details provided to determine the best expert to handle the inquiry. 
+  
+  Also, provide a concise, one-sentence summary of the user's request.
 
   Inquiry Type: {{{inquiryType}}}
   Inquiry Details: {{{inquiryDetails}}}
 
-  Output should be JSON. The expert field should contain the expert's name or email address, and the justification should explain why this expert is the most suitable choice.
+  Output should be JSON. The expert field should contain the expert's name or email address, the justification should explain why this expert is the most suitable choice, and the summary should be a single sentence.
   `,
 });
 

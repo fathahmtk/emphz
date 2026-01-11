@@ -9,7 +9,7 @@ import { Inquiry } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowLeft, User, Building, Mail, ShoppingCart, MessageSquare, Info, MapPin } from 'lucide-react';
+import { ArrowLeft, User, Building, Mail, ShoppingCart, MessageSquare, Info, MapPin, Bot } from 'lucide-react';
 import { format } from 'date-fns';
 import InquiryStatusSelector from '../inquiry-status-selector';
 import AddNoteForm from './add-note-form';
@@ -80,6 +80,9 @@ export default function InquiryDetailPage() {
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-6">
+                             {inquiry.summary && (
+                                <DetailItem icon={Bot} label="AI Summary" value={<p className="text-primary italic">{inquiry.summary}</p>} />
+                            )}
                             <DetailItem icon={Info} label="Product Interest" value={inquiry.product} />
                             <DetailItem icon={MessageSquare} label="Message" value={<p className="whitespace-pre-wrap">{inquiry.message}</p>} />
                             {inquiry.quoteItems && inquiry.quoteItems.length > 0 && (
