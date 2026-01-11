@@ -1,6 +1,20 @@
 
-import { industries } from "@/lib/data";
-import IndustryCard from "@/components/home/industry-card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
+import { ArrowRight, Box, Car, BatteryCharging, Factory, HardHat, Home, Utensils, Warehouse } from "lucide-react";
+
+const productCategories = [
+    { name: 'Electrical Enclosures', icon: Box },
+    { name: 'GRP Kiosks & Shelters', icon: Warehouse },
+    { name: 'Portable Toilets', icon: Home },
+    { name: 'Security Cabins', icon: HardHat },
+    { name: 'Generator & Power Rooms', icon: Factory },
+    { name: 'Food Kiosks', icon: Utensils },
+    { name: 'Bus Waiting Sheds', icon: Car },
+    { name: 'EV Charging Shelters', icon: BatteryCharging },
+    { name: 'Canopies & Custom Structures', icon: Home },
+];
 
 export default function Industries() {
   return (
@@ -12,10 +26,18 @@ export default function Industries() {
             Our versatile GRP solutions are trusted by leaders across diverse sectors.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.map((industry) => (
-            <IndustryCard key={industry.id} industry={industry} />
-          ))}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            {productCategories.map((category) => (
+                <Card key={category.name} className="flex flex-col items-center justify-center p-4 aspect-square text-center bg-card hover:bg-accent hover:shadow-md transition-all">
+                    <category.icon className="w-10 h-10 text-primary mb-4" />
+                    <p className="font-semibold text-sm">{category.name}</p>
+                </Card>
+            ))}
+        </div>
+        <div className="text-center mt-12">
+          <Button asChild size="lg">
+            <Link href="/products">Browse All Products <ArrowRight className="ml-2 h-5 w-5" /></Link>
+          </Button>
         </div>
       </div>
     </section>
