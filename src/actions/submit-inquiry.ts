@@ -2,6 +2,8 @@
 
 import { z } from 'zod';
 import { routeInquiry } from '@/ai/flows/route-inquiries';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { initializeFirebase } from '@/firebase';
 
 const inquirySchema = z.object({
   name: z.string().min(2, 'Name is required.'),
@@ -73,14 +75,17 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
       inquiryDetails: inquiryContent,
     });
     console.log('Inquiry routed to:', routingResult.expert);
-    console.log('Justification:', routingResult.justification);
 
-    // 2. Save to Firestore (simulated)
-    console.log('Lead saved to Firestore (simulated):', {
+    // 2. Save to Firestore
+    const { firestore } = initializeFirebase();
+    const inquiryData = {
       ...validation.data,
       routedTo: routingResult.expert,
       routedAt: new Date(),
-    });
+      status: 'New',
+    };
+    await addDoc(collection(firestore, 'inquiries'), inquiryData);
+    console.log('Inquiry saved to Firestore.');
 
     // 3. Send email notification (simulated)
     console.log(`Email notification sent to ${routingResult.expert} about new inquiry from ${name} (${email}).`);
@@ -88,6 +93,7 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
     return { success: true, message: `Thank you! Your inquiry has been routed to our specialist, ${routingResult.expert}. We will be in touch shortly.`, errors: null };
   } catch (error) {
     console.error('Error processing inquiry:', error);
-    return { success: false, message: 'An unexpected error occurred. Please try again.', errors: null };
+    const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred.';
+    return { success: false, message: `An unexpected error occurred: ${errorMessage} Please try again.`, errors: null };
   }
 }
