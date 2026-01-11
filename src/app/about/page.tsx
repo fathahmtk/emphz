@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { team } from "@/lib/data";
+import TeamCard from "./team-card";
 
 export default function AboutPage() {
   const aboutImage = PlaceHolderImages.find(p => p.id === 'about-us-main');
@@ -33,7 +35,7 @@ export default function AboutPage() {
              </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg text-muted-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg text-muted-foreground mb-24">
           <div>
             <h2 className="text-2xl font-bold text-foreground mb-3">Our Vision</h2>
             <p>To be a trusted provider of engineered modular infrastructure solutions.</p>
@@ -46,6 +48,19 @@ export default function AboutPage() {
                 <li>Support infrastructure projects with reliable, value-driven solutions</li>
             </ul>
           </div>
+        </div>
+
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Meet Our Leadership</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
+            Our team’s experience and dedication drive our success.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          {team.map((member) => (
+            <TeamCard key={member.id} member={member} />
+          ))}
         </div>
       </div>
     </div>
