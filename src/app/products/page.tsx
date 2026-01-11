@@ -19,6 +19,7 @@ import { Button } from '@/components/ui/button';
 function ProductsPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const headerImage = PlaceHolderImages.find(p => p.id === 'products-header');
   
   const industryFilter = searchParams.get('industry') || 'all';
   const categoryFilter = searchParams.get('category') || 'all';
@@ -76,17 +77,32 @@ function ProductsPageContent() {
 
   return (
     <div className="bg-background text-foreground">
-      <div className="container py-8 lg:py-12">
+       <div className="container pt-8 lg:pt-12">
         <Breadcrumbs />
-        <section className="mt-8 mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-2">
-            Our Products
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Explore our range of high-performance GRP solutions.
-          </p>
-        </section>
+      </div>
 
+       <section className="relative py-20 lg:py-32 text-white">
+        {headerImage && (
+            <Image 
+                src={headerImage.imageUrl} 
+                alt={headerImage.description}
+                data-ai-hint={headerImage.imageHint}
+                fill
+                className="object-cover"
+            />
+        )}
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative container text-center">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
+                Our Products
+            </h1>
+            <p className="mt-4 max-w-2xl mx-auto text-neutral-200 md:text-lg">
+                Explore our range of high-performance GRP solutions.
+            </p>
+        </div>
+      </section>
+
+      <div className="container py-12">
         <div className="flex flex-col md:flex-row gap-4 mb-8">
             <div className="relative flex-grow">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />

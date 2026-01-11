@@ -121,6 +121,12 @@
       "imageHint": "industrial canopy"
     },
     {
+      "id": "products-header",
+      "description": "A wide shot of various industrial products on shelves.",
+      "imageUrl": "https://images.unsplash.com/photo-1579548122022-b06f8665c81f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHwxNXx8aW5kdXN0cmlhbCUyMHByb2R1Y3RzfGVufDB8fHx8MTc2ODMwMDcyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial products"
+    },
+    {
       "id": "project-power-station",
       "description": "A large power station complex.",
       "imageUrl": "https://images.unsplash.com/photo-1514323277292-3b712a4b2406?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3dlciUyMHN0YXRpb258ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
