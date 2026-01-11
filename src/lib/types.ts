@@ -1,5 +1,6 @@
 
 
+
 export type Product = {
   id: string;
   sku: string;
@@ -107,3 +108,13 @@ export type Inquiry = {
   status: string;
   notes?: InquiryNote[];
 };
+
+export type PortfolioItem = {
+    id: string;
+    title: string;
+    description: string;
+    applications: string[];
+    features: string[];
+    customisation: string[];
+};
+

@@ -1,6 +1,6 @@
 
 
-import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide } from '@/lib/types';
+import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide, PortfolioItem } from '@/lib/types';
 import { Wrench, Zap, Building, HardHat, Car, Factory, Shield, Wifi, Wind, Briefcase } from 'lucide-react';
 
 export const industries: Industry[] = [
@@ -177,3 +177,88 @@ export const heroSlides: HeroSlide[] = [
     secondaryLink: "/contact",
   },
 ];
+
+
+export const portfolioItems: PortfolioItem[] = [
+    {
+        id: "1",
+        title: "GRP Electrical Enclosures",
+        description: "GRP electrical enclosures designed for housing electrical, control, metering, and automation equipment. Manufactured using high-quality GRP suitable for continuous outdoor and industrial use.",
+        applications: ["LT / HT metering", "Control panels", "Distribution boards", "Automation and PLC panels", "Utility junction boxes"],
+        features: ["Corrosion resistant GRP construction", "Fire-retardant material options", "UV and weather resistant", "Dust and moisture protection", "Indoor and outdoor models available"],
+        customisation: ["Size as per drawing", "Single / double door", "Mounting plates", "Louvers, vents, cable entry", "Colour and finish"],
+    },
+    {
+        id: "2",
+        title: "GRP Kiosks & Equipment Shelters",
+        description: "Factory-built modular GRP kiosks for housing electrical and equipment systems. Supplied as ready-to-install units.",
+        applications: ["Distribution substations", "Control and relay rooms", "Equipment housing", "Utility installations"],
+        features: ["Modular GRP panel construction", "Thermal insulation", "Weatherproof design", "Long service life", "Quick on-site installation"],
+        customisation: ["Floor size and height", "Door and ventilation layout", "Cable trenches and base frames", "Internal partitions"],
+    },
+    {
+        id: "3",
+        title: "Portable GRP Toilets",
+        description: "Durable, hygienic GRP toilet units suitable for public, industrial, and project-based usage.",
+        applications: ["Construction sites", "Public locations", "Industrial facilities", "Temporary installations"],
+        features: ["Smooth, easy-to-clean GRP interiors", "Lightweight and relocatable", "Strong structural design", "Low maintenance"],
+        customisation: ["Indian / Western layout", "Wash basin integration", "Ventilation systems", "Colour and branding"],
+    },
+    {
+        id: "4",
+        title: "GRP Security Cabins",
+        description: "Compact GRP cabins designed for security personnel and access control points.",
+        applications: ["Factory and site entrances", "Residential complexes", "Commercial premises", "Infrastructure projects"],
+        features: ["Weather resistant construction", "Clear visibility design", "Long service life", "Minimal maintenance"],
+        customisation: ["Size and layout", "Sliding or hinged windows", "Electrical fittings", "Internal furniture"],
+    },
+    {
+        id: "5",
+        title: "GRP Generator & Power Rooms",
+        description: "Protective GRP enclosures designed to house generator sets and power equipment.",
+        applications: ["DG set housing", "Backup power systems", "Utility power installations"],
+        features: ["Fire-retardant GRP panels", "Acoustic treatment options", "Proper ventilation design", "Durable outdoor construction"],
+        customisation: ["Acoustic lining", "Louvers and exhaust openings", "Cable entry design", "Equipment-specific sizing"],
+    },
+    {
+        id: "6",
+        title: "GRP Food Kiosks",
+        description: "Modular GRP kiosks designed for organised food service operations.",
+        applications: ["Street food outlets", "Commercial food counters", "Events and exhibitions", "Institutional campuses"],
+        features: ["Compact modular design", "Easy installation", "Durable food-grade interiors", "Easy cleaning and maintenance"],
+        customisation: ["Counter layout", "Storage and sink integration", "Branding and colours", "Electrical and plumbing fit-outs"],
+    },
+    {
+        id: "7",
+        title: "Bus Waiting Sheds",
+        description: "GRP and structural shelters designed for public transport waiting areas.",
+        applications: ["Urban transport systems", "Highway bus stops", "Public infrastructure projects"],
+        features: ["Weather-resistant roofing", "Strong structural framework", "Low maintenance design", "Long operational life"],
+        customisation: ["Size and seating layout", "Branding panels", "Lighting provisions"],
+    },
+    {
+        id: "8",
+        title: "EV Charging Shelters",
+        description: "Protective GRP shelters designed to house electric vehicle charging equipment.",
+        applications: ["Public charging stations", "Commercial parking areas", "Transport hubs"],
+        features: ["Protection from sun and rain", "Cable-friendly design", "Modular and expandable", "Outdoor-ready construction"],
+        customisation: ["Charger-specific layout", "Branding and signage", "Electrical routing"],
+    },
+    {
+        id: "9",
+        title: "GRP Canopies",
+        description: "GRP canopies designed for shading and protection of equipment and people.",
+        applications: ["Industrial areas", "Utility equipment protection", "Parking and walkways"],
+        features: ["Lightweight GRP construction", "Weather and UV resistant", "Low maintenance"],
+        customisation: ["Size and shape", "Structural supports", "Colour and finish"],
+    },
+    {
+        id: "10",
+        title: "Custom GRP Manufacturing",
+        description: "EMPHZ specialises in custom-built GRP products, manufactured based on drawings, samples, or site requirements.",
+        applications: ["Special electrical enclosures", "Equipment covers", "Utility boxes", "Architectural GRP elements", "Industrial housings", "Non-standard kiosks and shelters"],
+        features: ["Design-to-manufacture support", "Mould-based fabrication", "Hand lay-up GRP manufacturing", "Small batch and bulk production"],
+        customisation: ["Any size", "Any shape", "Any application suitable for GRP"],
+    },
+];
+
