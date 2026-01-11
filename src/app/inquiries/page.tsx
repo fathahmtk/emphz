@@ -1,7 +1,6 @@
 
 'use client';
 
-import { useAuth } from '@/context/auth-context';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,6 +11,7 @@ import { useInquiries } from '@/hooks/use-inquiries';
 import { Inquiry } from '@/lib/types';
 import { BarChart, MessageSquare, Package } from 'lucide-react';
 import InquiriesChart from './inquiries-chart';
+import { useUser } from '@/firebase';
 
 
 function KpiCard({ title, value, icon: Icon }: { title: string, value: string | number, icon: React.ElementType }) {
@@ -29,7 +29,7 @@ function KpiCard({ title, value, icon: Icon }: { title: string, value: string | 
 }
 
 export default function InquiriesPage() {
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading } = useUser();
   const router = useRouter();
   const { inquiries, loading: inquiriesLoading } = useInquiries();
 

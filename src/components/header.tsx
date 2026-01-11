@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -10,7 +11,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
-import { useAuth } from '@/context/auth-context';
+import { useUser, logout, loginWithGoogle } from '@/firebase';
 import { useQuote } from '@/context/quote-context';
 
 const navLinks = [
@@ -22,7 +23,7 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const { isLoggedIn, logout } = useAuth();
+  const { user } = useUser();
   const { itemCount } = useQuote();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   
@@ -53,7 +54,7 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-           {isLoggedIn && (
+           {user && (
              <Link href="/inquiries" className={cn(linkClasses('/inquiries'), 'flex items-center gap-2')}>
                 <LayoutDashboard className="h-4 w-4" />
                 Inquiries
@@ -71,8 +72,8 @@ export default function Header() {
               <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 justify-center p-0">{itemCount}</Badge>
             )}
           </Link>
-          {isLoggedIn ? (
-            <Button onClick={logout} size="sm" variant="outline" className={authButtonClasses}>Logout</Button>
+          {user ? (
+            <Button onClick={() => logout()} size="sm" variant="outline" className={authButtonClasses}>Logout</Button>
           ) : (
             <Button asChild size="sm" variant="default" className={authButtonClasses}>
               <Link href="/login">Partner Login</Link>
@@ -114,7 +115,7 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
-                  {isLoggedIn && (
+                  {user && (
                      <Link href="/inquiries" onClick={() => setMobileMenuOpen(false)} className={cn('text-lg font-medium transition-colors hover:text-primary flex items-center gap-2', pathname === '/inquiries' ? 'text-primary' : 'text-foreground')}>
                         <LayoutDashboard className="h-5 w-5" />
                         Inquiries
@@ -122,7 +123,7 @@ export default function Header() {
                   )}
                 </nav>
                  <div className="mt-auto pt-4 border-t">
-                    {isLoggedIn ? (
+                    {user ? (
                         <Button onClick={() => {logout(); setMobileMenuOpen(false);}} size="sm" className="w-full rounded-full" variant="outline">Logout</Button>
                     ) : (
                         <Button asChild size="sm" onClick={() => setMobileMenuOpen(false)} className="w-full rounded-full">

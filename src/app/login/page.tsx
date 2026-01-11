@@ -1,25 +1,24 @@
+
 "use client";
 
-import { useAuth } from "@/context/auth-context";
+import { useUser, loginWithGoogle } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect } from "react";
 
 export default function LoginPage() {
-  const { user, login, loading } = useAuth();
+  const { user, loading } = useUser();
   const router = useRouter();
 
   useEffect(() => {
     if (user) {
-      router.push('/products');
+      router.push('/inquiries');
     }
   }, [user, router]);
 
   const handleLogin = () => {
-    if (login) {
-      login();
-    }
+    loginWithGoogle().catch(console.error);
   };
 
   if (loading || user) {

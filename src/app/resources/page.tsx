@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button";
 import { resources } from "@/lib/data";
 import { Download, Search, Lock } from "lucide-react";
 import Link from "next/link";
-import { useAuth } from "@/context/auth-context";
+import { useUser } from "@/firebase";
 
 export default function ResourcesPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const { isLoggedIn } = useAuth();
+  const { user } = useUser();
 
   const filteredResources = useMemo(() => {
     if (!searchTerm) return resources;
@@ -48,7 +48,7 @@ export default function ResourcesPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredResources.map((resource) => {
-          const canDownload = !resource.isProtected || isLoggedIn;
+          const canDownload = !resource.isProtected || !!user;
           return (
             <Card key={resource.id} className="flex flex-col">
               <CardHeader>

@@ -1,6 +1,7 @@
+
 'use client';
 
-import { AuthProvider } from '@/context/auth-context';
+import { AuthProvider } from '@/context/auth-context-deleted';
 import { FirebaseClientProvider } from '@/firebase';
 
 export default function FirebaseAuthProvider({
@@ -10,7 +11,7 @@ export default function FirebaseAuthProvider({
 }) {
     return (
         <FirebaseClientProvider>
-            <AuthProvider>{children}</AuthProvider>
+            {children}
         </FirebaseClientProvider>
     );
 }
