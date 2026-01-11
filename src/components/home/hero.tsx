@@ -17,7 +17,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Hero() {
   return (
-    <section className="relative h-[calc(100vh-64px)] min-h-[640px] w-full">
+    <section className="relative h-screen w-full">
       <Carousel
         className="w-full h-full"
         plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
