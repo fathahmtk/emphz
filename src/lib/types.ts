@@ -6,23 +6,49 @@ export type Product = {
   id: string;
   slug: string;
   name: string;
-  short_intro: string;
-  category: 'Electrical Enclosures' | 'Kiosks' | 'Portable Toilets' | 'Custom';
+  tagline: string;
+  
+  overview: string;
+  overviewContext?: string;
+  
   applications: string[];
-  key_features: string[];
-  standard_configurations: string[];
-  customisation_options: string[];
-  manufacturing_details: string[];
+  applicationsContext?: string;
+
+  constructionDetails: string[];
+  constructionContext?: string;
+
+  technicalHighlights: string[];
+  technicalContext?: string;
+  
+  standardConfigurations: { parameter: string; options: string }[];
+  standardConfigurationsContext?: string;
+  
+  dimensions: string[];
+  dimensionsNote?: string;
+  
+  customisationOptions: string[];
+  customisationContext?: string;
+  
+  supplyScope: string[];
+  supplyScopeContext?: string;
+
+  qualityAssurance: string[];
+  qualityAssuranceContext?: string;
+  
   downloads: { title: string; url: string }[];
+  
+  relatedProducts: { name: string; slug: string }[];
+
   image_id: string;
   gallery_image_ids: string[];
+  
   // Deprecated fields from old structure, kept for compatibility during transition if needed
+  category?: 'Electrical Enclosures' | 'Kiosks' | 'Portable Toilets' | 'Custom';
   sku?: string;
   short_description?: string;
   long_description?: string;
   features?: { name: string, icon: string }[];
   ip_rating?: number;
-  dimensions?: { height: number; width: number; depth: number };
   material_specs?: string;
   authority_approval?: string[];
   material_standard?: string;
@@ -32,6 +58,8 @@ export type Product = {
   gallery?: { image_id: string; description: string }[];
   industry_ids?: string[];
   standard_models?: { height: number; width: number; depth: number; ip_rating: number }[];
+  short_intro?: string;
+  manufacturing_details?: string[];
 };
 
 
