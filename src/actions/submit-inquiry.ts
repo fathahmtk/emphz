@@ -10,7 +10,7 @@ const inquirySchema = z.object({
   email: z.string().email('Invalid email address.'),
   company: z.string().optional(),
   projectType: z.string().optional(),
-  product: z.string().optional(),
+  product: z.string().min(1, 'Product selection is required.'),
   quantity: z.string().optional(),
   location: z.string().optional(),
   message: z.string().min(10, 'Message must be at least 10 characters.'),
@@ -64,7 +64,7 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
   
   const inquiryContent = `
     Message: ${message}
-    Selected Product: ${product || 'N/A'}
+    Selected Product: ${product}
     Quote Basket Items: ${quoteItems && quoteItems.length > 0 ? quoteItems.map(item => item.name).join(', ') : 'None'}
   `;
 

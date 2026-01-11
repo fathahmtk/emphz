@@ -85,7 +85,7 @@ export type Inquiry = {
   email: string;
   company?: string;
   projectType?: string;
-  product?: string;
+  product: string;
   quantity?: string;
   location?: string;
   message: string;

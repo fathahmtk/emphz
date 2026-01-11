@@ -103,7 +103,7 @@ export default function InquiriesPage() {
                 <TableHead>Date</TableHead>
                 <TableHead>Name</TableHead>
                 <TableHead>Company</TableHead>
-                <TableHead>Email</TableHead>
+                <TableHead>Product</TableHead>
                 <TableHead>Routed To</TableHead>
                 <TableHead>Status</TableHead>
               </TableRow>
@@ -117,7 +117,7 @@ export default function InquiriesPage() {
                     </TableCell>
                     <TableCell>{inquiry.name}</TableCell>
                     <TableCell>{inquiry.company || '-'}</TableCell>
-                    <TableCell>{inquiry.email}</TableCell>
+                    <TableCell>{inquiry.product}</TableCell>
                     <TableCell>{inquiry.routedTo}</TableCell>
                     <TableCell>
                       <Badge variant="secondary">{inquiry.status}</Badge>
