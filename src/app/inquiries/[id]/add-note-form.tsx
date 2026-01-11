@@ -4,7 +4,7 @@
 import { useFormStatus } from 'react-dom';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { useAuth } from '@/firebase';
+import { useUser } from '@/firebase';
 import { addInquiryNote } from '@/actions/add-inquiry-note';
 import { useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
@@ -24,7 +24,7 @@ type AddNoteFormProps = {
 };
 
 export default function AddNoteForm({ inquiryId }: AddNoteFormProps) {
-    const { user } = useAuth();
+    const { user } = useUser();
     const formRef = useRef<HTMLFormElement>(null);
     const { toast } = useToast();
 
@@ -54,12 +54,11 @@ export default function AddNoteForm({ inquiryId }: AddNoteFormProps) {
             <input type="hidden" name="authorId" value={user.uid} />
             
             <div className="relative">
-                <Paperclip className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
                 <Textarea
                     name="noteText"
                     placeholder="Add an internal note..."
                     required
-                    className="min-h-[100px] pl-10"
+                    className="min-h-[100px]"
                 />
             </div>
             <div className="flex justify-end">

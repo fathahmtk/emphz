@@ -7,7 +7,6 @@ import { initializeFirebase } from '@/firebase';
 import { revalidatePath } from 'next/cache';
 import { errorEmitter } from '@/firebase/errors/error-emitter';
 import { FirestorePermissionError } from '@/firebase/errors/errors';
-import { auth } from 'firebase-admin';
 
 // This action should be called by an authenticated user.
 // We are not explicitly checking for user here, as it will be handled by Firestore security rules.
@@ -46,22 +45,20 @@ export async function addInquiryNote(formData: FormData) {
   };
 
   // We use arrayUnion to atomically add a new note to the 'notes' array.
-  updateDoc(inquiryRef, {
-      notes: arrayUnion(newNote)
-  })
-  .then(() => {
-      // Revalidate the inquiry detail page to show the new note
-      revalidatePath(`/inquiries/${inquiryId}`);
-  })
-  .catch(async (serverError) => {
+  try {
+    await updateDoc(inquiryRef, {
+        notes: arrayUnion(newNote)
+    });
+    // Revalidate the inquiry detail page to show the new note
+    revalidatePath(`/inquiries/${inquiryId}`);
+    return { success: true, message: 'Note added successfully.' };
+  } catch (serverError) {
       const permissionError = new FirestorePermissionError({
           path: inquiryRef.path,
           operation: 'update',
           requestResourceData: { notes: `Adding new note by ${author}` },
       });
       errorEmitter.emit('permission-error', permissionError);
-      // We could return a message here if needed, but the error will be caught by the listener
-  });
-
-  return { success: true, message: 'Note addition initiated.' };
+      return { success: false, message: 'You do not have permission to add a note.' };
+  }
 }

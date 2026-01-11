@@ -2,14 +2,14 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
-import { useAuth, useFirestore, useDoc, useUser } from '@/firebase';
+import { useFirestore, useDoc, useUser } from '@/firebase';
 import { useEffect, useMemo } from 'react';
 import { doc, Firestore } from 'firebase/firestore';
 import { Inquiry } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowLeft, User, Building, Mail, Phone, ShoppingCart, MessageSquare, Calendar, Info, MapPin } from 'lucide-react';
+import { ArrowLeft, User, Building, Mail, ShoppingCart, MessageSquare, Info, MapPin } from 'lucide-react';
 import { format } from 'date-fns';
 import InquiryStatusSelector from '../inquiry-status-selector';
 import AddNoteForm from './add-note-form';
