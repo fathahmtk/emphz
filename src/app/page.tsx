@@ -13,14 +13,22 @@ import Image from 'next/image';
 export default function Home() {
   const qaImage = PlaceHolderImages.find(p => p.id === 'project-neom');
   return (
-    <div className="bg-background text-foreground">
+    <div className="bg-background text-foreground overflow-x-hidden">
       <Hero />
       <div className="py-16 sm:py-24 space-y-8">
-        <ValueProposition />
-        <Industries />
-        <ProductPortfolio />
-        <FeaturedProjects />
-        <section className="relative container py-24 sm:py-32 rounded-lg overflow-hidden text-white">
+        <section className="animate-fade-in-up">
+            <ValueProposition />
+        </section>
+        <section className="animate-fade-in-up">
+            <Industries />
+        </section>
+        <section className="animate-fade-in-up">
+            <ProductPortfolio />
+        </section>
+        <section className="animate-fade-in-up">
+            <FeaturedProjects />
+        </section>
+        <section className="relative container py-24 sm:py-32 rounded-lg overflow-hidden text-white animate-fade-in-up">
             {qaImage && (
                 <Image 
                 src={qaImage.imageUrl} 
@@ -37,8 +45,12 @@ export default function Home() {
                 <Certifications />
             </div>
         </section>
-        <AboutSummary />
-        <FinalCTA />
+        <section className="animate-fade-in-up">
+            <AboutSummary />
+        </section>
+        <section className="animate-fade-in-up">
+            <FinalCTA />
+        </section>
       </div>
     </div>
   );
