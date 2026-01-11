@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useMemo } from "react";
@@ -5,11 +6,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { resources } from "@/lib/data";
-import { Download, Search } from "lucide-react";
+import { Download, Search, Lock } from "lucide-react";
 import Link from "next/link";
+import { useAuth } from "@/context/auth-context";
 
 export default function ResourcesPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const { isLoggedIn } = useAuth();
 
   const filteredResources = useMemo(() => {
     if (!searchTerm) return resources;
@@ -44,25 +47,42 @@ export default function ResourcesPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredResources.map((resource) => (
-          <Card key={resource.id} className="flex flex-col">
-            <CardHeader>
-              <CardTitle>{resource.title}</CardTitle>
-              <CardDescription>{resource.category}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <p className="text-sm text-muted-foreground">{resource.description}</p>
-            </CardContent>
-            <CardContent>
-              <Button asChild className="w-full">
-                <Link href={resource.url} target="_blank" download>
-                  <Download className="mr-2 h-4 w-4" />
-                  Download PDF
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
+        {filteredResources.map((resource) => {
+          const canDownload = !resource.isProtected || isLoggedIn;
+          return (
+            <Card key={resource.id} className="flex flex-col">
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <CardTitle>{resource.title}</CardTitle>
+                    <CardDescription>{resource.category}</CardDescription>
+                  </div>
+                  {resource.isProtected && <Lock className="h-4 w-4 text-muted-foreground" />}
+                </div>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <p className="text-sm text-muted-foreground">{resource.description}</p>
+              </CardContent>
+              <CardContent>
+                {canDownload ? (
+                  <Button asChild className="w-full">
+                    <Link href={resource.url} target="_blank" download>
+                      <Download className="mr-2 h-4 w-4" />
+                      Download PDF
+                    </Link>
+                  </Button>
+                ) : (
+                  <Button asChild variant="secondary" className="w-full">
+                    <Link href="/login">
+                      <Lock className="mr-2 h-4 w-4" />
+                      Partner Login to Download
+                    </Link>
+                  </Button>
+                )}
+              </CardContent>
+            </Card>
+          );
+        })}
          {filteredResources.length === 0 && (
             <div className="col-span-full text-center py-16">
                 <p className="text-muted-foreground">No resources found for &quot;{searchTerm}&quot;.</p>

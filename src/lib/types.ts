@@ -66,6 +66,7 @@ export type Resource = {
   description: string;
   category: string;
   url: string;
+  isProtected?: boolean;
 };
 
 export type HeroSlide = {
