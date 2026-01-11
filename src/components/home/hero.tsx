@@ -31,17 +31,17 @@ export default function Hero() {
            return (
             <CarouselItem key={slide.id}>
               <div className="container py-16 md:py-24 lg:py-32">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="relative z-10 text-left">
+                  <div className="grid grid-cols-1 gap-12 items-center">
+                    <div className="relative z-10 text-center">
                       <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-6 animate-slide-in-down text-foreground">
                         {slide.title}
                       </h1>
 
-                      <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 animate-slide-in-up">
+                      <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 animate-slide-in-up">
                         {slide.subtitle}
                       </p>
 
-                      <div className="flex flex-col sm:flex-row gap-4 justify-start animate-slide-in-up" style={{animationDelay: '0.4s', opacity: 0}}>
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in-up" style={{animationDelay: '0.4s', opacity: 0}}>
                         <Button asChild size="lg">
                           <Link href={slide.primaryLink}>
                             {slide.primaryText}
