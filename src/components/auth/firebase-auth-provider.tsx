@@ -1,10 +1,7 @@
 'use client';
 
 import { AuthProvider } from '@/context/auth-context';
-import { FirebaseClientProvider } from '@/firebase/client-provider';
-import { initializeFirebase } from '@/firebase';
-
-const { firebaseApp, firestore, auth } = initializeFirebase();
+import { FirebaseClientProvider } from '@/firebase';
 
 export default function FirebaseAuthProvider({
     children,
@@ -12,11 +9,7 @@ export default function FirebaseAuthProvider({
     children: React.ReactNode;
 }) {
     return (
-        <FirebaseClientProvider
-            firebaseApp={firebaseApp}
-            firestore={firestore}
-            auth={auth}
-        >
+        <FirebaseClientProvider>
             <AuthProvider>{children}</AuthProvider>
         </FirebaseClientProvider>
     );

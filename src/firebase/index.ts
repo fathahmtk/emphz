@@ -1,3 +1,5 @@
+'use client';
+
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
 import { getAuth, Auth } from 'firebase/auth';
 import { getFirestore, Firestore } from 'firebase/firestore';
@@ -38,3 +40,4 @@ export {
   useFirestore,
   useFirebaseApp
 };
+export type { User } from './auth/use-user';

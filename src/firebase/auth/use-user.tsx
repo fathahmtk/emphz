@@ -13,7 +13,9 @@ export const useUser = () => {
 
   useEffect(() => {
     if (!auth) {
-      setLoading(false);
+      // If auth is not available yet, we are loading.
+      // It might be null on first render.
+      setLoading(true);
       return;
     };
     

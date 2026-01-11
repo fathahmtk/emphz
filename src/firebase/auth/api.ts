@@ -6,7 +6,6 @@ import {
   GoogleAuthProvider,
   signOut,
 } from 'firebase/auth';
-import { useFirebaseAuth } from '..';
 
 const provider = new GoogleAuthProvider();
 
@@ -16,6 +15,7 @@ export async function loginWithGoogle() {
     await signInWithPopup(auth, provider);
   } catch (error) {
     console.error('Error signing in with Google', error);
+    throw error;
   }
 }
 
@@ -25,5 +25,6 @@ export async function logout() {
     await signOut(auth);
   } catch (error) {
     console.error('Error signing out', error);
+    throw error;
   }
 }

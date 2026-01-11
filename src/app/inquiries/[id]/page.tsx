@@ -1,12 +1,10 @@
-
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
 import { useAuth } from '@/context/auth-context';
 import { useEffect, useMemo } from 'react';
-import { useFirestore } from '@/firebase';
+import { useFirestore, useDoc } from '@/firebase';
 import { doc, Firestore } from 'firebase/firestore';
-import { useDoc } from '@/firebase/firestore/use-doc';
 import { Inquiry } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';

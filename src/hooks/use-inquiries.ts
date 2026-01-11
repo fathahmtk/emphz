@@ -1,10 +1,8 @@
-
 "use client";
 
 import { useMemo } from 'react';
-import { useCollection } from '@/firebase/firestore/use-collection';
+import { useCollection, useFirestore } from '@/firebase';
 import { collection, query, orderBy, Firestore } from 'firebase/firestore';
-import { useFirestore } from '@/firebase';
 import { Inquiry } from '@/lib/types';
 
 export const useInquiries = () => {
