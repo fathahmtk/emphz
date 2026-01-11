@@ -2,34 +2,59 @@ import { cn } from "@/lib/utils";
 
 const Logo = ({ className }: { className?: string }) => (
   <div className={cn("flex items-center justify-center", className)}>
-    <svg width="120" height="40" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+    <svg width="150" height="45" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        {/* Accent Gradient for P */}
         <linearGradient id="pGradient" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#2AA7A3"/>
           <stop offset="100%" stopColor="#0E6F73"/>
         </linearGradient>
       </defs>
 
-      {/* EMPHZ Text */}
-      <text x="450" y="150"
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fontFamily="Inter, Arial, sans-serif"
-            fontSize="120"
-            fontWeight="700"
-            fill="#E5E7EB"
-            letterSpacing="6">
-        EM<tspan fill="url(#pGradient)">P</tspan>HZ
-      </text>
+      {/* E */}
+      <path d="M90 60 H175 V95 H125 V120 H170 V150 H125 V185 H175 V220 H90 Z"
+            className="fill-foreground"/>
+
+      {/* M */}
+      <path d="M195 220 V60 H230 L265 135 L300 60 H335 V220 H305 V140 L265 190 L225 140 V220 Z"
+            className="fill-foreground"/>
+
+      {/* P (BEST-MATCH RECONSTRUCTION) */}
+      <path
+        d="
+          M355 60
+          H415
+          C485 60 520 95 520 135
+          C520 175 485 210 415 210
+          H395
+          L355 255
+          V60
+          Z
+
+          M395 95
+          V175
+          H420
+          C460 175 485 155 485 135
+          C485 110 460 95 420 95
+          Z
+        "
+        fill="url(#pGradient)"
+      />
+
+      {/* H */}
+      <path d="M550 60 V220 H585 V150 H630 V220 H665 V60 H630 V120 H585 V60 Z"
+            className="fill-foreground"/>
+
+      {/* Z */}
+      <path d="M685 60 H820 V95 L735 190 H820 V220 H685 V190 L770 95 H685 Z"
+            className="fill-foreground"/>
 
       {/* Tagline */}
-      <text x="450" y="215"
+      <text x="450" y="245"
             textAnchor="middle"
             fontFamily="Inter, Arial, sans-serif"
-            fontSize="22"
+            fontSize="18"
             fontWeight="500"
-            fill="#9CA3AF"
+            className="fill-muted-foreground"
             letterSpacing="4">
         HONEST • DIRECT • REAL
       </text>
