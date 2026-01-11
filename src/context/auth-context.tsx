@@ -1,8 +1,8 @@
+
 "use client";
 
 import React, { createContext, useContext, ReactNode } from 'react';
-import { useUser, User } from '@/firebase';
-import { loginWithGoogle, logout as firebaseLogout } from '@/firebase/auth/api';
+import { useUser, User, loginWithGoogle, logout as firebaseLogout } from '@/firebase';
 
 
 interface AuthContextType {

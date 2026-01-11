@@ -1,9 +1,9 @@
+
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
-import { useAuth } from '@/context/auth-context';
+import { useAuth, useFirestore, useDoc, useUser } from '@/firebase';
 import { useEffect, useMemo } from 'react';
-import { useFirestore, useDoc } from '@/firebase';
 import { doc, Firestore } from 'firebase/firestore';
 import { Inquiry } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,6 +12,8 @@ import Link from 'next/link';
 import { ArrowLeft, User, Building, Mail, Phone, ShoppingCart, MessageSquare, Calendar, Info, MapPin } from 'lucide-react';
 import { format } from 'date-fns';
 import InquiryStatusSelector from '../inquiry-status-selector';
+import AddNoteForm from './add-note-form';
+import NotesList from './notes-list';
 
 function DetailItem({ icon: Icon, label, value }: { icon: React.ElementType, label: string, value: React.ReactNode }) {
     if (!value) return null;
@@ -30,7 +32,7 @@ export default function InquiryDetailPage() {
     const { id } = useParams();
     const inquiryId = Array.isArray(id) ? id[0] : id;
 
-    const { user, loading: authLoading } = useAuth();
+    const { user, loading: authLoading } = useUser();
     const router = useRouter();
     const firestore = useFirestore() as Firestore | null;
 
@@ -103,6 +105,7 @@ export default function InquiryDetailPage() {
                             <DetailItem icon={MapPin} label="Location" value={inquiry.location} />
                         </CardContent>
                     </Card>
+                    <NotesList notes={inquiry.notes || []} />
                 </div>
                 <div className="space-y-6">
                     <Card>
@@ -124,6 +127,9 @@ export default function InquiryDetailPage() {
                             <div>
                                 <p className="text-sm text-muted-foreground mb-2">Status</p>
                                 <InquiryStatusSelector inquiryId={inquiry.id} currentStatus={inquiry.status} />
+                            </div>
+                             <div className="pt-4 border-t">
+                                <AddNoteForm inquiryId={inquiry.id} />
                             </div>
                         </CardContent>
                     </Card>

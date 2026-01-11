@@ -1,3 +1,4 @@
+
 'use client';
 
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
@@ -38,6 +39,13 @@ export {
   useFirebase,
   useFirebaseAuth,
   useFirestore,
-  useFirebaseApp
+  useFirebaseApp,
+  // This was missing before
+  loginWithGoogle,
+  logout
 };
+
+// These need to be exported from here to avoid circular dependencies
+import { loginWithGoogle, logout } from './auth/api';
+
 export type { User } from './auth/use-user';

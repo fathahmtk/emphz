@@ -80,6 +80,13 @@ export type HeroSlide = {
   secondaryLink: string;
 };
 
+export type InquiryNote = {
+  text: string;
+  author: string;
+  authorId: string;
+  createdAt: any; // Firestore Timestamp
+};
+
 export type Inquiry = {
   id?: string;
   name: string;
@@ -94,4 +101,5 @@ export type Inquiry = {
   routedTo: string;
   routedAt: any; // Firestore Timestamp
   status: string;
+  notes?: InquiryNote[];
 };

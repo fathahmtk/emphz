@@ -11,7 +11,11 @@ service cloud.firestore {
     match /inquiries/{inquiryId} {
       allow read: if isSignedIn();
       allow create: if true;
-      allow update: if isSignedIn() && request.resource.data.keys().hasOnly(['status']);
+      // Allow updating only the status, or adding to the notes array
+      allow update: if isSignedIn() && 
+                    (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status']) ||
+                     (request.resource.data.notes.size() == resource.data.notes.size() + 1 &&
+                      request.resource.data.notes[request.resource.data.notes.size() - 1].authorId == request.auth.uid));
       allow delete: if false;
     }
   }
