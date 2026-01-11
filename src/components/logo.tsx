@@ -2,12 +2,7 @@ import { cn } from "@/lib/utils";
 
 const Logo = ({ className }: { className?: string }) => (
   <div className={cn("flex items-center justify-center", className)}>
-    <svg 
-        width="120" 
-        height="40" 
-        viewBox="0 0 900 300" 
-        xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="120" height="40" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
       <defs>
         {/* Accent Gradient for P */}
         <linearGradient id="pGradient" x1="0" y1="0" x2="0" y2="1">
@@ -23,7 +18,7 @@ const Logo = ({ className }: { className?: string }) => (
             fontFamily="Inter, Arial, sans-serif"
             fontSize="120"
             fontWeight="700"
-            fill="hsl(var(--foreground))"
+            fill="#E5E7EB"
             letterSpacing="6">
         EM<tspan fill="url(#pGradient)">P</tspan>HZ
       </text>
@@ -34,7 +29,7 @@ const Logo = ({ className }: { className?: string }) => (
             fontFamily="Inter, Arial, sans-serif"
             fontSize="22"
             fontWeight="500"
-            fill="hsl(var(--muted-foreground))"
+            fill="#9CA3AF"
             letterSpacing="4">
         HONEST • DIRECT • REAL
       </text>
