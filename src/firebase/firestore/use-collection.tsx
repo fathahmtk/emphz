@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import {
   onSnapshot,
   Query,
@@ -21,13 +21,12 @@ export const useCollection = <T extends DocumentData>(
 
   useEffect(() => {
     if (!query) {
-      setLoading(false);
       setData(null);
+      setLoading(false);
       return;
     }
 
     setLoading(true);
-
     const unsubscribe = onSnapshot(
       query,
       (snapshot: QuerySnapshot<T>) => {
@@ -40,9 +39,9 @@ export const useCollection = <T extends DocumentData>(
         setError(null);
       },
       async (err: FirestoreError) => {
-        if (err.code === 'permission-denied') {
+        if (err.code === 'permission-denied' && 'path' in query) {
           const permissionError = new FirestorePermissionError({
-              path: query.path,
+              path: (query as any).path,
               operation: 'list',
           });
           errorEmitter.emit('permission-error', permissionError);
@@ -50,13 +49,13 @@ export const useCollection = <T extends DocumentData>(
           console.error('Error fetching collection:', err);
         }
         setError(err);
-        setLoading(false);
         setData(null);
+        setLoading(false);
       }
     );
 
     return () => unsubscribe();
-  }, [query]); // Re-run effect if query changes
+  }, [query]); 
 
   return { data, loading, error };
 };

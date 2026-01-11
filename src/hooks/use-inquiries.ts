@@ -3,12 +3,12 @@
 
 import { useMemo } from 'react';
 import { useCollection } from '@/firebase/firestore/use-collection';
-import { collection, query, orderBy } from 'firebase/firestore';
+import { collection, query, orderBy, Firestore } from 'firebase/firestore';
 import { useFirestore } from '@/firebase';
 import { Inquiry } from '@/lib/types';
 
 export const useInquiries = () => {
-  const firestore = useFirestore();
+  const firestore = useFirestore() as Firestore | null;
 
   const inquiriesQuery = useMemo(() => {
     if (!firestore) return null;
