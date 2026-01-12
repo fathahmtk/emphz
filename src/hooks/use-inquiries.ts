@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useMemo } from 'react';
@@ -10,7 +11,7 @@ export const useInquiries = () => {
 
   const inquiriesQuery = useMemo(() => {
     if (!firestore) return null;
-    return query(collection(firestore, 'inquiries'), orderBy('routedAt', 'desc'));
+    return query(collection(firestore, 'inquiries'), orderBy('createdAt', 'desc'));
   }, [firestore]);
 
   const { data, loading, error } = useCollection<Inquiry>(inquiriesQuery);

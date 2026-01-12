@@ -3,7 +3,7 @@
 
 import { z } from 'zod';
 import { routeInquiry } from '@/ai/flows/route-inquiries';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { initializeFirebase } from '@/firebase';
 import { errorEmitter } from '@/firebase/errors/error-emitter';
 import { FirestorePermissionError } from '@/firebase/errors/errors';
@@ -88,8 +88,9 @@ export async function submitInquiry(prevState: InquiryState, formData: FormData)
       ...validation.data,
       routedTo: routingResult.expert,
       summary: routingResult.summary,
-      routedAt: new Date(),
+      routedAt: serverTimestamp(),
       status: 'New',
+      createdAt: serverTimestamp(),
     };
     
     addDoc(inquiriesCollection, inquiryData)

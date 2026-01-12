@@ -9,7 +9,7 @@ import { Inquiry } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowLeft, User, Building, Mail, ShoppingCart, MessageSquare, Info, MapPin, Bot } from 'lucide-react';
+import { ArrowLeft, User, Building, Mail, ShoppingCart, MessageSquare, Info, MapPin, Bot, Calendar } from 'lucide-react';
 import { format } from 'date-fns';
 import InquiryStatusSelector from '../inquiry-status-selector';
 import AddNoteForm from './add-note-form';
@@ -74,10 +74,15 @@ export default function InquiryDetailPage() {
                 <div className="lg:col-span-2 space-y-8">
                     <Card>
                         <CardHeader>
-                            <CardTitle>Inquiry Details</CardTitle>
-                            <CardDescription>
-                                Received on {inquiry.routedAt?.toDate ? format(inquiry.routedAt.toDate(), 'PPp') : 'N/A'}
-                            </CardDescription>
+                            <div className="flex justify-between items-start">
+                                <div>
+                                    <CardTitle>Inquiry Details</CardTitle>
+                                    <CardDescription>
+                                        Received on {inquiry.createdAt?.toDate ? format(inquiry.createdAt.toDate(), 'PPp') : 'N/A'}
+                                    </CardDescription>
+                                </div>
+                                 <InquiryStatusSelector inquiryId={inquiry.id} currentStatus={inquiry.status} />
+                            </div>
                         </CardHeader>
                         <CardContent className="space-y-6">
                              {inquiry.summary && (

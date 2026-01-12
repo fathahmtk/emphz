@@ -136,6 +136,7 @@ export type Inquiry = {
   summary: string;
   routedAt: any; // Firestore Timestamp
   status: string;
+  createdAt: any; // Firestore Timestamp
   notes?: InquiryNote[];
 };
 

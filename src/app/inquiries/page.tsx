@@ -72,8 +72,8 @@ export default function InquiriesPage() {
     }).reverse();
 
     inquiries.forEach(inquiry => {
-        const inquiryDate = inquiry.routedAt?.toDate();
-        if (inquiryDate && inquiryDate >= twelveMonthsAgo) {
+        const inquiryDate = inquiry.createdAt?.toDate();
+        if (inquiryDate && inquiryDate >= startOfMonth(twelveMonthsAgo)) {
             const monthIndex = monthlyData.findIndex(
                 m => m.date.getMonth() === inquiryDate.getMonth() && m.date.getFullYear() === inquiryDate.getFullYear()
             );
@@ -144,7 +144,7 @@ export default function InquiriesPage() {
                 inquiries.map((inquiry: Inquiry) => (
                   <TableRow key={inquiry.id} className="cursor-pointer hover:bg-muted/50" onClick={() => router.push(`/inquiries/${inquiry.id}`)}>
                     <TableCell>
-                      {inquiry.routedAt?.toDate ? format(inquiry.routedAt.toDate(), 'PP') : 'N/A'}
+                      {inquiry.createdAt?.toDate ? format(inquiry.createdAt.toDate(), 'PP') : 'N/A'}
                     </TableCell>
                     <TableCell className="font-medium">{inquiry.name}</TableCell>
                     <TableCell>{inquiry.product}</TableCell>
