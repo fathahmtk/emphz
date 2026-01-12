@@ -3,8 +3,9 @@ import { productCategories, products } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/products/breadcrumbs';
 import { getProductsByCategory, getCategoryBySlug } from '@/lib/product-utils';
-
 import VariantGrid from '@/components/product-category/variant-grid';
+import ApplicationContextBar from '@/components/product-category/application-context-bar';
+import UseCaseSection from '@/components/product-category/use-case-section';
 
 export async function generateStaticParams() {
   return productCategories.map((category) => ({
@@ -27,8 +28,8 @@ export default function ProductCategoryPage({ params }: { params: { categorySlug
         <Breadcrumbs current={category.name} />
       </div>
 
-      <div className="container py-16 lg:py-24">
-         <div className="text-center mb-12">
+      <div className="container py-16 lg:py-24 space-y-16">
+         <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-foreground mb-4">
               {category.name}
             </h1>
@@ -37,6 +38,8 @@ export default function ProductCategoryPage({ params }: { params: { categorySlug
             </p>
         </div>
         
+        <ApplicationContextBar />
+        <UseCaseSection useCases={category.useCases} categoryName={category.name} />
         <VariantGrid products={categoryProducts} />
       </div>
     </div>
