@@ -110,8 +110,6 @@ export type HeroSlide = {
   subtitle: string;
   primaryText: string;
   primaryLink: string;
-  secondaryText: string;
-  secondaryLink: string;
 };
 
 export type InquiryNote = {
