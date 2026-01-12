@@ -55,9 +55,21 @@ export default function HeroCafe3D() {
 
         {/* 3D CANVAS */}
         <div className="h-[420px] rounded-2xl bg-black/20 backdrop-blur cursor-grab active:cursor-grabbing">
-          <Canvas camera={{ position: [0, 1.5, 4], fov: 45 }}>
-            <ambientLight intensity={0.6} />
-            <directionalLight position={[5, 5, 5]} intensity={1} />
+          <Canvas
+            dpr={[1, 1.5]}
+            shadows
+            camera={{ position: [0, 1.5, 4], fov: 45 }}
+          >
+            <ambientLight intensity={0.4} />
+            <directionalLight
+              position={[5, 6, 5]}
+              intensity={1}
+              castShadow
+            />
+            <directionalLight
+              position={[-4, 3, -2]}
+              intensity={0.4}
+            />
 
             <Suspense fallback={<ModelLoadingFallback />}>
                 <KioskModel open={open} />
