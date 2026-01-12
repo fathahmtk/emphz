@@ -21,7 +21,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
   return (
     <div className="container py-16 lg:py-24">
       <div className="max-w-4xl mx-auto">
-        <div className="aspect-video relative bg-muted rounded-lg overflow-hidden mb-8">
+        <div className="aspect-video relative bg-muted rounded-lg overflow-hidden mb-8 shadow-lg">
             {caseStudyImage && (
                 <Image 
                 src={caseStudyImage.imageUrl} 
@@ -29,33 +29,37 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
                 data-ai-hint={caseStudyImage.imageHint}
                 fill 
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 896px"
+                priority
                 />
             )}
         </div>
         
         <div className="space-y-8">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{caseStudy.title}</h1>
-            <p className="text-xl text-muted-foreground"><strong>Client:</strong> {caseStudy.client}</p>
+            <div className="text-center">
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{caseStudy.title}</h1>
+                <p className="mt-2 text-xl text-muted-foreground"><strong>Client:</strong> {caseStudy.client}</p>
+            </div>
+
 
             <Card className="glass">
                 <CardHeader><CardTitle>The Challenge</CardTitle></CardHeader>
-                <CardContent><p>{caseStudy.challenge}</p></CardContent>
+                <CardContent><p className="text-lg text-muted-foreground">{caseStudy.challenge}</p></CardContent>
             </Card>
 
             <Card className="glass">
                 <CardHeader><CardTitle>The Solution</CardTitle></CardHeader>
-                <CardContent><p>{caseStudy.solution}</p></CardContent>
+                <CardContent><p className="text-lg text-muted-foreground">{caseStudy.solution}</p></CardContent>
             </Card>
 
             <Card className="glass">
                 <CardHeader><CardTitle>Key Results</CardTitle></CardHeader>
                 <CardContent>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                     {caseStudy.results.map((result, index) => (
                     <li key={index} className="flex items-start">
-                        <Check className="text-primary mr-2 flex-shrink-0 mt-1" />
-                        <span>{result}</span>
+                        <Check className="text-primary mr-3 flex-shrink-0 mt-1 h-5 w-5" />
+                        <span className="text-lg text-muted-foreground">{result}</span>
                     </li>
                     ))}
                 </ul>
@@ -63,15 +67,15 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             </Card>
 
             <div>
-                <h3 className="text-lg font-semibold mb-2">Products Used:</h3>
-                <div className="flex flex-wrap gap-2">
+                <h3 className="text-2xl font-bold text-center mb-4">Products Used</h3>
+                <div className="flex flex-wrap gap-2 justify-center">
                 {caseStudy.products.map((product) => (
-                    <Badge key={product} variant="secondary">{product}</Badge>
+                    <Badge key={product} variant="secondary" className="px-4 py-1 text-sm">{product}</Badge>
                 ))}
                 </div>
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center pt-8">
               <Button asChild size="lg" className="rounded-full">
                 <Link href="/contact">Request a Similar Solution</Link>
               </Button>
