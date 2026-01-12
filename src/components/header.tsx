@@ -11,7 +11,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
-import { useUser, logout, loginWithGoogle } from '@/firebase';
+import { useUser, logout } from '@/firebase';
 import { useQuote } from '@/context/quote-context';
 import { ThemeToggleButton } from './theme-toggle';
 
@@ -39,7 +39,7 @@ export default function Header() {
 
 
   return (
-    <header className="border-b bg-card text-card-foreground sticky top-0 z-40 glass">
+    <header className="border-b bg-card/80 text-card-foreground sticky top-0 z-40 glass">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Logo />
