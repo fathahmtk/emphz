@@ -17,6 +17,12 @@
     "url": "1200/800",
     "hint": "factory floor"
   },
+  "cafe-kiosk-hero": {
+    "id": "cafe-kiosk-hero",
+    "description": "A modern, clean white GRP cafe kiosk at a 3/4 angle.",
+    "url": "600/400",
+    "hint": "kiosk cafe"
+  },
   "team-john": {
     "id": "team-john",
     "description": "Team member John Doe",

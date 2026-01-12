@@ -16,6 +16,13 @@
     --accent-foreground: 210 20% 98%;
     --success: 154 48% 44%;
 
+    --emphz-hero: 222 47% 11%;
+    --emphz-midnight: 222 47% 15%;
+    --emphz-teal: 174 72% 56%;
+    --emphz-teal-dark: 174 80% 48%;
+    --steel: 215 14% 34%;
+
+
     --background: var(--bg-main);
     --foreground: var(--text-primary);
     --card: var(--bg-surface);
@@ -63,6 +70,12 @@
     --accent: 217 91% 60%;
     --accent-foreground: 210 20% 98%;
     --success: 154 48% 54%;
+
+    --emphz-hero: 222 47% 11%;
+    --emphz-midnight: 222 47% 15%;
+    --emphz-teal: 174 72% 56%;
+    --emphz-teal-dark: 174 80% 48%;
+    --steel: 215 14% 34%;
 
     --background: var(--bg-main);
     --foreground: var(--text-primary);
