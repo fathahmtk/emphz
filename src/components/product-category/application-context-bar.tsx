@@ -6,6 +6,7 @@ import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ApplicationType } from '@/lib/types';
+import { X } from 'lucide-react';
 
 const applications: { id: ApplicationType; name: string }[] = [
   { id: 'public', name: 'Public Infrastructure' },
@@ -30,19 +31,20 @@ export default function ApplicationContextBar() {
   };
 
   return (
-    <section className="container">
-      <div className="bg-card border rounded-xl p-4 sticky top-20 z-30">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+    <section className="container sticky top-[4.5rem] z-30">
+      <div className="bg-card/80 backdrop-blur-xl border rounded-pill p-2">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-2">
           {currentApplication === null && (
-            <p className="text-sm font-medium text-muted-foreground">
-              Select application to tailor specifications:
+            <p className="text-sm font-medium text-muted-foreground px-4 hidden md:block">
+              Filter by application:
             </p>
           )}
           <div className="flex flex-wrap gap-2 justify-center">
             {applications.map((app) => (
               <Button
                 key={app.id}
-                variant={currentApplication === app.id ? 'default' : 'outline'}
+                size="sm"
+                variant={currentApplication === app.id ? 'default' : 'ghost'}
                 onClick={() => handleSelect(app.id)}
                 className="rounded-pill"
               >
@@ -52,10 +54,12 @@ export default function ApplicationContextBar() {
              {currentApplication && (
                 <Button
                     variant="ghost"
+                    size="icon"
                     onClick={() => handleSelect(currentApplication)}
-                    className="rounded-pill"
+                    className="rounded-pill h-8 w-8"
                 >
-                    Reset
+                    <X className="h-4 w-4" />
+                    <span className="sr-only">Reset Filter</span>
                 </Button>
             )}
           </div>

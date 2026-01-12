@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { ProductCategory } from "@/lib/types";
 import Link from "next/link";
+import { ArrowRight, FileText } from 'lucide-react';
 
 interface CategoryEntryFrameProps {
   category: ProductCategory;
@@ -19,10 +20,10 @@ export default function CategoryEntryFrame({ category }: CategoryEntryFrameProps
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
           <Button size="lg" asChild>
-            <Link href="/contact">Request Technical Specification</Link>
+            <Link href="/contact">Request Technical Specification <FileText /></Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <Link href="#applications">View Applications ↓</Link>
+            <Link href="#applications">View Applications <ArrowRight /></Link>
           </Button>
         </div>
       </div>
