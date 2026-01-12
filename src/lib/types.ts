@@ -205,3 +205,29 @@ export type CaseStudy = {
   results: string[];
   products: string[];
 };
+
+export type QuotationLineItem = {
+  id: string;
+  description: string;
+  quantity: number;
+  unitPrice: number;
+  total: number;
+};
+
+export type Quotation = {
+  id: string;
+  quotationNumber: string;
+  inquiryId: string;
+  createdAt: any; // Firestore Timestamp
+  validUntil: any; // Firestore Timestamp
+  customerName: string;
+  customerEmail: string;
+  customerCompany?: string;
+  lineItems: QuotationLineItem[];
+  subtotal: number;
+  taxRate: number;
+  taxAmount: number;
+  total: number;
+  notes?: string;
+  status: 'Draft' | 'Sent' | 'Accepted' | 'Rejected';
+};

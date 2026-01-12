@@ -9,12 +9,13 @@ import { Inquiry } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowLeft, User, Building, Mail, ShoppingCart, MessageSquare, Info, MapPin, Bot, Calendar } from 'lucide-react';
+import { ArrowLeft, User, Building, Mail, ShoppingCart, MessageSquare, Info, MapPin, Bot, Calendar, PlusCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import InquiryStatusSelector from '../inquiry-status-selector';
 import AddNoteForm from './add-note-form';
 import NotesList from './notes-list';
 import StatusBadge from '../status-badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 function DetailItem({ icon: Icon, label, value }: { icon: React.ElementType, label: string, value: React.ReactNode }) {
     if (!value) return null;
@@ -26,6 +27,105 @@ function DetailItem({ icon: Icon, label, value }: { icon: React.ElementType, lab
                 <p className="font-medium">{value}</p>
             </div>
         </div>
+    );
+}
+
+function InquiryDetailsTab({ inquiry }: { inquiry: Inquiry }) {
+    return (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-8">
+                 <Card>
+                    <CardHeader>
+                        <CardTitle>Inquiry Details</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                        {inquiry.summary && (
+                            <DetailItem icon={Bot} label="AI Summary" value={<p className="text-primary italic">{inquiry.summary}</p>} />
+                        )}
+                        <DetailItem icon={Info} label="Product Interest" value={inquiry.product} />
+                        <DetailItem icon={MessageSquare} label="Message" value={<p className="whitespace-pre-wrap">{inquiry.message}</p>} />
+                        {inquiry.quoteItems && inquiry.quoteItems.length > 0 && (
+                            <DetailItem 
+                                icon={ShoppingCart}
+                                label="Quote Basket"
+                                value={
+                                    <ul className="list-disc pl-5 space-y-1">
+                                        {inquiry.quoteItems.map(item => <li key={item.sku}>{item.name} (SKU: {item.sku})</li>)}
+                                    </ul>
+                                }
+                            />
+                        )}
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Additional Information</CardTitle>
+                    </CardHeader>
+                    <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <DetailItem icon={Info} label="Project Type" value={inquiry.projectType} />
+                        <DetailItem icon={ShoppingCart} label="Quantity" value={inquiry.quantity} />
+                        <DetailItem icon={MapPin} label="Location" value={inquiry.location} />
+                    </CardContent>
+                </Card>
+                <NotesList notes={inquiry.notes || []} />
+                 <div className="lg:hidden">
+                    <AddNoteForm inquiryId={inquiry.id as string} />
+                </div>
+            </div>
+             <div className="space-y-6">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Contact Information</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <DetailItem icon={User} label="Name" value={inquiry.name} />
+                        <DetailItem icon={Mail} label="Email" value={<a href={`mailto:${inquiry.email}`} className="text-primary hover:underline">{inquiry.email}</a>} />
+                        <DetailItem icon={Building} label="Company" value={inquiry.company} />
+                    </CardContent>
+                </Card>
+                <Card>
+                        <CardHeader>
+                        <CardTitle>Inquiry Management</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <DetailItem icon={User} label="Routed To" value={inquiry.routedTo} />
+                        <div>
+                            <p className="text-sm font-medium text-foreground mb-2">Status</p>
+                            <InquiryStatusSelector inquiryId={inquiry.id as string} currentStatus={inquiry.status} />
+                        </div>
+                            <div className="pt-4 border-t">
+                            <AddNoteForm inquiryId={inquiry.id as string} />
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    )
+}
+
+function QuotationsTab({ inquiry }: { inquiry: Inquiry }) {
+    // This will be expanded to list existing quotations and a create button.
+    // const { data: quotations } = useCollection(...)
+    return (
+        <Card>
+            <CardHeader>
+                <div className="flex justify-between items-center">
+                    <CardTitle>Quotations</CardTitle>
+                    <Button>
+                        <PlusCircle className="mr-2 h-4 w-4" />
+                        Create Quotation
+                    </Button>
+                </div>
+                <CardDescription>
+                    Manage quotations for this inquiry.
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <div className="text-center py-12 text-muted-foreground">
+                    <p>No quotations have been created for this inquiry yet.</p>
+                </div>
+            </CardContent>
+        </Card>
     );
 }
 
@@ -62,91 +162,38 @@ export default function InquiryDetailPage() {
 
     return (
         <div className="flex-1 space-y-8 p-8 pt-6">
-            <div className="mb-8">
-                <Button variant="ghost" asChild>
+            <div className="flex justify-between items-center">
+                 <Button variant="ghost" asChild>
                     <Link href="/inquiries">
                         <ArrowLeft className="mr-2 h-4 w-4" />
                         Back to Dashboard
                     </Link>
                 </Button>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-2 space-y-8">
-                    <Card>
-                        <CardHeader>
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <CardTitle>Inquiry from {inquiry.name}</CardTitle>
-                                    <CardDescription>
-                                        Received on {inquiry.createdAt?.toDate ? format(inquiry.createdAt.toDate(), 'PPp') : 'N/A'}
-                                    </CardDescription>
-                                </div>
-                                 <StatusBadge status={inquiry.status} />
-                            </div>
-                        </CardHeader>
-                        <CardContent className="space-y-6">
-                             {inquiry.summary && (
-                                <DetailItem icon={Bot} label="AI Summary" value={<p className="text-primary italic">{inquiry.summary}</p>} />
-                            )}
-                            <DetailItem icon={Info} label="Product Interest" value={inquiry.product} />
-                            <DetailItem icon={MessageSquare} label="Message" value={<p className="whitespace-pre-wrap">{inquiry.message}</p>} />
-                            {inquiry.quoteItems && inquiry.quoteItems.length > 0 && (
-                                <DetailItem 
-                                    icon={ShoppingCart}
-                                    label="Quote Basket"
-                                    value={
-                                        <ul className="list-disc pl-5 space-y-1">
-                                            {inquiry.quoteItems.map(item => <li key={item.sku}>{item.name} (SKU: {item.sku})</li>)}
-                                        </ul>
-                                    }
-                                />
-                            )}
-                        </CardContent>
-                    </Card>
-                     <Card>
-                        <CardHeader>
-                            <CardTitle>Additional Information</CardTitle>
-                        </CardHeader>
-                        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <DetailItem icon={Info} label="Project Type" value={inquiry.projectType} />
-                            <DetailItem icon={ShoppingCart} label="Quantity" value={inquiry.quantity} />
-                            <DetailItem icon={MapPin} label="Location" value={inquiry.location} />
-                        </CardContent>
-                    </Card>
-                    <NotesList notes={inquiry.notes || []} />
-                     <div className="lg:hidden">
-                        <AddNoteForm inquiryId={inquiry.id} />
+                <div className="flex items-center gap-4">
+                     <StatusBadge status={inquiry.status} />
+                     <div className="text-sm text-muted-foreground">
+                        Received on {inquiry.createdAt?.toDate ? format(inquiry.createdAt.toDate(), 'PPp') : 'N/A'}
                     </div>
                 </div>
-                <div className="space-y-6">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Contact Information</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <DetailItem icon={User} label="Name" value={inquiry.name} />
-                            <DetailItem icon={Mail} label="Email" value={<a href={`mailto:${inquiry.email}`} className="text-primary hover:underline">{inquiry.email}</a>} />
-                            <DetailItem icon={Building} label="Company" value={inquiry.company} />
-                        </CardContent>
-                    </Card>
-                    <Card>
-                         <CardHeader>
-                            <CardTitle>Inquiry Management</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <DetailItem icon={User} label="Routed To" value={inquiry.routedTo} />
-                            <div>
-                                <p className="text-sm font-medium text-foreground mb-2">Status</p>
-                                <InquiryStatusSelector inquiryId={inquiry.id} currentStatus={inquiry.status} />
-                            </div>
-                             <div className="pt-4 border-t">
-                                <AddNoteForm inquiryId={inquiry.id} />
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
             </div>
+
+            <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tight">Inquiry from {inquiry.name}</h1>
+                <p className="text-muted-foreground">{inquiry.company}</p>
+            </div>
+            
+            <Tabs defaultValue="details" className="w-full">
+                <TabsList>
+                    <TabsTrigger value="details">Details</TabsTrigger>
+                    <TabsTrigger value="quotations">Quotations</TabsTrigger>
+                </TabsList>
+                <TabsContent value="details" className="pt-6">
+                    <InquiryDetailsTab inquiry={inquiry} />
+                </TabsContent>
+                <TabsContent value="quotations" className="pt-6">
+                   <QuotationsTab inquiry={inquiry} />
+                </TabsContent>
+            </Tabs>
         </div>
     );
 }

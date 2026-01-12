@@ -18,5 +18,9 @@ service cloud.firestore {
                       request.resource.data.notes[request.resource.data.notes.size() - 1].authorId == request.auth.uid));
       allow delete: if false;
     }
+
+    match /quotations/{quotationId} {
+      allow read, write: if isSignedIn();
+    }
   }
 }
