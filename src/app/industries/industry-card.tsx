@@ -11,7 +11,7 @@ interface IndustryCardProps {
 
 export default function IndustryCard({ industry }: IndustryCardProps) {
   return (
-    <Card className="flex flex-col h-full">
+    <Card className="flex flex-col h-full glass hover:border-primary transition-colors duration-300">
       <CardHeader>
         <div className="flex items-start gap-4">
           <industry.icon className="w-10 h-10 text-primary flex-shrink-0 mt-1" />
@@ -21,7 +21,7 @@ export default function IndustryCard({ industry }: IndustryCardProps) {
         </div>
       </CardHeader>
       <CardContent className="flex flex-col flex-grow">
-        <p className="text-muted-foreground mb-4 flex-grow">{industry.description}</p>
+        <p className="text-muted-foreground mb-6 flex-grow">{industry.description}</p>
         <Button variant="outline" asChild>
           <Link href={`/products?industry=${industry.id}`}>View Products <ArrowRight className="ml-2 h-4 w-4" /></Link>
         </Button>

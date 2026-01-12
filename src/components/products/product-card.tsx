@@ -22,7 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </CardContent>
       <CardFooter>
         <Button asChild variant="outline" className="w-full">
-          <Link href={`/products/${product.slug}`}>
+          <Link href={`/products/detail/${product.slug}`}>
             View Variant Details <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
