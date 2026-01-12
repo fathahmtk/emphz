@@ -1,6 +1,51 @@
 
-
 import { LucideIcon } from 'lucide-react';
+
+export type ApplicationType = 'public' | 'energy' | 'industrial' | 'all';
+
+export type UseCase = {
+  applicationType: ApplicationType;
+  scenario: string;
+  description: string;
+  environment: string;
+  reason: string;
+};
+
+export type EngineeringParameter = {
+  parameter: string;
+  description: string;
+};
+
+export type SafetyParameter = {
+  parameter: string;
+  description: string;
+};
+
+export type ComplianceStandard = {
+  standard: string;
+  scope: string;
+  availability: 'Standard' | 'On request' | 'Available';
+};
+
+export type SystemIntegration = {
+  name: string;
+  slug: string;
+};
+
+export type ProductCategory = {
+  id: string;
+  name: string;
+  description: string;
+  icon: LucideIcon;
+  slug: string;
+  image_id: string;
+  subline: string;
+  useCases: UseCase[];
+  engineeringParameters: EngineeringParameter[];
+  safetyParameters: SafetyParameter[];
+  complianceMatrix: ComplianceStandard[];
+  systemIntegrations: SystemIntegration[];
+};
 
 export type Product = {
   id: string;
@@ -43,7 +88,6 @@ export type Product = {
   image_id: string;
   gallery_image_ids: string[];
   
-  // New field for card view
   short_description: string;
 
   // Deprecated fields from old structure, kept for compatibility during transition if needed
@@ -64,7 +108,6 @@ export type Product = {
   short_intro?: string;
   manufacturing_details?: string[];
 };
-
 
 export type Industry = {
   id: string;
@@ -149,15 +192,6 @@ export type PortfolioItem = {
     features: string[];
     customisation: string[];
 };
-
-export type ProductCategory = {
-  id: string;
-  name: string;
-  description: string;
-  icon: LucideIcon;
-  slug: string;
-  image_id: string;
-}
 
 export type CaseStudy = {
   id: string;

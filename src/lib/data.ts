@@ -13,11 +13,81 @@ export const industries: Industry[] = [
 ];
 
 export const productCategories: ProductCategory[] = [
-    {id: '1', name: "GRP Electrical Enclosures", description: "Safe housing for electrical, control, and metering equipment.", icon: Boxes, slug: "/products/grp-electrical-enclosures", image_id: "product-enclosure-1"},
-    {id: '2', name: "GRP Kiosks & Shelters", description: "Factory-built modular units for electrical and equipment housing.", icon: Construction, slug: "/products/grp-kiosks-equipment-shelters", image_id: "product-kiosk-1"},
-    {id: '3', name: "Portable GRP Toilets", description: "Hygienic and durable sanitation units for public and industrial use.", icon: Lamp, slug: "/products/portable-grp-toilets", image_id: "product-toilet-1"},
-    {id: '4', name: "Custom GRP Manufacturing", description: "Custom-manufactured GRP structures built as per project requirements.", icon: Cable, slug: "/products/custom-grp-manufacturing", image_id: "project-neom"},
-]
+    {
+      id: '1', name: "GRP Electrical Enclosures", 
+      description: "Safe housing for electrical, control, and metering equipment.", 
+      icon: Boxes, 
+      slug: "/products/grp-electrical-enclosures", 
+      image_id: "product-enclosure-1",
+      subline: "Engineered enclosures for control, metering, and distribution systems operating in harsh outdoor environments.",
+      useCases: [
+        { applicationType: 'public', scenario: 'Street-side distribution', description: 'Housing for local power distribution nodes.', environment: 'Urban, high traffic', reason: 'High impact resistance and electrical safety.' },
+        { applicationType: 'public', scenario: 'Public utility metering', description: 'Secure enclosures for utility meters.', environment: 'Residential, commercial', reason: 'Tamper-resistant and weatherproof.' },
+        { applicationType: 'energy', scenario: 'Substations', description: 'Control and relay panels for substations.', environment: 'High voltage, outdoor', reason: 'Excellent electrical insulation and durability.' },
+        { applicationType: 'energy', scenario: 'Renewable parks', description: 'Combiner boxes and monitoring units for solar/wind farms.', environment: 'Exposed, remote', reason: 'UV and corrosion resistance for long life.' },
+        { applicationType: 'industrial', scenario: 'Plant control panels', description: 'Housing for motor control centers and PLC panels.', environment: 'Factory floor, high dust', reason: 'Sealed against dust and moisture ingress.' },
+        { applicationType: 'industrial', scenario: 'Hazardous zones', description: 'ATEX-certified enclosures for explosive atmospheres.', environment: 'Oil & Gas, chemical plants', reason: 'Certified safety for critical applications.' },
+      ],
+      engineeringParameters: [
+        { parameter: 'Material Grade', description: 'UV-stabilized, high-strength GRP composite.' },
+        { parameter: 'Thickness Options', description: 'Standard 3mm, with options up to 10mm for heavy-duty applications.' },
+        { parameter: 'Structural Reinforcement', description: 'Integrated ribbing and corner reinforcements for rigidity.' },
+      ],
+      safetyParameters: [
+        { parameter: 'IP Ratings', description: 'Standard IP65, with options for IP67/IP68 for full submersion.' },
+        { parameter: 'Fire Retardancy', description: 'Class 1 fire retardancy as per BS 476 Part 7.' },
+        { parameter: 'Electrical Safety', description: 'High dielectric strength, providing safety for operators.' },
+      ],
+      complianceMatrix: [
+        { standard: 'IP66', scope: 'Outdoor ingress protection', availability: 'Standard' },
+        { standard: 'UL 94-V0', scope: 'Flame retardancy', availability: 'On request' },
+        { standard: 'BIS', scope: 'Utility compliance', availability: 'Available' },
+      ],
+      systemIntegrations: [
+        { name: 'GRP Kiosks', slug: 'grp-kiosks-equipment-shelters' },
+        { name: 'Equipment Shelters', slug: 'grp-kiosks-equipment-shelters' },
+      ]
+    },
+    {
+      id: '2', name: "GRP Kiosks & Shelters", 
+      description: "Factory-built modular units for electrical and equipment housing.", 
+      icon: Construction, 
+      slug: "/products/grp-kiosks-equipment-shelters", 
+      image_id: "product-kiosk-1",
+      subline: "Modular, factory-assembled structures for housing critical systems and protecting personnel.",
+      useCases: [],
+      engineeringParameters: [],
+      safetyParameters: [],
+      complianceMatrix: [],
+      systemIntegrations: []
+    },
+    {
+      id: '3', name: "Portable GRP Toilets", 
+      description: "Hygienic and durable sanitation units for public and industrial use.", 
+      icon: Lamp, 
+      slug: "/products/portable-grp-toilets", 
+      image_id: "product-toilet-1",
+      subline: "Durable, hygienic, and low-maintenance sanitation solutions for sites and public areas.",
+      useCases: [],
+      engineeringParameters: [],
+      safetyParameters: [],
+      complianceMatrix: [],
+      systemIntegrations: []
+    },
+    {
+      id: '4', name: "Custom GRP Manufacturing", 
+      description: "Custom-manufactured GRP structures built as per project requirements.", 
+      icon: Cable, 
+      slug: "/products/custom-grp-manufacturing", 
+      image_id: "project-neom",
+      subline: "Bespoke GRP components and structures engineered to your exact drawings and specifications.",
+      useCases: [],
+      engineeringParameters: [],
+      safetyParameters: [],
+      complianceMatrix: [],
+      systemIntegrations: []
+    },
+];
 
 export const products: Product[] = [
   {
@@ -259,8 +329,6 @@ export const heroSlides: HeroSlide[] = [
       "GRP Enclosures, Kiosks, Shelters & Utility Structures. Designed for continuous outdoor operation, critical services, and public infrastructure.",
     primaryText: "Explore Products",
     primaryLink: "/products",
-    secondaryText: "Request a Quote",
-    secondaryLink: "/contact",
   },
   {
     id: "hero-2",
@@ -270,8 +338,6 @@ export const heroSlides: HeroSlide[] = [
       "Future-proof your solar and wind energy projects with our durable, weather-resistant GRP infrastructure.",
     primaryText: "Renewable Solutions",
     primaryLink: "/products",
-    secondaryText: "Our Industries",
-    secondaryLink: "/#industries",
   },
   {
     id: "hero-3",
@@ -281,8 +347,6 @@ export const heroSlides: HeroSlide[] = [
       "From power plants to manufacturing facilities, our GRP solutions provide unmatched protection and longevity.",
     primaryText: "Industrial Applications",
     primaryLink: "/products",
-    secondaryText: "Request a Quote",
-    secondaryLink: "/contact",
   },
 ];
 
