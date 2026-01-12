@@ -7,13 +7,7 @@ import Link from 'next/link';
 import { ArrowRight, Check, ChevronRight, Download } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import AddToQuoteButton from './add-to-quote-button';
-import dynamic from 'next/dynamic';
-
-const ProductImageGallery = dynamic(() => import('./product-image-gallery'), {
-    loading: () => <div className="aspect-square w-full rounded-lg bg-muted animate-pulse"></div>,
-    ssr: false,
-});
-
+import ProductDetailClient from './product-detail-client';
 
 export async function generateStaticParams() {
   return products.map((product) => ({
@@ -82,7 +76,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                {/* Left Column: Image Gallery */}
                 <div className="lg:col-span-1">
-                   <ProductImageGallery images={galleryImages} />
+                   <ProductDetailClient galleryImages={galleryImages} />
                 </div>
                 
                 {/* Right Column: Overview and Key Details */}
