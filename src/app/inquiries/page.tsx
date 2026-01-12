@@ -12,6 +12,7 @@ import { BarChart, MessageSquare, Package } from 'lucide-react';
 import InquiriesChart from './inquiries-chart';
 import { useUser } from '@/firebase';
 import StatusBadge from './status-badge';
+import InquiriesByStatus from './inquiries-by-status';
 
 
 function KpiCard({ title, value, icon: Icon }: { title: string, value: string | number, icon: React.ElementType }) {
@@ -39,10 +40,11 @@ export default function InquiriesPage() {
     }
   }, [user, authLoading, router]);
 
-  const { kpiData, chartData } = useMemo(() => {
+  const { kpiData, chartData, statusData } = useMemo(() => {
     if (!inquiries) return { 
         kpiData: { total: 0, newCount: 0, topProduct: 'N/A' },
-        chartData: [] 
+        chartData: [],
+        statusData: []
     };
     
     const newCount = inquiries.filter(i => i.status === 'New').length;
@@ -71,6 +73,14 @@ export default function InquiriesPage() {
         };
     }).reverse();
 
+    const statusCounts: { [key: string]: number } = {
+        "New": 0,
+        "In Progress": 0,
+        "Contacted": 0,
+        "Quoted": 0,
+        "Closed": 0,
+    };
+
     inquiries.forEach(inquiry => {
         const inquiryDate = inquiry.createdAt?.toDate();
         if (inquiryDate && inquiryDate >= startOfMonth(twelveMonthsAgo)) {
@@ -81,7 +91,16 @@ export default function InquiriesPage() {
                 monthlyData[monthIndex].total += 1;
             }
         }
+        if (inquiry.status in statusCounts) {
+            statusCounts[inquiry.status]++;
+        }
     });
+
+    const statusChartData = Object.entries(statusCounts).map(([status, count]) => ({
+      status,
+      count
+    }));
+
 
     return {
         kpiData: {
@@ -90,6 +109,7 @@ export default function InquiriesPage() {
             topProduct,
         },
         chartData: monthlyData,
+        statusData: statusChartData,
     }
   }, [inquiries]);
 
@@ -119,7 +139,10 @@ export default function InquiriesPage() {
               <KpiCard title="Top Product" value={kpiData.topProduct} icon={Package} />
           </div>
 
-          <InquiriesChart data={chartData} />
+          <div className="grid gap-4 md:grid-cols-2">
+            <InquiriesChart data={chartData} />
+            <InquiriesByStatus data={statusData} />
+          </div>
 
         <Card>
           <CardHeader>

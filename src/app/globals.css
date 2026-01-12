@@ -43,6 +43,12 @@
     --radius-xl: 36px;
     --radius-xxl: 48px;
     --radius-pill: 9999px;
+
+    --chart-1: 220 90% 60%;
+    --chart-2: 24 90% 60%;
+    --chart-3: 150 90% 60%;
+    --chart-4: 340 90% 60%;
+    --chart-5: 280 90% 60%;
   }
 
   .dark {
@@ -77,6 +83,12 @@
     --border: var(--border-soft);
     --input: var(--border-soft);
     --ring: var(--accent);
+
+     --chart-1: 220 80% 70%;
+    --chart-2: 24 80% 70%;
+    --chart-3: 150 80% 70%;
+    --chart-4: 340 80% 70%;
+    --chart-5: 280 80% 70%;
   }
 }
 
