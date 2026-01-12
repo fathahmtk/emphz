@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { resources } from "@/lib/data";
@@ -46,49 +46,50 @@ export default function ResourcesPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredResources.map((resource) => {
-          const canDownload = !resource.isProtected || !!user;
-          return (
-            <Card key={resource.id} className="flex flex-col">
-              <CardHeader>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <CardTitle>{resource.title}</CardTitle>
-                    <CardDescription>{resource.category}</CardDescription>
+      {filteredResources.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredResources.map((resource) => {
+            const canDownload = !resource.isProtected || !!user;
+            return (
+              <Card key={resource.id} className="flex flex-col">
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle>{resource.title}</CardTitle>
+                      <CardDescription>{resource.category}</CardDescription>
+                    </div>
+                    {resource.isProtected && <Lock className="h-4 w-4 text-muted-foreground" />}
                   </div>
-                  {resource.isProtected && <Lock className="h-4 w-4 text-muted-foreground" />}
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-sm text-muted-foreground">{resource.description}</p>
-              </CardContent>
-              <CardContent>
-                {canDownload ? (
-                  <Button asChild className="w-full">
-                    <Link href={resource.url} target="_blank" download>
-                      <Download className="mr-2 h-4 w-4" />
-                      Download PDF
-                    </Link>
-                  </Button>
-                ) : (
-                  <Button asChild variant="secondary" className="w-full">
-                    <Link href="/login">
-                      <Lock className="mr-2 h-4 w-4" />
-                      Partner Login to Download
-                    </Link>
-                  </Button>
-                )}
-              </CardContent>
-            </Card>
-          );
-        })}
-         {filteredResources.length === 0 && (
-            <div className="col-span-full text-center py-16">
-                <p className="text-muted-foreground">No resources found for &quot;{searchTerm}&quot;.</p>
-            </div>
-         )}
-      </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-sm text-muted-foreground">{resource.description}</p>
+                </CardContent>
+                <CardFooter>
+                  {canDownload ? (
+                    <Button asChild className="w-full">
+                      <Link href={resource.url} target="_blank" download>
+                        <Download className="mr-2 h-4 w-4" />
+                        Download PDF
+                      </Link>
+                    </Button>
+                  ) : (
+                    <Button asChild variant="secondary" className="w-full">
+                      <Link href="/login">
+                        <Lock className="mr-2 h-4 w-4" />
+                        Partner Login to Download
+                      </Link>
+                    </Button>
+                  )}
+                </CardFooter>
+              </Card>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="col-span-full text-center py-16 text-muted-foreground">
+          <p>No resources found for your search term.</p>
+        </div>
+      )}
     </div>
   );
 }
