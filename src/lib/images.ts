@@ -12,6 +12,9 @@ export const placeholderImages: Record<string, ImagePlaceholder> = placeholderDa
 export function getImage(id: string): ImagePlaceholder | null {
   const data = placeholderImages[id];
   if (data) {
+    if (data.url.startsWith('http')) {
+        return data;
+    }
     return {
         ...data,
         url: `https://picsum.photos/seed/${data.id}/${data.url.split('/').slice(-2).join('/')}`
