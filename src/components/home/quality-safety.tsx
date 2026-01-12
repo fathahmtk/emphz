@@ -21,7 +21,7 @@ export default function QualitySafety() {
           <ul className="space-y-4">
             {qualityPoints.map((point) => (
               <li key={point} className="flex items-start gap-3">
-                <Check className="h-6 w-6 text-green-500 flex-shrink-0 mt-1" />
+                <Check className="h-6 w-6 text-green-400 flex-shrink-0 mt-1" />
                 <span className="text-lg text-neutral-200">{point}</span>
               </li>
             ))}
@@ -29,7 +29,7 @@ export default function QualitySafety() {
         </div>
         <div className="text-center mt-8">
             <p className="text-neutral-300">Compliance documents and technical details are available on request.</p>
-             <Button asChild variant="outline" className="mt-6">
+             <Button asChild variant="secondary" className="mt-6">
                 <Link href="/contact">Request Details</Link>
             </Button>
         </div>

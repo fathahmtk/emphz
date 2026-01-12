@@ -3,22 +3,23 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Link from "next/link";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { ArrowRight } from "lucide-react";
 
 const portfolioItems = [
     {
         title: "Electrical Enclosures",
         description: "Durable GRP enclosures for metering, control, and distribution applications.",
-        link: "/products?category=Electrical+Enclosures"
+        link: "/products/grp-electrical-enclosures"
     },
     {
         title: "GRP Kiosks & Equipment Shelters",
         description: "Factory-built modular shelters for electrical, telecom, and control equipment.",
-        link: "/products?category=Kiosks"
+        link: "/products/grp-kiosks-equipment-shelters"
     },
     {
         title: "Portable Toilets",
         description: "Hygienic and durable sanitation units for public, construction, and industrial use.",
-        link: "/products?category=Portable+Toilets"
+        link: "/products/portable-grp-toilets"
     },
     {
         title: "Security Cabins",
@@ -31,16 +32,16 @@ const portfolioItems = [
         link: "/products"
     },
     {
-        title: "Food Kiosks",
-        description: "Modular kiosks for organised food service operations.",
-        link: "/products"
+        title: "Custom Manufacturing",
+        description: "Bespoke GRP structures built as per any project requirement.",
+        link: "/products/custom-grp-manufacturing"
     },
 ];
 
 export default function ProductPortfolio() {
     const image = PlaceHolderImages.find(p => p.id === 'hero-industrial');
     return (
-        <section className="relative container py-24 sm:py-32 rounded-lg overflow-hidden text-white">
+        <section className="relative container py-24 sm:py-32 rounded-lg overflow-hidden text-white glass">
             {image && (
                 <Image 
                 src={image.imageUrl} 
@@ -61,10 +62,13 @@ export default function ProductPortfolio() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {portfolioItems.map((item) => (
-                         <Link key={item.title} href={item.link} className="block h-full">
+                         <Link key={item.title} href={item.link} className="block h-full group">
                             <Card className="bg-card/80 backdrop-blur-sm h-full flex flex-col hover:border-primary transition-colors text-card-foreground">
                                 <CardHeader>
-                                    <CardTitle>{item.title}</CardTitle>
+                                    <CardTitle className="flex items-center justify-between">
+                                        {item.title}
+                                        <ArrowRight className="h-5 w-5 text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                    </CardTitle>
                                 </CardHeader>
                                 <CardContent>
                                     <p className="text-muted-foreground">{item.description}</p>

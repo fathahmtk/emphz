@@ -8,7 +8,7 @@ export default function AboutSummary() {
 
   return (
     <div className="container">
-        <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-lg flex items-center justify-center text-center text-white p-4">
+        <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-lg flex items-center justify-center text-center text-white p-4 glass">
             {aboutImage && (
             <Image
                 src={aboutImage.imageUrl}
@@ -19,7 +19,7 @@ export default function AboutSummary() {
                 sizes="100vw"
             />
             )}
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-black/60" />
             <div className="relative z-10">
                 <CallToAction
                     title="About EMPHZ"
