@@ -1,5 +1,4 @@
 
-
 import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide, PortfolioItem, ProductCategory, CaseStudy } from '@/lib/types';
 import { Wrench, Zap, Building, HardHat, Car, Factory, Shield, Wifi, Wind, Briefcase, Boxes, Construction, Lamp, Cable } from 'lucide-react';
 
