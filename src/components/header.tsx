@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, ShoppingBasket, X, LayoutDashboard } from 'lucide-react';
+import { Menu, ShoppingBasket, X, LayoutDashboard, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -87,51 +87,59 @@ export default function Header() {
 
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/" className={cn(navigationMenuTriggerStyle(), 'bg-transparent', linkClasses('/'))}>
-                  Home
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
              <NavigationMenuItem>
-              <NavigationMenuTrigger className={cn('bg-transparent', pathname.startsWith('/products') ? 'text-primary' : 'text-foreground')}>Products</NavigationMenuTrigger>
+              <NavigationMenuTrigger className={cn('bg-transparent')}>Menu</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {productCategories.map((component) => (
-                    <ListItem
-                      key={component.name}
-                      title={component.name}
-                      href={component.slug}
-                    >
-                      {component.description}
-                    </ListItem>
-                  ))}
-                </ul>
+                <div className="grid grid-cols-3 gap-6 p-6 w-[800px] lg:w-[900px]">
+                    <div className="col-span-1 flex flex-col justify-between">
+                        <div>
+                             <h3 className="font-semibold text-lg mb-2">EMPHZ</h3>
+                             <p className="text-sm text-muted-foreground">
+                                Engineered Modular Infrastructure Solutions.
+                             </p>
+                        </div>
+                         <Button asChild variant="outline">
+                            <Link href="/">
+                                Return to Home
+                            </Link>
+                        </Button>
+                    </div>
+                    <div className="col-span-2">
+                        <h3 className="font-semibold mb-4 text-center text-sm uppercase text-muted-foreground tracking-wider">Product Portfolio</h3>
+                        <ul className="grid w-full grid-cols-2 gap-3">
+                        {productCategories.map((component) => (
+                            <ListItem
+                            key={component.name}
+                            title={component.name}
+                            href={component.slug}
+                            >
+                            {component.description}
+                            </ListItem>
+                        ))}
+                        </ul>
+                    </div>
+                </div>
+                 <div className="bg-accent/10 p-4">
+                    <div className="grid grid-cols-4 gap-4 text-center">
+                         {navLinks.map((link) => (
+                            <NavigationMenuLink asChild key={link.href}>
+                                <Link href={link.href} className={cn(linkClasses(link.href), 'p-2 rounded-md hover:bg-accent/20')}>
+                                {link.label}
+                                </Link>
+                            </NavigationMenuLink>
+                        ))}
+                         {user && (
+                            <NavigationMenuLink asChild>
+                            <Link href="/inquiries" className={cn(linkClasses('/inquiries'), 'p-2 rounded-md hover:bg-accent/20 flex items-center gap-2 justify-center')}>
+                                <LayoutDashboard className="h-4 w-4" />
+                                Inquiries
+                            </Link>
+                            </NavigationMenuLink>
+                        )}
+                    </div>
+                </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
-
-            {navLinks.map((link) => (
-              <NavigationMenuItem key={link.href}>
-                 <NavigationMenuLink asChild>
-                    <Link href={link.href} className={cn(navigationMenuTriggerStyle(), 'bg-transparent', linkClasses(link.href))}>
-                      {link.label}
-                    </Link>
-                  </NavigationMenuLink>
-              </NavigationMenuItem>
-            ))}
-            
-            {user && (
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link href="/inquiries" className={cn(navigationMenuTriggerStyle(), 'bg-transparent', linkClasses('/inquiries'), 'flex items-center gap-2')}>
-                    <LayoutDashboard className="h-4 w-4" />
-                    Inquiries
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            )}
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -177,7 +185,7 @@ export default function Header() {
                 <nav className="flex flex-col gap-4 mt-8">
                   <Link href="/" onClick={() => setMobileMenuOpen(false)} className={cn('text-lg font-medium transition-colors hover:text-primary', pathname === '/' ? 'text-primary' : 'text-foreground')}>Home</Link>
                    <Link href="/products" onClick={() => setMobileMenuOpen(false)} className={cn('text-lg font-medium transition-colors hover:text-primary', pathname.startsWith('/products') ? 'text-primary' : 'text-foreground')}>Products</Link>
-                  {navLinks.filter(l => l.href !== '/products').map((link) => (
+                  {navLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
