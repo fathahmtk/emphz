@@ -1,6 +1,6 @@
 
 
-import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide, PortfolioItem, ProductCategory } from '@/lib/types';
+import type { Product, Industry, Project, TeamMember, Certification, Resource, HeroSlide, PortfolioItem, ProductCategory, CaseStudy } from '@/lib/types';
 import { Wrench, Zap, Building, HardHat, Car, Factory, Shield, Wifi, Wind, Briefcase, Boxes, Construction, Lamp, Cable } from 'lucide-react';
 
 export const industries: Industry[] = [
@@ -360,4 +360,58 @@ export const portfolioItems: PortfolioItem[] = [
         features: ["Design-to-manufacture support", "Mould-based fabrication", "Hand lay-up GRP manufacturing", "Small batch and bulk production"],
         customisation: ["Any size", "Any shape", "Any application suitable for GRP"],
     },
+];
+
+export const caseStudies: CaseStudy[] = [
+  {
+    id: '1',
+    slug: 'saudi-aramco-substation',
+    title: 'Substation Control Rooms for Saudi Aramco',
+    client: 'Saudi Aramco',
+    summary: 'EMPHZ provided blast-resistant GRP control rooms to ensure operational safety in a critical energy facility.',
+    imageId: 'project-neom', // Placeholder image
+    challenge: 'The client required control rooms that could withstand potential blast events and harsh environmental conditions, while ensuring the safety of personnel and sensitive equipment.',
+    solution: 'We designed, manufactured, and supplied custom-built, blast-resistant GRP enclosures. The structures were engineered with reinforced composite panels and integrated safety features to meet stringent client specifications.',
+    results: [
+      'Successfully met all blast-resistance and safety requirements.',
+      'Ensured uninterrupted operation of critical control systems.',
+      'Delivered a durable, low-maintenance solution suitable for the harsh desert environment.',
+      'Completed the project ahead of schedule and within budget.'
+    ],
+    products: ['GRP Kiosks & Equipment Shelters', 'Custom GRP Manufacturing']
+  },
+  {
+    id: '2',
+    slug: 'dubai-metro-expansion',
+    title: 'Signaling Equipment Shelters for Dubai Metro',
+    client: 'Dubai RTA',
+    summary: 'We supplied fire-retardant GRP shelters to protect vital signaling and communication equipment for the Dubai Metro expansion project.',
+    imageId: 'project-dubai', // Placeholder image
+    challenge: 'The project demanded equipment shelters with high fire-retardancy, excellent weather resistance, and long-term durability to ensure the reliability of the metro\'s signaling network.',
+    solution: 'EMPHZ delivered pre-fabricated GRP shelters using Class 1 fire-retardant materials. The modular design allowed for rapid installation, and the shelters were equipped with thermal insulation and custom cable entry points.',
+    results: [
+      'Provided certified fire-retardant enclosures, enhancing system safety.',
+      'Reduced on-site installation time by 40% compared to conventional construction.',
+      'Guaranteed protection of sensitive electronics from extreme heat and dust.',
+      'Supplied a cost-effective solution with a 25+ year design life.'
+    ],
+    products: ['GRP Kiosks & Equipment Shelters']
+  },
+    {
+    id: '3',
+    slug: 'qatar-gas-instrumentation-cabinets',
+    title: 'Instrumentation Cabinets for Qatar Gas LNG Plant',
+    client: 'Qatar Gas',
+    summary: 'Custom IP65-rated GRP cabinets to protect sensitive instrumentation in a highly corrosive LNG plant environment.',
+    imageId: 'project-qatar-gas', // Placeholder image
+    challenge: 'The LNG facility had a highly corrosive seaside environment, requiring instrument enclosures with superior protection against moisture, salt spray, and chemical exposure.',
+    solution: 'We manufactured custom-sized GRP cabinets with an IP65 rating. The cabinets featured stainless steel hardware, neoprene gaskets, and a UV-resistant gelcoat finish to provide maximum environmental protection.',
+    results: [
+      'Delivered over 500 IP65-rated cabinets that exceeded client specifications.',
+      'Eliminated corrosion-related equipment failures, improving plant reliability.',
+      'Provided a lightweight, easy-to-install alternative to heavy, corrosion-prone metallic cabinets.',
+      'Achieved a 100% on-time delivery record for all project phases.'
+    ],
+    products: ['GRP Electrical Enclosures', 'Custom GRP Manufacturing']
+  },
 ];

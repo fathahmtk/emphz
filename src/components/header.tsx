@@ -16,8 +16,10 @@ import { useQuote } from '@/context/quote-context';
 import { ThemeToggleButton } from './theme-toggle';
 
 const navLinks = [
+  { href: '/pricing', label: 'Pricing' },
   { href: '/about', label: 'About Us' },
   { href: '/products', label: 'Products' },
+  { href: '/case-studies', label: 'Case Studies' },
   { href: '/industries', label: 'Industries' },
   { href: '/resources', label: 'Resources' },
   { href: '/contact', label: 'Contact' },

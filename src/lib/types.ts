@@ -157,3 +157,16 @@ export type ProductCategory = {
   slug: string;
   image_id: string;
 }
+
+export type CaseStudy = {
+  id: string;
+  slug: string;
+  title: string;
+  client: string;
+  summary: string;
+  imageId: string;
+  challenge: string;
+  solution: string;
+  results: string[];
+  products: string[];
+};
