@@ -51,6 +51,7 @@ export default function ProductImageGallery({ images }: ProductImageGalleryProps
                 <Image
                     src={mainImage.imageUrl}
                     alt={mainImage.description}
+                    data-ai-hint={mainImage.imageHint}
                     fill
                     className="object-contain"
                 />

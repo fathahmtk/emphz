@@ -99,7 +99,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                 
                 {product.standardConfigurations && product.standardConfigurations.length > 0 &&
                     <DetailSection title="Standard Configuration Options" context={product.standardConfigurationsContext}>
-                        <Card>
+                        <Card className="glass">
                             <Table>
                                 <TableHeader>
                                     <TableRow>
@@ -159,7 +159,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                     <DetailSection title="Related GRP Products">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                            {product.relatedProducts.map(related => (
-                                <Card key={related.slug} className="hover:border-primary transition-colors">
+                                <Card key={related.slug} className="hover:border-primary transition-colors glass">
                                    <Link href={`/products/${related.slug}`} className="block p-6">
                                         <CardTitle className="text-lg flex items-center justify-between">
                                             {related.name}
@@ -174,7 +174,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             </div>
             
             {/* Final CTA */}
-            <Card className="mt-20 bg-secondary/50">
+            <Card className="mt-20 glass">
                 <CardHeader className="text-center">
                     <CardTitle className="text-2xl">How to Order or Enquire</CardTitle>
                     <CardDescription className="max-w-2xl mx-auto">
