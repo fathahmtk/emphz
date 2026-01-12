@@ -13,7 +13,6 @@ import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
 import { useUser, logout } from '@/firebase';
 import { useQuote } from '@/context/quote-context';
-import { ThemeToggleButton } from './theme-toggle';
 import React from 'react';
 
 const navLinks = [
@@ -66,8 +65,6 @@ export default function Header() {
           <Button asChild variant="outline" className="hidden sm:inline-flex">
             <Link href="/contact">Request Spec</Link>
           </Button>
-          
-          <ThemeToggleButton />
           
           <Button asChild variant="ghost" size="icon" className={cn(iconButtonClasses, "relative md:hidden")}>
             <Link href="/contact">
