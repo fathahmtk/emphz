@@ -149,7 +149,7 @@ export default function CreateQuotationForm({ inquiry, onQuotationCreated }: Cre
                       />
                     </TableCell>
                     <TableCell className="text-right font-medium">
-                      {((watchedLineItems[index]?.quantity || 0) * (watchedLineItems[index]?.unitPrice || 0)).toFixed(2)}
+                      {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(((watchedLineItems[index]?.quantity || 0) * (watchedLineItems[index]?.unitPrice || 0)))}
                     </TableCell>
                     <TableCell>
                       <Button variant="ghost" size="icon" onClick={() => remove(index)} disabled={fields.length <= 1}>
@@ -198,7 +198,7 @@ export default function CreateQuotationForm({ inquiry, onQuotationCreated }: Cre
                     <CardContent className="space-y-4">
                         <div className="flex justify-between">
                             <span>Subtotal</span>
-                            <span className="font-medium">{subtotal.toFixed(2)}</span>
+                            <span className="font-medium">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(subtotal)}</span>
                         </div>
                          <div className="flex justify-between items-center">
                             <FormLabel>Tax Rate (%)</FormLabel>
@@ -212,11 +212,11 @@ export default function CreateQuotationForm({ inquiry, onQuotationCreated }: Cre
                         </div>
                         <div className="flex justify-between">
                             <span>Tax</span>
-                            <span className="font-medium">{taxAmount.toFixed(2)}</span>
+                            <span className="font-medium">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(taxAmount)}</span>
                         </div>
                         <div className="flex justify-between font-bold text-lg border-t pt-4">
                             <span>Total</span>
-                            <span>{total.toFixed(2)}</span>
+                            <span>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(total)}</span>
                         </div>
                     </CardContent>
                 </Card>

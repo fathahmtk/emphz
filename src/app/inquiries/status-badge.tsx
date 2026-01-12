@@ -12,6 +12,10 @@ const statusStyles: { [key: string]: string } = {
   "Contacted": "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/50 dark:text-cyan-300 border-cyan-300/50",
   "Quoted": "bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300 border-purple-300/50",
   "Closed": "bg-gray-100 text-gray-800 dark:bg-gray-800/50 dark:text-gray-300 border-gray-300/50",
+  "Draft": "bg-gray-100 text-gray-800 dark:bg-gray-800/50 dark:text-gray-300 border-gray-300/50",
+  "Sent": "bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 border-green-300/50",
+  "Accepted": "bg-success/20 text-success border-success/50",
+  "Rejected": "bg-destructive/20 text-destructive border-destructive/50",
 };
 
 export default function StatusBadge({ status }: StatusBadgeProps) {

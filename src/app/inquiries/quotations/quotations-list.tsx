@@ -31,11 +31,8 @@ export default function QuotationsList({ inquiryId }: QuotationsListProps) {
         );
     }
     
-    // A real app would navigate to a quotation detail page.
-    // For now, it does nothing.
     const handleRowClick = (quotationId: string) => {
-        // router.push(`/quotations/${quotationId}`);
-        console.log("Navigating to quotation " + quotationId);
+        router.push(`/quotations/${quotationId}`);
     };
 
     return (
@@ -56,7 +53,7 @@ export default function QuotationsList({ inquiryId }: QuotationsListProps) {
                             {q.createdAt?.toDate ? format(q.createdAt.toDate(), 'PP') : 'N/A'}
                         </TableCell>
                          <TableCell>
-                           {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(q.total)}
+                           {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(q.total)}
                         </TableCell>
                         <TableCell className="text-right">
                            <StatusBadge status={q.status} />
