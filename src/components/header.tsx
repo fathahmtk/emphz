@@ -14,16 +14,45 @@ import Logo from '@/components/logo';
 import { useUser, logout } from '@/firebase';
 import { useQuote } from '@/context/quote-context';
 import { ThemeToggleButton } from './theme-toggle';
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from './ui/navigation-menu';
+import { productCategories } from '@/lib/data';
+import React from 'react';
 
 const navLinks = [
   { href: '/pricing', label: 'Pricing' },
   { href: '/about', label: 'About Us' },
-  { href: '/products', label: 'Products' },
   { href: '/case-studies', label: 'Case Studies' },
   { href: '/industries', label: 'Industries' },
   { href: '/resources', label: 'Resources' },
   { href: '/contact', label: 'Contact' },
 ];
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
+
 
 export default function Header() {
   const pathname = usePathname();
@@ -47,24 +76,55 @@ export default function Header() {
           <Logo />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
-          <Link href="/" className={linkClasses('/')}>Home</Link>
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={linkClasses(link.href)}
-            >
-              {link.label}
-            </Link>
-          ))}
-           {user && (
-             <Link href="/inquiries" className={cn(linkClasses('/inquiries'), 'flex items-center gap-2')}>
-                <LayoutDashboard className="h-4 w-4" />
-                Inquiries
-             </Link>
-           )}
-        </nav>
+        <NavigationMenu className="hidden md:flex">
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <Link href="/" legacyBehavior passHref>
+                <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), linkClasses('/'))}>
+                  Home
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+
+             <NavigationMenuItem>
+              <NavigationMenuTrigger className={cn('bg-transparent', pathname.startsWith('/products') ? 'text-primary' : 'text-muted-foreground')}>Products</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {productCategories.map((component) => (
+                    <ListItem
+                      key={component.name}
+                      title={component.name}
+                      href={component.slug}
+                    >
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            {navLinks.filter(l => l.href !== '/products').map((link) => (
+              <NavigationMenuItem key={link.href}>
+                 <Link href={link.href} legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), linkClasses(link.href))}>
+                      {link.label}
+                    </NavigationMenuLink>
+                  </Link>
+              </NavigationMenuItem>
+            ))}
+            
+            {user && (
+              <NavigationMenuItem>
+                <Link href="/inquiries" legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), linkClasses('/inquiries'), 'flex items-center gap-2')}>
+                      <LayoutDashboard className="h-4 w-4" />
+                      Inquiries
+                    </NavigationMenuLink>
+                  </Link>
+              </NavigationMenuItem>
+            )}
+          </NavigationMenuList>
+        </NavigationMenu>
 
         <div className="flex items-center gap-2 sm:gap-4">
           <ThemeToggleButton />
@@ -107,7 +167,8 @@ export default function Header() {
                 </div>
                 <nav className="flex flex-col gap-4 mt-8">
                   <Link href="/" onClick={() => setMobileMenuOpen(false)} className={cn('text-lg font-medium transition-colors hover:text-primary', pathname === '/' ? 'text-primary' : 'text-foreground')}>Home</Link>
-                  {navLinks.map((link) => (
+                   <Link href="/products" onClick={() => setMobileMenuOpen(false)} className={cn('text-lg font-medium transition-colors hover:text-primary', pathname.startsWith('/products') ? 'text-primary' : 'text-foreground')}>Products</Link>
+                  {navLinks.filter(l => l.href !== '/products').map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
