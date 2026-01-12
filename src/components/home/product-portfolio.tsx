@@ -41,7 +41,7 @@ const portfolioItems = [
 export default function ProductPortfolio() {
     const image = PlaceHolderImages.find(p => p.id === 'hero-industrial');
     return (
-        <section className="relative container py-24 sm:py-32 rounded-lg overflow-hidden text-white glass">
+        <section className="relative container py-24 sm:py-32 rounded-xl overflow-hidden">
             {image && (
                 <Image 
                 src={image.imageUrl} 
@@ -55,7 +55,7 @@ export default function ProductPortfolio() {
             <div className="absolute inset-0 bg-black/70" />
             <div className="relative z-10">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">PRODUCT PORTFOLIO</h2>
+                    <h2 className="text-3xl font-bold sm:text-4xl text-primary">PRODUCT PORTFOLIO</h2>
                      <p className="mt-4 max-w-2xl mx-auto text-neutral-200 md:text-lg">
                         We manufacture a wide range of GRP-based products for infrastructure and industrial needs.
                     </p>
@@ -63,7 +63,7 @@ export default function ProductPortfolio() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {portfolioItems.map((item) => (
                          <Link key={item.title} href={item.link} className="block h-full group">
-                            <Card className="bg-card/80 backdrop-blur-sm h-full flex flex-col hover:border-primary transition-colors text-card-foreground">
+                            <Card className="bg-card/80 backdrop-blur-sm h-full flex flex-col hover:bg-card transition-colors text-card-foreground">
                                 <CardHeader>
                                     <CardTitle className="flex items-center justify-between">
                                         {item.title}

@@ -10,7 +10,7 @@ export default function Industries() {
   const image = PlaceHolderImages.find(p => p.id === 'industry-verticals');
   return (
     <section>
-        <div className="relative container py-24 sm:py-32 rounded-lg overflow-hidden text-white glass">
+        <div className="relative container py-24 sm:py-32 rounded-xl overflow-hidden">
          {image && (
             <Image 
               src={image.imageUrl} 
@@ -24,7 +24,7 @@ export default function Industries() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10">
             <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">INDUSTRIES & APPLICATIONS</h2>
+            <h2 className="text-3xl font-bold sm:text-4xl text-white">INDUSTRIES & APPLICATIONS</h2>
             <p className="mt-4 max-w-2xl mx-auto text-neutral-200 md:text-lg">
                 We support infrastructure and industrial projects across:
             </p>
@@ -32,7 +32,7 @@ export default function Industries() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
                 {industries.map((industry) => (
                     <Link key={industry.name} href={`/products?industry=${industry.id}`} className="group">
-                        <Card className="flex flex-col items-center justify-center p-6 text-center bg-card/80 backdrop-blur-sm hover:bg-accent/80 hover:shadow-md transition-all h-full text-card-foreground">
+                        <Card className="flex flex-col items-center justify-center p-6 text-center bg-card/80 backdrop-blur-sm hover:bg-card transition-all h-full text-card-foreground">
                              <CardContent className="p-0 flex flex-col items-center justify-center">
                                 <industry.icon className="w-10 h-10 text-primary mb-4" />
                                 <p className="font-semibold text-base">{industry.name}</p>

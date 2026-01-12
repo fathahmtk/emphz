@@ -166,7 +166,7 @@ export default function ContactForm() {
               <FormLabel>Product(s) required</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
                 <FormControl>
-                  <SelectTrigger>
+                  <SelectTrigger className="rounded-md">
                     <SelectValue placeholder="Select a product or add from basket" />
                   </SelectTrigger>
                 </FormControl>

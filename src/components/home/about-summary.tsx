@@ -8,7 +8,7 @@ export default function AboutSummary() {
 
   return (
     <div className="container">
-        <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-lg flex items-center justify-center text-center text-white p-4 glass">
+        <div className="relative h-96 w-full rounded-xl overflow-hidden shadow-lg flex items-center justify-center text-center text-white p-4">
             {aboutImage && (
             <Image
                 src={aboutImage.imageUrl}

@@ -16,19 +16,19 @@ export default function Home() {
     <div className="bg-background text-foreground overflow-x-hidden">
       <Hero />
       <div className="py-16 sm:py-24 space-y-8">
-        <section className="animate-fade-in-up">
+        <section>
             <ValueProposition />
         </section>
-        <section className="animate-fade-in-up">
+        <section>
             <Industries />
         </section>
-        <section className="animate-fade-in-up">
+        <section>
             <ProductPortfolio />
         </section>
-        <section className="animate-fade-in-up">
+        <section>
             <FeaturedProjects />
         </section>
-        <section className="relative container py-24 sm:py-32 rounded-lg overflow-hidden text-white animate-fade-in-up">
+        <section className="relative container py-24 sm:py-32 rounded-xl overflow-hidden text-white">
             {qaImage && (
                 <Image 
                 src={qaImage.imageUrl} 
@@ -45,10 +45,10 @@ export default function Home() {
                 <Certifications />
             </div>
         </section>
-        <section className="animate-fade-in-up">
+        <section>
             <AboutSummary />
         </section>
-        <section className="animate-fade-in-up">
+        <section>
             <FinalCTA />
         </section>
       </div>

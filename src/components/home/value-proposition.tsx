@@ -15,7 +15,7 @@ export default function ValueProposition() {
   const image = PlaceHolderImages.find(p => p.id === 'industry-energy');
   return (
     <section>
-       <div className="relative container py-24 sm:py-32 rounded-lg overflow-hidden text-white glass">
+       <div className="relative container py-24 sm:py-32 rounded-xl overflow-hidden">
          {image && (
             <Image 
               src={image.imageUrl} 
@@ -29,7 +29,7 @@ export default function ValueProposition() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-white">Why organisations choose EMPHZ:</h2>
+            <h2 className="text-3xl font-bold sm:text-4xl text-white">Why organisations choose EMPHZ:</h2>
           </div>
           <div className="max-w-3xl mx-auto">
             <ul className="space-y-4">

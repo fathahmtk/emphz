@@ -38,7 +38,7 @@ const ListItem = React.forwardRef<
           href={href || ''}
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/10 focus:bg-accent/10",
             className
           )}
           {...props}
@@ -63,16 +63,16 @@ export default function Header() {
   
   const linkClasses = (href: string) => cn(
     'text-sm font-medium transition-colors',
-    pathname === href ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
+    pathname === href ? 'text-primary' : 'text-foreground hover:text-primary'
   );
 
-  const iconButtonClasses = "rounded-full text-foreground hover:bg-accent";
+  const iconButtonClasses = "rounded-pill text-foreground hover:bg-accent/10";
   const authButtonClasses = "hidden sm:inline-flex";
 
 
   return (
-    <header className="border-b bg-card/80 text-card-foreground sticky top-0 z-40 glass">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-40 p-2">
+      <div className="container flex h-14 items-center justify-between rounded-xl bg-card/60 backdrop-blur-xl border">
         <Link href="/" className="flex items-center gap-2">
           <Logo />
         </Link>
@@ -81,14 +81,14 @@ export default function Header() {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/" className={cn(navigationMenuTriggerStyle(), linkClasses('/'))}>
+                <Link href="/" className={cn(navigationMenuTriggerStyle(), 'bg-transparent', linkClasses('/'))}>
                   Home
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 
              <NavigationMenuItem>
-              <NavigationMenuTrigger className={cn('bg-transparent', pathname.startsWith('/products') ? 'text-primary' : 'text-muted-foreground')}>Products</NavigationMenuTrigger>
+              <NavigationMenuTrigger className={cn('bg-transparent', pathname.startsWith('/products') ? 'text-primary' : 'text-foreground')}>Products</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                   {productCategories.map((component) => (
@@ -107,7 +107,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <NavigationMenuItem key={link.href}>
                  <NavigationMenuLink asChild>
-                    <Link href={link.href} className={cn(navigationMenuTriggerStyle(), linkClasses(link.href))}>
+                    <Link href={link.href} className={cn(navigationMenuTriggerStyle(), 'bg-transparent', linkClasses(link.href))}>
                       {link.label}
                     </Link>
                   </NavigationMenuLink>
@@ -117,7 +117,7 @@ export default function Header() {
             {user && (
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/inquiries" className={cn(navigationMenuTriggerStyle(), linkClasses('/inquiries'), 'flex items-center gap-2')}>
+                  <Link href="/inquiries" className={cn(navigationMenuTriggerStyle(), 'bg-transparent', linkClasses('/inquiries'), 'flex items-center gap-2')}>
                     <LayoutDashboard className="h-4 w-4" />
                     Inquiries
                   </Link>
@@ -127,17 +127,17 @@ export default function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-1 sm:gap-2">
           <ThemeToggleButton />
-          <Link href="/contact" className="relative">
-            <Button variant="ghost" size="icon" className={iconButtonClasses}>
+          <Button asChild variant="ghost" size="icon" className={cn(iconButtonClasses, "relative")}>
+            <Link href="/contact">
               <ShoppingBasket className="h-5 w-5" />
               <span className="sr-only">Quote Basket</span>
-            </Button>
-            {itemCount > 0 && (
-              <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 justify-center p-0">{itemCount}</Badge>
-            )}
-          </Link>
+              {itemCount > 0 && (
+                <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 justify-center p-0 rounded-pill">{itemCount}</Badge>
+              )}
+            </Link>
+          </Button>
           {user ? (
             <Button onClick={() => logout()} size="sm" variant="outline" className={authButtonClasses}>Logout</Button>
           ) : (
@@ -160,7 +160,7 @@ export default function Header() {
                     <Logo />
                   </Link>
                   <SheetTrigger asChild>
-                     <Button variant="ghost" size="icon" className="rounded-full">
+                     <Button variant="ghost" size="icon" className="rounded-pill">
                         <X className="h-6 w-6" />
                         <span className="sr-only">Close menu</span>
                       </Button>
