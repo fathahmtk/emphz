@@ -9,7 +9,7 @@ export default function ClosingStatement() {
           <br />
           It is specified, engineered, and trusted.
         </p>
-        <Link href="/contact" className="text-lg text-accent hover:underline mt-6 inline-block">
+        <Link href="/contact" className="text-lg text-primary hover:underline mt-6 inline-block font-semibold">
           Talk to an Engineer
         </Link>
       </div>

@@ -4,9 +4,9 @@ import SystemOverview from '@/components/home/system-overview';
 import EngineeringLogic from '@/components/home/engineering-logic';
 import Deployments from '@/components/home/deployments';
 import ModularityExplainer from '@/components/home/modularity-explainer';
-import ComplianceInfrastructure from '@/components/home/compliance-infrastructure';
-import EngagementModel from '@/components/home/engagement-model';
+import EngagementOptions from '@/components/home/engagement-options';
 import ClosingStatement from '@/components/home/closing-statement';
+import ComplianceTrust from '@/components/home/compliance-trust';
 
 export default function Home() {
   return (
@@ -18,8 +18,8 @@ export default function Home() {
         <EngineeringLogic />
         <Deployments />
         <ModularityExplainer />
-        <ComplianceInfrastructure />
-        <EngagementModel />
+        <ComplianceTrust />
+        <EngagementOptions />
         <ClosingStatement />
       </div>
     </div>
