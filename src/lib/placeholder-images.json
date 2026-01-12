@@ -2,218 +2,225 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "A modern factory or industrial setting.",
-      "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO3QR_zgU5NrlwdA2evx824k4sb5JwDTl4OHCODq6pvYk0F5ScgKPCvtsjkMm-dJy0sFr6_n26KwNqFTm2s3U-ASDgf4kQHP2NHFiRGBpX7I_BSB5r9k6I8ULuWc9Z2zy0_lNEXNBFf9LlHspsnhdDErA=w1344-h768-s-no-gm?authuser=0",
-      "imageHint": "industrial factory"
+      "description": "Abstract architectural lines of a modern building.",
+      "imageUrl": "https://images.unsplash.com/photo-1617957743097-0d20aa2ea762?q=80&w=1920",
+      "imageHint": "architecture abstract"
     },
     {
       "id": "hero-solar",
-      "description": "A field of solar panels under a clear sky.",
-      "imageUrl": "https://images.unsplash.com/photo-1558495033-60832438c64c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODkyNjZ8MHwxfGFsbHx8fHx8fHx8fDE2ODk3ODg4Njk&ixlib=rb-4.0.3&q=80&w=1080",
-      "imageHint": "solar panels"
+      "description": "A wind turbine against a dramatic sky.",
+      "imageUrl": "https://images.unsplash.com/photo-1629251863589-53a5c760a373?q=80&w=1920",
+      "imageHint": "wind turbine"
     },
     {
       "id": "hero-industrial",
-      "description": "Interior of a large, modern industrial warehouse.",
-      "imageUrl": "https://images.unsplash.com/photo-1587825045434-2b99212a41a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODkyNjZ8MHwxfGFsbHx8fHx8fHx8fDE2ODk3ODg5MjI&ixlib=rb-4.0.3&q=80&w=1080",
-      "imageHint": "industrial warehouse"
+      "description": "Close-up of a complex industrial machine with blue and yellow tones.",
+      "imageUrl": "https://images.unsplash.com/photo-1633596683416-d5f645d94764?q=80&w=1920",
+      "imageHint": "industrial machine"
     },
     {
       "id": "industry-construction",
-      "description": "A construction site with cranes.",
-      "imageUrl": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb25zdHJ1Y3Rpb24lMjBzaXRlfGVufDB8fHx8MTc2ODExNzYxNHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "construction site"
+      "description": "Geometric patterns of a modern building facade.",
+      "imageUrl": "https://images.unsplash.com/photo-1511377187688-9519061d431c?q=80&w=1920",
+      "imageHint": "building facade"
     },
     {
       "id": "industry-energy",
-      "description": "An energy plant at dusk.",
-      "imageUrl": "https://images.unsplash.com/photo-1650785547184-7d64635c6b83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxlbmVyZ3klMjBwbGFudHxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "energy plant"
+      "description": "High-voltage power lines stretching into the distance at sunset.",
+      "imageUrl": "https://images.unsplash.com/photo-1543285808-88860718f45a?q=80&w=1920",
+      "imageHint": "power lines"
     },
     {
       "id": "industry-public-works",
-      "description": "A modern bridge or public infrastructure.",
-      "imageUrl": "https://images.unsplash.com/photo-1669818207883-25f708d3482c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtb2Rlcm4lMjBicmlkZ2V8ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "modern bridge"
+      "description": "A modern, clean subway station with dynamic lines.",
+      "imageUrl": "https://images.unsplash.com/photo-1533788272530-614a17a26a45?q=80&w=1920",
+      "imageHint": "subway station"
     },
     {
       "id": "industry-verticals",
-      "description": "An abstract image of industrial gears.",
-      "imageUrl": "https://images.unsplash.com/photo-1715322506425-2fc19fe0fc5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxpbmR1c3RyaWFsJTIwZ2VhcnN8ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "industrial gears"
+      "description": "A close-up shot of a textured metal surface, implying industrial strength.",
+      "imageUrl": "https://images.unsplash.com/photo-1599422474813-9133a69536a3?q=80&w=1920",
+      "imageHint": "metal texture"
     },
     {
       "id": "product-enclosure-1",
-      "description": "A standard electrical enclosure.",
-      "imageUrl": "https://images.unsplash.com/photo-1696454822226-3c57759522ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbGVjdHJpY2FsJTIwZW5jbG9zdXJlfGVufDB8fHx8MTc2ODEyMDU1MHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "electrical enclosure"
+      "description": "A sleek, grey industrial control box against a clean background.",
+      "imageUrl": "https://images.unsplash.com/photo-1696454822226-3c57759522ae?q=80&w=1080",
+      "imageHint": "control box"
     },
     {
       "id": "product-enclosure-2",
-      "description": "Side view of an electrical enclosure.",
-      "imageUrl": "https://images.unsplash.com/photo-1713230892215-708ba9feb04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxlY3RyaWNhbCUyMGVuY2xvc3VyZXxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "electrical enclosure"
+      "description": "A detailed shot of electrical wiring inside a control panel.",
+      "imageUrl": "https://images.unsplash.com/photo-1581092918056-0c9c4e533518?q=80&w=1080",
+      "imageHint": "electrical wiring"
     },
     {
       "id": "product-enclosure-3",
-      "description": "Interior of an electrical enclosure.",
-      "imageUrl": "https://images.unsplash.com/photo-1732800034063-2ae43b823d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlbmNsb3N1cmUlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjgxNTI1NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "enclosure interior"
+      "description": "A bank of electrical circuit breakers.",
+      "imageUrl": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1080",
+      "imageHint": "circuit breakers"
     },
     {
       "id": "product-kiosk-1",
-      "description": "A modular GRP kiosk.",
-      "imageUrl": "https://images.unsplash.com/photo-1725801474186-5beabad76568?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxvdXRkb29yJTIwa2lvc2t8ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "outdoor kiosk"
+      "description": "A modern, minimalist prefabricated modular cabin in a natural setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1593902875095-a9c6c745b46b?q=80&w=1080",
+      "imageHint": "modular cabin"
     },
     {
       "id": "product-kiosk-2",
-      "description": "A modular GRP kiosk in a field.",
-      "imageUrl": "https://images.unsplash.com/photo-1585218225329-fbac29c1c926?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxraW9zayUyMGZpZWxkfGVufDB8fHx8MTc2ODE1MjU3MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "kiosk field"
+      "description": "Interior of a small, modern equipment room.",
+      "imageUrl": "https://images.unsplash.com/photo-1581092921532-a4f6236a6839?q=80&w=1080",
+      "imageHint": "equipment room"
     },
     {
       "id": "product-toilet-1",
-      "description": "A portable toilet unit.",
-      "imageUrl": "https://images.unsplash.com/photo-1701637783855-da67ab363cfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3J0YWJsZSUyMHRvaWxldHxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "portable toilet"
+      "description": "A clean, modern public restroom interior.",
+      "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=1080",
+      "imageHint": "modern restroom"
     },
     {
       "id": "product-toilet-2",
-      "description": "Interior of a portable toilet unit.",
-      "imageUrl": "https://images.unsplash.com/photo-1580750494923-a06004b452cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0b2lsZXQlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjgxNTI1NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "toilet interior"
+      "description": "Close-up of modern bathroom fixtures.",
+      "imageUrl": "https://images.unsplash.com/photo-1601178655255-452a8a896176?q=80&w=1080",
+      "imageHint": "bathroom fixtures"
     },
     {
       "id": "product-security-cabin",
-      "description": "A modern security cabin.",
-      "imageUrl": "https://images.unsplash.com/photo-1673555136466-beb9efeb6066?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzZWN1cml0eSUyMGNhYmlufGVufDB8fHx8MTc2ODExODI3M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "security cabin"
+      "description": "A sleek, modern security checkpoint or entrance.",
+      "imageUrl": "https://images.unsplash.com/photo-1673555136466-beb9efeb6066?q=80&w=1080",
+      "imageHint": "security checkpoint"
     },
     {
       "id": "product-generator-room",
-      "description": "An industrial generator room.",
-      "imageUrl": "https://images.unsplash.com/photo-1558054665-fbe00cd7d920?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxnZW5lcmF0b3IlMjByb29tfGVufDB8fHx8MTc2ODE0NjE5NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "generator room"
+      "description": "A large industrial generator.",
+      "imageUrl": "https://images.unsplash.com/photo-1558054665-fbe00cd7d920?q=80&w=1080",
+      "imageHint": "industrial generator"
     },
     {
       "id": "product-food-kiosk",
-      "description": "A modern food kiosk.",
-      "imageUrl": "https://images.unsplash.com/photo-1552912470-ee2e96439539?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmb29kJTIwa2lvc2t8ZW58MHx8fHwxNzY4MTQ2MTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "food kiosk"
+      "description": "A stylish, modern food stall.",
+      "imageUrl": "https://images.unsplash.com/photo-1552912470-ee2e96439539?q=80&w=1080",
+      "imageHint": "food stall"
     },
     {
       "id": "product-bus-shed",
-      "description": "A modern bus waiting shed.",
-      "imageUrl": "https://images.unsplash.com/photo-1676265266086-aa863c7bd3cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxidXMlMjBzaGVkfGVufDB8fHx8MTc2ODE0NjE5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "bus shed"
+      "description": "An empty, modern bus stop with a sleek design.",
+      "imageUrl": "https://images.unsplash.com/photo-1563299946-7724128c4013?q=80&w=1080",
+      "imageHint": "bus stop"
     },
     {
       "id": "product-ev-shelter",
-      "description": "An EV charging shelter.",
-      "imageUrl": "https://images.unsplash.com/photo-1763058673652-e13a543bc461?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaGFyZ2luZyUyMHNoZWx0ZXJ8ZW58MHx8fHwxNzY4MTQ2MTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "charging shelter"
+      "description": "An electric car charging at a modern charging station.",
+      "imageUrl": "https://images.unsplash.com/photo-1614152223751-0b5338355b43?q=80&w=1080",
+      "imageHint": "electric car"
     },
     {
       "id": "product-canopy",
-      "description": "An industrial canopy.",
-      "imageUrl": "https://images.unsplash.com/photo-1678724833448-8c59e14ccdef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwY2Fub3B5fGVufDB8fHx8MTc2ODE0NjE5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "industrial canopy"
+      "description": "Abstract view of a modern architectural canopy.",
+      "imageUrl": "https://images.unsplash.com/photo-1612534572239-408d3d196425?q=80&w=1080",
+      "imageHint": "architectural canopy"
     },
     {
       "id": "products-header",
-      "description": "A wide shot of various industrial products on shelves.",
-      "imageUrl": "https://images.unsplash.com/photo-1579548122022-b06f8665c81f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHwxNXx8aW5kdXN0cmlhbCUyMHByb2R1Y3RzfGVufDB8fHx8MTc2ODMwMDcyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "industrial products"
+      "description": "Close up of stacked, colorful shipping containers, representing modular products.",
+      "imageUrl": "https://images.unsplash.com/photo-1619989895395-02534a753c15?q=80&w=1920",
+      "imageHint": "shipping containers"
     },
     {
       "id": "project-power-station",
-      "description": "A large power station complex.",
-      "imageUrl": "https://images.unsplash.com/photo-1514323277292-3b712a4b2406?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3dlciUyMHN0YXRpb258ZW58MHx8fHwxNzY4MTIwNTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "power station"
+      "description": "A geothermal power plant with steam rising.",
+      "imageUrl": "https://images.unsplash.com/photo-1599818496245-55567b461159?q=80&w=1920",
+      "imageHint": "geothermal plant"
     },
     {
       "id": "project-dubai",
-      "description": "The skyline of Downtown Dubai.",
-      "imageUrl": "https://images.unsplash.com/photo-1579525612525-053cd3e8cbd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkdWJhaSUyMHNreWxpbmV8ZW58MHx8fHwxNzY4MDQzOTQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "dubai skyline"
+      "description": "Abstract architectural detail of a modern skyscraper.",
+      "imageUrl": "https://images.unsplash.com/photo-1608226493693-35313591456d?q=80&w=1920",
+      "imageHint": "skyscraper detail"
     },
     {
       "id": "project-neom",
-      "description": "A futuristic cityscape representing NEOM.",
-      "imageUrl": "https://images.unsplash.com/photo-1536768139911-e290a59011e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnV0dXJpc3RpYyUyMGNpdHl8ZW58MHx8fHwxNzY4MTAxNzc2fDA&ixlibrb-4.1.0&q=80&w=1080",
-      "imageHint": "futuristic city"
+      "description": "A futuristic architectural rendering with flowing lines.",
+      "imageUrl": "https://images.unsplash.com/photo-1536768139911-e290a59011e4?q=80&w=1080",
+      "imageHint": "futuristic architecture"
     },
     {
       "id": "project-qatar-gas",
-      "description": "A large gas refinery plant.",
-      "imageUrl": "https://images.unsplash.com/photo-1653352639753-8debcc830014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnYXMlMjByZWZpbmVyeXxlbnwwfHx8fDE3NjgxMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gas refinery"
+      "description": "An LNG (liquefied natural gas) carrier ship at a terminal.",
+      "imageUrl": "https://images.unsplash.com/photo-1629187316624-035b3644e550?q=80&w=1920",
+      "imageHint": "LNG ship"
     },
     {
       "id": "about-us-main",
-      "description": "A modern and bright office interior.",
-      "imageUrl": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxvZmZpY2UlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjgwMzg3Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "office interior"
+      "description": "A team of engineers collaborating in a modern office.",
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1920",
+      "imageHint": "engineers collaborating"
     },
     {
       "id": "team-john",
-      "description": "Portrait of a male CEO.",
-      "imageUrl": "https://images.unsplash.com/photo-1590086782792-42dd2350140d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4MTE5MDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "male portrait"
+      "description": "Portrait of a confident male executive.",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1080",
+      "imageHint": "male executive"
     },
     {
       "id": "team-jane",
-      "description": "Portrait of a female engineer.",
-      "imageUrl": "https://images.unsplash.com/photo-1634149134664-ca3598f29da5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmZW1hbGUlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjgwNDYzNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "female portrait"
+      "description": "Portrait of a professional woman in an office setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1080",
+      "imageHint": "professional woman"
     },
     {
       "id": "team-peter",
-      "description": "Portrait of a male sales director.",
-      "imageUrl": "https://images.unsplash.com/photo-1656338997878-279d71d48f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4MTE5MDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "male portrait"
+      "description": "Portrait of a smiling man in business attire.",
+      "imageUrl": "https://images.unsplash.com/photo-1590086782792-42dd2350140d?q=80&w=1080",
+      "imageHint": "smiling businessman"
     },
     {
       "id": "cert-iso-9001",
       "description": "ISO 9001 certification logo.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_5rjmmt5rjmmt5rjm.png?alt=media&token=53f10d2e-1a0a-4f29-9673-94be5f9be2a8"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_5rjmmt5rjmmt5rjm.png?alt=media&token=53f10d2e-1a0a-4f29-9673-94be5f9be2a8",
+      "imageHint": "iso logo"
     },
     {
       "id": "cert-iso-14001",
       "description": "ISO 14001 certification logo.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_bqoodzbqoodzbqoo.png?alt=media&token=74fddfdf-37a2-4a0a-9b86-b8124b6649b0"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_bqoodzbqoodzbqoo.png?alt=media&token=74fddfdf-37a2-4a0a-9b86-b8124b6649b0",
+      "imageHint": "iso logo"
     },
     {
       "id": "cert-nema",
       "description": "NEMA certification logo.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_dgosifdgosifdgos.png?alt=media&token=9352758b-79be-47d2-b53a-9f7dc448aea3"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_dgosifdgosifdgos.png?alt=media&token=9352758b-79be-47d2-b53a-9f7dc448aea3",
+      "imageHint": "nema logo"
     },
     {
       "id": "cert-ip66",
       "description": "IP66 rating icon.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_fcok37fcok37fcok.png?alt=media&token=259f12fb-51fc-4cd9-84da-5826f57a004f"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_fcok37fcok37fcok.png?alt=media&token=259f12fb-51fc-4cd9-84da-5826f57a004f",
+      "imageHint": "ip66 icon"
     },
     {
       "id": "cert-ul",
       "description": "UL Listed logo.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_lrmb12lrmb12lrmb.png?alt=media&token=3900a657-1573-4dc9-8e0e-6419f2f3aeff"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_lrmb12lrmb12lrmb.png?alt=media&token=3900a657-1573-4dc9-8e0e-6419f2f3aeff",
+      "imageHint": "ul logo"
     },
     {
       "id": "cert-ce",
       "description": "CE Marking logo.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_nqtpvunqtpvunqtp.png?alt=media&token=e35f26ff-303c-4ae2-b92a-7430907023b9"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_nqtpvunqtpvunqtp.png?alt=media&token=e35f26ff-303c-4ae2-b92a-7430907023b9",
+      "imageHint": "ce logo"
     },
     {
       "id": "cert-new",
       "description": "New certification logo.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_q5pggwq5pggwq5pg.png?alt=media&token=12f4604e-6431-4c50-9a4b-c7535783fc68"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-3915762913-39f0d.firebasestorage.app/o/Gemini_Generated_Image_q5pggwq5pggwq5pg.png?alt=media&token=12f4604e-6431-4c50-9a4b-c7535783fc68",
+      "imageHint": "certification logo"
     },
     {
       "id": "cta-final",
-      "description": "An engineer reviewing plans.",
-      "imageUrl": "https://images.unsplash.com/photo-1519414442722-f25164a2592f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHw0fHxlbmdpbmVlcnxlbnwwfHx8fDE3NjgyMjA4MjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "engineer plans"
+      "description": "Two engineers in hard hats discussing plans on a tablet at a construction site.",
+      "imageUrl": "https://images.unsplash.com/photo-1621999818131-46b7363cf57f?q=80&w=1920",
+      "imageHint": "engineers plans"
     }
   ]
 }

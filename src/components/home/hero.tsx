@@ -41,7 +41,7 @@ export default function Hero() {
                     priority={slide.id === 'hero-1'}
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30" />
                 <div className="relative h-full flex flex-col items-center justify-center text-center text-white px-4">
                   <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-6 animate-slide-in-down">
                     {slide.title}
