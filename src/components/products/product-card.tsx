@@ -1,4 +1,5 @@
 
+
 import { Product } from "@/lib/types";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -21,7 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </CardContent>
       <CardFooter>
         <Button asChild variant="outline" className="w-full">
-          <Link href={`/products/detail/${product.slug}`}>
+          <Link href={`/products/${product.slug}`}>
             View Variant Details <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>

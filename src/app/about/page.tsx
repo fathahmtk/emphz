@@ -2,8 +2,12 @@
 import { team } from "@/lib/data";
 import TeamCard from "./team-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
+import { getImage } from "@/lib/placeholder-images";
 
 export default function AboutPage() {
+  const heroImage = getImage('hero-industrial');
+
   return (
     <div className="bg-background">
       <div className="container py-16 lg:py-24 space-y-24">
@@ -15,7 +19,15 @@ export default function AboutPage() {
         </div>
 
         <div className="relative h-[400px] w-full rounded-xl overflow-hidden shadow-lg bg-muted">
-          {/* Image removed */}
+           {heroImage && (
+              <Image 
+                src={heroImage.url}
+                alt={heroImage.description}
+                fill
+                className="object-cover"
+                data-ai-hint={heroImage.hint}
+              />
+           )}
         </div>
         
         <div className="max-w-4xl mx-auto text-center">

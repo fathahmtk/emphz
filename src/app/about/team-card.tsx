@@ -1,17 +1,28 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { TeamMember } from "@/lib/types";
+import { getImage } from "@/lib/placeholder-images";
+import Image from "next/image";
 
 type TeamCardProps = {
   member: TeamMember;
 };
 
 export default function TeamCard({ member }: TeamCardProps) {
+  const image = getImage(member.image_id);
   return (
     <Card className="text-center flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg glass">
       <CardHeader>
         <div className="relative w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-primary/20 bg-muted">
-           {/* Image removed */}
+           {image && (
+              <Image 
+                src={image.url}
+                alt={image.description}
+                fill
+                className="object-cover"
+                data-ai-hint={image.hint}
+              />
+           )}
         </div>
         <CardTitle>{member.name}</CardTitle>
         <CardDescription>{member.role}</CardDescription>

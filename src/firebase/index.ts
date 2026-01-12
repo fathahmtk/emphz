@@ -11,6 +11,8 @@ import { useCollection } from './firestore/use-collection';
 import { useDoc } from './firestore/use-doc';
 import { FirebaseProvider, useFirebase, useAuth as useFirebaseAuth, useFirestore, useFirebaseApp } from './provider';
 import { FirebaseClientProvider } from './client-provider';
+import { loginWithGoogle, logout } from './auth/api';
+
 
 function initializeFirebase(): {
   firebaseApp: FirebaseApp;
@@ -40,12 +42,8 @@ export {
   useFirebaseAuth,
   useFirestore,
   useFirebaseApp,
-  // This was missing before
   loginWithGoogle,
   logout
 };
-
-// These need to be exported from here to avoid circular dependencies
-import { loginWithGoogle, logout } from './auth/api';
 
 export type { User } from './auth/use-user';

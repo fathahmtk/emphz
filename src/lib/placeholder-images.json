@@ -1,0 +1,74 @@
+{
+  "product-enclosure-1": {
+    "id": "product-enclosure-1",
+    "description": "Front view of a standard GRP electrical enclosure.",
+    "url": "https://picsum.photos/seed/picsum1/600/600",
+    "hint": "electrical enclosure"
+  },
+  "product-enclosure-2": {
+    "id": "product-enclosure-2",
+    "description": "Side view of a GRP electrical enclosure showing the depth and mounting.",
+    "url": "https://picsum.photos/seed/picsum2/600/600",
+    "hint": "electrical enclosure"
+  },
+  "product-enclosure-3": {
+    "id": "product-enclosure-3",
+    "description": "Interior view of a GRP enclosure with a mounting plate.",
+    "url": "https://picsum.photos/seed/picsum3/600/600",
+    "hint": "electrical enclosure interior"
+  },
+  "product-kiosk-1": {
+    "id": "product-kiosk-1",
+    "description": "A medium-sized GRP kiosk installed in an industrial setting.",
+    "url": "https://picsum.photos/seed/picsum4/800/600",
+    "hint": "industrial kiosk"
+  },
+  "product-kiosk-2": {
+    "id": "product-kiosk-2",
+    "description": "A large walk-in GRP equipment shelter.",
+    "url": "https://picsum.photos/seed/picsum5/800/600",
+    "hint": "equipment shelter"
+  },
+  "product-toilet-1": {
+    "id": "product-toilet-1",
+    "description": "A portable GRP toilet unit for construction sites.",
+    "url": "https://picsum.photos/seed/picsum6/600/800",
+    "hint": "portable toilet"
+  },
+  "product-toilet-2": {
+    "id": "product-toilet-2",
+    "description": "Interior of a hygienic GRP toilet unit.",
+    "url": "https://picsum.photos/seed/picsum7/600/800",
+    "hint": "toilet interior"
+  },
+  "project-neom": {
+    "id": "project-neom",
+    "description": "A custom GRP structure for a large-scale infrastructure project.",
+    "url": "https://picsum.photos/seed/picsum8/800/600",
+    "hint": "modern architecture"
+  },
+  "hero-industrial": {
+    "id": "hero-industrial",
+    "description": "A wide shot of an industrial facility at dusk.",
+    "url": "https://picsum.photos/seed/picsum9/1200/800",
+    "hint": "industrial facility"
+  },
+  "project-power-station": {
+    "id": "project-power-station",
+    "description": "A power station with transmission lines.",
+    "url": "https://picsum.photos/seed/picsum10/800/600",
+    "hint": "power station"
+  },
+  "project-dubai": {
+    "id": "project-dubai",
+    "description": "Modern infrastructure in a cityscape.",
+    "url": "https://picsum.photos/seed/picsum11/800/600",
+    "hint": "city infrastructure"
+  },
+  "project-qatar-gas": {
+    "id": "project-qatar-gas",
+    "description": "An LNG plant with complex piping.",
+    "url": "https://picsum.photos/seed/picsum12/800/600",
+    "hint": "gas plant"
+  }
+}
