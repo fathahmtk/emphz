@@ -1,115 +1,57 @@
-// This component has been replaced by hero-cafe-3d.tsx and can be safely deleted.
-// Keeping it for reference in case of rollback.
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { getImage } from "@/lib/images"
+import Logo from "../logo"
+import Link from "next/link"
+
+const productLinks = [
+  { name: "GRP Café Kiosk", href: "/products/grp-kiosks-equipment-shelters" },
+  { name: "GRP Electrical Enclosure", href: "/products/grp-electrical-enclosures" },
+  { name: "GRP Portable Toilet", href: "/products/portable-grp-toilets" },
+  { name: "GRP Canopy Structure", href: "/products/custom-grp-manufacturing" },
+]
 
 export default function HeroCafeKiosk() {
-  const [open, setOpen] = useState(false)
-  const kioskImage = getImage("cafe-kiosk-hero");
+  const heroImage = getImage("hero-modular-systems");
 
   return (
-    <section className="relative overflow-hidden bg-emphz-hero text-white">
-      <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-24 md:grid-cols-2 md:items-center">
-
-        {/* LEFT CONTENT */}
-        <div>
-          <h1 className="text-4xl font-semibold leading-tight md:text-5xl">
-            GRP Modular Café Kiosk
-            <br />
-            <span className="text-emphz-teal">Engineered to Launch Faster</span>
-          </h1>
-
-          <ul className="mt-6 space-y-2 text-steel">
-            <li>• Factory-built GRP structure</li>
-            <li>• Custom layout & dimensions</li>
-            <li>• Plug-and-play deployment</li>
-          </ul>
-
-          <div className="mt-8 flex gap-4">
-            <Button
-              className="bg-emphz-teal hover:bg-emphz-teal-dark"
-              onClick={() => setOpen(true)}
-            >
-              View Specs
-            </Button>
-
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-emphz-midnight"
-            >
-              Request Quote
-            </Button>
-          </div>
-        </div>
-
-        {/* RIGHT INTERACTIVE MODEL */}
-        <div className="relative">
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => setOpen(true)}
-            className="relative cursor-pointer rounded-2xl bg-white/5 p-4 backdrop-blur"
-          >
-            {kioskImage && (
-                <Image
-                src={kioskImage.url}
-                alt={kioskImage.description}
-                width={600}
-                height={400}
-                className="rounded-xl"
-                data-ai-hint={kioskImage.hint}
+    <section className="relative w-full h-[600px] md:h-[700px] text-white overflow-hidden">
+        {heroImage && (
+            <Image
+                src={heroImage.url}
+                alt={heroImage.description}
+                fill
+                className="object-cover"
+                data-ai-hint={heroImage.hint}
                 priority
-                />
-            )}
-
-            <div className="absolute bottom-4 left-4 rounded-full bg-black/60 px-4 py-2 text-sm">
-              Tap to explore
+            />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center p-4">
+            <div className="max-w-4xl mx-auto">
+                <Logo className="fill-white drop-shadow-lg" />
+                <h1 className="text-2xl md:text-3xl font-semibold tracking-wide uppercase mt-4 drop-shadow-md">
+                    Modular Infrastructure Systems
+                </h1>
             </div>
-          </motion.div>
-
-          {/* SPEC PANEL */}
-          <AnimatePresence>
-            {open && (
-              <motion.div
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                className="absolute inset-0 z-10 rounded-2xl bg-emphz-midnight p-6 text-white shadow-xl"
-              >
-                <div className="flex items-start justify-between">
-                  <h3 className="text-xl font-semibold">
-                    Café Kiosk – Specifications
-                  </h3>
-                  <button
-                    onClick={() => setOpen(false)}
-                    className="text-steel hover:text-white"
-                  >
-                    ✕
-                  </button>
+            
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="flex flex-col items-center gap-6">
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {productLinks.map((link) => (
+                            <Button key={link.name} variant="secondary" asChild className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20">
+                                <Link href={link.href}>{link.name}</Link>
+                            </Button>
+                        ))}
+                    </div>
+                     <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-12 py-6 text-lg">
+                        Request Specification
+                    </Button>
                 </div>
-
-                <ul className="mt-6 space-y-3 text-steel">
-                  <li>• Structure: GRP sandwich panels</li>
-                  <li>• Size: Custom (standard 10–20 ft)</li>
-                  <li>• Electrical: Pre-wired</li>
-                  <li>• Plumbing: Ready ports</li>
-                  <li>• Installation: No civil work</li>
-                </ul>
-
-                <Button className="mt-8 w-full bg-emphz-teal">
-                  Request Specification PDF
-                </Button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            </div>
         </div>
-      </div>
     </section>
   )
 }

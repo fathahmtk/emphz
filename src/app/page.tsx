@@ -1,5 +1,4 @@
 
-import dynamic from 'next/dynamic';
 import ApplicationNavigation from '@/components/home/application-navigation';
 import SystemOverview from '@/components/home/system-overview';
 import EngineeringLogic from '@/components/home/engineering-logic';
@@ -8,16 +7,12 @@ import ModularityExplainer from '@/components/home/modularity-explainer';
 import EngagementOptions from '@/components/home/engagement-options';
 import ClosingStatement from '@/components/home/closing-statement';
 import ComplianceTrust from '@/components/home/compliance-trust';
-
-const HeroCafe3D = dynamic(() => import('@/components/hero-cafe-3d'), {
-  ssr: false,
-  loading: () => <div className="h-[640px] w-full bg-emphz-hero" />,
-});
+import HeroCafeKiosk from '@/components/home/hero-cafe-kiosk';
 
 export default function Home() {
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
-      <HeroCafe3D />
+      <HeroCafeKiosk />
       <div className="space-y-16 sm:space-y-24 py-16 sm:py-24">
         <ApplicationNavigation />
         <SystemOverview />

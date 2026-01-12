@@ -1,22 +1,15 @@
 import { cn } from "@/lib/utils";
 
-const Logo = ({ className }: { className?: string }) => (
+const Logo = ({ className, ...props }: { className?: string, [key: string]: any }) => (
   <div className={cn("flex items-center justify-center", className)}>
-    <svg width="150" height="45" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="pGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="hsl(var(--primary))"/>
-          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.8"/>
-        </linearGradient>
-      </defs>
-
+    <svg width="250" height="75" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" {...props}>
       {/* E */}
       <path d="M90 60 H175 V95 H125 V120 H170 V150 H125 V185 H175 V220 H90 Z"
-            className="fill-foreground"/>
+            />
 
       {/* M */}
       <path d="M195 220 V60 H230 L265 135 L300 60 H335 V220 H305 V140 L265 190 L225 140 V220 Z"
-            className="fill-foreground"/>
+            />
 
       {/* P (BEST-MATCH RECONSTRUCTION) */}
       <path
@@ -37,27 +30,15 @@ const Logo = ({ className }: { className?: string }) => (
           C485 110 460 95 420 95
           Z
         "
-        fill="url(#pGradient)"
       />
 
       {/* H */}
       <path d="M550 60 V220 H585 V150 H630 V220 H665 V60 H630 V120 H585 V60 Z"
-            className="fill-foreground"/>
+            />
 
       {/* Z */}
       <path d="M685 60 H820 V95 L735 190 H820 V220 H685 V190 L770 95 H685 Z"
-            className="fill-foreground"/>
-
-      {/* Tagline */}
-      <text x="450" y="245"
-            textAnchor="middle"
-            fontFamily="Inter, Arial, sans-serif"
-            fontSize="18"
-            fontWeight="500"
-            className="fill-muted-foreground"
-            letterSpacing="2">
-        Engineered Modular Solutions
-      </text>
+            />
     </svg>
   </div>
 );

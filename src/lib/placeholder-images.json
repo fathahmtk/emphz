@@ -17,6 +17,12 @@
     "url": "1200/800",
     "hint": "factory floor"
   },
+  "hero-modular-systems": {
+    "id": "hero-modular-systems",
+    "description": "A showcase of EMPHZ modular infrastructure systems including a cafe kiosk, electrical enclosures, portable toilets, and a canopy structure in an industrial setting.",
+    "url": "1400/900",
+    "hint": "modular infrastructure"
+  },
   "cafe-kiosk-hero": {
     "id": "cafe-kiosk-hero",
     "description": "A modern, clean white GRP cafe kiosk at a 3/4 angle.",
