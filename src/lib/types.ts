@@ -214,6 +214,8 @@ export type QuotationLineItem = {
   total: number;
 };
 
+export type QuotationStatus = 'Draft' | 'Sent' | 'Accepted' | 'Rejected';
+
 export type Quotation = {
   id?: string;
   quotationNumber: string;
@@ -229,5 +231,5 @@ export type Quotation = {
   taxAmount: number;
   total: number;
   notes?: string;
-  status: 'Draft' | 'Sent' | 'Accepted' | 'Rejected';
+  status: QuotationStatus;
 };

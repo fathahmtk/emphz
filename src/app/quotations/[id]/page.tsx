@@ -14,6 +14,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { format } from 'date-fns';
 import StatusBadge from '@/app/inquiries/status-badge';
 import Logo from '@/components/logo';
+import QuotationStatusSelector from './quotation-status-selector';
 
 export default function QuotationDetailPage() {
   const { id } = useParams();
@@ -77,7 +78,7 @@ export default function QuotationDetailPage() {
                 <h1 className="text-4xl font-bold text-foreground">Quotation</h1>
                 <p className="text-muted-foreground">{quotation.quotationNumber}</p>
                  <div className="mt-4">
-                    <StatusBadge status={quotation.status} />
+                    <QuotationStatusSelector quotationId={quotation.id} currentStatus={quotation.status} />
                 </div>
               </div>
             </div>

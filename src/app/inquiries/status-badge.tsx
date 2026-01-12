@@ -14,8 +14,8 @@ const statusStyles: { [key: string]: string } = {
   "Closed": "bg-gray-100 text-gray-800 dark:bg-gray-800/50 dark:text-gray-300 border-gray-300/50",
   "Draft": "bg-gray-100 text-gray-800 dark:bg-gray-800/50 dark:text-gray-300 border-gray-300/50",
   "Sent": "bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 border-green-300/50",
-  "Accepted": "bg-success/20 text-success border-success/50",
-  "Rejected": "bg-destructive/20 text-destructive border-destructive/50",
+  "Accepted": "bg-success/20 text-success-foreground border-success/50",
+  "Rejected": "bg-destructive/20 text-destructive-foreground border-destructive/50",
 };
 
 export default function StatusBadge({ status }: StatusBadgeProps) {
