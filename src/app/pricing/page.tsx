@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const pricingPlans = [
   {
@@ -16,7 +17,7 @@ const pricingPlans = [
     ],
     isFeatured: false,
     buttonText: "Choose Plan",
-    buttonVariant: "default" as "default" | "outline",
+    buttonVariant: "outline" as "default" | "outline",
   },
   {
     title: "Professional",
@@ -61,17 +62,20 @@ export default function PricingPage() {
       </div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
         {pricingPlans.map(plan => (
-          <Card key={plan.title} className={`glass flex flex-col ${plan.isFeatured ? 'border-primary shadow-lg' : ''}`}>
+          <Card key={plan.title} className={cn(
+            "glass flex flex-col transition-all duration-300",
+            plan.isFeatured ? "border-primary shadow-2xl scale-105" : "hover:shadow-xl hover:-translate-y-1"
+          )}>
             <CardHeader>
-              <CardTitle>{plan.title}</CardTitle>
+              <CardTitle className="text-2xl">{plan.title}</CardTitle>
               <CardDescription>{plan.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-grow space-y-6">
-              <div className="text-4xl font-bold">
+              <div className="text-5xl font-bold">
                 {plan.price}
-                {plan.period && <span className="text-lg font-normal text-muted-foreground">{plan.period}</span>}
+                {plan.period && <span className="text-xl font-normal text-muted-foreground">{plan.period}</span>}
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {plan.features.map(feature => (
                   <li key={feature} className="flex items-start">
                     <Check className="text-primary mr-3 flex-shrink-0 mt-1 h-5 w-5" />
@@ -81,7 +85,7 @@ export default function PricingPage() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" variant={plan.buttonVariant}>
+              <Button className="w-full" size="lg" variant={plan.buttonVariant}>
                 {plan.buttonText}
               </Button>
             </CardFooter>
@@ -91,3 +95,4 @@ export default function PricingPage() {
     </div>
   );
 }
+
