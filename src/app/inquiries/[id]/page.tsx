@@ -14,6 +14,7 @@ import { format } from 'date-fns';
 import InquiryStatusSelector from '../inquiry-status-selector';
 import AddNoteForm from './add-note-form';
 import NotesList from './notes-list';
+import StatusBadge from '../status-badge';
 
 function DetailItem({ icon: Icon, label, value }: { icon: React.ElementType, label: string, value: React.ReactNode }) {
     if (!value) return null;
@@ -76,12 +77,12 @@ export default function InquiryDetailPage() {
                         <CardHeader>
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <CardTitle>Inquiry Details</CardTitle>
+                                    <CardTitle>Inquiry from {inquiry.name}</CardTitle>
                                     <CardDescription>
                                         Received on {inquiry.createdAt?.toDate ? format(inquiry.createdAt.toDate(), 'PPp') : 'N/A'}
                                     </CardDescription>
                                 </div>
-                                 <InquiryStatusSelector inquiryId={inquiry.id} currentStatus={inquiry.status} />
+                                 <StatusBadge status={inquiry.status} />
                             </div>
                         </CardHeader>
                         <CardContent className="space-y-6">
@@ -114,6 +115,9 @@ export default function InquiryDetailPage() {
                         </CardContent>
                     </Card>
                     <NotesList notes={inquiry.notes || []} />
+                     <div className="lg:hidden">
+                        <AddNoteForm inquiryId={inquiry.id} />
+                    </div>
                 </div>
                 <div className="space-y-6">
                     <Card>
@@ -133,7 +137,7 @@ export default function InquiryDetailPage() {
                         <CardContent className="space-y-4">
                             <DetailItem icon={User} label="Routed To" value={inquiry.routedTo} />
                             <div>
-                                <p className="text-sm text-muted-foreground mb-2">Status</p>
+                                <p className="text-sm font-medium text-foreground mb-2">Status</p>
                                 <InquiryStatusSelector inquiryId={inquiry.id} currentStatus={inquiry.status} />
                             </div>
                              <div className="pt-4 border-t">

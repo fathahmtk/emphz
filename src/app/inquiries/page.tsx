@@ -3,7 +3,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { format, subMonths, startOfMonth } from 'date-fns';
 import { useInquiries } from '@/hooks/use-inquiries';
@@ -127,6 +127,9 @@ export default function InquiriesPage() {
       <Card>
         <CardHeader>
           <CardTitle>Received Inquiries</CardTitle>
+          <CardDescription>
+            You have received a total of {inquiries?.length || 0} inquiries. Select an inquiry to view details.
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
