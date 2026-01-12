@@ -1,3 +1,4 @@
+
 import { products } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/products/breadcrumbs';
