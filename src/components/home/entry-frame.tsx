@@ -1,11 +1,23 @@
 import { Button } from "@/components/ui/button";
+import { getImage } from "@/lib/images";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function EntryFrame() {
+  const heroImage = getImage('hero-industrial');
   return (
     <section className="container">
-      <div className="relative rounded-xxl bg-card border p-8 md:p-16 min-h-[400px] flex items-center">
-        <div className="max-w-2xl">
+      <div className="relative rounded-xxl bg-card border p-8 md:p-16 min-h-[400px] flex items-center overflow-hidden">
+        {heroImage && 
+            <Image 
+                src={heroImage.url}
+                alt={heroImage.description}
+                fill
+                className="object-cover opacity-10 dark:opacity-5"
+                data-ai-hint={heroImage.hint}
+            />
+        }
+        <div className="relative max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-foreground mb-4">
             ENGINEERED MODULAR SOLUTIONS
           </h1>

@@ -1,12 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
+import Image from "next/image";
+import { getImage } from "@/lib/images";
 
 const modules = [
-  { title: "Metering Enclosures", href: "/products/grp-electrical-enclosures" },
-  { title: "Control Kiosks", href: "/products/grp-kiosks-equipment-shelters" },
-  { title: "Equipment Shelters", href: "/products/grp-kiosks-equipment-shelters" },
-  { title: "Power Rooms", href: "/products" },
-  { title: "Utility Cabinets", href: "/products/grp-electrical-enclosures" },
+  { title: "Metering Enclosures", href: "/products/grp-electrical-enclosures", imageId: "product-enclosure-category" },
+  { title: "Control Kiosks", href: "/products/grp-kiosks-equipment-shelters", imageId: "product-kiosk-category" },
+  { title: "Equipment Shelters", href: "/products/grp-kiosks-equipment-shelters", imageId: "product-kiosk-category" },
+  { title: "Power Rooms", href: "/products/custom-grp-manufacturing", imageId: "product-custom-category" },
+  { title: "Portable Toilets", href: "/products/portable-grp-toilets", imageId: "product-toilet-category" },
 ];
 
 export default function SystemOverview() {
@@ -20,15 +22,20 @@ export default function SystemOverview() {
         </div>
       <div className="bg-card rounded-xl border p-4">
         <div className="flex gap-4 overflow-x-auto pb-4">
-          {modules.map((mod) => (
-            <Link href={mod.href} key={mod.title} className="group shrink-0">
-                <Card className="w-48 h-32 flex items-center justify-center text-center rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:bg-accent-soft/50">
-                    <CardContent className="p-0">
-                        <p className="font-medium text-foreground">{mod.title}</p>
-                    </CardContent>
-                </Card>
-            </Link>
-          ))}
+          {modules.map((mod) => {
+            const image = getImage(mod.imageId);
+            return (
+              <Link href={mod.href} key={mod.title} className="group shrink-0">
+                  <Card className="w-56 h-40 flex flex-col justify-end text-center rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:bg-accent-soft/50 relative overflow-hidden">
+                      {image && <Image src={image.url} alt={image.description} fill className="object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-ai-hint={image.hint} />}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                      <CardContent className="p-0 relative z-10">
+                          <p className="font-medium text-white">{mod.title}</p>
+                      </CardContent>
+                  </Card>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </section>

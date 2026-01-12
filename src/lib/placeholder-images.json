@@ -136,5 +136,41 @@
     "description": "Close-up of GRP material",
     "url": "600/600",
     "hint": "composite material"
+  },
+  "industry-energy": {
+    "id": "industry-energy",
+    "description": "Power distribution station",
+    "url": "600/400",
+    "hint": "power station"
+  },
+  "industry-public-works": {
+    "id": "industry-public-works",
+    "description": "Modern public building",
+    "url": "600/400",
+    "hint": "modern architecture"
+  },
+  "industry-telecom": {
+    "id": "industry-telecom",
+    "description": "Telecommunication tower",
+    "url": "600/400",
+    "hint": "telecom tower"
+  },
+  "industry-factory": {
+    "id": "industry-factory",
+    "description": "Industrial factory exterior",
+    "url": "600/400",
+    "hint": "industrial factory"
+  },
+  "industry-renewable": {
+    "id": "industry-renewable",
+    "description": "Wind turbines at sunset",
+    "url": "600/400",
+    "hint": "wind turbine"
+  },
+  "industry-construction": {
+    "id": "industry-construction",
+    "description": "Construction site with cranes",
+    "url": "600/400",
+    "hint": "construction site"
   }
 }
