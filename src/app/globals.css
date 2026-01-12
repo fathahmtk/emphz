@@ -4,44 +4,33 @@
 
 @layer base {
   :root {
-    --bg-main: 210 20% 98%;
-    --bg-surface: 0 0% 100%;
-    --border-soft: 214 24% 91%;
-    --text-primary: 222 28% 22%;
-    --text-muted: 220 13% 46%;
-    
-    --primary: 222 28% 22%;
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 215 28% 11%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 217 91% 60%;
     --primary-foreground: 210 20% 98%;
-    --accent: 217 91% 60%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 28 93% 50%;
     --accent-foreground: 210 20% 98%;
-    --success: 154 48% 44%;
 
-    --emphz-hero: 222 47% 11%;
-    --emphz-midnight: 222 47% 15%;
-    --emphz-teal: 174 72% 56%;
-    --emphz-teal-dark: 174 80% 48%;
-    --steel: 215 14% 34%;
-
-
-    --background: var(--bg-main);
-    --foreground: var(--text-primary);
-    --card: var(--bg-surface);
-    --card-foreground: var(--text-primary);
-    --popover: var(--bg-surface);
-    --popover-foreground: var(--text-primary);
-    --primary: var(--primary);
-    --primary-foreground: var(--primary-foreground);
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: var(--border-soft);
-    --muted-foreground: var(--text-muted);
-    --accent: var(--accent);
-    --accent-foreground: var(--accent-foreground);
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
-    --border: var(--border-soft);
-    --input: var(--border-soft);
-    --ring: var(--accent);
+
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 28 93% 50%;
 
     --radius-xs: 6px;
     --radius-sm: 10px;
@@ -52,53 +41,43 @@
     --radius-pill: 9999px;
 
     --chart-1: 220 90% 60%;
-    --chart-2: 24 90% 60%;
+    --chart-2: 28 93% 50%;
     --chart-3: 150 90% 60%;
     --chart-4: 340 90% 60%;
     --chart-5: 280 90% 60%;
   }
 
-  .dark {
-    --bg-main: 224 71.4% 4.1%;
-    --bg-surface: 215 28% 11%;
-    --border-soft: 215 28% 17%;
-    --text-primary: 210 20% 98%;
-    --text-muted: 217.9 10.6% 64.9%;
+  .light {
+    --background: 210 20% 98%;
+    --foreground: 222 28% 22%;
 
-    --primary: 210 20% 98%;
-    --primary-foreground: 222 28% 22%;
-    --accent: 217 91% 60%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 28% 22%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 28% 22%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 214 24% 91%;
+    --muted-foreground: 220 13% 46%;
+
+    --accent: 28 93% 50%;
     --accent-foreground: 210 20% 98%;
-    --success: 154 48% 54%;
 
-    --emphz-hero: 222 47% 11%;
-    --emphz-midnight: 222 47% 15%;
-    --emphz-teal: 174 72% 56%;
-    --emphz-teal-dark: 174 80% 48%;
-    --steel: 215 14% 34%;
-
-    --background: var(--bg-main);
-    --foreground: var(--text-primary);
-    --card: var(--bg-surface);
-    --card-foreground: var(--text-primary);
-    --popover: var(--bg-surface);
-    --popover-foreground: var(--text-primary);
-    --primary: var(--primary);
-    --primary-foreground: var(--primary-foreground);
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: var(--border-soft);
-    --muted-foreground: var(--text-muted);
-    --accent: var(--accent);
-    --accent-foreground: var(--accent-foreground);
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
-    --border: var(--border-soft);
-    --input: var(--border-soft);
-    --ring: var(--accent);
-
-     --chart-1: 220 80% 70%;
-    --chart-2: 24 80% 70%;
+    
+    --border: 214 24% 91%;
+    --input: 214 24% 91%;
+    --ring: 28 93% 50%;
+    
+    --chart-1: 220 80% 70%;
+    --chart-2: 28 93% 50%;
     --chart-3: 150 80% 70%;
     --chart-4: 340 80% 70%;
     --chart-5: 280 80% 70%;

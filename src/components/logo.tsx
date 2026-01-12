@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 const Logo = ({ className, ...props }: { className?: string, [key: string]: any }) => (
   <div className={cn("flex items-center justify-center", className)}>
-    <svg width="250" height="75" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg width="250" height="75" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" {...props} fill="currentColor">
       {/* E */}
       <path d="M90 60 H175 V95 H125 V120 H170 V150 H125 V185 H175 V220 H90 Z"
             />
@@ -13,6 +13,7 @@ const Logo = ({ className, ...props }: { className?: string, [key: string]: any 
 
       {/* P (BEST-MATCH RECONSTRUCTION) */}
       <path
+        fill="#C45100"
         d="
           M355 60
           H415
