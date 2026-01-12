@@ -1,4 +1,4 @@
-import HeroCafeKiosk from '@/components/home/hero-cafe-kiosk';
+import HeroCafe3D from '@/components/hero-cafe-3d';
 import ApplicationNavigation from '@/components/home/application-navigation';
 import SystemOverview from '@/components/home/system-overview';
 import EngineeringLogic from '@/components/home/engineering-logic';
@@ -11,7 +11,7 @@ import ComplianceTrust from '@/components/home/compliance-trust';
 export default function Home() {
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
-      <HeroCafeKiosk />
+      <HeroCafe3D />
       <div className="space-y-16 sm:space-y-24 py-16 sm:py-24">
         <ApplicationNavigation />
         <SystemOverview />

@@ -1,3 +1,5 @@
+// This component has been replaced by hero-cafe-3d.tsx and can be safely deleted.
+// Keeping it for reference in case of rollback.
 "use client"
 
 import { useState } from "react"
