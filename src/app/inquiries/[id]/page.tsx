@@ -111,9 +111,11 @@ function QuotationsTab({ inquiry }: { inquiry: Inquiry }) {
             <CardHeader>
                 <div className="flex justify-between items-center">
                     <CardTitle>Quotations</CardTitle>
-                    <Button>
-                        <PlusCircle className="mr-2 h-4 w-4" />
-                        Create Quotation
+                    <Button asChild>
+                        <Link href={`/inquiries/${inquiry.id}/quotations/new`}>
+                            <PlusCircle className="mr-2 h-4 w-4" />
+                            Create Quotation
+                        </Link>
                     </Button>
                 </div>
                 <CardDescription>

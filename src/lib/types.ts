@@ -207,7 +207,7 @@ export type CaseStudy = {
 };
 
 export type QuotationLineItem = {
-  id: string;
+  id?: string; // for react-hook-form
   description: string;
   quantity: number;
   unitPrice: number;
@@ -215,7 +215,7 @@ export type QuotationLineItem = {
 };
 
 export type Quotation = {
-  id: string;
+  id?: string;
   quotationNumber: string;
   inquiryId: string;
   createdAt: any; // Firestore Timestamp
