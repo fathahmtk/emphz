@@ -26,7 +26,7 @@ export default function SystemOverview() {
             const image = getImage(mod.imageId);
             return (
               <Link href={mod.href} key={mod.title} className="group shrink-0">
-                  <Card className="w-56 h-40 flex flex-col justify-end text-center rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:bg-accent-soft/50 relative overflow-hidden">
+                  <Card className="w-56 h-40 flex flex-col justify-end text-center rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:border-primary relative overflow-hidden">
                       {image && <Image src={image.url} alt={image.description} fill className="object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-ai-hint={image.hint} />}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                       <CardContent className="p-0 relative z-10">

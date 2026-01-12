@@ -26,7 +26,7 @@ export default function ApplicationNavigation() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {applications.map((app) => (
           <Link href={app.href} key={app.title} className="group block">
-            <Card className="rounded-xxl p-8 h-full transition-all duration-300 group-hover:bg-accent-soft/50 group-hover:border-accent">
+            <Card className="rounded-xxl p-8 h-full transition-all duration-300 group-hover:bg-accent/10 group-hover:border-primary">
               <CardContent className="p-0">
                 <h3 className="text-2xl font-headline font-bold mb-2">{app.title}</h3>
                 <p className="text-muted-foreground mb-4">{app.description}</p>
