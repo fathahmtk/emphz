@@ -18,7 +18,7 @@ export default function CaseStudiesPage() {
         {caseStudies.map((study) => {
             const studyImage = PlaceHolderImages.find(p => p.id === study.imageId);
             return (
-              <Card key={study.id} className="glass overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+              <Card key={study.id} className="glass overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
                 <Link href={`/case-studies/${study.slug}`} className="block">
                   <div className="aspect-video relative bg-muted">
                     {studyImage && (

@@ -21,7 +21,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
   return (
     <div className="container py-16 lg:py-24">
       <div className="max-w-4xl mx-auto">
-        <div className="aspect-video relative bg-muted rounded-lg overflow-hidden mb-8 shadow-lg">
+        <div className="aspect-video relative bg-muted rounded-xl overflow-hidden mb-8 shadow-lg">
             {caseStudyImage && (
                 <Image 
                 src={caseStudyImage.imageUrl} 
@@ -76,7 +76,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             </div>
 
             <div className="text-center pt-8">
-              <Button asChild size="lg" className="rounded-full">
+              <Button asChild size="lg">
                 <Link href="/contact">Request a Similar Solution</Link>
               </Button>
             </div>

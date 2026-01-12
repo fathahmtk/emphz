@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { TeamMember } from "@/lib/types";
 import Image from "next/image";
@@ -11,7 +12,7 @@ export default function TeamCard({ member }: TeamCardProps) {
   const image = PlaceHolderImages.find(p => p.id === member.image_id);
   
   return (
-    <Card className="text-center flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+    <Card className="text-center flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg glass">
       <CardHeader>
         {image && (
           <div className="relative w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-primary/20">
