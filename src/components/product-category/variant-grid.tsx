@@ -7,18 +7,17 @@ interface VariantGridProps {
 }
 
 export default function VariantGrid({ products }: VariantGridProps) {
-  if (products.length === 0) return null;
+  if (products.length === 0) {
+    return (
+        <div className="text-center py-16">
+            <p className="text-muted-foreground">No standard variants found for this category.</p>
+            <p className="text-muted-foreground">Please contact us for custom engineered solutions.</p>
+        </div>
+    );
+  }
 
   return (
     <section className="container">
-       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-          Modular Variants
-        </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-          Standard configurations available for rapid deployment.
-        </p>
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

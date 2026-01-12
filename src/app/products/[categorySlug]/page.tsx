@@ -4,16 +4,7 @@ import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/products/breadcrumbs';
 import { getProductsByCategory, getCategoryBySlug } from '@/lib/product-utils';
 
-import CategoryEntryFrame from '@/components/product-category/category-entry-frame';
-import ApplicationContextBar from '@/components/product-category/application-context-bar';
-import UseCaseSection from '@/components/product-category/use-case-section';
 import VariantGrid from '@/components/product-category/variant-grid';
-import TechnicalFoundation from '@/components/product-category/technical-foundation';
-import ComplianceMatrix from '@/components/product-category/compliance-matrix';
-import SystemIntegration from '@/components/product-category/system-integration';
-import CustomisationSupport from '@/components/product-category/customisation-support';
-import DeploymentSnapshot from '@/components/product-category/deployment-snapshot';
-import EngineerCTA from '@/components/product-category/engineer-cta';
 
 export async function generateStaticParams() {
   return productCategories.map((category) => ({
@@ -21,7 +12,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductCategoryPage({ params }: { params: { categorySlug: string } }) {
+export default function ProductCategoryPage({ params }: { params: { categorySlug:string } }) {
   const category = getCategoryBySlug(params.categorySlug);
 
   if (!category) {
@@ -36,17 +27,17 @@ export default function ProductCategoryPage({ params }: { params: { categorySlug
         <Breadcrumbs current={category.name} />
       </div>
 
-      <div className="space-y-16 sm:space-y-24 py-16 sm:py-24">
-        <CategoryEntryFrame category={category} />
-        <ApplicationContextBar />
-        <UseCaseSection useCases={category.useCases} categoryName={category.name} />
+      <div className="container py-16 lg:py-24">
+         <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-foreground mb-4">
+              {category.name}
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              {category.subline}
+            </p>
+        </div>
+        
         <VariantGrid products={categoryProducts} />
-        <TechnicalFoundation category={category} />
-        <ComplianceMatrix category={category} />
-        <SystemIntegration category={category} />
-        <CustomisationSupport />
-        <DeploymentSnapshot />
-        <EngineerCTA />
       </div>
     </div>
   );
