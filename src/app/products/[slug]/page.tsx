@@ -108,6 +108,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                                 <TableHeader>
                                     <TableRow>
                                         <TableHead>Parameter</TableHead>
+
                                         <TableHead>Available Options</TableHead>
                                     </TableRow>
                                 </TableHeader>
