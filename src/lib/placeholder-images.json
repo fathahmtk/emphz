@@ -11,6 +11,12 @@
     "url": "1200/800",
     "hint": "engineering factory"
   },
+  "hero-factory": {
+    "id": "hero-factory",
+    "description": "A bustling modern factory floor.",
+    "url": "1200/800",
+    "hint": "factory floor"
+  },
   "team-john": {
     "id": "team-john",
     "description": "Team member John Doe",

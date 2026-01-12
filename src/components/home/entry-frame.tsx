@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight, Phone } from 'lucide-react';
 
 export default function EntryFrame() {
-  const heroImage = getImage('hero-engineering');
+  const heroImage = getImage('hero-factory');
   return (
     <section className="container">
       <div className="relative rounded-xxl bg-card border p-8 md:p-16 min-h-[400px] flex items-center overflow-hidden">
