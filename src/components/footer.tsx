@@ -1,6 +1,11 @@
+
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Twitter, Linkedin, Facebook, Phone, Mail, Globe } from 'lucide-react';
 import Logo from '@/components/logo';
+import { useEffect, useState } from 'react';
 
 const navLinks = [
   { href: '/products', label: 'Products' },
@@ -12,6 +17,17 @@ const navLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const [isDashboard, setIsDashboard] = useState(false);
+
+  useEffect(() => {
+    setIsDashboard(pathname.startsWith('/inquiries'));
+  }, [pathname]);
+
+  if (isDashboard) {
+    return null; // The footer is not shown on the dashboard pages
+  }
+
   return (
     <footer className="py-8">
       <div className="container">

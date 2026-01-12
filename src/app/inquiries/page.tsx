@@ -97,7 +97,7 @@ export default function InquiriesPage() {
 
   if (isLoading) {
     return (
-      <div className="container py-16 text-center">
+      <div className="flex-1 p-8 pt-6 space-y-4 text-center">
         <p>Loading inquiries...</p>
       </div>
     );
@@ -108,66 +108,64 @@ export default function InquiriesPage() {
   }
 
   return (
-    <div className="container py-16 lg:py-24 space-y-12">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Inquiries Dashboard</h1>
-        <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-          View and manage all customer inquiries.
-        </p>
+    <div className="flex-1 space-y-8 p-8 pt-6">
+      <div className="flex items-center justify-between space-y-2">
+        <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
       </div>
+      <div className="space-y-4">
+         <div className="grid gap-4 md:grid-cols-3">
+              <KpiCard title="Total Inquiries" value={kpiData.total} icon={BarChart} />
+              <KpiCard title="New Inquiries" value={kpiData.newCount} icon={MessageSquare} />
+              <KpiCard title="Top Product" value={kpiData.topProduct} icon={Package} />
+          </div>
 
-       <div className="grid gap-4 md:grid-cols-3">
-            <KpiCard title="Total Inquiries" value={kpiData.total} icon={BarChart} />
-            <KpiCard title="New Inquiries" value={kpiData.newCount} icon={MessageSquare} />
-            <KpiCard title="Top Product" value={kpiData.topProduct} icon={Package} />
-        </div>
+          <InquiriesChart data={chartData} />
 
-        <InquiriesChart data={chartData} />
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Received Inquiries</CardTitle>
-          <CardDescription>
-            You have received a total of {inquiries?.length || 0} inquiries. Select an inquiry to view details.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Date</TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Product</TableHead>
-                <TableHead>Routed To</TableHead>
-                <TableHead className="text-right">Status</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {inquiries && inquiries.length > 0 ? (
-                inquiries.map((inquiry: Inquiry) => (
-                  <TableRow key={inquiry.id} className="cursor-pointer hover:bg-muted/50" onClick={() => router.push(`/inquiries/${inquiry.id}`)}>
-                    <TableCell>
-                      {inquiry.createdAt?.toDate ? format(inquiry.createdAt.toDate(), 'PP') : 'N/A'}
-                    </TableCell>
-                    <TableCell className="font-medium">{inquiry.name}</TableCell>
-                    <TableCell>{inquiry.product}</TableCell>
-                    <TableCell>{inquiry.routedTo}</TableCell>
-                    <TableCell className="text-right">
-                       <StatusBadge status={inquiry.status} />
+        <Card>
+          <CardHeader>
+            <CardTitle>Received Inquiries</CardTitle>
+            <CardDescription>
+              You have received a total of {inquiries?.length || 0} inquiries. Select an inquiry to view details.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Date</TableHead>
+                  <TableHead>Name</TableHead>
+                  <TableHead>Product</TableHead>
+                  <TableHead>Routed To</TableHead>
+                  <TableHead className="text-right">Status</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {inquiries && inquiries.length > 0 ? (
+                  inquiries.map((inquiry: Inquiry) => (
+                    <TableRow key={inquiry.id} className="cursor-pointer hover:bg-muted/50" onClick={() => router.push(`/inquiries/${inquiry.id}`)}>
+                      <TableCell>
+                        {inquiry.createdAt?.toDate ? format(inquiry.createdAt.toDate(), 'PP') : 'N/A'}
+                      </TableCell>
+                      <TableCell className="font-medium">{inquiry.name}</TableCell>
+                      <TableCell>{inquiry.product}</TableCell>
+                      <TableCell>{inquiry.routedTo}</TableCell>
+                      <TableCell className="text-right">
+                         <StatusBadge status={inquiry.status} />
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={5} className="text-center">
+                      No inquiries found.
                     </TableCell>
                   </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={5} className="text-center">
-                    No inquiries found.
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+                )}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

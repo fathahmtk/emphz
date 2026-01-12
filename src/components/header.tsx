@@ -1,9 +1,10 @@
+
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, ShoppingBasket, X, LayoutDashboard } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -59,6 +60,11 @@ export default function Header() {
   const { user } = useUser();
   const { itemCount } = useQuote();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDashboard, setIsDashboard] = useState(false);
+
+  useEffect(() => {
+    setIsDashboard(pathname.startsWith('/inquiries'));
+  }, [pathname]);
   
   const linkClasses = (href: string) => cn(
     'text-sm font-medium transition-colors',
@@ -68,6 +74,9 @@ export default function Header() {
   const iconButtonClasses = "rounded-pill text-foreground hover:bg-accent/10";
   const authButtonClasses = "hidden sm:inline-flex";
 
+  if (isDashboard) {
+    return null; // The header is not shown on the dashboard pages
+  }
 
   return (
     <header className="sticky top-0 z-40 p-2">

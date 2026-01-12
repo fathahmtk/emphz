@@ -53,15 +53,15 @@ export default function InquiryDetailPage() {
     const isLoading = authLoading || inquiryLoading;
 
     if (isLoading) {
-        return <div className="container py-16 text-center">Loading inquiry details...</div>;
+        return <div className="flex-1 p-8 pt-6 space-y-4 text-center">Loading inquiry details...</div>;
     }
 
     if (!inquiry) {
-        return <div className="container py-16 text-center">Inquiry not found.</div>;
+        return <div className="flex-1 p-8 pt-6 space-y-4 text-center">Inquiry not found.</div>;
     }
 
     return (
-        <div className="container py-12 md:py-16">
+        <div className="flex-1 space-y-8 p-8 pt-6">
             <div className="mb-8">
                 <Button variant="ghost" asChild>
                     <Link href="/inquiries">
