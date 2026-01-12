@@ -3,7 +3,6 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { getImage } from "@/lib/images"
-import Logo from "../logo"
 import Link from "next/link"
 
 const productLinks = [
@@ -15,6 +14,7 @@ const productLinks = [
 
 export default function HeroCafeKiosk() {
   const heroImage = getImage("hero-modular-systems");
+  const logoImage = getImage("emphz-logo-hero");
 
   return (
     <section className="relative w-full h-[600px] md:h-[700px] text-white overflow-hidden">
@@ -29,9 +29,21 @@ export default function HeroCafeKiosk() {
             />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col justify-end items-center text-center p-4 md:p-8">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center p-4 md:p-8">
             
             <div className="w-full max-w-5xl">
+                {logoImage && (
+                    <div className="relative h-24 w-80 mx-auto mb-8">
+                         <Image
+                            src={logoImage.url}
+                            alt={logoImage.description}
+                            fill
+                            className="object-contain"
+                            data-ai-hint={logoImage.hint}
+                            priority
+                        />
+                    </div>
+                )}
                  <h1 className="text-3xl md:text-5xl font-headline font-bold tracking-tight uppercase drop-shadow-md">
                     Modular Infrastructure Systems
                 </h1>
