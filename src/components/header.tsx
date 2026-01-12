@@ -80,11 +80,11 @@ export default function Header() {
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/" passHref legacyBehavior>
-                <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), linkClasses('/'))}>
+              <NavigationMenuLink asChild>
+                <Link href="/" className={cn(navigationMenuTriggerStyle(), linkClasses('/'))}>
                   Home
-                </NavigationMenuLink>
-              </Link>
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
              <NavigationMenuItem>
@@ -104,24 +104,24 @@ export default function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-            {navLinks.filter(l => l.href !== '/products').map((link) => (
+            {navLinks.map((link) => (
               <NavigationMenuItem key={link.href}>
-                 <Link href={link.href} passHref legacyBehavior>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), linkClasses(link.href))}>
+                 <NavigationMenuLink asChild>
+                    <Link href={link.href} className={cn(navigationMenuTriggerStyle(), linkClasses(link.href))}>
                       {link.label}
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
             
             {user && (
               <NavigationMenuItem>
-                <Link href="/inquiries" passHref legacyBehavior>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), linkClasses('/inquiries'), 'flex items-center gap-2')}>
-                      <LayoutDashboard className="h-4 w-4" />
-                      Inquiries
-                    </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="/inquiries" className={cn(navigationMenuTriggerStyle(), linkClasses('/inquiries'), 'flex items-center gap-2')}>
+                    <LayoutDashboard className="h-4 w-4" />
+                    Inquiries
                   </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             )}
           </NavigationMenuList>
