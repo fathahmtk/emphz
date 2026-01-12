@@ -5,6 +5,12 @@
     "url": "1200/800",
     "hint": "modern architecture"
   },
+  "hero-engineering": {
+    "id": "hero-engineering",
+    "description": "A modern engineering facility with complex machinery.",
+    "url": "1200/800",
+    "hint": "engineering factory"
+  },
   "team-john": {
     "id": "team-john",
     "description": "Team member John Doe",
