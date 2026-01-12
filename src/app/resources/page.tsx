@@ -35,11 +35,11 @@ export default function ResourcesPage() {
 
       <div className="max-w-xl mx-auto mb-12">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             type="search"
             placeholder="Search resources..."
-            className="pl-10"
+            className="pl-12"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -47,18 +47,18 @@ export default function ResourcesPage() {
       </div>
 
       {filteredResources.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredResources.map((resource) => {
             const canDownload = !resource.isProtected || !!user;
             return (
               <Card key={resource.id} className="flex flex-col">
                 <CardHeader>
-                  <div className="flex justify-between items-start">
+                  <div className="flex justify-between items-start gap-4">
                     <div>
                       <CardTitle>{resource.title}</CardTitle>
                       <CardDescription>{resource.category}</CardDescription>
                     </div>
-                    {resource.isProtected && <Lock className="h-4 w-4 text-muted-foreground" />}
+                    {resource.isProtected && <Lock className="h-4 w-4 text-muted-foreground flex-shrink-0" />}
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -86,8 +86,8 @@ export default function ResourcesPage() {
           })}
         </div>
       ) : (
-        <div className="col-span-full text-center py-16 text-muted-foreground">
-          <p>No resources found for your search term.</p>
+        <div className="text-center py-16">
+          <p className="text-muted-foreground">No resources found for your search term.</p>
         </div>
       )}
     </div>
