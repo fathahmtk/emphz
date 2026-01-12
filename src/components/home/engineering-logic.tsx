@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Zap, Shield, Sun, Droplets, HardHat, Construction } from "lucide-react";
+import { Zap, Shield, Sun, Droplets, HardHat, Construction, Factory, Wind } from "lucide-react";
 
 const siteConditions = [
   { title: "Heat", icon: Sun },
@@ -17,8 +17,6 @@ const engineeringPrinciples = [
   { title: "Compliance Engineering", icon: Zap },
   { title: "Factory Fabrication", icon: Factory },
 ];
-
-import { Factory, Wind } from "lucide-react";
 
 function LogicColumn({ title, items }: { title: string, items: {title: string, icon: any}[]}) {
     return (
