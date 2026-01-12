@@ -18,10 +18,10 @@
     "hint": "factory floor"
   },
   "hero-modular-systems": {
-    "id": "hero-cafe-kiosk-final",
-    "description": "A modern, modular white cafe kiosk with a barista inside.",
-    "url": "https://lh3.googleusercontent.com/pw/AP1GczPaFkhfvZK7-lvdAZI2TS7pjpjxGJTyZbMcu_XY4z5sYcSqnl-_Z6V63agRWJYNLL-bleTtWTRfBbx5RXjqLIcBmLeXkfGbd96f9EULChYz09s1BwaxyuhqY6johOT6pDRF0olyr1xMf-efavin3O8P4w=w1319-h879-s-no-gm?authuser=0",
-    "hint": "cafe kiosk"
+    "id": "hero-modular-systems",
+    "description": "A collection of modular infrastructure systems including a cafe kiosk, electrical enclosures, portable toilets, and an EV charging station in an industrial setting.",
+    "url": "https://lh3.googleusercontent.com/pw/AP1GczNX47saccp8NqQjvERlDA618IavztIxm6Z489jWSfYQSpYLHgv_uqsL4mnbQqZK7u9tCisIvevC36pKOR0HlfqzWIc0ty3scr0bwbq2wq-y-SsO_TFJGjJrPh06c7l2S0SLKXE43Mt1p4L5_fKqjTK_kg=w1319-h879-s-no-gm?authuser=0",
+    "hint": "modular infrastructure"
   },
   "cafe-kiosk-hero": {
     "id": "cafe-kiosk-hero",
