@@ -249,10 +249,10 @@ export const heroSlides: HeroSlide[] = [
     title: "ENGINEERED FOR REAL-WORLD INFRASTRUCTURE",
     subtitle:
       "GRP Enclosures, Kiosks, Shelters & Utility Structures. Designed for continuous outdoor operation, critical services, and public infrastructure.",
-    primaryText: "Request a Quote",
-    primaryLink: "/contact",
-    secondaryText: "Explore Products",
-    secondaryLink: "/products",
+    primaryText: "Explore Products",
+    primaryLink: "/products",
+    secondaryText: "Request a Quote",
+    secondaryLink: "/contact",
   },
   {
     id: "hero-2",

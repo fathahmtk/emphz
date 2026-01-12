@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, FileDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,6 @@ export default function Hero() {
   return (
     <Carousel
       className="w-full"
-      plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
       opts={{
         align: "start",
         loop: true,
@@ -56,12 +55,6 @@ export default function Hero() {
                       <Link href={slide.primaryLink}>
                         {slide.primaryText}
                         <ArrowRight className="ml-2 h-5 w-5" />
-                      </Link>
-                    </Button>
-                    <Button asChild size="lg" variant="secondary">
-                      <Link href={slide.secondaryLink}>
-                        {slide.secondaryText}
-                        <FileDown className="ml-2 h-5 w-5" />
                       </Link>
                     </Button>
                   </div>
