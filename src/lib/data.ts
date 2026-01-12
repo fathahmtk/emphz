@@ -22,9 +22,11 @@ export const productCategories: ProductCategory[] = [
 export const products: Product[] = [
   {
     id: '1',
+    categoryId: '1',
     slug: 'grp-electrical-enclosures',
     name: 'GRP Electrical Enclosures',
     tagline: 'Factory-Manufactured | Custom-Built | Long-Life GRP Solutions',
+    short_description: 'Versatile, weatherproof enclosures for electrical and automation systems.',
     overview: 'GRP Electrical Enclosures manufactured by EMPHZ are designed to safely house electrical, control, metering, and automation equipment in outdoor and industrial environments. These enclosures are produced using high-quality Glass Reinforced Plastic (GRP) and are suitable for long-term exposure to heat, rain, humidity, dust, and corrosive conditions.',
     overviewContext: 'EMPHZ supplies both standard enclosure models and fully customised enclosures manufactured strictly as per drawings, specifications, or site requirements.',
     applications: [
@@ -105,9 +107,11 @@ export const products: Product[] = [
   },
   {
     id: '2',
+    categoryId: '2',
     slug: 'grp-kiosks-equipment-shelters',
     name: 'GRP Kiosks & Equipment Shelters',
     tagline: 'Factory-Built Modular Units for Electrical and Equipment Housing',
+    short_description: 'Modular, factory-built kiosks for housing critical equipment systems.',
     overview: 'Factory-built modular GRP kiosks for housing electrical and equipment systems. Supplied as ready-to-install units.',
     applications: [
         'Distribution substations',
@@ -147,9 +151,11 @@ export const products: Product[] = [
   },
    {
     id: '3',
+    categoryId: '3',
     slug: 'portable-grp-toilets',
     name: 'Portable GRP Toilets',
     tagline: 'Durable and Hygienic Sanitation Units',
+    short_description: 'Hygienic, low-maintenance toilets for sites and public areas.',
     overview: 'Durable, hygienic GRP toilet units suitable for public, industrial, and project-based usage.',
     applications: [
         'Construction sites',
@@ -186,9 +192,11 @@ export const products: Product[] = [
   },
   {
     id: '4',
+    categoryId: '4',
     slug: 'custom-grp-manufacturing',
     name: 'Custom GRP Manufacturing',
     tagline: 'If it can be made in GRP, EMPHZ can manufacture it.',
+    short_description: 'Bespoke GRP structures and components built to your exact specifications.',
     overview: 'EMPHZ specialises in custom-built GRP products, manufactured based on drawings, samples, or site requirements.',
     applications: [
       'Special electrical enclosures', 'Equipment covers', 'Utility boxes', 'Architectural GRP elements', 'Industrial housings', 'Non-standard kiosks and shelters'

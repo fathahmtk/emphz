@@ -4,6 +4,7 @@ import { LucideIcon } from 'lucide-react';
 
 export type Product = {
   id: string;
+  categoryId: string;
   slug: string;
   name: string;
   tagline: string;
@@ -42,10 +43,12 @@ export type Product = {
   image_id: string;
   gallery_image_ids: string[];
   
+  // New field for card view
+  short_description: string;
+
   // Deprecated fields from old structure, kept for compatibility during transition if needed
   category?: 'Electrical Enclosures' | 'Kiosks' | 'Portable Toilets' | 'Custom';
   sku?: string;
-  short_description?: string;
   long_description?: string;
   features?: { name: string, icon: string }[];
   ip_rating?: number;
