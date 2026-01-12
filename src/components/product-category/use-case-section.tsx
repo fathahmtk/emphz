@@ -3,23 +3,24 @@
 
 import { useSearchParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ProductCategory, ApplicationType } from '@/lib/types';
+import { ApplicationType, UseCase } from '@/lib/types';
 import { useMemo } from 'react';
 
 interface UseCaseSectionProps {
-  category: ProductCategory;
+  useCases: UseCase[];
+  categoryName: string;
 }
 
-export default function UseCaseSection({ category }: UseCaseSectionProps) {
+export default function UseCaseSection({ useCases, categoryName }: UseCaseSectionProps) {
   const searchParams = useSearchParams();
   const application = searchParams.get('application') as ApplicationType | null;
 
   const filteredUseCases = useMemo(() => {
     if (!application) {
-      return category.useCases;
+      return useCases;
     }
-    return category.useCases.filter(uc => uc.applicationType === application);
-  }, [application, category.useCases]);
+    return useCases.filter(uc => uc.applicationType === application);
+  }, [application, useCases]);
 
   if (filteredUseCases.length === 0) {
     return null;
@@ -32,7 +33,7 @@ export default function UseCaseSection({ category }: UseCaseSectionProps) {
           Deployment Scenarios
         </h2>
         <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-          How {category.name} are deployed in various applications.
+          How {categoryName} are deployed in various applications.
         </p>
       </div>
 

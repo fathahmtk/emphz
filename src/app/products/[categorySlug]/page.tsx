@@ -39,7 +39,7 @@ export default function ProductCategoryPage({ params }: { params: { categorySlug
       <div className="space-y-16 sm:space-y-24 py-16 sm:py-24">
         <CategoryEntryFrame category={category} />
         <ApplicationContextBar />
-        <UseCaseSection category={category} />
+        <UseCaseSection useCases={category.useCases} categoryName={category.name} />
         <VariantGrid products={categoryProducts} />
         <TechnicalFoundation category={category} />
         <ComplianceMatrix category={category} />
