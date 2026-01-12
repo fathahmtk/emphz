@@ -55,8 +55,8 @@ const Logo = ({ className }: { className?: string }) => (
             fontSize="18"
             fontWeight="500"
             className="fill-muted-foreground"
-            letterSpacing="4">
-        HONEST • DIRECT • REAL
+            letterSpacing="2">
+        Engineered Modular Solutions
       </text>
     </svg>
   </div>

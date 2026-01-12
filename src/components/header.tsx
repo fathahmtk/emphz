@@ -66,7 +66,7 @@ export default function Header() {
   );
 
   const iconButtonClasses = "rounded-full text-foreground hover:bg-accent";
-  const authButtonClasses = "hidden sm:inline-flex rounded-full";
+  const authButtonClasses = "hidden sm:inline-flex";
 
 
   return (
@@ -190,9 +190,9 @@ export default function Header() {
                 </nav>
                  <div className="mt-auto pt-4 border-t">
                     {user ? (
-                        <Button onClick={() => {logout(); setMobileMenuOpen(false);}} size="sm" className="w-full rounded-full" variant="outline">Logout</Button>
+                        <Button onClick={() => {logout(); setMobileMenuOpen(false);}} size="sm" className="w-full" variant="outline">Logout</Button>
                     ) : (
-                        <Button asChild size="sm" onClick={() => setMobileMenuOpen(false)} className="w-full rounded-full">
+                        <Button asChild size="sm" onClick={() => setMobileMenuOpen(false)} className="w-full">
                         <Link href="/login">Partner Login</Link>
                         </Button>
                     )}
