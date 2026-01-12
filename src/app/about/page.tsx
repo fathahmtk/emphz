@@ -1,13 +1,9 @@
-
 import { team } from "@/lib/data";
 import TeamCard from "./team-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
-import { getImage } from "@/lib/placeholder-images";
 
 export default function AboutPage() {
-  const heroImage = getImage('hero-industrial');
-
   return (
     <div className="bg-background">
       <div className="container py-16 lg:py-24 space-y-24">
@@ -19,15 +15,13 @@ export default function AboutPage() {
         </div>
 
         <div className="relative h-[400px] w-full rounded-xl overflow-hidden shadow-lg bg-muted">
-           {heroImage && (
-              <Image 
-                src={heroImage.url}
-                alt={heroImage.description}
-                fill
-                className="object-cover"
-                data-ai-hint={heroImage.hint}
-              />
-           )}
+           <Image 
+              src={"https://picsum.photos/seed/hero-industrial/1200/800"}
+              alt={"A wide shot of an industrial facility at dusk."}
+              fill
+              className="object-cover"
+              data-ai-hint={"industrial facility"}
+            />
         </div>
         
         <div className="max-w-4xl mx-auto text-center">

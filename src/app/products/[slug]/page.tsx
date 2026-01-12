@@ -1,5 +1,3 @@
-
-
 import { products } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/products/breadcrumbs';
@@ -9,7 +7,6 @@ import Link from 'next/link';
 import { ArrowRight, Check, ChevronRight, Download } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import AddToQuoteButton from './add-to-quote-button';
-import { getImages } from '@/lib/placeholder-images';
 import dynamic from 'next/dynamic';
 
 const ProductImageGallery = dynamic(() => import('./product-image-gallery'), {
@@ -62,7 +59,12 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
     notFound();
   }
 
-  const galleryImages = getImages(product.gallery_image_ids);
+  const galleryImages = product.gallery_image_ids.map(id => ({
+      id,
+      url: `https://picsum.photos/seed/${id}/600/600`,
+      description: product.name,
+      hint: '',
+  }));
 
   return (
     <div className="bg-background text-foreground">

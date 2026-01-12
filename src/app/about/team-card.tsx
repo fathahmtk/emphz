@@ -1,7 +1,5 @@
-
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { TeamMember } from "@/lib/types";
-import { getImage } from "@/lib/placeholder-images";
 import Image from "next/image";
 
 type TeamCardProps = {
@@ -9,20 +7,16 @@ type TeamCardProps = {
 };
 
 export default function TeamCard({ member }: TeamCardProps) {
-  const image = getImage(member.image_id);
   return (
     <Card className="text-center flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg glass">
       <CardHeader>
         <div className="relative w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-primary/20 bg-muted">
-           {image && (
-              <Image 
-                src={image.url}
-                alt={image.description}
+           <Image 
+                src={`https://picsum.photos/seed/${member.image_id}/200/200`}
+                alt={member.name}
                 fill
                 className="object-cover"
-                data-ai-hint={image.hint}
               />
-           )}
         </div>
         <CardTitle>{member.name}</CardTitle>
         <CardDescription>{member.role}</CardDescription>

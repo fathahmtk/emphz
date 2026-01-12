@@ -1,13 +1,9 @@
-
-
 import { productCategories } from '@/lib/data';
 import Breadcrumbs from '@/components/products/breadcrumbs';
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { getImage } from '@/lib/placeholder-images';
-
 
 export default function ProductsPage() {
 
@@ -40,22 +36,16 @@ export default function ProductsPage() {
       <div className="container py-16 lg:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {productCategories.map(category => {
-                const image = getImage(category.image_id);
                 return (
                     <Link href={category.slug} key={category.id} className="group block">
                         <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 group-hover:border-primary group-hover:shadow-xl">
                             <div className="relative h-64 w-full">
-                               {image ? (
-                                <Image
-                                    src={image.url}
-                                    alt={image.description}
+                               <Image
+                                    src={`https://picsum.photos/seed/${category.image_id}/800/600`}
+                                    alt={category.name}
                                     fill
                                     className="object-cover"
-                                    data-ai-hint={image.hint}
                                 />
-                               ) : (
-                                <div className="w-full h-full bg-muted"></div>
-                               )}
                             </div>
                             <CardHeader>
                                 <CardTitle className="text-xl flex items-center justify-between">

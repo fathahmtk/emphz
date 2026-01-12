@@ -1,10 +1,7 @@
-
-
 import { caseStudies } from "@/lib/data";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
-import { getImage } from "@/lib/placeholder-images";
 
 export default function CaseStudiesPage() {
   return (
@@ -17,20 +14,16 @@ export default function CaseStudiesPage() {
       </div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {caseStudies.map((study) => {
-            const image = getImage(study.imageId);
             return (
               <Card key={study.id} className="glass overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
                 <Link href={`/case-studies/${study.slug}`} className="block">
                   <div className="aspect-video relative bg-muted">
-                    {image && (
-                      <Image
-                        src={image.url}
-                        alt={image.description}
+                    <Image
+                        src={`https://picsum.photos/seed/${study.imageId}/800/600`}
+                        alt={study.title}
                         fill
                         className="object-cover"
-                        data-ai-hint={image.hint}
-                      />
-                    )}
+                    />
                   </div>
                   <CardHeader>
                     <CardTitle>{study.title}</CardTitle>

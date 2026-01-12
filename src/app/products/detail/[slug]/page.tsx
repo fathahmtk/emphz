@@ -1,14 +1,14 @@
-
 import { products } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/products/breadcrumbs';
-import ProductImageGallery from './product-image-gallery';
+import ProductImageGallery from '@/app/products/[slug]/product-image-gallery';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight, Check, ChevronRight, Download } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import AddToQuoteButton from './add-to-quote-button';
+import AddToQuoteButton from '@/app/products/[slug]/add-to-quote-button';
+import { getImages } from '@/lib/placeholder-images';
 
 export async function generateStaticParams() {
   return products.map((product) => ({
@@ -53,6 +53,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
   if (!product) {
     notFound();
   }
+  const galleryImages = getImages(product.gallery_image_ids);
 
   return (
     <div className="bg-background text-foreground">
@@ -70,7 +71,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                {/* Left Column: Image Gallery */}
                 <div className="lg:col-span-1">
-                   <ProductImageGallery images={[]} />
+                   <ProductImageGallery images={galleryImages} />
                 </div>
                 
                 {/* Right Column: Overview and Key Details */}

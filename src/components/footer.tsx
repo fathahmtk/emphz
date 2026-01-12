@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { Twitter, Linkedin, Facebook, Phone, Mail, Globe } from 'lucide-react';
 import Logo from '@/components/logo';
