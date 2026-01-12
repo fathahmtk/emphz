@@ -7,11 +7,8 @@ import ValueProposition from '@/components/home/value-proposition';
 import ProductPortfolio from '@/components/home/product-portfolio';
 import QualitySafety from '@/components/home/quality-safety';
 import Certifications from '@/components/home/certifications';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import Image from 'next/image';
 
 export default function Home() {
-  const qaImage = PlaceHolderImages.find(p => p.id === 'project-neom');
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
       <Hero />
@@ -28,17 +25,7 @@ export default function Home() {
         <section>
             <FeaturedProjects />
         </section>
-        <section className="relative container py-24 sm:py-32 rounded-xl overflow-hidden text-white">
-            {qaImage && (
-                <Image 
-                src={qaImage.imageUrl} 
-                alt={qaImage.description} 
-                data-ai-hint={qaImage.imageHint}
-                fill 
-                className="object-cover"
-                sizes="100vw"
-                />
-            )}
+        <section className="relative container py-24 sm:py-32 rounded-xl overflow-hidden text-white bg-gray-800">
             <div className="absolute inset-0 bg-black/70" />
             <div className="relative z-10 space-y-16 sm:space-y-24">
                 <QualitySafety />

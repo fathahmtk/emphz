@@ -3,7 +3,6 @@ import { products } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/products/breadcrumbs';
 import ProductImageGallery from './product-image-gallery';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -55,11 +54,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
     notFound();
   }
 
-  const galleryImages = product.gallery_image_ids
-    .map(id => PlaceHolderImages.find(p => p.id === id))
-    .filter((img): img is NonNullable<typeof img> => img !== undefined);
-
-
   return (
     <div className="bg-background text-foreground">
         <div className="container pt-8 lg:pt-12">
@@ -76,7 +70,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                {/* Left Column: Image Gallery */}
                 <div className="lg:col-span-1">
-                   <ProductImageGallery images={galleryImages} />
+                   <ProductImageGallery images={[]} />
                 </div>
                 
                 {/* Right Column: Overview and Key Details */}

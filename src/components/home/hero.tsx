@@ -2,7 +2,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,6 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { heroSlides } from "@/lib/data";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Hero() {
   return (
@@ -26,20 +24,9 @@ export default function Hero() {
       >
         <CarouselContent>
           {heroSlides.map((slide) => {
-             const image = PlaceHolderImages.find((p) => p.id === slide.imageId);
              return (
               <CarouselItem key={slide.id}>
-                <div className="relative h-[600px] md:h-[700px]">
-                  {image && (
-                    <Image
-                      src={image.imageUrl}
-                      alt={image.description}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={image.imageHint}
-                      priority={slide.id === 'hero-1'}
-                    />
-                  )}
+                <div className="relative h-[600px] md:h-[700px] bg-muted">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30" />
                   <div className="relative h-full flex flex-col items-center justify-center text-center text-white px-4">
                     <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">

@@ -1,26 +1,13 @@
 
 import { Button } from "@/components/ui/button";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight, Phone } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 export default function FinalCTA() {
-  const ctaImage = PlaceHolderImages.find(p => p.id === 'cta-final');
-
   return (
     <div className="container">
-      <div className="relative rounded-xl overflow-hidden p-12 bg-card h-[500px] flex flex-col items-center justify-center text-center text-white">
-         {ctaImage && 
-            <Image 
-                src={ctaImage.imageUrl} 
-                alt="Contact us for a quote" 
-                data-ai-hint={ctaImage.imageHint}
-                fill
-                className="object-cover"
-                sizes="100vw"
-            />
-        }
+      <div className="relative rounded-xl overflow-hidden p-12 bg-muted h-[500px] flex flex-col items-center justify-center text-center text-white">
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10">
             <h2 className="text-4xl font-extrabold sm:text-5xl mb-4">
@@ -34,7 +21,11 @@ export default function FinalCTA() {
                 <Link href="/contact">Request a Quote <ArrowRight className="ml-2 h-5 w-5" /></Link>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <Link href="tel:+919037874080"><Phone className="mr-2 h-5 w-5"/> Call Us</Link>
+                <Link href="tel:+919037874080">
+                  <>
+                    <Phone className="mr-2 h-5 w-5"/> Call Us
+                  </>
+                </Link>
               </Button>
             </div>
         </div>

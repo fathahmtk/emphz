@@ -1,9 +1,7 @@
 
 import { caseStudies } from "@/lib/data";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
 import Link from "next/link";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function CaseStudiesPage() {
   return (
@@ -16,21 +14,11 @@ export default function CaseStudiesPage() {
       </div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {caseStudies.map((study) => {
-            const studyImage = PlaceHolderImages.find(p => p.id === study.imageId);
             return (
               <Card key={study.id} className="glass overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
                 <Link href={`/case-studies/${study.slug}`} className="block">
                   <div className="aspect-video relative bg-muted">
-                    {studyImage && (
-                        <Image 
-                        src={studyImage.imageUrl} 
-                        alt={study.title} 
-                        data-ai-hint={studyImage.imageHint}
-                        fill 
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                    )}
+                    {/* Image removed */}
                   </div>
                   <CardHeader>
                     <CardTitle>{study.title}</CardTitle>

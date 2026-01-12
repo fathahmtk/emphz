@@ -1,26 +1,13 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { industries } from "@/lib/data";
-import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function Industries() {
-  const image = PlaceHolderImages.find(p => p.id === 'industry-verticals');
   return (
     <section>
-        <div className="relative container py-24 sm:py-32 rounded-xl overflow-hidden">
-         {image && (
-            <Image 
-              src={image.imageUrl} 
-              alt={image.description} 
-              data-ai-hint={image.imageHint}
-              fill 
-              className="object-cover"
-              sizes="100vw"
-            />
-        )}
+        <div className="relative container py-24 sm:py-32 rounded-xl overflow-hidden bg-muted">
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10">
             <div className="text-center mb-12">

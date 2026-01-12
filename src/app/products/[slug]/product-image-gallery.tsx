@@ -4,13 +4,20 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { ImagePlaceholder } from '@/lib/placeholder-images';
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ZoomIn } from 'lucide-react';
+
+
+type ImagePlaceholder = {
+  id: string;
+  description: string;
+  imageUrl: string;
+  imageHint: string;
+};
 
 
 type ProductImageGalleryProps = {
@@ -33,14 +40,7 @@ export default function ProductImageGallery({ images }: ProductImageGalleryProps
        <Dialog>
         <DialogTrigger asChild>
             <div className="relative aspect-square w-full rounded-lg overflow-hidden cursor-zoom-in group">
-                <Image
-                    src={mainImage.imageUrl}
-                    alt={mainImage.description}
-                    data-ai-hint={mainImage.imageHint}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+                <div className="w-full h-full bg-muted" />
                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <ZoomIn className="h-12 w-12 text-white" />
                 </div>
@@ -48,13 +48,7 @@ export default function ProductImageGallery({ images }: ProductImageGalleryProps
         </DialogTrigger>
         <DialogContent className="max-w-4xl h-auto p-0">
              <div className="relative aspect-video w-full">
-                <Image
-                    src={mainImage.imageUrl}
-                    alt={mainImage.description}
-                    data-ai-hint={mainImage.imageHint}
-                    fill
-                    className="object-contain"
-                />
+                 <div className="w-full h-full bg-muted" />
             </div>
         </DialogContent>
       </Dialog>
@@ -71,14 +65,7 @@ export default function ProductImageGallery({ images }: ProductImageGalleryProps
                 : 'opacity-70 hover:opacity-100'
             )}
           >
-            <Image
-              src={image.imageUrl}
-              alt={image.description}
-              data-ai-hint={image.imageHint}
-              fill
-              className="object-cover"
-              sizes="10vw"
-            />
+            <div className="w-full h-full bg-muted" />
           </button>
         ))}
       </div>
