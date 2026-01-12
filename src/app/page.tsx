@@ -7,12 +7,12 @@ import ModularityExplainer from '@/components/home/modularity-explainer';
 import EngagementOptions from '@/components/home/engagement-options';
 import ClosingStatement from '@/components/home/closing-statement';
 import ComplianceTrust from '@/components/home/compliance-trust';
-import HeroCafeKiosk from '@/components/home/hero-cafe-kiosk';
+import HeroCafe3D from '@/components/hero-cafe-3d';
 
 export default function Home() {
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
-      <HeroCafeKiosk />
+      <HeroCafe3D />
       <div className="space-y-16 sm:space-y-24 py-16 sm:py-24">
         <ApplicationNavigation />
         <SystemOverview />
