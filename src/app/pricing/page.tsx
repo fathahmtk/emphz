@@ -81,7 +81,7 @@ export default function PricingPage() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full rounded-full" variant={plan.buttonVariant}>
+              <Button className="w-full" variant={plan.buttonVariant}>
                 {plan.buttonText}
               </Button>
             </CardFooter>

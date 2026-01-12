@@ -23,7 +23,13 @@
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 216 85% 51%;
-    --radius: 1.5rem;
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 36px;
+    --radius-xxl: 48px;
+    --radius-pill: 9999px;
   }
 
   .dark {
