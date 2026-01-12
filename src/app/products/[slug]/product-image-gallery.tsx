@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ZoomIn } from 'lucide-react';
-import { ImagePlaceholder } from '@/lib/placeholder-images';
+import { ImagePlaceholder } from '@/lib/images';
 
 
 type ProductImageGalleryProps = {

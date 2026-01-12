@@ -17,7 +17,7 @@ export const productCategories: ProductCategory[] = [
       description: "Safe housing for electrical, control, and metering equipment.", 
       icon: Boxes, 
       slug: "/products/grp-electrical-enclosures", 
-      image_id: "product-enclosure-1",
+      image_id: "product-enclosure-category",
       subline: "Engineered enclosures for control, metering, and distribution systems operating in harsh outdoor environments.",
       useCases: [
         { applicationType: 'public', scenario: 'Street-side distribution', description: 'Housing for local power distribution nodes.', environment: 'Urban, high traffic', reason: 'High impact resistance and electrical safety.' },
@@ -52,7 +52,7 @@ export const productCategories: ProductCategory[] = [
       description: "Factory-built modular units for electrical and equipment housing.", 
       icon: Construction, 
       slug: "/products/grp-kiosks-equipment-shelters", 
-      image_id: "product-kiosk-1",
+      image_id: "product-kiosk-category",
       subline: "Modular, factory-assembled structures for housing critical systems and protecting personnel.",
       useCases: [],
       engineeringParameters: [],
@@ -65,7 +65,7 @@ export const productCategories: ProductCategory[] = [
       description: "Hygienic and durable sanitation units for public and industrial use.", 
       icon: Lamp, 
       slug: "/products/portable-grp-toilets", 
-      image_id: "product-toilet-1",
+      image_id: "product-toilet-category",
       subline: "Durable, hygienic, and low-maintenance sanitation solutions for sites and public areas.",
       useCases: [],
       engineeringParameters: [],
@@ -78,7 +78,7 @@ export const productCategories: ProductCategory[] = [
       description: "Custom-manufactured GRP structures built as per project requirements.", 
       icon: Cable, 
       slug: "/products/custom-grp-manufacturing", 
-      image_id: "project-neom",
+      image_id: "product-custom-category",
       subline: "Bespoke GRP components and structures engineered to your exact drawings and specifications.",
       useCases: [],
       engineeringParameters: [],
@@ -171,8 +171,8 @@ export const products: Product[] = [
         { name: 'Generator & Power Rooms', slug: 'grp-generator-power-rooms' },
         { name: 'Custom GRP Enclosures', slug: 'custom-grp-manufacturing' },
     ],
-    image_id: 'product-enclosure-1',
-    gallery_image_ids: ['product-enclosure-1', 'product-enclosure-2', 'product-enclosure-3']
+    image_id: 'product-enclosure-category',
+    gallery_image_ids: ['product-enclosure-gallery-1', 'product-enclosure-gallery-2', 'product-enclosure-gallery-3']
   },
   {
     id: '2',
@@ -215,8 +215,8 @@ export const products: Product[] = [
       { title: 'Technical Datasheet', url: '#' }
     ],
     relatedProducts: [],
-    image_id: 'product-kiosk-1',
-    gallery_image_ids: ['product-kiosk-1', 'product-kiosk-2', 'project-power-station']
+    image_id: 'product-kiosk-category',
+    gallery_image_ids: ['product-kiosk-gallery-1', 'product-kiosk-gallery-2', 'product-kiosk-gallery-3']
   },
    {
     id: '3',
@@ -256,8 +256,8 @@ export const products: Product[] = [
       { title: 'Technical Datasheet', url: '#' }
     ],
     relatedProducts: [],
-    image_id: 'product-toilet-1',
-    gallery_image_ids: ['product-toilet-1', 'product-toilet-2']
+    image_id: 'product-toilet-category',
+    gallery_image_ids: ['product-toilet-gallery-1', 'product-toilet-gallery-2']
   },
   {
     id: '4',
@@ -285,8 +285,8 @@ export const products: Product[] = [
        { title: 'Manufacturing Capabilities', url: '#' },
     ],
     relatedProducts: [],
-    image_id: 'hero-industrial',
-    gallery_image_ids: ['hero-industrial', 'industry-factory', 'project-neom']
+    image_id: 'product-custom-category',
+    gallery_image_ids: ['product-custom-gallery-1', 'product-custom-gallery-2', 'product-custom-gallery-3']
   },
 ];
 
@@ -440,7 +440,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Substation Control Rooms for Saudi Aramco',
     client: 'Saudi Aramco',
     summary: 'EMPHZ provided blast-resistant GRP control rooms to ensure operational safety in a critical energy facility.',
-    imageId: 'project-neom', // Placeholder image
+    imageId: 'case-study-saudi',
     challenge: 'The client required control rooms that could withstand potential blast events and harsh environmental conditions, while ensuring the safety of personnel and sensitive equipment.',
     solution: 'We designed, manufactured, and supplied custom-built, blast-resistant GRP enclosures. The structures were engineered with reinforced composite panels and integrated safety features to meet stringent client specifications.',
     results: [
@@ -457,7 +457,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Signaling Equipment Shelters for Dubai Metro',
     client: 'Dubai RTA',
     summary: 'We supplied fire-retardant GRP shelters to protect vital signaling and communication equipment for the Dubai Metro expansion project.',
-    imageId: 'project-dubai', // Placeholder image
+    imageId: 'case-study-dubai',
     challenge: 'The project demanded equipment shelters with high fire-retardancy, excellent weather resistance, and long-term durability to ensure the reliability of the metro\'s signaling network.',
     solution: 'EMPHZ delivered pre-fabricated GRP shelters using Class 1 fire-retardant materials. The modular design allowed for rapid installation, and the shelters were equipped with thermal insulation and custom cable entry points.',
     results: [
@@ -474,7 +474,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Instrumentation Cabinets for Qatar Gas LNG Plant',
     client: 'Qatar Gas',
     summary: 'Custom IP65-rated GRP cabinets to protect sensitive instrumentation in a highly corrosive LNG plant environment.',
-    imageId: 'project-qatar-gas', // Placeholder image
+    imageId: 'case-study-qatar',
     challenge: 'The LNG facility had a highly corrosive seaside environment, requiring instrument enclosures with superior protection against moisture, salt spray, and chemical exposure.',
     solution: 'We manufactured custom-sized GRP cabinets with an IP65 rating. The cabinets featured stainless steel hardware, neoprene gaskets, and a UV-resistant gelcoat finish to provide maximum environmental protection.',
     results: [

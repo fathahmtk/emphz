@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { ImagePlaceholder } from '@/lib/placeholder-images';
+import { ImagePlaceholder } from '@/lib/images';
 
 const ProductImageGallery = dynamic(() => import('./product-image-gallery'), {
     loading: () => <div className="aspect-square w-full rounded-lg bg-muted animate-pulse"></div>,

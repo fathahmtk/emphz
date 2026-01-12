@@ -6,6 +6,7 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { getImage } from "@/lib/images";
 
 export default function CaseStudyPage({ params }: { params: { slug: string } }) {
   const caseStudy = caseStudies.find((study) => study.slug === params.slug);
@@ -13,17 +14,20 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
   if (!caseStudy) {
     notFound();
   }
+  
+  const image = getImage(caseStudy.imageId);
 
   return (
     <div className="container py-16 lg:py-24">
       <div className="max-w-4xl mx-auto">
         <div className="aspect-video relative bg-muted rounded-xl overflow-hidden mb-8 shadow-lg">
-            <Image
-                src={`https://picsum.photos/seed/${caseStudy.imageId}/800/600`}
-                alt={caseStudy.title}
+            {image && <Image
+                src={image.url}
+                alt={image.description}
                 fill
                 className="object-cover"
-            />
+                data-ai-hint={image.hint}
+            />}
         </div>
         
         <div className="space-y-8">

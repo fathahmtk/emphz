@@ -1,0 +1,140 @@
+{
+  "hero-industrial": {
+    "id": "hero-industrial",
+    "description": "A wide shot of an industrial facility at dusk.",
+    "url": "1200/800",
+    "hint": "industrial facility"
+  },
+  "team-john": {
+    "id": "team-john",
+    "description": "Team member John Doe",
+    "url": "200/200",
+    "hint": "portrait professional"
+  },
+  "team-jane": {
+    "id": "team-jane",
+    "description": "Team member Jane Smith",
+    "url": "200/200",
+    "hint": "portrait professional"
+  },
+  "team-peter": {
+    "id": "team-peter",
+    "description": "Team member Peter Jones",
+    "url": "200/200",
+    "hint": "portrait professional"
+  },
+  "case-study-saudi": {
+    "id": "case-study-saudi",
+    "description": "Saudi Aramco Substation",
+    "url": "800/600",
+    "hint": "industrial substation"
+  },
+  "case-study-dubai": {
+    "id": "case-study-dubai",
+    "description": "Dubai Metro Expansion",
+    "url": "800/600",
+    "hint": "metro train"
+  },
+  "case-study-qatar": {
+    "id": "case-study-qatar",
+    "description": "Qatar Gas LNG Plant",
+    "url": "800/600",
+    "hint": "gas plant"
+  },
+  "products-hero": {
+    "id": "products-hero",
+    "description": "Abstract background representing product engineering",
+    "url": "1920/1080",
+    "hint": "abstract engineering"
+  },
+  "product-enclosure-category": {
+    "id": "product-enclosure-category",
+    "description": "GRP Electrical Enclosures",
+    "url": "800/600",
+    "hint": "electrical enclosure"
+  },
+  "product-kiosk-category": {
+    "id": "product-kiosk-category",
+    "description": "GRP Kiosks & Shelters",
+    "url": "800/600",
+    "hint": "industrial kiosk"
+  },
+  "product-toilet-category": {
+    "id": "product-toilet-category",
+    "description": "Portable GRP Toilets",
+    "url": "800/600",
+    "hint": "portable toilet"
+  },
+  "product-custom-category": {
+    "id": "product-custom-category",
+    "description": "Custom GRP Manufacturing",
+    "url": "800/600",
+    "hint": "factory manufacturing"
+  },
+  "product-enclosure-gallery-1": {
+    "id": "product-enclosure-gallery-1",
+    "description": "GRP Electrical Enclosure",
+    "url": "600/600",
+    "hint": "electrical enclosure"
+  },
+  "product-enclosure-gallery-2": {
+    "id": "product-enclosure-gallery-2",
+    "description": "GRP Electrical Enclosure open",
+    "url": "600/600",
+    "hint": "electrical enclosure"
+  },
+  "product-enclosure-gallery-3": {
+    "id": "product-enclosure-gallery-3",
+    "description": "GRP Electrical Enclosure side view",
+    "url": "600/600",
+    "hint": "electrical enclosure"
+  },
+  "product-kiosk-gallery-1": {
+    "id": "product-kiosk-gallery-1",
+    "description": "GRP Kiosk",
+    "url": "600/600",
+    "hint": "industrial kiosk"
+  },
+  "product-kiosk-gallery-2": {
+    "id": "product-kiosk-gallery-2",
+    "description": "Interior of GRP Kiosk",
+    "url": "600/600",
+    "hint": "industrial interior"
+  },
+  "product-kiosk-gallery-3": {
+    "id": "product-kiosk-gallery-3",
+    "description": "Power station with GRP kiosk",
+    "url": "600/600",
+    "hint": "power station"
+  },
+  "product-toilet-gallery-1": {
+    "id": "product-toilet-gallery-1",
+    "description": "Portable GRP Toilet",
+    "url": "600/600",
+    "hint": "portable toilet"
+  },
+  "product-toilet-gallery-2": {
+    "id": "product-toilet-gallery-2",
+    "description": "Inside of a portable GRP toilet",
+    "url": "600/600",
+    "hint": "toilet interior"
+  },
+  "product-custom-gallery-1": {
+    "id": "product-custom-gallery-1",
+    "description": "Custom GRP product",
+    "url": "600/600",
+    "hint": "industrial product"
+  },
+  "product-custom-gallery-2": {
+    "id": "product-custom-gallery-2",
+    "description": "Factory worker with GRP",
+    "url": "600/600",
+    "hint": "factory worker"
+  },
+  "product-custom-gallery-3": {
+    "id": "product-custom-gallery-3",
+    "description": "Close-up of GRP material",
+    "url": "600/600",
+    "hint": "composite material"
+  }
+}
