@@ -16,6 +16,7 @@ import AddNoteForm from './add-note-form';
 import NotesList from './notes-list';
 import StatusBadge from '../status-badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import QuotationsList from '../quotations/quotations-list';
 
 function DetailItem({ icon: Icon, label, value }: { icon: React.ElementType, label: string, value: React.ReactNode }) {
     if (!value) return null;
@@ -104,8 +105,6 @@ function InquiryDetailsTab({ inquiry }: { inquiry: Inquiry }) {
 }
 
 function QuotationsTab({ inquiry }: { inquiry: Inquiry }) {
-    // This will be expanded to list existing quotations and a create button.
-    // const { data: quotations } = useCollection(...)
     return (
         <Card>
             <CardHeader>
@@ -123,9 +122,7 @@ function QuotationsTab({ inquiry }: { inquiry: Inquiry }) {
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="text-center py-12 text-muted-foreground">
-                    <p>No quotations have been created for this inquiry yet.</p>
-                </div>
+                <QuotationsList inquiryId={inquiry.id!} />
             </CardContent>
         </Card>
     );
