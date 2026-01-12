@@ -1,43 +1,26 @@
-import Hero from '@/components/home/hero';
-import Industries from '@/components/home/industries';
-import FeaturedProjects from '@/components/home/featured-projects';
-import AboutSummary from '@/components/home/about-summary';
-import FinalCTA from '@/components/home/final-cta';
-import ValueProposition from '@/components/home/value-proposition';
-import ProductPortfolio from '@/components/home/product-portfolio';
-import QualitySafety from '@/components/home/quality-safety';
-import Certifications from '@/components/home/certifications';
+import EntryFrame from '@/components/home/entry-frame';
+import ApplicationNavigation from '@/components/home/application-navigation';
+import SystemOverview from '@/components/home/system-overview';
+import EngineeringLogic from '@/components/home/engineering-logic';
+import Deployments from '@/components/home/deployments';
+import ModularityExplainer from '@/components/home/modularity-explainer';
+import ComplianceInfrastructure from '@/components/home/compliance-infrastructure';
+import EngagementModel from '@/components/home/engagement-model';
+import ClosingStatement from '@/components/home/closing-statement';
 
 export default function Home() {
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
-      <Hero />
-      <div className="py-16 sm:py-24 space-y-8">
-        <section>
-            <ValueProposition />
-        </section>
-        <section>
-            <Industries />
-        </section>
-        <section>
-            <ProductPortfolio />
-        </section>
-        <section>
-            <FeaturedProjects />
-        </section>
-        <section className="relative container py-24 sm:py-32 rounded-xl overflow-hidden text-white bg-gray-800">
-            <div className="absolute inset-0 bg-black/70" />
-            <div className="relative z-10 space-y-16 sm:space-y-24">
-                <QualitySafety />
-                <Certifications />
-            </div>
-        </section>
-        <section>
-            <AboutSummary />
-        </section>
-        <section>
-            <FinalCTA />
-        </section>
+      <div className="space-y-16 sm:space-y-24 py-16 sm:py-24">
+        <EntryFrame />
+        <ApplicationNavigation />
+        <SystemOverview />
+        <EngineeringLogic />
+        <Deployments />
+        <ModularityExplainer />
+        <ComplianceInfrastructure />
+        <EngagementModel />
+        <ClosingStatement />
       </div>
     </div>
   );
