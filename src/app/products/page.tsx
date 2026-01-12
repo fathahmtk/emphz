@@ -1,3 +1,4 @@
+
 import { productCategories } from '@/lib/data';
 import Breadcrumbs from '@/components/products/breadcrumbs';
 import Link from 'next/link';

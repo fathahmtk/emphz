@@ -1,3 +1,4 @@
+
 import { team } from "@/lib/data";
 import TeamCard from "./team-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
