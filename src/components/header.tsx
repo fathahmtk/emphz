@@ -66,7 +66,7 @@ export default function Header() {
             <Link href="/contact">Request Spec</Link>
           </Button>
           
-          <Button asChild variant="ghost" size="icon" className={cn(iconButtonClasses, "relative md:hidden")}>
+          <Button asChild variant="ghost" size="icon" className={cn(iconButtonClasses, "relative")}>
             <Link href="/contact">
               <ShoppingBasket className="h-5 w-5" />
               <span className="sr-only">Quote Basket</span>
