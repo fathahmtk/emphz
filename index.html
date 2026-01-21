@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EMPHZ - Engineered GRP Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                800: '#1e3a8a',
+                900: '#0b1e3b', // Deep GGE Blue
+                950: '#051126', // Darker Background
+              },
+              accent: {
+                orange: '#f59e0b', // Machinery Orange
+                red: '#E63946',    // EMPHZ Brand Red
+                blue: '#3b82f6',   // Light Blue highlight
+                teal: '#00C2CB',   // Brand Teal
+              },
+              slate: {
+                850: '#1e293b',
+                900: '#0f172a',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Montserrat', 'sans-serif'],
+              mono: ['IBM Plex Mono', 'monospace'],
+            },
+            letterSpacing: {
+              'ultra-wide': '0.25em',
+            },
+            backgroundImage: {
+              'blue-radial': 'radial-gradient(circle at center, #1e3a8a 0%, #0b1e3b 100%)',
+              'mesh': "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')",
+              'hex-pattern': "url('https://www.transparenttextures.com/patterns/hexellence.png')",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --color-navy: #0b1e3b;
+        --color-orange: #f59e0b;
+        --color-red: #E63946;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #051126;
+        color: #f8fafc;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      /* Premium Selection */
+      ::selection {
+        background-color: #E63946;
+        color: #fff;
+      }
+
+      /* Refined Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0b1e3b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3b82f6;
+        border-radius: 0px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #E63946;
+      }
+
+      /* Hexagon Masking */
+      .hex-mask {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      }
+      
+      .hex-container {
+        filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+        transition: transform 0.3s ease;
+      }
+      
+      .hex-container:hover {
+        transform: translateY(-10px);
+      }
+
+      /* Grid Texture Overlay */
+      .grid-overlay {
+        background-size: 40px 40px;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      }
+
+      /* Animations */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      .animate-fade-up {
+        animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+      }
+      
+      .delay-100 { animation-delay: 100ms; }
+      .delay-200 { animation-delay: 200ms; }
+      .delay-300 { animation-delay: 300ms; }
+      .delay-500 { animation-delay: 500ms; }
+      .delay-700 { animation-delay: 700ms; }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
