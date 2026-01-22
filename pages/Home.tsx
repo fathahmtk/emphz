@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { RoutePath } from '../types';
 import { Button } from '../components/Button';
-import { Shield, Zap, Layers, Maximize, ChevronRight, Factory, Building2, Train, Radio, Droplets, ArrowRight } from 'lucide-react';
+import { Shield, Zap, Layers, Maximize, ChevronRight, Factory, Building2, Train, Radio, Droplets, ArrowRight, CheckCircle } from 'lucide-react';
 
 const PRODUCT_CATEGORIES = [
   { 
@@ -243,6 +243,14 @@ export const Home: React.FC = () => {
 
                  {/* Visual Grid */}
                  <div className="lg:col-span-7">
+                     {/* Compliance Strip */}
+                     <div className="bg-navy-900 border border-white/10 p-4 mb-8 flex justify-around items-center rounded-sm">
+                         <span className="text-xs font-mono text-gray-500 font-bold">IEC 62208</span>
+                         <span className="text-xs font-mono text-gray-500 font-bold">UL 94-V0</span>
+                         <span className="text-xs font-mono text-gray-500 font-bold">ISO 9001</span>
+                         <span className="text-xs font-mono text-gray-500 font-bold">IK10</span>
+                     </div>
+
                      <div className="grid grid-cols-2 gap-4">
                          <div className="space-y-4 mt-8">
                              <img src="https://images.unsplash.com/photo-1616422285623-13ff0162193c?q=80&w=600&auto=format&fit=crop" className="rounded-sm border border-white/10 opacity-70 hover:opacity-100 transition-opacity duration-500" alt="Locking Mechanism"/>
@@ -253,8 +261,8 @@ export const Home: React.FC = () => {
                          </div>
                          <div className="space-y-4">
                              <div className="bg-navy-900 p-6 border border-white/10 rounded-sm">
-                                 <div className="text-2xl font-black text-accent-red mb-1">IK10</div>
-                                 <div className="text-xs uppercase tracking-widest text-gray-400">Impact Rating</div>
+                                 <div className="text-2xl font-black text-accent-red mb-1">IP65</div>
+                                 <div className="text-xs uppercase tracking-widest text-gray-400">Protection Rating</div>
                              </div>
                              <img src="https://images.unsplash.com/photo-1520697830682-bbb6e85e2b0b?q=80&w=600&auto=format&fit=crop" className="rounded-sm border border-white/10 opacity-70 hover:opacity-100 transition-opacity duration-500" alt="Material Surface"/>
                          </div>

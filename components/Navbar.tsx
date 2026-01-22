@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight } from 'lucide-react';
@@ -82,6 +83,9 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-accent-red focus:outline-none transition-transform active:scale-95"
+              aria-controls="mobile-menu"
+              aria-expanded={isOpen}
+              aria-label="Toggle navigation menu"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -91,6 +95,9 @@ export const Navbar: React.FC = () => {
 
       {/* Full Screen Mobile Menu Overlay */}
       <div 
+        id="mobile-menu"
+        role="menu"
+        aria-hidden={!isOpen}
         className={`fixed inset-0 bg-navy-950 z-40 md:hidden transition-all duration-500 ease-in-out ${
           isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
         }`}
@@ -102,6 +109,8 @@ export const Navbar: React.FC = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
+                role="menuitem"
+                tabIndex={isOpen ? 0 : -1}
                 className={({ isActive }) =>
                   `text-4xl font-black uppercase font-display tracking-tight transition-all duration-300 flex items-center group ${
                     isActive
@@ -120,9 +129,14 @@ export const Navbar: React.FC = () => {
               </NavLink>
             ))}
              
-             <div className="mt-12 border-t border-white/10 pt-8">
+             <div className="mt-12 border-t border-white/10 pt-8" role="none">
                 <p className="text-gray-500 text-xs font-mono mb-4 uppercase tracking-widest">Procurement</p>
-                <Link to={RoutePath.CONTACT} onClick={() => setIsOpen(false)}>
+                <Link 
+                  to={RoutePath.CONTACT} 
+                  onClick={() => setIsOpen(false)}
+                  role="menuitem"
+                  tabIndex={isOpen ? 0 : -1}
+                >
                   <button className="w-full text-center text-sm font-bold uppercase tracking-widest text-navy-900 bg-white px-4 py-4 rounded-sm font-display hover:bg-accent-red hover:text-white transition-colors shadow-lg">
                     Request Quote
                   </button>
