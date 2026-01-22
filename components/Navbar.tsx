@@ -136,10 +136,9 @@ export const Navbar: React.FC = () => {
                   onClick={() => setIsOpen(false)}
                   role="menuitem"
                   tabIndex={isOpen ? 0 : -1}
+                  className="block w-full text-center text-sm font-bold uppercase tracking-widest text-navy-900 bg-white px-4 py-4 rounded-sm font-display hover:bg-accent-red hover:text-white transition-colors shadow-lg"
                 >
-                  <button className="w-full text-center text-sm font-bold uppercase tracking-widest text-navy-900 bg-white px-4 py-4 rounded-sm font-display hover:bg-accent-red hover:text-white transition-colors shadow-lg">
-                    Request Quote
-                  </button>
+                  Request Quote
                 </Link>
              </div>
         </div>

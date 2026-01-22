@@ -3,6 +3,7 @@ import { Umbrella, BatteryCharging, Droplets, Construction, ChevronRight, Ruler,
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { RoutePath } from '../types';
+import { PageMeta } from '../components/PageMeta';
 
 interface SystemSpec {
     label: string;
@@ -99,110 +100,116 @@ const SYSTEMS: SolutionSystem[] = [
 
 export const Solutions: React.FC = () => {
   return (
-    <div className="bg-gray-50 min-h-screen pb-20 pt-16">
-      
-      {/* Dark Header */}
-      <div className="bg-navy-950 text-white py-24 relative overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 bg-hex-pattern opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-900 to-navy-950"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <span className="inline-block py-1 px-3 rounded-sm bg-accent-red text-white text-xs font-bold uppercase tracking-wide mb-6 font-display animate-fade-in">
-                Integrated Systems
-            </span>
-            <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-8 font-display uppercase animate-fade-up delay-200">Turnkey Infrastructure</h1>
-            <p className="text-xl text-gray-300 max-w-3xl font-light leading-relaxed animate-fade-up delay-300">
-                Pre-engineered composite infrastructure solutions designed for rapid deployment and zero maintenance. 
-                Moving beyond individual components to deliver fully integrated functional systems.
-            </p>
+    <>
+      <PageMeta 
+        title="Turnkey Infrastructure Solutions" 
+        description="Discover pre-engineered, integrated GRP systems for power distribution, urban sanitation, transit shelters, and structural components. Designed for rapid deployment and zero maintenance."
+      />
+      <div className="bg-gray-50 min-h-screen pb-20 pt-16">
+        
+        {/* Dark Header */}
+        <div className="bg-navy-950 text-white py-24 relative overflow-hidden border-b border-white/5">
+          <div className="absolute inset-0 bg-hex-pattern opacity-5"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-900 to-navy-950"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <span className="inline-block py-1 px-3 rounded-sm bg-accent-red text-white text-xs font-bold uppercase tracking-wide mb-6 font-display animate-fade-in">
+                  Integrated Systems
+              </span>
+              <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-8 font-display uppercase animate-fade-up delay-200">Turnkey Infrastructure</h1>
+              <p className="text-xl text-gray-300 max-w-3xl font-light leading-relaxed animate-fade-up delay-300">
+                  Pre-engineered composite infrastructure solutions designed for rapid deployment and zero maintenance. 
+                  Moving beyond individual components to deliver fully integrated functional systems.
+              </p>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+          {SYSTEMS.map((system, index) => (
+              <div key={system.id} className="bg-white border border-gray-200 shadow-sm overflow-hidden rounded-sm hover:border-accent-orange hover:shadow-xl transition-all duration-300 group">
+                  <div className="grid grid-cols-1 lg:grid-cols-12">
+                      
+                      {/* Visual Side */}
+                      <div className={`lg:col-span-5 relative min-h-[300px] lg:min-h-full ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+                           <img 
+                              src={system.image} 
+                              alt={system.title} 
+                              className="absolute inset-0 w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 transition-all duration-700"
+                           />
+                           <div className="absolute inset-0 bg-navy-900/40 mix-blend-multiply transition-opacity group-hover:opacity-70"></div>
+                           <div className="absolute top-0 left-0 bg-navy-900 text-white px-5 py-3 flex items-center gap-3 border-b border-r border-navy-700 rounded-br-sm z-10 shadow-md">
+                               {system.icon}
+                               <span className="text-xs font-bold uppercase tracking-widest font-display text-gray-300">System 0{index + 1}</span>
+                           </div>
+                      </div>
+
+                      {/* Data Side */}
+                      <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center">
+                          <h2 className="text-2xl md:text-3xl font-bold text-navy-900 mb-4 font-display uppercase group-hover:text-accent-orange transition-colors">{system.title}</h2>
+                          <p className="text-gray-600 mb-8 leading-relaxed font-light text-lg">
+                              {system.description}
+                          </p>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                              {/* Specs Table */}
+                              <div>
+                                  <h4 className="flex items-center text-xs font-bold uppercase tracking-widest text-navy-900 mb-4 border-b border-gray-200 pb-2 font-display">
+                                      <Ruler className="h-3 w-3 mr-2 text-accent-orange" />
+                                      Technical Specs
+                                  </h4>
+                                  <table className="w-full text-sm">
+                                      <tbody>
+                                          {system.specs.map((spec, i) => (
+                                              <tr key={i} className="border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors">
+                                                  <td className="py-2 text-gray-500 pr-4 font-medium text-xs uppercase">{spec.label}</td>
+                                                  <td className="py-2 text-navy-900 font-mono text-right text-xs">{spec.value}</td>
+                                              </tr>
+                                          ))}
+                                      </tbody>
+                                  </table>
+                              </div>
+
+                              {/* Components List */}
+                              <div>
+                                  <h4 className="flex items-center text-xs font-bold uppercase tracking-widest text-navy-900 mb-4 border-b border-gray-200 pb-2 font-display">
+                                      <ChevronRight className="h-3 w-3 mr-2 text-accent-orange" />
+                                      Modules Included
+                                  </h4>
+                                  <ul className="space-y-2">
+                                      {system.components.map((comp, i) => (
+                                          <li key={i} className="flex items-start text-sm text-gray-700 group/item">
+                                              <span className="w-1.5 h-1.5 bg-accent-orange rounded-none mt-1.5 mr-3 flex-shrink-0 group-hover/item:scale-150 transition-transform"></span>
+                                              {comp}
+                                          </li>
+                                      ))}
+                                  </ul>
+                              </div>
+                          </div>
+
+                          <div className="mt-8 pt-8 border-t border-gray-100 flex items-center justify-between">
+                              <span className="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded-sm border border-gray-200">SYS-ID: {system.id.toUpperCase()}-00{index+1}</span>
+                              <Link to={RoutePath.CONTACT} className="text-navy-900 text-sm font-bold hover:text-accent-red flex items-center font-display uppercase tracking-wide transition-colors group/link">
+                                  Request System Spec <ChevronRight className="h-4 w-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
+                              </Link>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+          ))}
+        </div>
+        
+        <div className="bg-white border-t border-gray-200 py-16">
+           <div className="max-w-4xl mx-auto px-4 text-center">
+               <h3 className="text-2xl font-bold text-navy-900 mb-4 font-display uppercase">Engineering a Custom System?</h3>
+               <p className="text-gray-500 mb-8 max-w-2xl mx-auto">
+                   We collaborate with architects and consultants to develop specification-compliant GRP solutions for unique project requirements.
+               </p>
+               <Link to={RoutePath.CONTACT}>
+                  <Button variant="secondary" className="hover:shadow-lg transition-shadow">Consult Engineering Team</Button>
+               </Link>
+           </div>
         </div>
       </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
-        {SYSTEMS.map((system, index) => (
-            <div key={system.id} className="bg-white border border-gray-200 shadow-sm overflow-hidden rounded-sm hover:border-accent-orange hover:shadow-xl transition-all duration-300 group">
-                <div className="grid grid-cols-1 lg:grid-cols-12">
-                    
-                    {/* Visual Side */}
-                    <div className={`lg:col-span-5 relative min-h-[300px] lg:min-h-full ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
-                         <img 
-                            src={system.image} 
-                            alt={system.title} 
-                            className="absolute inset-0 w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 transition-all duration-700"
-                         />
-                         <div className="absolute inset-0 bg-navy-900/40 mix-blend-multiply transition-opacity group-hover:opacity-70"></div>
-                         <div className="absolute top-0 left-0 bg-navy-900 text-white px-5 py-3 flex items-center gap-3 border-b border-r border-navy-700 rounded-br-sm z-10 shadow-md">
-                             {system.icon}
-                             <span className="text-xs font-bold uppercase tracking-widest font-display text-gray-300">System 0{index + 1}</span>
-                         </div>
-                    </div>
-
-                    {/* Data Side */}
-                    <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center">
-                        <h2 className="text-2xl md:text-3xl font-bold text-navy-900 mb-4 font-display uppercase group-hover:text-accent-orange transition-colors">{system.title}</h2>
-                        <p className="text-gray-600 mb-8 leading-relaxed font-light text-lg">
-                            {system.description}
-                        </p>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                            {/* Specs Table */}
-                            <div>
-                                <h4 className="flex items-center text-xs font-bold uppercase tracking-widest text-navy-900 mb-4 border-b border-gray-200 pb-2 font-display">
-                                    <Ruler className="h-3 w-3 mr-2 text-accent-orange" />
-                                    Technical Specs
-                                </h4>
-                                <table className="w-full text-sm">
-                                    <tbody>
-                                        {system.specs.map((spec, i) => (
-                                            <tr key={i} className="border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors">
-                                                <td className="py-2 text-gray-500 pr-4 font-medium text-xs uppercase">{spec.label}</td>
-                                                <td className="py-2 text-navy-900 font-mono text-right text-xs">{spec.value}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            {/* Components List */}
-                            <div>
-                                <h4 className="flex items-center text-xs font-bold uppercase tracking-widest text-navy-900 mb-4 border-b border-gray-200 pb-2 font-display">
-                                    <ChevronRight className="h-3 w-3 mr-2 text-accent-orange" />
-                                    Modules Included
-                                </h4>
-                                <ul className="space-y-2">
-                                    {system.components.map((comp, i) => (
-                                        <li key={i} className="flex items-start text-sm text-gray-700 group/item">
-                                            <span className="w-1.5 h-1.5 bg-accent-orange rounded-none mt-1.5 mr-3 flex-shrink-0 group-hover/item:scale-150 transition-transform"></span>
-                                            {comp}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="mt-8 pt-8 border-t border-gray-100 flex items-center justify-between">
-                            <span className="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded-sm border border-gray-200">SYS-ID: {system.id.toUpperCase()}-00{index+1}</span>
-                            <Link to={RoutePath.CONTACT} className="text-navy-900 text-sm font-bold hover:text-accent-red flex items-center font-display uppercase tracking-wide transition-colors group/link">
-                                Request System Spec <ChevronRight className="h-4 w-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
-                            </Link>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        ))}
-      </div>
-      
-      <div className="bg-white border-t border-gray-200 py-16">
-         <div className="max-w-4xl mx-auto px-4 text-center">
-             <h3 className="text-2xl font-bold text-navy-900 mb-4 font-display uppercase">Engineering a Custom System?</h3>
-             <p className="text-gray-500 mb-8 max-w-2xl mx-auto">
-                 We collaborate with architects and consultants to develop specification-compliant GRP solutions for unique project requirements.
-             </p>
-             <Link to={RoutePath.CONTACT}>
-                <Button variant="secondary" className="hover:shadow-lg transition-shadow">Consult Engineering Team</Button>
-             </Link>
-         </div>
-      </div>
-    </div>
+    </>
   );
 };
