@@ -4,6 +4,7 @@ import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { RoutePath } from '../types';
 import { PageMeta } from '../components/PageMeta';
+import { useInView } from 'react-intersection-observer';
 
 interface SystemSpec {
     label: string;
@@ -98,6 +99,89 @@ const SYSTEMS: SolutionSystem[] = [
     }
 ];
 
+const SolutionCard: React.FC<{ system: SolutionSystem; index: number }> = ({ system, index }) => {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+
+    return (
+        <div 
+            ref={ref}
+            className={`bg-white border border-gray-200 shadow-sm overflow-hidden rounded-sm hover:border-accent-orange hover:shadow-xl transition-all duration-300 group ${
+                inView ? 'animate-fade-up opacity-100' : 'opacity-0'
+            }`}
+        >
+            <div className="grid grid-cols-1 lg:grid-cols-12">
+                {/* Visual Side */}
+                <div className={`lg:col-span-5 relative min-h-[300px] lg:min-h-full ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+                    <img 
+                        src={system.image} 
+                        alt={system.title} 
+                        className="absolute inset-0 w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-navy-900/40 mix-blend-multiply transition-opacity group-hover:opacity-70"></div>
+                    <div className="absolute top-0 left-0 bg-navy-900 text-white px-5 py-3 flex items-center gap-3 border-b border-r border-navy-700 rounded-br-sm z-10 shadow-md">
+                        {system.icon}
+                        <span className="text-xs font-bold uppercase tracking-widest font-display text-gray-300">System 0{index + 1}</span>
+                    </div>
+                </div>
+
+                {/* Data Side */}
+                <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center">
+                    <h2 className="text-2xl md:text-3xl font-bold text-navy-900 mb-4 font-display uppercase group-hover:text-accent-orange transition-colors">{system.title}</h2>
+                    <p className="text-gray-600 mb-8 leading-relaxed font-light text-lg">
+                        {system.description}
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        {/* Specs Table */}
+                        <div>
+                            <h4 className="flex items-center text-xs font-bold uppercase tracking-widest text-navy-900 mb-4 border-b border-gray-200 pb-2 font-display">
+                                <Ruler className="h-3 w-3 mr-2 text-accent-orange" />
+                                Technical Specs
+                            </h4>
+                            <table className="w-full text-sm">
+                                <tbody>
+                                    {system.specs.map((spec, i) => (
+                                        <tr key={i} className="border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors">
+                                            <td className="py-2 text-gray-500 pr-4 font-medium text-xs uppercase">{spec.label}</td>
+                                            <td className="py-2 text-navy-900 font-mono text-right text-xs">{spec.value}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {/* Components List */}
+                        <div>
+                            <h4 className="flex items-center text-xs font-bold uppercase tracking-widest text-navy-900 mb-4 border-b border-gray-200 pb-2 font-display">
+                                <ChevronRight className="h-3 w-3 mr-2 text-accent-orange" />
+                                Modules Included
+                            </h4>
+                            <ul className="space-y-2">
+                                {system.components.map((comp, i) => (
+                                    <li key={i} className="flex items-start text-sm text-gray-700 group/item">
+                                        <span className="w-1.5 h-1.5 bg-accent-orange rounded-none mt-1.5 mr-3 flex-shrink-0 group-hover/item:scale-150 transition-transform"></span>
+                                        {comp}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="mt-8 pt-8 border-t border-gray-100 flex items-center justify-between">
+                        <span className="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded-sm border border-gray-200">SYS-ID: {system.id.toUpperCase()}-00{index+1}</span>
+                        <Link to={RoutePath.CONTACT} className="text-navy-900 text-sm font-bold hover:text-accent-red flex items-center font-display uppercase tracking-wide transition-colors group/link">
+                            Request System Spec <ChevronRight className="h-4 w-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 export const Solutions: React.FC = () => {
   return (
     <>
@@ -125,76 +209,7 @@ export const Solutions: React.FC = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
           {SYSTEMS.map((system, index) => (
-              <div key={system.id} className="bg-white border border-gray-200 shadow-sm overflow-hidden rounded-sm hover:border-accent-orange hover:shadow-xl transition-all duration-300 group">
-                  <div className="grid grid-cols-1 lg:grid-cols-12">
-                      
-                      {/* Visual Side */}
-                      <div className={`lg:col-span-5 relative min-h-[300px] lg:min-h-full ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
-                           <img 
-                              src={system.image} 
-                              alt={system.title} 
-                              className="absolute inset-0 w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 transition-all duration-700"
-                           />
-                           <div className="absolute inset-0 bg-navy-900/40 mix-blend-multiply transition-opacity group-hover:opacity-70"></div>
-                           <div className="absolute top-0 left-0 bg-navy-900 text-white px-5 py-3 flex items-center gap-3 border-b border-r border-navy-700 rounded-br-sm z-10 shadow-md">
-                               {system.icon}
-                               <span className="text-xs font-bold uppercase tracking-widest font-display text-gray-300">System 0{index + 1}</span>
-                           </div>
-                      </div>
-
-                      {/* Data Side */}
-                      <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center">
-                          <h2 className="text-2xl md:text-3xl font-bold text-navy-900 mb-4 font-display uppercase group-hover:text-accent-orange transition-colors">{system.title}</h2>
-                          <p className="text-gray-600 mb-8 leading-relaxed font-light text-lg">
-                              {system.description}
-                          </p>
-
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                              {/* Specs Table */}
-                              <div>
-                                  <h4 className="flex items-center text-xs font-bold uppercase tracking-widest text-navy-900 mb-4 border-b border-gray-200 pb-2 font-display">
-                                      <Ruler className="h-3 w-3 mr-2 text-accent-orange" />
-                                      Technical Specs
-                                  </h4>
-                                  <table className="w-full text-sm">
-                                      <tbody>
-                                          {system.specs.map((spec, i) => (
-                                              <tr key={i} className="border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors">
-                                                  <td className="py-2 text-gray-500 pr-4 font-medium text-xs uppercase">{spec.label}</td>
-                                                  <td className="py-2 text-navy-900 font-mono text-right text-xs">{spec.value}</td>
-                                              </tr>
-                                          ))}
-                                      </tbody>
-                                  </table>
-                              </div>
-
-                              {/* Components List */}
-                              <div>
-                                  <h4 className="flex items-center text-xs font-bold uppercase tracking-widest text-navy-900 mb-4 border-b border-gray-200 pb-2 font-display">
-                                      <ChevronRight className="h-3 w-3 mr-2 text-accent-orange" />
-                                      Modules Included
-                                  </h4>
-                                  <ul className="space-y-2">
-                                      {system.components.map((comp, i) => (
-                                          <li key={i} className="flex items-start text-sm text-gray-700 group/item">
-                                              <span className="w-1.5 h-1.5 bg-accent-orange rounded-none mt-1.5 mr-3 flex-shrink-0 group-hover/item:scale-150 transition-transform"></span>
-                                              {comp}
-                                          </li>
-                                      ))}
-                                  </ul>
-                              </div>
-                          </div>
-
-                          <div className="mt-8 pt-8 border-t border-gray-100 flex items-center justify-between">
-                              <span className="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded-sm border border-gray-200">SYS-ID: {system.id.toUpperCase()}-00{index+1}</span>
-                              <Link to={RoutePath.CONTACT} className="text-navy-900 text-sm font-bold hover:text-accent-red flex items-center font-display uppercase tracking-wide transition-colors group/link">
-                                  Request System Spec <ChevronRight className="h-4 w-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
-                              </Link>
-                          </div>
-                      </div>
-
-                  </div>
-              </div>
+              <SolutionCard key={system.id} system={system} index={index} />
           ))}
         </div>
         

@@ -1,7 +1,12 @@
 import React from 'react';
 import { PageMeta } from '../components/PageMeta';
+import { useInView } from 'react-intersection-observer';
 
 export const About: React.FC = () => {
+  const { ref: heroRef, inView: heroInView } = useInView({ triggerOnce: true });
+  const { ref: philRef, inView: philInView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref: statRef, inView: statInView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
     <>
       <PageMeta 
@@ -11,10 +16,10 @@ export const About: React.FC = () => {
       <div className="bg-white min-h-screen pt-16 pb-20">
          
          {/* Dark Header */}
-         <div className="bg-navy-950 text-white py-24 relative overflow-hidden border-b border-white/5">
-           <div className="absolute inset-0 bg-hex-pattern opacity-5"></div>
+         <div ref={heroRef} className="bg-navy-950 text-white py-24 relative overflow-hidden border-b border-white/5">
+           <div className="absolute inset-0 bg-grid-overlay opacity-10"></div>
            <div className="absolute inset-0 bg-gradient-to-r from-navy-900 to-navy-950"></div>
-           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+           <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 transition-all duration-1000 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <span className="inline-block py-1 px-3 rounded-sm bg-accent-red text-white text-xs font-bold uppercase tracking-wide mb-6 font-display">
                   Corporate Profile
               </span>
@@ -24,7 +29,7 @@ export const About: React.FC = () => {
            </div>
          </div>
 
-         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+         <div ref={philRef} className={`max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 transition-all duration-1000 ${philInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="prose prose-lg prose-slate text-gray-600 font-light leading-relaxed">
                <p className="text-xl leading-relaxed text-navy-900 font-normal">
                    EMPHZ is an industrial manufacturing company dedicated to the engineering and production of Glass Reinforced Polyester (GRP) solutions.
@@ -38,22 +43,22 @@ export const About: React.FC = () => {
             </div>
          </div>
 
-         <div className="bg-gray-50 border-y border-gray-200 py-24">
+         <div ref={statRef} className="bg-gray-50 border-y border-gray-200 py-24">
              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                  <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                     <div className="border-l-4 border-navy-900 pl-6">
+                     <div className={`border-l-4 border-navy-900 pl-6 transition-all duration-700 delay-100 ${statInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
                          <h3 className="text-xl font-bold text-navy-900 mb-4 font-display uppercase">Infrastructure Vision</h3>
                          <p className="text-gray-600 text-base leading-relaxed">
                              We view GRP not just as a plastic, but as an engineered construction material. Our goal is to replace corroding steel and heavy concrete in utility and public infrastructure, reducing maintenance burdens on the exchequer.
                          </p>
                      </div>
-                     <div className="border-l-4 border-navy-900 pl-6">
+                     <div className={`border-l-4 border-navy-900 pl-6 transition-all duration-700 delay-300 ${statInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
                          <h3 className="text-xl font-bold text-navy-900 mb-4 font-display uppercase">Operational Excellence</h3>
                          <p className="text-gray-600 text-base leading-relaxed">
                              Our management philosophy is rooted in factory-floor discipline. We prioritize dimensional accuracy, consistent resin-mix formulations, and adherence to delivery schedules over marketing narratives. 
                          </p>
                      </div>
-                      <div className="border-l-4 border-navy-900 pl-6">
+                      <div className={`border-l-4 border-navy-900 pl-6 transition-all duration-700 delay-500 ${statInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
                          <h3 className="text-xl font-bold text-navy-900 mb-4 font-display uppercase">Reliability</h3>
                          <p className="text-gray-600 text-base leading-relaxed">
                              With strategic raw material sourcing and bulk manufacturing capabilities in Mysuru, EMPHZ is positioned to support large-scale rollouts for telecom, power distribution, and urban development projects.

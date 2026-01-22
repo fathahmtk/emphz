@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { RoutePath } from '../types';
 import { Button } from '../components/Button';
 import { PageMeta } from '../components/PageMeta';
+import { useInView } from 'react-intersection-observer';
 
 const CAPACITY_DATA = [
   { name: 'Enclosures', capacity: 5000, units: 'Units/Mo' },
@@ -14,6 +15,8 @@ const CAPACITY_DATA = [
 ];
 
 export const Manufacturing: React.FC = () => {
+  const { ref: chartRef, inView: chartInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
   return (
     <>
       <PageMeta 
@@ -27,11 +30,11 @@ export const Manufacturing: React.FC = () => {
            <div className="absolute inset-0 bg-hex-pattern opacity-5"></div>
            <div className="absolute inset-0 bg-gradient-to-r from-navy-900 to-navy-950"></div>
            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-              <span className="inline-block py-1 px-3 rounded-sm bg-accent-red text-white text-xs font-bold uppercase tracking-wide mb-6 font-display">
+              <span className="inline-block py-1 px-3 rounded-sm bg-accent-red text-white text-xs font-bold uppercase tracking-wide mb-6 font-display animate-fade-in">
                   Operations & Quality
               </span>
-              <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-8 uppercase font-display">Factory Execution</h1>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+              <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-8 uppercase font-display animate-fade-up">Factory Execution</h1>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed animate-fade-up delay-200">
                   Vertical integration from raw material compounding to final assembly. 
                   Ensuring structural integrity through controlled manufacturing processes.
               </p>
@@ -40,7 +43,7 @@ export const Manufacturing: React.FC = () => {
 
         {/* Stats Cards */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
-          <div className="bg-white rounded-sm shadow-xl border border-gray-100 p-8 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+          <div className="bg-white rounded-sm shadow-xl border border-gray-100 p-8 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100 animate-fade-up delay-300">
               <div className="text-center p-4">
                   <div className="text-4xl font-bold text-navy-900 mb-2 font-mono">45,000</div>
                   <div className="text-xs font-bold uppercase tracking-widest text-gray-400 font-display">Sq. Ft. Facility</div>
@@ -67,44 +70,32 @@ export const Manufacturing: React.FC = () => {
                   </div>
                   
                   <div className="space-y-8">
-                      <div className="flex gap-6">
-                          <div className="flex-shrink-0 h-12 w-12 rounded-sm bg-navy-50 flex items-center justify-center text-accent-orange border border-navy-100">
-                              <Factory size={24} />
-                          </div>
-                          <div>
-                              <h3 className="text-lg font-bold text-navy-900 mb-2 font-display uppercase">Dual Moulding Lines</h3>
-                              <p className="text-gray-600 leading-relaxed">Dedicated lines for SMC (Hot Press) and Hand Lay-up processes ensuring zero cross-contamination and optimal workflow efficiency.</p>
-                          </div>
-                      </div>
-                      <div className="flex gap-6">
-                           <div className="flex-shrink-0 h-12 w-12 rounded-sm bg-navy-50 flex items-center justify-center text-accent-orange border border-navy-100">
-                              <Cog size={24} />
-                          </div>
-                          <div>
-                              <h3 className="text-lg font-bold text-navy-900 mb-2 font-display uppercase">In-House Tooling</h3>
-                              <p className="text-gray-600 leading-relaxed">Rapid pattern making and mould fabrication capabilities allowing for shorter lead times on custom projects.</p>
-                          </div>
-                      </div>
-                       <div className="flex gap-6">
-                           <div className="flex-shrink-0 h-12 w-12 rounded-sm bg-navy-50 flex items-center justify-center text-accent-orange border border-navy-100">
-                              <ClipboardCheck size={24} />
-                          </div>
-                          <div>
-                              <h3 className="text-lg font-bold text-navy-900 mb-2 font-display uppercase">Quality Lab</h3>
-                              <p className="text-gray-600 leading-relaxed">On-site testing for Barcol hardness, resin-glass ratio, and water absorption to verify laminate integrity.</p>
-                          </div>
-                      </div>
+                      {[
+                          { icon: <Factory size={24} />, title: "Dual Moulding Lines", desc: "Dedicated lines for SMC (Hot Press) and Hand Lay-up processes ensuring zero cross-contamination and optimal workflow efficiency." },
+                          { icon: <Cog size={24} />, title: "In-House Tooling", desc: "Rapid pattern making and mould fabrication capabilities allowing for shorter lead times on custom projects." },
+                          { icon: <ClipboardCheck size={24} />, title: "Quality Lab", desc: "On-site testing for Barcol hardness, resin-glass ratio, and water absorption to verify laminate integrity." }
+                      ].map((item, i) => (
+                        <div key={i} className="flex gap-6 animate-fade-up" style={{ animationDelay: `${i * 100}ms` }}>
+                            <div className="flex-shrink-0 h-12 w-12 rounded-sm bg-navy-50 flex items-center justify-center text-accent-orange border border-navy-100">
+                                {item.icon}
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-navy-900 mb-2 font-display uppercase">{item.title}</h3>
+                                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                            </div>
+                        </div>
+                      ))}
                   </div>
               </div>
               
               {/* Chart Card */}
-              <div className="lg:col-span-5 bg-gray-50 rounded-sm p-8 border border-gray-100">
+              <div ref={chartRef} className={`lg:col-span-5 bg-gray-50 rounded-sm p-8 border border-gray-100 transition-all duration-700 ${chartInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
                   <h3 className="text-sm font-bold uppercase tracking-widest text-navy-900 mb-8 font-display">Monthly Capacity</h3>
                   <div className="h-80 w-full">
                       <ResponsiveContainer width="100%" height="100%">
                           <BarChart
                               layout="vertical"
-                              data={CAPACITY_DATA}
+                              data={chartInView ? CAPACITY_DATA : []}
                               margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
                           >
                               <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={true} stroke="#e2e8f0" />
@@ -114,8 +105,7 @@ export const Manufacturing: React.FC = () => {
                                   cursor={{fill: '#e2e8f0'}}
                                   contentStyle={{ backgroundColor: '#0b1e3b', color: '#fff', border: 'none', borderRadius: '0px', fontSize: '12px', fontFamily: 'monospace' }}
                               />
-                              {/* Accent Orange fill for bars */}
-                              <Bar dataKey="capacity" fill="#f59e0b" radius={[0, 0, 0, 0]} barSize={20} />
+                              <Bar dataKey="capacity" fill="#f59e0b" radius={[0, 0, 0, 0]} barSize={20} animationDuration={1500} />
                           </BarChart>
                       </ResponsiveContainer>
                   </div>
@@ -141,7 +131,7 @@ export const Manufacturing: React.FC = () => {
                       { step: "03", title: "Fabrication", desc: "Layer-by-layer lamination or high-pressure compression." },
                       { step: "04", title: "Assembly & QC", desc: "Hardware integration, finishing, and final inspection." }
                   ].map((item, i) => (
-                      <div key={i} className="bg-white p-8 rounded-sm shadow-sm border border-gray-100 relative overflow-hidden group hover:shadow-lg hover:border-accent-red transition-all">
+                      <div key={i} className="bg-white p-8 rounded-sm shadow-sm border border-gray-100 relative overflow-hidden group hover:shadow-lg hover:border-accent-red transition-all duration-500 animate-fade-up" style={{ animationDelay: `${i * 100}ms` }}>
                           <div className="text-6xl font-bold text-gray-100 absolute -right-4 -top-4 group-hover:text-red-50 transition-colors font-mono">{item.step}</div>
                           <div className="relative z-10">
                               <h4 className="text-lg font-bold text-navy-900 mb-3 font-display uppercase">{item.title}</h4>

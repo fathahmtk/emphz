@@ -20,7 +20,7 @@ export const PRODUCTS: ProductDef[] = [
     name: "GRP Electrical Enclosures (LT / HT / Metering)",
     shortDescription: "Weatherproof IP65/66 enclosures for power distribution and telecom infrastructure.",
     fullDescription: "Engineered for high-voltage and low-voltage electrical distribution, EMPHZ GRP enclosures provide superior dielectric strength and corrosion resistance compared to galvanized steel. Designed for roadside, industrial, and coastal installation environments in compliance with IEC 62208.",
-    applications: ["Feeder Pillars", "Energy Metering", "Junction Boxes", "Telecom Cabinets"],
+    applications: ["Power Distribution", "Telecom & Data"],
     specs: [
       { label: "Material Composition", value: "Hot Pressed SMC (Sheet Moulding Compound)" },
       { label: "IP Protection", value: "IP65 / IP66 (IEC 60529)" },
@@ -36,7 +36,7 @@ export const PRODUCTS: ProductDef[] = [
     name: "Horizon Pod (Civic Nest System)",
     shortDescription: "Landscape-integrated urban infrastructure for social interaction and informal learning.",
     fullDescription: "CIVIC NEST is a landscape-integrated urban infrastructure platform designed to enhance waiting and informal learning experiences in public spaces for people of all ages. The system integrates functional pods seamlessly to serve resting, digital, and learning needs.",
-    applications: ["Smart City Plazas", "Transit Hubs", "University Campuses", "Public Parks"],
+    applications: ["Urban Infrastructure", "Mass Transit"],
     specs: [
       { label: "Module Type", value: "Civic Nest Platform" },
       { label: "Functions", value: "Social Learning / Resting / Digital Access" },
@@ -57,7 +57,7 @@ export const PRODUCTS: ProductDef[] = [
     name: "Modular GRP Kiosks & Shelters",
     shortDescription: "Prefabricated shelters for checkpoints, ticketing, and control rooms.",
     fullDescription: "Factory-assembled modular GRP structures designed for rapid deployment. Featuring double-wall PUF sandwich construction for thermal insulation and structural rigidity. Suitable for continuous outdoor exposure in tropical, saline, and industrial environments.",
-    applications: ["Ticket Counters", "Information Booths", "Vending Kiosks", "Security Checkposts"],
+    applications: ["Urban Infrastructure"],
     specs: [
       { label: "Wall Construction", value: "Double-skin GRP with 40mm PUF core" },
       { label: "Thermal Conductivity", value: "0.022 W/mK (Insulation)" },
@@ -65,14 +65,14 @@ export const PRODUCTS: ProductDef[] = [
       { label: "Flooring", value: "Anti-skid chequered GRP / Vinyl" }
     ],
     features: ["Modular knock-down assembly", "Concealed electrical wiring", "EPDM Weather seals", "Zero maintenance exterior"],
-    imageUrl: "https://images.unsplash.com/photo-1495603889088-428df69a01f9?q=80&w=1200&auto=format&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: "portable-toilets",
     name: "Portable GRP Toilets",
     shortDescription: "Hygienic, chemical-resistant sanitation units for public and industrial use.",
     fullDescription: "Single-mould composite sanitation units designed for public infrastructure, construction sites, and industrial plants. Seamless gel-coated interior surfaces ensure easy pressure-washing and prevent bacterial harbouring. Available with bio-digester integration.",
-    applications: ["Construction Sites", "Public Parks", "Highways", "Industrial Plants"],
+    applications: ["Industrial Plants", "Urban Infrastructure", "Water & Utilities"],
     specs: [
       { label: "Waste Tank", value: "200L - 500L (Bio-digester optional)" },
       { label: "Resin System", value: "Chemical Resistant Isophthalic" },
@@ -87,7 +87,7 @@ export const PRODUCTS: ProductDef[] = [
     name: "Security Cabins & Guard Rooms",
     shortDescription: "Ergonomic guard rooms for industrial gates and defense installations.",
     fullDescription: "Heavy-duty security cabins manufactured for 24/7 occupancy. Designed with 360-degree visibility, thermal comfort, and integrated furniture options. Built to withstand impact, heavy rain, and environmental weathering without degradation.",
-    applications: ["Industrial Gates", "Residential Complexes", "Toll Plazas", "Defense Installations"],
+    applications: ["Industrial Plants", "Urban Infrastructure"],
     specs: [
       { label: "Structure Type", value: "Monolithic GRP / Sandwich Panel" },
       { label: "Glazing", value: "Toughened Safety Glass (Tinted)" },
@@ -102,7 +102,7 @@ export const PRODUCTS: ProductDef[] = [
     name: "Generator Rooms & Power Houses",
     shortDescription: "Acoustic GRP housings for DG sets, compressors, and pumps.",
     fullDescription: "Engineered acoustic enclosures designed to reduce noise pollution from diesel generators and heavy machinery. Lined with high-density acoustic foam and fire-retardant materials. Custom airflow design ensures equipment cooling while maintaining IP ratings.",
-    applications: ["DG Sets", "Compressors", "Pump Houses", "Power Plants"],
+    applications: ["Industrial Plants", "Power Distribution"],
     specs: [
       { label: "Noise Reduction", value: "25-30 dBA attenuation" },
       { label: "Acoustic Lining", value: "Fire-retardant Acoustic Foam / Rockwool" },
@@ -117,7 +117,7 @@ export const PRODUCTS: ProductDef[] = [
     name: "GRP Canopies & Bus Waiting Sheds",
     shortDescription: "Structural roofing for transit, walkways, and parking infrastructure.",
     fullDescription: "Structural GRP roofing systems offering high strength-to-weight ratios. Ideal for cantilevered designs such as bus shelters and walkways where corrosion of steel structures is a concern due to vehicular emissions or coastal air.",
-    applications: ["Bus Shelters", "Pedestrian Walkways", "Car Parking", "Entrance Canopies"],
+    applications: ["Mass Transit", "Urban Infrastructure"],
     specs: [
       { label: "Profile", value: "Corrugated / Trapezoidal / Flat" },
       { label: "Light Transmission", value: "Opaque or Translucent" },
@@ -132,7 +132,7 @@ export const PRODUCTS: ProductDef[] = [
     name: "Custom GRP Fabrication",
     shortDescription: "Bespoke composite engineering for unique project requirements.",
     fullDescription: "Complete design-to-part service for custom GRP components. Utilizing hand lay-up, spray-up, and RTM processes to deliver complex geometries based on client drawings and specifications. Includes FEA analysis and mould generation.",
-    applications: ["Architectural Cladding", "Machine Covers", "Chemical Tanks", "Automotive components"],
+    applications: ["Industrial Plants"],
     specs: [
       { label: "Processes", value: "Hand Lay-up, RTM, SMC, Pultrusion" },
       { label: "Resin Types", value: "Isophthalic, Orthophthalic, Vinyl Ester" },
