@@ -1,23 +1,30 @@
 import React, { useState, useRef } from 'react';
 import { Button } from './Button';
-import { UploadCloud, CheckCircle, FileUp } from 'lucide-react';
+import { CheckCircle, FileUp, Loader2 } from 'lucide-react';
 
 interface InquiryFormProps {
     productName?: string;
     className?: string;
 }
 
+const initialFormState = {
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    projectType: 'EPC/Infrastructure',
+    location: '',
+    quantity: '',
+    message: ''
+};
+
 export const InquiryForm: React.FC<InquiryFormProps> = ({ productName, className = '' }) => {
     const [formState, setFormState] = useState({
-        name: '',
-        company: '',
-        email: '',
-        phone: '',
-        projectType: 'EPC/Infrastructure',
-        location: '',
-        quantity: '',
+        ...initialFormState,
         message: productName ? `Inquiry regarding ${productName}` : ''
     });
+    const [submissionState, setSubmissionState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -34,33 +41,53 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ productName, className
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
-            alert(`File selected: ${e.target.files[0].name}`);
+            setSelectedFile(e.target.files[0]);
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        alert("Your requirement has been received.\n\nOur engineering team will review the specifications and response with a formal proposal within 48 hours.");
+    const handleReset = () => {
         setFormState({
-            name: '',
-            company: '',
-            email: '',
-            phone: '',
-            projectType: 'EPC/Infrastructure',
-            location: '',
-            quantity: '',
+            ...initialFormState,
             message: productName ? `Inquiry regarding ${productName}` : ''
         });
+        setSelectedFile(null);
+        setSubmissionState('idle');
+    }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setSubmissionState('submitting');
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        // In a real app, you'd handle potential errors here and set state to 'error'
+        setSubmissionState('success');
     };
 
     const inputClasses = "w-full border-gray-300 bg-gray-50 rounded-sm shadow-sm focus:bg-white focus:border-accent-orange focus:ring-1 focus:ring-accent-orange text-sm py-3 px-4 transition-all placeholder:text-gray-400 font-sans text-navy-900";
     const labelClasses = "block text-[10px] font-bold text-gray-500 mb-1.5 uppercase tracking-widest font-display";
 
+    if (submissionState === 'success') {
+        return (
+            <div className={`text-center p-8 rounded-sm ${className.includes('bg-navy-900') ? 'bg-navy-800 border border-navy-700' : 'bg-green-50/50 border border-green-200'}`}>
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${className.includes('bg-navy-900') ? 'bg-navy-900' : 'bg-white'}`}>
+                    <CheckCircle className="h-10 w-10 text-accent-red" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 font-display uppercase">Inquiry Received</h3>
+                <p className={`${className.includes('bg-navy-900') ? 'text-gray-400' : 'text-gray-600'} text-sm leading-relaxed mb-8`}>
+                    Our engineering team will review your specifications and respond with a formal proposal within 48 business hours.
+                </p>
+                <Button variant="outline" onClick={handleReset} className={className.includes('bg-navy-900') ? 'text-white border-white/30 hover:bg-white hover:text-navy-900' : ''}>
+                    Submit Another Inquiry
+                </Button>
+            </div>
+        );
+    }
+
     return (
         <form onSubmit={handleSubmit} className={`space-y-6 ${className}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label className={labelClasses}>Full Name <span className="text-accent-orange">*</span></label>
+                    <label className={labelClasses}>Full Name <span className="text-accent-red">*</span></label>
                     <input 
                         type="text" 
                         name="name"
@@ -71,7 +98,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ productName, className
                     />
                 </div>
                 <div>
-                    <label className={labelClasses}>Organization <span className="text-accent-orange">*</span></label>
+                    <label className={labelClasses}>Organization <span className="text-accent-red">*</span></label>
                     <input 
                         type="text" 
                         name="company"
@@ -85,7 +112,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ productName, className
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label className={labelClasses}>Work Email <span className="text-accent-orange">*</span></label>
+                    <label className={labelClasses}>Work Email <span className="text-accent-red">*</span></label>
                     <input 
                         type="email" 
                         name="email"
@@ -96,7 +123,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ productName, className
                     />
                 </div>
                 <div>
-                    <label className={labelClasses}>Phone <span className="text-accent-orange">*</span></label>
+                    <label className={labelClasses}>Phone <span className="text-accent-red">*</span></label>
                     <input 
                         type="tel" 
                         name="phone"
@@ -150,7 +177,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ productName, className
             </div>
 
             <div>
-                <label className={labelClasses}>Technical Requirements <span className="text-accent-orange">*</span></label>
+                <label className={labelClasses}>Technical Requirements <span className="text-accent-red">*</span></label>
                 <textarea 
                     name="message"
                     value={formState.message}
@@ -166,15 +193,31 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ productName, className
                 className="border-2 border-dashed border-gray-300 rounded-sm p-6 text-center hover:bg-gray-50 hover:border-accent-orange transition-all cursor-pointer group"
                 onClick={handleFileClick}
             >
-                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-3 group-hover:bg-white group-hover:text-accent-orange transition-colors">
-                     <FileUp className="h-5 w-5 text-gray-500 group-hover:text-accent-orange" />
-                </div>
-                <span className="block text-sm font-bold text-gray-700 group-hover:text-navy-900">
-                    Attach BOQ / Drawings
-                </span>
-                <span className="block text-xs text-gray-400 mt-1">
-                    PDF, DWG, XLSX (Max 10MB)
-                </span>
+                {selectedFile ? (
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
+                             <CheckCircle className="h-5 w-5 text-green-600" />
+                        </div>
+                        <span className="block text-sm font-bold text-gray-700 group-hover:text-navy-900 truncate max-w-full px-4">
+                            {selectedFile.name}
+                        </span>
+                        <span className="block text-xs text-gray-400 mt-1">
+                            File attached. Click to change.
+                        </span>
+                    </div>
+                ) : (
+                    <>
+                        <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-3 group-hover:bg-white group-hover:text-accent-orange transition-colors">
+                            <FileUp className="h-5 w-5 text-gray-500 group-hover:text-accent-orange" />
+                        </div>
+                        <span className="block text-sm font-bold text-gray-700 group-hover:text-navy-900">
+                            Attach BOQ / Drawings
+                        </span>
+                        <span className="block text-xs text-gray-400 mt-1">
+                            PDF, DWG, XLSX (Max 10MB)
+                        </span>
+                    </>
+                )}
                  <input 
                     type="file" 
                     className="hidden" 
@@ -184,7 +227,22 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ productName, className
             </div>
 
             <div className="pt-2">
-                <Button type="submit" variant="secondary" fullWidth className="h-12 text-sm uppercase tracking-widest">Submit Proposal Request</Button>
+                <Button 
+                    type="submit" 
+                    variant="secondary" 
+                    fullWidth 
+                    className="h-12 text-sm uppercase tracking-widest"
+                    disabled={submissionState === 'submitting'}
+                >
+                    {submissionState === 'submitting' ? (
+                        <>
+                            <Loader2 className="animate-spin -ml-1 mr-3 h-5 w-5" />
+                            Submitting...
+                        </>
+                    ) : (
+                        'Submit Proposal Request'
+                    )}
+                </Button>
                 <div className="mt-4 flex items-center justify-center text-[10px] text-gray-400 uppercase tracking-wide">
                     <CheckCircle className="h-3 w-3 mr-1.5 text-accent-orange" />
                     <span>Secure Encrypted Transmission</span>
