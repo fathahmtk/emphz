@@ -19,9 +19,14 @@ const Contact = () => {
 
           <div className="space-y-12 mt-16">
             {[
-              { icon: <MapPin className="text-accent" />, title: "HQ - Kerala", detail: "Phase II, Industrial Park, Kochi, Kerala, India" },
-              { icon: <Phone className="text-accent" />, title: "Technical Support", detail: "+91 9876 543 210" },
-              { icon: <Mail className="text-accent" />, title: "General Queries", detail: "procure@emphz.com" }
+              {
+                icon: <MapPin className="text-accent" />,
+                title: "HQ - Kerala",
+                detail: "Phase II, Industrial Park, Kochi, Kerala, India",
+                href: "https://maps.google.com/?q=Kochi,+Kerala,+India"
+              },
+              { icon: <Phone className="text-accent" />, title: "Technical Support", detail: "+91 9876 543 210", href: "tel:+919876543210" },
+              { icon: <Mail className="text-accent" />, title: "General Queries", detail: "procure@emphz.com", href: "mailto:procure@emphz.com" }
             ].map(item => (
               <div key={item.title} className="flex gap-6 items-start group">
                 <div className="w-14 h-14 bg-zinc-50 border border-zinc-100 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all shadow-sm">
@@ -29,10 +34,22 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 mb-2 font-black">{item.title}</p>
-                  <p className="text-lg font-bold text-zinc-900 tracking-tighter">{item.detail}</p>
+                  <a href={item.href} className="text-lg font-bold text-zinc-900 tracking-tighter hover:text-accent transition-colors">
+                    {item.detail}
+                  </a>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 border border-zinc-100 overflow-hidden shadow-sm">
+            <iframe
+              title="EMPHZ location map"
+              src="https://maps.google.com/maps?q=Kochi%2C%20Kerala%2C%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-64"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
 
           <div className="mt-20 p-8 bg-zinc-50 border border-zinc-100 rounded-sm">
