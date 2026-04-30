@@ -39,9 +39,11 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:shadow">Skip to main content</a>
       <div className="relative min-h-screen">
         <Navbar />
-        <AnimatePresence mode="wait">
+        <main id="main-content">
+          <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
             <Route path="/products/:category" element={<PageWrapper><ProductPage /></PageWrapper>} />
@@ -50,6 +52,7 @@ export default function App() {
             <Route path="*" element={<PageWrapper><Home /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
+        </main>
         <Footer />
       </div>
     </Router>

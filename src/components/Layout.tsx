@@ -11,6 +11,7 @@ import { NAV_LINKS } from '../constants';
 import { Button } from './UI';
 import { QuoteModal } from './QuoteModal';
 import { cn } from '../lib/utils';
+import logo from '../assets/emphz-logo.svg';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,10 +38,9 @@ export const Navbar = () => {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
             <img 
-              src="https://lh3.googleusercontent.com/pw/AP1GczPr17XkS_Z9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9=w1024-h1024-s-no-gm?authuser=0" 
+              src={logo} 
               alt="EMPHZ Logo" 
-              className="w-10 h-10 object-contain invert brightness-0"
-              referrerPolicy="no-referrer"
+              className="w-11 h-11 object-contain rounded-md shadow-sm"
             />
             <span className="text-3xl font-display font-black tracking-tighter text-zinc-900 group-hover:text-accent transition-colors">
               EMPHZ
@@ -68,7 +68,7 @@ export const Navbar = () => {
           <div className="flex items-center gap-4 lg:hidden">
             <Button size="sm" onClick={() => setIsQuoteOpen(true)} className="px-4 py-2">Quote</Button>
             <button 
-              className="text-zinc-900 p-2"
+              className="text-zinc-900 p-2" aria-label={isOpen ? "Close menu" : "Open menu"}
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -110,6 +110,7 @@ export const Navbar = () => {
       {/* Floating WhatsApp Action */}
       <motion.a
         href="https://wa.me/919876543210"
+        aria-label="Chat with EMPHZ on WhatsApp"
         target="_blank"
         rel="noreferrer"
         initial={{ scale: 0, opacity: 0 }}
@@ -130,10 +131,9 @@ export const Footer = () => {
         <div>
           <Link to="/" className="flex items-center gap-3 mb-8 group">
             <img 
-              src="https://lh3.googleusercontent.com/pw/AP1GczPr17XkS_Z9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9=w1024-h1024-s-no-gm?authuser=0" 
+              src={logo} 
               alt="EMPHZ Logo" 
-              className="w-12 h-12 object-contain grayscale brightness-0"
-              referrerPolicy="no-referrer"
+              className="w-12 h-12 object-contain rounded-md"
             />
             <h3 className="text-2xl font-display font-black tracking-tighter text-zinc-900 group-hover:text-accent transition-colors">
               EMPHZ
