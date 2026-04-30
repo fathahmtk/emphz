@@ -48,24 +48,24 @@ const Contact = () => {
             <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Full Name</label>
-                  <input type="text" className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold" placeholder="Rajesh Menon" />
+                  <label htmlFor="full-name" className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Full Name</label>
+                  <input id="full-name" name="fullName" autoComplete="name" required type="text" className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold" placeholder="Rajesh Menon" />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Phone Number</label>
-                  <input type="tel" className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold" placeholder="+91 ..." />
+                  <label htmlFor="phone" className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Phone Number</label>
+                  <input id="phone" name="phone" autoComplete="tel" required type="tel" className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold" placeholder="+91 ..." />
                 </div>
               </div>
 
               <div className="space-y-3">
-                <label className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Corporate Email</label>
-                <input type="email" className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold" placeholder="office@company.com" />
+                <label htmlFor="email" className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Corporate Email</label>
+                <input id="email" name="email" autoComplete="email" required type="email" className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold" placeholder="office@company.com" />
               </div>
 
               <div className="space-y-3">
-                <label className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Unit Category</label>
-                <select className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none appearance-none text-zinc-900 font-bold">
-                  <option>Select Series</option>
+                <label htmlFor="unit-category" className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Unit Category</label>
+                <select id="unit-category" name="unitCategory" required defaultValue="" className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none appearance-none text-zinc-900 font-bold">
+                  <option value="" disabled>Select Series</option>
                   <option>WorkSpace (Office)</option>
                   <option>RestUnit (Sleeping)</option>
                   <option>SaniMod (Sanitary)</option>
@@ -74,8 +74,8 @@ const Contact = () => {
               </div>
 
               <div className="space-y-3">
-                <label className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Project Specifics</label>
-                <textarea rows={4} className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold resize-none" placeholder="Details of your site and timeline..."></textarea>
+                <label htmlFor="project-specifics" className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Project Specifics</label>
+                <textarea id="project-specifics" name="projectSpecifics" rows={4} required className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold resize-none" placeholder="Details of your site and timeline..."></textarea>
               </div>
 
               <Button size="lg" className="w-full group py-6">

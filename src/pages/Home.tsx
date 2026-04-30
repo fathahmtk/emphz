@@ -46,10 +46,14 @@ const Hero = () => (
           </p>
           
           <div className="flex flex-wrap gap-6">
-            <Button size="lg" className="group">
-              Start Project <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="outline" size="lg">Product Catalog</Button>
+            <Link to="/contact">
+              <Button size="lg" className="group">
+                Start Project <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/products">
+              <Button variant="outline" size="lg">Product Catalog</Button>
+            </Link>
           </div>
 
           <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-12 pt-16 border-t border-zinc-200 max-w-2xl">
@@ -199,8 +203,12 @@ const ExperienceCenter = () => (
         Our Kerala Experience Center showcases the range of finishes, acoustics and technological integrations. Witness the build quality that sets EMPHZ apart.
       </p>
       <div className="flex flex-col md:flex-row justify-center gap-6">
-        <Button size="lg">Schedule Tour</Button>
-        <Button variant="outline" size="lg">Virtual Gallery</Button>
+        <Link to="/contact">
+          <Button size="lg">Schedule Tour</Button>
+        </Link>
+        <a href="#portfolio" aria-label="Jump to recent deployments section">
+          <Button variant="outline" size="lg">Virtual Gallery</Button>
+        </a>
       </div>
     </div>
   </section>
@@ -235,7 +243,7 @@ const Testimonials = () => (
 );
 
 const Portfolio = () => (
-  <section className="section-padding bg-zinc-50 border-t border-zinc-100">
+  <section id="portfolio" className="section-padding bg-zinc-50 border-t border-zinc-100">
     <SectionHeader 
       number="04" 
       title="Recent Deployments" 
