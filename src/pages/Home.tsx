@@ -54,13 +54,27 @@ const Hero = () => (
             Modular Units
           </h1>
           
-          <p className="text-lg md:text-xl text-zinc-600 max-w-xl mb-12 leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-zinc-600 max-w-xl mb-8 leading-relaxed font-medium">
             EMPHZ crafts premium modular pods designed for rapid deployment. High-fidelity workspaces and resting units engineered for the architectural standards of tomorrow.
           </p>
+
+          <div className="flex flex-wrap gap-3 mb-12">
+            {['Factory Finished', 'Weather Resistant', 'Pan-India Delivery'].map((tag, index) => (
+              <motion.span
+                key={tag}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + index * 0.1 }}
+                className="px-4 py-2 text-xs font-semibold tracking-wide rounded-full bg-white/85 border border-zinc-200 text-zinc-700 shadow-sm"
+              >
+                {tag}
+              </motion.span>
+            ))}
+          </div>
           
           <div className="flex flex-wrap gap-6">
             <Link to="/contact">
-              <Button size="lg" className="group">
+              <Button size="lg" className="group h-full">
                 Start Project <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -150,7 +164,7 @@ const ProductPreview = () => (
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.45, delay: i * 0.08 }}
           whileHover={{ y: -8 }}
-          className="group"
+          className="group h-full"
         >
           <div className="h-80 md:h-96 overflow-hidden bg-white/95 mb-8 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-zinc-100 flex items-center justify-center relative">
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent/70 via-blue-400/70 to-cyan-300/70" />
@@ -163,8 +177,8 @@ const ProductPreview = () => (
           </div>
           <p className="text-[10px] uppercase tracking-[0.2em] text-accent font-black mb-2">{product.category} Series</p>
           <h3 className="text-2xl font-display font-bold uppercase mb-4 text-zinc-900">{product.name}</h3>
-          <p className="text-zinc-500 text-sm mb-8 line-clamp-2 leading-relaxed">{product.description}</p>
-          <Link to={`/products/${product.category}`} className="text-[10px] uppercase tracking-widest font-black text-zinc-900 group-hover:text-accent flex items-center transition-colors">
+          <p className="text-zinc-500 text-sm mb-8 line-clamp-2 leading-relaxed min-h-[44px]">{product.description}</p>
+          <Link to={`/products/${product.category}`} className="text-[10px] uppercase tracking-widest font-black text-zinc-900 group-hover:text-accent flex items-center justify-between transition-colors border border-zinc-200 px-4 py-3 rounded-sm hover:border-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40">
             View Details <ArrowRight className="ml-2" size={14} />
           </Link>
         </motion.div>
@@ -213,7 +227,7 @@ const WhyEMPHZ = () => (
 
 const ExperienceCenter = () => (
   <section className="section-padding text-center bg-zinc-50 relative overflow-hidden">
-    <div className="max-w-4xl mx-auto relative z-10">
+    <div className="max-w-4xl mx-auto relative z-10 bg-white/70 backdrop-blur-md border border-white rounded-2xl p-8 md:p-12 shadow-xl shadow-zinc-200/50">
       <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-8 text-zinc-900">
         Visit The <span className="text-accent underline decoration-accent/20 decoration-8 underline-offset-[-4px]">Showroom</span>
       </h2>
