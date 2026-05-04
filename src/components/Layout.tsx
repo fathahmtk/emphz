@@ -143,9 +143,13 @@ export const Footer = () => {
             Pioneering modular infrastructure based in Kerala, India. We engineer precision-crafted pods that redefine rapid deployment for modern industrial and commercial needs.
           </p>
           <div className="flex gap-4">
-            {['Twitter', 'LinkedIn', 'Instagram'].map(social => (
-              <a key={social} href="#" className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:bg-accent hover:border-accent hover:text-white transition-all">
-                <span className="sr-only">{social}</span>
+            {[
+              { label: 'Twitter', href: 'https://x.com' },
+              { label: 'LinkedIn', href: 'https://www.linkedin.com' },
+              { label: 'Instagram', href: 'https://www.instagram.com/emphz.in' }
+            ].map(social => (
+              <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:bg-accent hover:border-accent hover:text-white transition-all">
+                <span className="sr-only">{social.label}</span>
                 <div className="w-4 h-4 bg-current rounded-sm" />
               </a>
             ))}

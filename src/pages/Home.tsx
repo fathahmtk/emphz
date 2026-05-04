@@ -10,7 +10,7 @@ import { PRODUCTS } from '../constants';
 import { Link } from 'react-router-dom';
 
 const Hero = () => (
-  <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-zinc-50">
+  <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-br from-slate-100 via-white to-blue-50">
     {/* Full Wide Hero Image Background */}
     <div className="absolute inset-0 z-0">
       <img 
@@ -19,10 +19,23 @@ const Hero = () => (
         className="w-full h-full object-cover brightness-[0.95] scale-105"
         referrerPolicy="no-referrer"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-900/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 to-transparent" />
     </div>
     
+    <motion.div
+      aria-hidden="true"
+      className="absolute -top-24 -right-16 w-80 h-80 rounded-full bg-accent/20 blur-3xl"
+      animate={{ x: [0, -30, 0], y: [0, 20, 0], scale: [1, 1.1, 1] }}
+      transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+    />
+    <motion.div
+      aria-hidden="true"
+      className="absolute bottom-10 left-0 w-72 h-72 rounded-full bg-blue-300/20 blur-3xl"
+      animate={{ x: [0, 20, 0], y: [0, -25, 0], scale: [1, 0.95, 1] }}
+      transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+    />
+
     <div className="section-padding relative z-10 w-full">
       <div className="max-w-4xl">
         <motion.div
@@ -30,7 +43,7 @@ const Hero = () => (
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-sm bg-white/80 border border-zinc-200 mb-8 backdrop-blur-md shadow-sm">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-sm bg-white/85 border border-white/70 mb-8 backdrop-blur-md shadow-lg shadow-slate-900/10">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
             <span className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-900">Scaling India + Global Export</span>
           </div>
@@ -41,13 +54,27 @@ const Hero = () => (
             Modular Units
           </h1>
           
-          <p className="text-lg md:text-xl text-zinc-600 max-w-xl mb-12 leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-zinc-600 max-w-xl mb-8 leading-relaxed font-medium">
             EMPHZ crafts premium modular pods designed for rapid deployment. High-fidelity workspaces and resting units engineered for the architectural standards of tomorrow.
           </p>
+
+          <div className="flex flex-wrap gap-3 mb-12">
+            {['Factory Finished', 'Weather Resistant', 'Pan-India Delivery'].map((tag, index) => (
+              <motion.span
+                key={tag}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + index * 0.1 }}
+                className="px-4 py-2 text-xs font-semibold tracking-wide rounded-full bg-white/85 border border-zinc-200 text-zinc-700 shadow-sm"
+              >
+                {tag}
+              </motion.span>
+            ))}
+          </div>
           
           <div className="flex flex-wrap gap-6">
             <Link to="/contact">
-              <Button size="lg" className="group">
+              <Button size="lg" className="group h-full">
                 Start Project <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -115,7 +142,7 @@ const ValueProps = () => {
 };
 
 const ProductPreview = () => (
-  <section className="section-padding bg-zinc-50">
+  <section className="section-padding bg-gradient-to-b from-zinc-50 to-white">
     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
       <SectionHeader 
         number="02" 
@@ -129,24 +156,29 @@ const ProductPreview = () => (
     </div>
     
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      {PRODUCTS.slice(0, 3).map((product, i) => (
+      {PRODUCTS.map((product, i) => (
         <motion.div
           key={product.id}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.45, delay: i * 0.08 }}
           whileHover={{ y: -8 }}
-          className="group"
+          className="group h-full"
         >
-          <div className="aspect-[4/3] overflow-hidden bg-white mb-8 shadow-sm group-hover:shadow-xl transition-all duration-500">
+          <div className="h-80 md:h-96 overflow-hidden bg-white/95 mb-8 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-zinc-100 flex items-center justify-center relative">
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent/70 via-blue-400/70 to-cyan-300/70" />
             <img 
               src={product.imageUrl} 
               alt={product.name} 
-              className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-700"
+              className="w-full h-full object-contain scale-100 group-hover:scale-105 transition-all duration-700 p-3"
               referrerPolicy="no-referrer"
             />
           </div>
           <p className="text-[10px] uppercase tracking-[0.2em] text-accent font-black mb-2">{product.category} Series</p>
           <h3 className="text-2xl font-display font-bold uppercase mb-4 text-zinc-900">{product.name}</h3>
-          <p className="text-zinc-500 text-sm mb-8 line-clamp-2 leading-relaxed">{product.description}</p>
-          <Link to={`/products/${product.category}`} className="text-[10px] uppercase tracking-widest font-black text-zinc-900 group-hover:text-accent flex items-center transition-colors">
+          <p className="text-zinc-500 text-sm mb-8 line-clamp-2 leading-relaxed min-h-[44px]">{product.description}</p>
+          <Link to={`/products/${product.category}`} className="text-[10px] uppercase tracking-widest font-black text-zinc-900 group-hover:text-accent flex items-center justify-between transition-colors border border-zinc-200 px-4 py-3 rounded-sm hover:border-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40">
             View Details <ArrowRight className="ml-2" size={14} />
           </Link>
         </motion.div>
@@ -195,7 +227,7 @@ const WhyEMPHZ = () => (
 
 const ExperienceCenter = () => (
   <section className="section-padding text-center bg-zinc-50 relative overflow-hidden">
-    <div className="max-w-4xl mx-auto relative z-10">
+    <div className="max-w-4xl mx-auto relative z-10 bg-white/70 backdrop-blur-md border border-white rounded-2xl p-8 md:p-12 shadow-xl shadow-zinc-200/50">
       <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-8 text-zinc-900">
         Visit The <span className="text-accent underline decoration-accent/20 decoration-8 underline-offset-[-4px]">Showroom</span>
       </h2>
@@ -208,6 +240,9 @@ const ExperienceCenter = () => (
         </Link>
         <a href="#portfolio" aria-label="Jump to recent deployments section">
           <Button variant="outline" size="lg">Virtual Gallery</Button>
+        </a>
+        <a href="https://www.instagram.com/emphz.in" target="_blank" rel="noopener noreferrer" aria-label="Open EMPHZ Instagram profile">
+          <Button variant="outline" size="lg">Instagram</Button>
         </a>
       </div>
     </div>
