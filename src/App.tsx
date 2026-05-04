@@ -3,18 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { Navbar, Footer } from './components/Layout';
 import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
 import Contact from './pages/Contact';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -24,16 +19,20 @@ const ScrollToTop = () => {
   return null;
 };
 
-const PageWrapper = ({ children }: { children: React.ReactNode }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -10 }}
-    transition={{ duration: 0.3 }}
-  >
-    {children}
-  </motion.div>
-);
+const PageWrapper = ({ children }: { children: React.ReactNode }) => {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
+      animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+      exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
+      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default function App() {
   return (
@@ -58,4 +57,3 @@ export default function App() {
     </Router>
   );
 }
-
