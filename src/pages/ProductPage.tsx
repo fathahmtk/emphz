@@ -6,12 +6,13 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
 import { SectionHeader, GlassCard, Button } from '../components/UI';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { Check, ArrowRight } from 'lucide-react';
 
 const ProductPage = () => {
   const { category } = useParams();
   const products = PRODUCTS.filter(p => p.category === category);
+  const shouldReduceMotion = useReducedMotion();
 
   if (!products.length) return <Navigate to="/products" />;
 
@@ -27,9 +28,10 @@ const ProductPage = () => {
         {products.map((product) => (
           <div key={product.id} className="grid lg:grid-cols-2 gap-24 items-start mb-48 last:mb-0">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={shouldReduceMotion ? { duration: 0 } : undefined}
             >
               <div className="aspect-[4/5] overflow-hidden bg-zinc-50 p-4 border border-zinc-100 shadow-sm relative group">
                 <img 
@@ -45,9 +47,10 @@ const ProductPage = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={shouldReduceMotion ? { duration: 0 } : undefined}
             >
               <h2 className="text-4xl md:text-5xl font-display font-black uppercase mb-4 text-zinc-900 tracking-tighter">{product.name}</h2>
               <p className="text-xl text-accent font-display mb-10 tracking-tight font-black uppercase">{product.headline}</p>
