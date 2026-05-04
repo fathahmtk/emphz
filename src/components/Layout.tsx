@@ -163,11 +163,14 @@ export const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-display uppercase tracking-[0.2em] text-[10px] font-bold mb-10 text-zinc-400">HQ - Kerala</h4>
+          <h4 className="font-display uppercase tracking-[0.2em] text-[10px] font-bold mb-10 text-zinc-400">Address</h4>
           <ul className="flex flex-col gap-4 text-zinc-600 text-sm">
-            <li>Phase II, Industrial Zone</li>
-            <li>Kochi, Kerala 682001</li>
-            <li>+91 (0) 9876 543 210</li>
+            <li>260/A, Meenakunte</li>
+            <li>Hebbal Industrial Estate</li>
+            <li>Hebbal Industrial Area, Mysuru</li>
+            <li>Karnataka 570016</li>
+            <li><a href="https://maps.app.goo.gl/UtBF6FBtw5N9b42j6" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">View on Google Maps</a></li>
+            <li>+91 86488 81888</li>
             <li className="mt-4 font-bold text-zinc-900">Experience Center Open</li>
           </ul>
         </div>

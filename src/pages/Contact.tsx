@@ -21,11 +21,12 @@ const Contact = () => {
             {[
               {
                 icon: <MapPin className="text-accent" />,
-                title: "HQ - Kerala",
-                detail: "Phase II, Industrial Park, Kochi, Kerala, India",
-                href: "https://maps.google.com/?q=Kochi,+Kerala,+India"
+                title: "Address",
+                detail: "260/A, Meenakunte, Hebbal Industrial Estate, Hebbal Industrial Area, Mysuru, Hebbalu, Karnataka 570016",
+                href: "https://maps.app.goo.gl/UtBF6FBtw5N9b42j6"
               },
-              { icon: <Phone className="text-accent" />, title: "Technical Support", detail: "+91 9876 543 210", href: "tel:+919876543210" },
+              { icon: <Phone className="text-accent" />, title: "Contact Number", detail: "+91 86488 81888", href: "tel:+9186488818888" },
+              { icon: <Phone className="text-accent" />, title: "WhatsApp", detail: "+91 86488 81888", href: "https://wa.me/9186488818888" },
               { icon: <Mail className="text-accent" />, title: "General Queries", detail: "procure@emphz.com", href: "mailto:procure@emphz.com" }
             ].map(item => (
               <div key={item.title} className="flex gap-6 items-start group">
@@ -45,7 +46,7 @@ const Contact = () => {
           <div className="mt-12 border border-zinc-100 overflow-hidden shadow-sm">
             <iframe
               title="EMPHZ location map"
-              src="https://maps.google.com/maps?q=Kochi%2C%20Kerala%2C%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=260%2FA%2C%20Meenakunte%2C%20Hebbal%20Industrial%20Estate%2C%20Hebbal%20Industrial%20Area%2C%20Mysuru%2C%20Karnataka%20570016&t=&z=13&ie=UTF8&iwloc=&output=embed"
               className="w-full h-64"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
