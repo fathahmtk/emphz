@@ -9,6 +9,7 @@ import { Navbar, Footer } from './components/Layout';
 import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
 import Contact from './pages/Contact';
+import PlaceholderPage from './pages/PlaceholderPage';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 
 const ScrollToTop = () => {
@@ -47,6 +48,10 @@ export default function App() {
             <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
             <Route path="/products/:category" element={<PageWrapper><ProductPage /></PageWrapper>} />
             <Route path="/products" element={<PageWrapper><Home /></PageWrapper>} />
+            <Route path="/about" element={<PageWrapper><PlaceholderPage title="About EMPHZ" description="Learn about EMPHZ's mission, engineering philosophy, and modular infrastructure capabilities." /></PageWrapper>} />
+            <Route path="/solutions" element={<PageWrapper><PlaceholderPage title="Solutions" description="Explore integrated modular solutions designed for industrial, commercial, and public use cases." /></PageWrapper>} />
+            <Route path="/experience" element={<PageWrapper><PlaceholderPage title="Experience Center" description="Discover our product demonstrations, deployment walkthroughs, and in-person consultation experience." /></PageWrapper>} />
+            <Route path="/portfolio" element={<PageWrapper><PlaceholderPage title="Portfolio" description="Review EMPHZ project highlights across workspace pods, transit systems, and utility infrastructure." /></PageWrapper>} />
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
             <Route path="*" element={<PageWrapper><Home /></PageWrapper>} />
           </Routes>
