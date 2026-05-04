@@ -10,7 +10,7 @@ import { PRODUCTS } from '../constants';
 import { Link } from 'react-router-dom';
 
 const Hero = () => (
-  <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-br from-slate-100 via-white to-blue-50">
+  <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-br from-[#00101B] via-[#01243A] to-[#013E56]">
     {/* Full Wide Hero Image Background */}
     <div className="absolute inset-0 z-0">
       <img 
@@ -19,8 +19,8 @@ const Hero = () => (
         className="w-full h-full object-cover brightness-[0.95] scale-105"
         referrerPolicy="no-referrer"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-900/20 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#000814]/70 via-[#001D2E]/45 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#00101B]/70 via-[#00243B]/20 to-transparent" />
     </div>
     
     <motion.div
@@ -45,16 +45,16 @@ const Hero = () => (
         >
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-sm bg-white/85 border border-white/70 mb-8 backdrop-blur-md shadow-lg shadow-slate-900/10">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-900">Scaling India + Global Export</span>
+            <span className="text-[10px] uppercase tracking-[0.3em] font-black text-[#E8F4FA]">Scaling India + Global Export</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-display font-extrabold tracking-tighter leading-[1.1] uppercase mb-8 text-zinc-900">
+          <h1 className="text-4xl md:text-6xl font-display font-extrabold tracking-tighter leading-[1.1] uppercase mb-8 text-white">
             Precision <br />
             <span className="text-accent underline decoration-8 decoration-accent/20 underline-offset-[-8px]">Engineering</span> <br />
             Modular Units
           </h1>
           
-          <p className="text-lg md:text-xl text-zinc-600 max-w-xl mb-8 leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-slate-200 max-w-xl mb-8 leading-relaxed font-medium">
             EMPHZ crafts premium modular pods designed for rapid deployment. High-fidelity workspaces and resting units engineered for the architectural standards of tomorrow.
           </p>
 
@@ -83,18 +83,18 @@ const Hero = () => (
             </Link>
           </div>
 
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-12 pt-16 border-t border-zinc-200 max-w-2xl">
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-12 pt-16 border-t border-white/20 max-w-2xl">
             <div>
-              <p className="text-zinc-900 font-display text-3xl font-black mb-1">48H</p>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-black">Installation</p>
+              <p className="text-white font-display text-3xl font-black mb-1">48H</p>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-slate-300 font-black">Installation</p>
             </div>
             <div>
-              <p className="text-zinc-900 font-display text-3xl font-black mb-1">45dB</p>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-black">Acoustics</p>
+              <p className="text-white font-display text-3xl font-black mb-1">45dB</p>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-slate-300 font-black">Acoustics</p>
             </div>
             <div className="hidden md:block">
-              <p className="text-zinc-900 font-display text-3xl font-black mb-1">ZERO</p>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-black">Foundation</p>
+              <p className="text-white font-display text-3xl font-black mb-1">ZERO</p>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-slate-300 font-black">Foundation</p>
             </div>
           </div>
         </motion.div>
