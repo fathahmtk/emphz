@@ -83,3 +83,10 @@ export const SectionHeader = ({
     {subtitle && <p className="text-zinc-500 text-lg leading-relaxed">{subtitle}</p>}
   </div>
 );
+
+export const ViewableImage = ({ src, alt, className, referrerPolicy }: { src: string; alt: string; className?: string; referrerPolicy?: React.ImgHTMLAttributes<HTMLImageElement>['referrerPolicy'] }) => (
+  <a href={src} target="_blank" rel="noopener noreferrer" className="group/view block relative" aria-label={`View full image: ${alt}`}>
+    <img src={src} alt={alt} className={className} referrerPolicy={referrerPolicy} />
+    <span className="absolute right-3 top-3 bg-white/90 px-2 py-1 text-[9px] font-black uppercase tracking-widest text-zinc-700 opacity-0 group-hover/view:opacity-100 transition-opacity">View</span>
+  </a>
+);

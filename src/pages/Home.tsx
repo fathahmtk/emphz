@@ -5,7 +5,7 @@
 
 import { motion } from 'motion/react';
 import { ArrowRight, ShieldCheck, Zap, Layers, Globe, Star } from 'lucide-react';
-import { Button, GlassCard, SectionHeader } from '../components/UI';
+import { Button, GlassCard, SectionHeader, ViewableImage } from '../components/UI';
 import { PRODUCTS } from '../constants';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const Hero = () => (
   <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-br from-[#00101B] via-[#01243A] to-[#013E56]">
     {/* Full Wide Hero Image Background */}
     <div className="absolute inset-0 z-0">
-      <img 
+      <ViewableImage 
         src="https://lh3.googleusercontent.com/pw/AP1GczM23e5IB401B6M-knj-n3x72djmOLjm9HE2awJAuhVdyaXmAjCeRkd4o0nWGsOVnODi-5OHDBbfFJGXHFAMQqLGJtY7Af4o8soGA9b6A92u04WXskUIwjtsXSdumMYO6nbUiX3N9CL7VwIqL25oti253g=w1545-h869-s-no-gm?authuser=0" 
         alt="EMPHZ Futuristic Modular Infrastructure" 
         className="w-full h-full object-cover brightness-[0.95] scale-105"
@@ -168,7 +168,7 @@ const ProductPreview = () => (
         >
           <div className="h-80 md:h-96 overflow-hidden bg-white/95 mb-8 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-zinc-100 flex items-center justify-center relative">
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent/70 via-blue-400/70 to-cyan-300/70" />
-            <img 
+            <ViewableImage 
               src={product.imageUrl} 
               alt={product.name} 
               className="w-full h-full object-contain scale-100 group-hover:scale-105 transition-all duration-700 p-3"
@@ -214,7 +214,7 @@ const WhyEMPHZ = () => (
       </div>
       <div className="relative">
         <div className="aspect-square bg-zinc-50 p-4 border border-zinc-100 rotate-1">
-          <img src="https://lh3.googleusercontent.com/pw/AP1GczPDRXHhmo1DelLxi0HtftJnSmJ5IkdKr2Ul0o4WqNdZC0aJLGTf3RDD6NY95soy12tjT-9X5MXLRdCBt8plfP21vC68xJgU31pGM52ih8yBsDP2UzyWWShp8haDaNLGCv-EGnHQMuwNSVEJe7G288whig=w1545-h869-s-no-gm?authuser=0" className="w-full h-full object-cover" alt="EMPHZ Modular Pod Engineering" />
+          <ViewableImage src="https://lh3.googleusercontent.com/pw/AP1GczPDRXHhmo1DelLxi0HtftJnSmJ5IkdKr2Ul0o4WqNdZC0aJLGTf3RDD6NY95soy12tjT-9X5MXLRdCBt8plfP21vC68xJgU31pGM52ih8yBsDP2UzyWWShp8haDaNLGCv-EGnHQMuwNSVEJe7G288whig=w1545-h869-s-no-gm?authuser=0" className="w-full h-full object-cover" alt="EMPHZ Modular Pod Engineering" />
           <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-accent flex flex-col justify-center items-center text-white shadow-2xl">
             <span className="text-5xl font-display font-black leading-none">15+</span>
             <span className="text-[10px] uppercase tracking-widest font-bold mt-2">Cities Reach</span>
@@ -291,7 +291,7 @@ const Portfolio = () => (
         viewport={{ once: true }}
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
-        <img 
+        <ViewableImage 
           src="https://lh3.googleusercontent.com/pw/AP1GczMV5hGEEEdpdnKLgB0DRqObV9cKXP6QKAncSrIbIQnQoJeXZl9eBjhd2sap19P0g52wKE_guoBLXeO69MZIbnjljuao0D0YXi2N3VvoMU1BeXn7d4l-kqoXag1lLPorlKp2DK5ndinicl1qigofgs9AXA=w1545-h869-s-no-gm?authuser=0" 
           alt="EMPHZ Laboratory Pod" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
@@ -312,7 +312,7 @@ const Portfolio = () => (
         transition={{ delay: 0.1 }}
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
-        <img 
+        <ViewableImage 
           src="https://lh3.googleusercontent.com/pw/AP1GczMY7U4pLjoqWAm-csUaIIohGKEvAafb-m942e923vdz34e9xTe5RTeyrTfHQBFYuH2FySKs4SwIFw3O716U_gcfXDjDrbrYfuMTCVxPmhY6kMX2VC-2dInfCxF7IF3i2l5-LiAUAUC8zoGO6P2g51mNzQ=w1344-h768-s-no-gm?authuser=0" 
           alt="EMPHZ Office Pod" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
@@ -333,7 +333,7 @@ const Portfolio = () => (
         transition={{ delay: 0.2 }}
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
-        <img 
+        <ViewableImage 
           src="https://lh3.googleusercontent.com/pw/AP1GczOQCBCGPhZmf_8ilQ0TED_VfO2Yh2GRgUiIbZ3WB3tbtea5rCI43cIVGHNUo-dy4zyOJV3QYL3YAxSUbZsCHr7EVEWRq4SmPiNCEIlMzxIiE6FRwBb5S9HtFn-08vgOPxWVTNSMLnmdTyuEeIMgtX7iYA=w869-h869-s-no-gm?authuser=0" 
           alt="EMPHZ Sanitary Module" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
@@ -354,7 +354,7 @@ const Portfolio = () => (
         transition={{ delay: 0.3 }}
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
-        <img 
+        <ViewableImage 
           src="https://lh3.googleusercontent.com/pw/AP1GczNydAEeadD4afouzV-k8Srj8GPWnSoG4714kIJfeUgIYW5XLAAk26VhFc9zaGSAT226oPBh3LNYjgyFTmZhQa_KjCJmpqIYboJzoS6-BBM37-gdFFQa1reZb_7sTAyibwgIvqH23zZoRpBj5XOP6FD2gQ=w1545-h869-s-no-gm?authuser=0" 
           alt="EMPHZ Urban Transit Module" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
@@ -375,7 +375,7 @@ const Portfolio = () => (
         transition={{ delay: 0.4 }}
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
-        <img 
+        <ViewableImage 
           src="https://lh3.googleusercontent.com/pw/AP1GczMe1mwOA84BIJHtR5Bmlm2Y59AP-X4R0c-xrWMKdq3PTwxcwl3JKGVtTucHulwZC7fvPFGgSG9JOHxRFG7HgNvZksxRPnBM43HKmghY8xFC119g3rlfoQw6keBieXkY0ieeipHFXt8ae0tpNw3ULflq5g=w869-h869-s-no-gm?authuser=0" 
           alt="EMPHZ Generator Room Pod" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
@@ -396,7 +396,7 @@ const Portfolio = () => (
         transition={{ delay: 0.5 }}
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
-        <img 
+        <ViewableImage 
           src="https://lh3.googleusercontent.com/pw/AP1GczOYyrN7zzWAF72LarCKhxba48Z63JkRPQa84TPIyRzuZwyGt-CbVJd4tzh2kNF93HhECGlR7d4lJzH5XFeWiqwiwWJy3yuaqr4v3VJXs3CJHYNEgmroDLxP0U89hb-D5PJ0wB1CNPL56fN7KgdXmzWs7w=w1304-h869-s-no-gm?authuser=0" 
           alt="EMPHZ Bus Transit Station" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
@@ -417,7 +417,7 @@ const Portfolio = () => (
         transition={{ delay: 0.6 }}
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
-        <img 
+        <ViewableImage 
           src="https://lh3.googleusercontent.com/pw/AP1GczO3QR_zgU5NrlwdA2evx824k4sb5JwDTl4OHCODq6pvYk0F5ScgKPCvtsjkMm-dJy0sFr6_n26KwNqFTm2s3U-ASDgf4kQHP2NHFiRGBpX7I_BSB5r9k6I8ULuWc9Z2zy0_lNEXNBFf9LlHspsnhdDErA=w1344-h768-s-no-gm?authuser=0" 
           alt="EMPHZ Hybrid Workspace Module" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
@@ -438,7 +438,7 @@ const Portfolio = () => (
         transition={{ delay: 0.7 }}
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
-        <img 
+        <ViewableImage 
           src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=2000" 
           alt="EMPHZ Eco-Hospitality Pod" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
@@ -459,7 +459,7 @@ const Portfolio = () => (
         transition={{ delay: 0.8 }}
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
-        <img 
+        <ViewableImage 
           src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=2000" 
           alt="EMPHZ Retail Pop-up Module" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
@@ -613,7 +613,7 @@ const TechSpecs = () => {
         >
           <div className="aspect-square bg-zinc-50 border border-zinc-100 p-8 flex items-center justify-center">
              {/* Abstract technical drawing or high-quality image */}
-             <img 
+             <ViewableImage 
                src="https://lh3.googleusercontent.com/pw/AP1GczPDRXHhmo1DelLxi0HtftJnSmJ5IkdKr2Ul0o4WqNdZC0aJLGTf3RDD6NY95soy12tjT-9X5MXLRdCBt8plfP21vC68xJgU31pGM52ih8yBsDP2UzyWWShp8haDaNLGCv-EGnHQMuwNSVEJe7G288whig=w1545-h869-s-no-gm?authuser=0" 
                alt="Technical Blueprint" 
                className="w-full h-full object-cover opacity-20 grayscale brightness-0"

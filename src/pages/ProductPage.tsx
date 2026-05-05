@@ -5,7 +5,7 @@
 
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
-import { SectionHeader, GlassCard, Button } from '../components/UI';
+import { SectionHeader, Button, ViewableImage } from '../components/UI';
 import { motion, useReducedMotion } from 'motion/react';
 import { Check, ArrowRight } from 'lucide-react';
 
@@ -34,7 +34,7 @@ const ProductPage = () => {
               transition={shouldReduceMotion ? { duration: 0 } : undefined}
             >
               <div className="aspect-[4/5] overflow-hidden bg-zinc-50 p-4 border border-zinc-100 shadow-sm relative group">
-                <img 
+                <ViewableImage 
                   src={product.imageUrl} 
                   alt={product.name} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
