@@ -10,7 +10,7 @@ import { PRODUCTS } from '../constants';
 import { Link } from 'react-router-dom';
 
 const Hero = () => (
-  <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-br from-[#00101B] via-[#01243A] to-[#013E56]">
+  <section className="relative min-h-screen flex items-center pt-24 sm:pt-20 overflow-hidden bg-gradient-to-br from-[#00101B] via-[#01243A] to-[#013E56]">
     {/* Full Wide Hero Image Background */}
     <div className="absolute inset-0 z-0">
       <ViewableImage 
@@ -36,29 +36,29 @@ const Hero = () => (
       transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
     />
 
-    <div className="section-padding relative z-10 w-full">
+    <div className="section-padding relative z-10 w-full py-14 sm:py-20">
       <div className="max-w-4xl">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-sm bg-white/85 border border-white/70 mb-8 backdrop-blur-md shadow-lg shadow-slate-900/10">
+          <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 rounded-sm bg-white/85 border border-white/70 mb-6 sm:mb-8 backdrop-blur-md shadow-lg shadow-slate-900/10">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-[10px] uppercase tracking-[0.3em] font-black text-[#E8F4FA]">Scaling India + Global Export</span>
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] sm:tracking-[0.3em] font-black text-[#E8F4FA]">Scaling India + Global Export</span>
           </div>
           
-          <h1 className="text-3xl sm:text-3xl sm:text-4xl md:text-6xl font-display font-extrabold tracking-tighter leading-[1.1] uppercase mb-8 text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold tracking-tight sm:tracking-tighter leading-[1.05] sm:leading-[1.1] uppercase mb-6 sm:mb-8 text-white">
             Precision <br />
             <span className="text-accent underline decoration-8 decoration-accent/20 underline-offset-[-8px]">Engineering</span> <br />
             Modular Units
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-xl mb-8 leading-relaxed font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-xl mb-6 sm:mb-8 leading-relaxed font-medium">
             EMPHZ crafts premium modular pods designed for rapid deployment. High-fidelity workspaces and resting units engineered for the architectural standards of tomorrow.
           </p>
 
-          <div className="flex flex-wrap gap-3 mb-12">
+          <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-12">
             {['Factory Finished', 'Weather Resistant', 'Pan-India Delivery'].map((tag, index) => (
               <motion.span
                 key={tag}
@@ -72,28 +72,28 @@ const Hero = () => (
             ))}
           </div>
           
-          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-6">
             <Link to="/contact">
-              <Button size="lg" className="group h-full">
+              <Button size="lg" className="group h-full w-full sm:w-auto justify-center">
                 Start Project <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/products">
-              <Button variant="outline" size="lg">Product Catalog</Button>
+              <Button variant="outline" size="lg" className="w-full sm:w-auto justify-center">Product Catalog</Button>
             </Link>
           </div>
 
-          <div className="mt-14 sm:mt-20 grid grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 pt-10 sm:pt-16 border-t border-white/20 max-w-2xl">
+          <div className="mt-10 sm:mt-20 grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-12 pt-8 sm:pt-16 border-t border-white/20 max-w-2xl">
             <div>
-              <p className="text-white font-display text-3xl font-black mb-1">48H</p>
+              <p className="text-white font-display text-2xl sm:text-3xl font-black mb-1">48H</p>
               <p className="text-[10px] uppercase tracking-[0.3em] text-slate-300 font-black">Installation</p>
             </div>
             <div>
-              <p className="text-white font-display text-3xl font-black mb-1">45dB</p>
+              <p className="text-white font-display text-2xl sm:text-3xl font-black mb-1">45dB</p>
               <p className="text-[10px] uppercase tracking-[0.3em] text-slate-300 font-black">Acoustics</p>
             </div>
             <div className="hidden md:block">
-              <p className="text-white font-display text-3xl font-black mb-1">ZERO</p>
+              <p className="text-white font-display text-2xl sm:text-3xl font-black mb-1">ZERO</p>
               <p className="text-[10px] uppercase tracking-[0.3em] text-slate-300 font-black">Foundation</p>
             </div>
           </div>
