@@ -13,6 +13,23 @@ const Hero = () => (
   <section className="relative min-h-screen flex items-center pt-24 sm:pt-20 overflow-hidden bg-gradient-to-br from-[#00101B] via-[#01243A] to-[#013E56]">
     {/* Full Wide Hero Image Background */}
     <div className="absolute inset-0 z-0">
+      <div className="grid h-full w-full grid-cols-1 md:grid-cols-3">
+        {[
+          "https://lh3.googleusercontent.com/pw/AP1GczM-q5NwTYksmnvC8yvvjG3rbjC3yUuCJe6BslP6TYLpH4rn-eUKUH7lnASLYtVE-J3cExnU8YnrPl9HPyoyq8GxZvnDyteASOsDoYO4GYM8QQkIzpc_MZY0sgnme7sh7_rl-x2sWN7yJhD_XrtUyxFG1Q=w413-h869-s-no-gm?authuser=0",
+          "https://lh3.googleusercontent.com/pw/AP1GczM1hckqIUVw9IhQ89NuHm4s5MP18qBYn1Es4PrukI3kM5JUQLfBz0xVB46fB2NGtBL-qGIU96NN5Jp0TKJPNZqq8idRWdwdKwp90ZinmNZX3N8sTV8WZ4FTV8QNJkgO105umrKdwaVg3qB_6BKBoUxP0w=w1545-h869-s-no-gm?authuser=0",
+          "https://lh3.googleusercontent.com/pw/AP1GczPDRXHhmo1DelLxi0HtftJnSmJ5IkdKr2Ul0o4WqNdZC0aJLGTf3RDD6NY95soy12tjT-9X5MXLRdCBt8plfP21vC68xJgU31pGM52ih8yBsDP2UzyWWShp8haDaNLGCv-EGnHQMuwNSVEJe7G288whig=w1545-h869-s-no-gm?authuser=0"
+        ].map((imageSrc, index) => (
+          <ViewableImage
+            key={imageSrc}
+            src={imageSrc}
+            alt={`EMPHZ modular infrastructure showcase ${index + 1}`}
+            className="h-full w-full object-cover brightness-[0.9] md:scale-105"
+            referrerPolicy="no-referrer"
+          />
+        ))}
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#000814]/80 via-[#001D2E]/55 to-[#001D2E]/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#00101B]/75 via-[#00243B]/25 to-transparent" />
       <ViewableImage 
         src="https://lh3.googleusercontent.com/pw/AP1GczM-q5NwTYksmnvC8yvvjG3rbjC3yUuCJe6BslP6TYLpH4rn-eUKUH7lnASLYtVE-J3cExnU8YnrPl9HPyoyq8GxZvnDyteASOsDoYO4GYM8QQkIzpc_MZY0sgnme7sh7_rl-x2sWN7yJhD_XrtUyxFG1Q=w413-h869-s-no-gm?authuser=0" 
         alt="EMPHZ Futuristic Modular Infrastructure"
