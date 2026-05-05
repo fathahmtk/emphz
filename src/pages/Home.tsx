@@ -15,8 +15,14 @@ const Hero = () => (
     <div className="absolute inset-0 z-0">
       <ViewableImage 
         src="https://lh3.googleusercontent.com/pw/AP1GczM-q5NwTYksmnvC8yvvjG3rbjC3yUuCJe6BslP6TYLpH4rn-eUKUH7lnASLYtVE-J3cExnU8YnrPl9HPyoyq8GxZvnDyteASOsDoYO4GYM8QQkIzpc_MZY0sgnme7sh7_rl-x2sWN7yJhD_XrtUyxFG1Q=w413-h869-s-no-gm?authuser=0" 
-        alt="EMPHZ Futuristic Modular Infrastructure" 
-        className="w-full h-full object-cover brightness-[0.95] scale-105"
+        alt="EMPHZ Futuristic Modular Infrastructure"
+        className="w-full h-full object-cover brightness-[0.95] scale-105 sm:hidden"
+        referrerPolicy="no-referrer"
+      />
+      <ViewableImage 
+        src="https://lh3.googleusercontent.com/pw/AP1GczM4qyFB-Ag5mDy4nB7vG4x9DFtV2wPsj2G9pX8bGQ1nMYl3nBOq2FJmH2C3VUXb9oZQzvUxJbMdbnHV0mKQzq4fj8L8S0vVqCc0y-9T7x3Yq9Qn2ho4v4VJxwqR9DhaJ4c4S2qb3amv8ME3z3gM7j=w1920-h1080-s-no-gm?authuser=0"
+        alt="EMPHZ Futuristic Modular Infrastructure"
+        className="hidden w-full h-full object-cover brightness-[0.95] scale-105 sm:block"
         referrerPolicy="no-referrer"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#000814]/70 via-[#001D2E]/45 to-transparent" />
