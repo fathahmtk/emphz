@@ -14,7 +14,7 @@ const Hero = () => (
     {/* Full Wide Hero Image Background */}
     <div className="absolute inset-0 z-0">
       <ViewableImage 
-        src="https://lh3.googleusercontent.com/pw/AP1GczM23e5IB401B6M-knj-n3x72djmOLjm9HE2awJAuhVdyaXmAjCeRkd4o0nWGsOVnODi-5OHDBbfFJGXHFAMQqLGJtY7Af4o8soGA9b6A92u04WXskUIwjtsXSdumMYO6nbUiX3N9CL7VwIqL25oti253g=w1545-h869-s-no-gm?authuser=0" 
+        src="https://lh3.googleusercontent.com/pw/AP1GczM-q5NwTYksmnvC8yvvjG3rbjC3yUuCJe6BslP6TYLpH4rn-eUKUH7lnASLYtVE-J3cExnU8YnrPl9HPyoyq8GxZvnDyteASOsDoYO4GYM8QQkIzpc_MZY0sgnme7sh7_rl-x2sWN7yJhD_XrtUyxFG1Q=w413-h869-s-no-gm?authuser=0" 
         alt="EMPHZ Futuristic Modular Infrastructure" 
         className="w-full h-full object-cover brightness-[0.95] scale-105"
         referrerPolicy="no-referrer"
@@ -397,15 +397,15 @@ const Portfolio = () => (
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
         <ViewableImage 
-          src="https://lh3.googleusercontent.com/pw/AP1GczOYyrN7zzWAF72LarCKhxba48Z63JkRPQa84TPIyRzuZwyGt-CbVJd4tzh2kNF93HhECGlR7d4lJzH5XFeWiqwiwWJy3yuaqr4v3VJXs3CJHYNEgmroDLxP0U89hb-D5PJ0wB1CNPL56fN7KgdXmzWs7w=w1304-h869-s-no-gm?authuser=0" 
-          alt="EMPHZ Bus Transit Station" 
+          src="https://lh3.googleusercontent.com/pw/AP1GczPvsUXja32LxG846j_Yb631xB71E3RX9g6XZjYuABF-dJq-Uf_QvgiBmg5h_ocDjslbr6qPx6peynb8xpt3lXWyueBO_mJR4N31xZfAEzKWo2EO416Yz8QbRFWxRMmijh9J7qX6K2ZV_u304OavPTO7Zw=w1304-h869-s-no-gm?authuser=0" 
+          alt="EMPHZ Bus Stop 5 Module" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
           <div>
             <p className="text-[10px] uppercase font-black tracking-widest text-accent mb-2">Urban Infrastructure</p>
-            <h4 className="text-xl font-display font-bold text-white uppercase">Bus Transit Station</h4>
+            <h4 className="text-xl font-display font-bold text-white uppercase">Bus Stop 5 Module</h4>
           </div>
         </div>
       </motion.div>
@@ -439,7 +439,7 @@ const Portfolio = () => (
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
         <ViewableImage 
-          src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=2000" 
+          src="https://lh3.googleusercontent.com/pw/AP1GczOHvaWx7xYTkt3QHH2dtIUrQQa7H56utOI5Z3h-Yob5yFIrsOr5fBL1MSQGpDtCOzuzMFoObL05EvNc4w9C0GUWEC8iiwGA5L2uJzDiUxaXFPcqLmoKSW14sGhEhZZKorXR27XsoVhrI9278KgnvNnaeg=w1344-h768-s-no-gm?authuser=0" 
           alt="EMPHZ Eco-Hospitality Pod" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
           referrerPolicy="no-referrer"
@@ -460,15 +460,15 @@ const Portfolio = () => (
         className="group relative aspect-[16/9] overflow-hidden bg-white shadow-sm"
       >
         <ViewableImage 
-          src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=2000" 
-          alt="EMPHZ Retail Pop-up Module" 
+          src="https://lh3.googleusercontent.com/pw/AP1GczO_yHvrVqeSyQptetDgD2xpolaXq9oXImcceikitbuNMjlzS3w1JQVVNKdnZ5FGwuJHtUNCvJtJmk1Z28icLadmXjgCqOeyX8x6QuEgEpIlE42BGv5ncFbvY0DrMNUFXlpYmrZ7LkkYTDGBNR7zpuN1vQ=w1304-h869-s-no-gm?authuser=0" 
+          alt="EMPHZ Food Kiosk Module" 
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
           <div>
-            <p className="text-[10px] uppercase font-black tracking-widest text-accent mb-2">Commercial</p>
-            <h4 className="text-xl font-display font-bold text-white uppercase">Retail Pop-up Module</h4>
+            <p className="text-[10px] uppercase font-black tracking-widest text-accent mb-2">Food & Beverage</p>
+            <h4 className="text-xl font-display font-bold text-white uppercase">Food Kiosk Module</h4>
           </div>
         </div>
       </motion.div>
