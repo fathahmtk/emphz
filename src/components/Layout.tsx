@@ -36,14 +36,14 @@ export const Navbar = () => {
         style={{ backgroundColor }}
         className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm border-b border-zinc-100"
       >
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-12 h-20 flex items-center justify-between gap-3">
           <Link to="/" className="flex items-center gap-3 group">
             <img 
               src={logo} 
               alt="EMPHZ Logo" 
               className="w-11 h-11 object-contain rounded-md shadow-sm"
             />
-            <span className="text-3xl font-display font-black tracking-tighter text-zinc-900 group-hover:text-accent transition-colors">
+            <span className="text-2xl sm:text-3xl font-display font-black tracking-tighter text-zinc-900 group-hover:text-accent transition-colors">
               EMPHZ
             </span>
           </Link>
@@ -81,7 +81,7 @@ export const Navbar = () => {
         <motion.div
           initial={false}
           animate={isOpen ? { height: '100vh', opacity: 1 } : { height: 0, opacity: 0 }}
-          className="lg:hidden bg-white fixed top-20 left-0 w-full overflow-hidden flex flex-col justify-center px-12"
+          className="lg:hidden bg-white fixed top-20 left-0 w-full overflow-hidden flex flex-col justify-center px-6 sm:px-10"
         >
           <div className="flex flex-col gap-8">
             {NAV_LINKS.map((link, i) => (
@@ -93,7 +93,7 @@ export const Navbar = () => {
               >
                 <Link
                   to={link.href}
-                  className="text-4xl font-display font-medium uppercase tracking-tight text-zinc-900 hover:text-accent"
+                  className="text-3xl sm:text-4xl font-display font-medium uppercase tracking-tight text-zinc-900 hover:text-accent"
                 >
                   {link.name}
                 </Link>
@@ -117,7 +117,7 @@ export const Navbar = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         whileHover={{ scale: 1.1 }}
-        className="fixed bottom-8 right-8 z-[60] w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg transition-all"
+        className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-[60] w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg transition-all"
       >
         <MessageSquare size={24} />
       </motion.a>
@@ -127,8 +127,8 @@ export const Navbar = () => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-zinc-50 border-t border-zinc-100 pt-24 pb-12 px-6 md:px-12 lg:px-24">
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+    <footer className="bg-zinc-50 border-t border-zinc-100 pt-20 md:pt-24 pb-12 px-4 sm:px-6 md:px-12 lg:px-24">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-20 md:mb-24">
         <div>
           <Link to="/" className="flex items-center gap-3 mb-8 group">
             <img 
@@ -183,13 +183,13 @@ export const Footer = () => {
         <div>
           <h4 className="font-display uppercase tracking-[0.2em] text-[10px] font-bold mb-10 text-zinc-400">Newsletter</h4>
           <p className="text-zinc-500 text-xs mb-8">Receive technical reports and new deployment updates.</p>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <input 
               type="email" 
               placeholder="Email address" 
               className="bg-zinc-100 border border-zinc-200 px-4 py-3.5 text-sm focus:outline-none focus:border-accent w-full text-zinc-900"
             />
-            <button className="bg-zinc-900 text-white px-5 hover:bg-accent transition-colors">
+            <button className="bg-zinc-900 text-white px-5 py-3.5 sm:py-0 hover:bg-accent transition-colors">
               <ArrowRight size={18} />
             </button>
           </div>
@@ -200,7 +200,7 @@ export const Footer = () => {
         <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-bold">
           © 2026 EMPHZ INFRASTRUCTURE SOLUTIONS.
         </p>
-        <div className="flex gap-10 text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-bold">
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-bold">
           <a href="#" className="hover:text-accent transition-colors">Privacy</a>
           <a href="#" className="hover:text-accent transition-colors">Safety</a>
           <a href="#" className="hover:text-accent transition-colors">Logistics</a>
