@@ -48,13 +48,13 @@ const Hero = () => (
             <span className="text-[10px] uppercase tracking-[0.3em] font-black text-[#E8F4FA]">Scaling India + Global Export</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-display font-extrabold tracking-tighter leading-[1.1] uppercase mb-8 text-white">
+          <h1 className="text-3xl sm:text-3xl sm:text-4xl md:text-6xl font-display font-extrabold tracking-tighter leading-[1.1] uppercase mb-8 text-white">
             Precision <br />
             <span className="text-accent underline decoration-8 decoration-accent/20 underline-offset-[-8px]">Engineering</span> <br />
             Modular Units
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-200 max-w-xl mb-8 leading-relaxed font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-xl mb-8 leading-relaxed font-medium">
             EMPHZ crafts premium modular pods designed for rapid deployment. High-fidelity workspaces and resting units engineered for the architectural standards of tomorrow.
           </p>
 
@@ -72,7 +72,7 @@ const Hero = () => (
             ))}
           </div>
           
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6">
             <Link to="/contact">
               <Button size="lg" className="group h-full">
                 Start Project <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -83,7 +83,7 @@ const Hero = () => (
             </Link>
           </div>
 
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-12 pt-16 border-t border-white/20 max-w-2xl">
+          <div className="mt-14 sm:mt-20 grid grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 pt-10 sm:pt-16 border-t border-white/20 max-w-2xl">
             <div>
               <p className="text-white font-display text-3xl font-black mb-1">48H</p>
               <p className="text-[10px] uppercase tracking-[0.3em] text-slate-300 font-black">Installation</p>
@@ -189,21 +189,21 @@ const ProductPreview = () => (
 
 const WhyEMPHZ = () => (
   <section className="section-padding bg-white border-y border-zinc-100 overflow-hidden">
-    <div className="grid lg:grid-cols-2 gap-24 items-center">
+    <div className="grid lg:grid-cols-2 gap-12 md:gap-24 items-center">
       <div className="relative">
         <SectionHeader 
           number="03" 
           title="Modular ROI" 
           subtitle="A strategic investment for developers, hospitality chains, and enterprises."
         />
-        <div className="space-y-16 mt-12">
+        <div className="space-y-10 sm:space-y-16 mt-12">
           {[
             { t: "Asset Versatility", d: "Relocate components as per project priority. Convert one unit type to another with modular internal segments." },
             { t: "Tax Optimization", d: "Classified as mobile plant & equipment, enabling accelerated depreciation and significant capital saving." },
             { t: "Safety Audited", d: "Fire-rated materials, certified electrical systems, and structural integrity reports provided with every unit." }
           ].map((item, i) => (
-            <div key={item.t} className="flex gap-8">
-              <div className="font-display text-5xl text-zinc-100 font-black leading-none pt-1">0{i+1}</div>
+            <div key={item.t} className="flex gap-4 sm:gap-8">
+              <div className="font-display text-4xl sm:text-5xl text-zinc-100 font-black leading-none pt-1">0{i+1}</div>
               <div>
                 <h4 className="text-lg font-display uppercase tracking-tight text-zinc-900 font-bold mb-3">{item.t}</h4>
                 <p className="text-zinc-500 text-sm leading-relaxed max-w-md">{item.d}</p>
@@ -215,8 +215,8 @@ const WhyEMPHZ = () => (
       <div className="relative">
         <div className="aspect-square bg-zinc-50 p-4 border border-zinc-100 rotate-1">
           <ViewableImage src="https://lh3.googleusercontent.com/pw/AP1GczPDRXHhmo1DelLxi0HtftJnSmJ5IkdKr2Ul0o4WqNdZC0aJLGTf3RDD6NY95soy12tjT-9X5MXLRdCBt8plfP21vC68xJgU31pGM52ih8yBsDP2UzyWWShp8haDaNLGCv-EGnHQMuwNSVEJe7G288whig=w1545-h869-s-no-gm?authuser=0" className="w-full h-full object-cover" alt="EMPHZ Modular Pod Engineering" />
-          <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-accent flex flex-col justify-center items-center text-white shadow-2xl">
-            <span className="text-5xl font-display font-black leading-none">15+</span>
+          <div className="absolute -bottom-4 -right-4 sm:-bottom-8 sm:-right-8 w-36 h-36 sm:w-48 sm:h-48 bg-accent flex flex-col justify-center items-center text-white shadow-2xl">
+            <span className="text-4xl sm:text-5xl font-display font-black leading-none">15+</span>
             <span className="text-[10px] uppercase tracking-widest font-bold mt-2">Cities Reach</span>
           </div>
         </div>
@@ -228,10 +228,10 @@ const WhyEMPHZ = () => (
 const ExperienceCenter = () => (
   <section className="section-padding text-center bg-zinc-50 relative overflow-hidden">
     <div className="max-w-4xl mx-auto relative z-10 bg-white/70 backdrop-blur-md border border-white rounded-2xl p-8 md:p-12 shadow-xl shadow-zinc-200/50">
-      <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-8 text-zinc-900">
+      <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-8 text-zinc-900">
         Visit The <span className="text-accent underline decoration-accent/20 decoration-8 underline-offset-[-4px]">Showroom</span>
       </h2>
-      <p className="text-zinc-500 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+      <p className="text-zinc-500 text-base sm:text-lg mb-10 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
         Our Kerala Experience Center showcases the range of finishes, acoustics and technological integrations. Witness the build quality that sets EMPHZ apart.
       </p>
       <div className="flex flex-col md:flex-row justify-center gap-6">
@@ -252,7 +252,7 @@ const ExperienceCenter = () => (
 const Testimonials = () => (
   <section className="section-padding bg-white">
     <SectionHeader align="center" title="Industry Trust" subtitle="Architects and CEOs on the EMPHZ experience." />
-    <div className="grid md:grid-cols-3 gap-10">
+    <div className="grid md:grid-cols-3 gap-6 md:gap-10">
       {[
         { n: "Rajesh Menon", r: "CEO, Nexa Hubs", t: "The acoustics are incredible. We've placed these in the middle of our busiest production zones and the silence inside is absolute." },
         { n: "Ananya Dixit", r: "Resort Architect", t: "EMPHZ units allowed us to open a luxury eco-resort 6 months ahead of schedule. The finish quality is truly architectural grade." },
@@ -264,7 +264,7 @@ const Testimonials = () => (
               <div className="flex gap-1 mb-6 text-accent">
                 {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-current" />)}
               </div>
-              <p className="text-zinc-600 italic text-lg mb-10 leading-relaxed font-medium">"{test.t}"</p>
+              <p className="text-zinc-600 italic text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed font-medium">"{test.t}"</p>
             </div>
             <div className="pt-8 border-t border-zinc-50">
               <p className="font-display uppercase text-[10px] font-black tracking-[0.2em] text-zinc-900">{test.n}</p>
@@ -585,7 +585,7 @@ const TechSpecs = () => {
 
   return (
     <section className="section-padding bg-white overflow-hidden">
-      <div className="grid lg:grid-cols-2 gap-24 items-center">
+      <div className="grid lg:grid-cols-2 gap-12 md:gap-24 items-center">
         <motion.div
            initial={{ opacity: 0, x: -30 }}
            whileInView={{ opacity: 1, x: 0 }}
