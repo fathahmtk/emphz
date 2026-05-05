@@ -476,6 +476,64 @@ const Portfolio = () => (
   </section>
 );
 
+
+const PhotoGallery = () => {
+  const photos = [
+    {
+      src: "https://lh3.googleusercontent.com/pw/AP1GczOQCBCGPhZmf_8ilQ0TED_VfO2Yh2GRgUiIbZ3WB3tbtea5rCI43cIVGHNUo-dy4zyOJV3QYL3YAxSUbZsCHr7EVEWRq4SmPiNCEIlMzxIiE6FRwBb5S9HtFn-08vgOPxWVTNSMLnmdTyuEeIMgtX7iYA=w869-h869-s-no-gm?authuser=0",
+      alt: "Closeup of modular sanitation unit",
+      label: "Sanitation"
+    },
+    {
+      src: "https://lh3.googleusercontent.com/pw/AP1GczMY7U4pLjoqWAm-csUaIIohGKEvAafb-m942e923vdz34e9xTe5RTeyrTfHQBFYuH2FySKs4SwIFw3O716U_gcfXDjDrbrYfuMTCVxPmhY6kMX2VC-2dInfCxF7IF3i2l5-LiAUAUC8zoGO6P2g51mNzQ=w1344-h768-s-no-gm?authuser=0",
+      alt: "Interior workspace pod deployment",
+      label: "Workspace"
+    },
+    {
+      src: "https://lh3.googleusercontent.com/pw/AP1GczNydAEeadD4afouzV-k8Srj8GPWnSoG4714kIJfeUgIYW5XLAAk26VhFc9zaGSAT226oPBh3LNYjgyFTmZhQa_KjCJmpqIYboJzoS6-BBM37-gdFFQa1reZb_7sTAyibwgIvqH23zZoRpBj5XOP6FD2gQ=w1545-h869-s-no-gm?authuser=0",
+      alt: "Urban modular transit shelter",
+      label: "Transit"
+    },
+    {
+      src: "https://lh3.googleusercontent.com/pw/AP1GczMV5hGEEEdpdnKLgB0DRqObV9cKXP6QKAncSrIbIQnQoJeXZl9eBjhd2sap19P0g52wKE_guoBLXeO69MZIbnjljuao0D0YXi2N3VvoMU1BeXn7d4l-kqoXag1lLPorlKp2DK5ndinicl1qigofgs9AXA=w1545-h869-s-no-gm?authuser=0",
+      alt: "Laboratory-grade exterior module",
+      label: "Research"
+    },
+  ];
+
+  return (
+    <section className="section-padding bg-white border-y border-zinc-100">
+      <SectionHeader
+        number="Gallery"
+        title="Photo Gallery"
+        subtitle="A quick visual tour of EMPHZ builds across workspace, transit, and industrial deployments."
+      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {photos.map((photo, i) => (
+          <motion.figure
+            key={photo.src}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08 }}
+            className="group relative overflow-hidden border border-zinc-100 bg-zinc-50"
+          >
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-700"
+              referrerPolicy="no-referrer"
+            />
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/65 to-transparent text-white px-4 py-3">
+              <span className="text-[10px] uppercase tracking-[0.2em] font-black">{photo.label}</span>
+            </figcaption>
+          </motion.figure>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const Process = () => {
   const steps = [
     { title: "Consultation", desc: "Our engineers analyze your spatial requirements and technical constraints." },
@@ -583,6 +641,7 @@ const Home = () => {
       <ProductPreview />
       <WhyEMPHZ />
       <Portfolio />
+      <PhotoGallery />
       <Process />
       <TechSpecs />
       <ExperienceCenter />
