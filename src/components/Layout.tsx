@@ -8,6 +8,7 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { Menu, X, ArrowRight, MessageSquare } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { NAV_LINKS } from '../constants';
+import { COMPANY } from '../constants';
 import { Button } from './UI';
 import { QuoteModal } from './QuoteModal';
 import { cn } from '../lib/utils';
@@ -109,7 +110,7 @@ export const Navbar = () => {
 
       {/* Floating WhatsApp Action */}
       <motion.a
-        href="https://wa.me/919876543210"
+        href={`https://wa.me/${COMPANY.whatsappNumber}`}
         aria-label="Chat with EMPHZ on WhatsApp"
         target="_blank"
         rel="noreferrer"
@@ -174,7 +175,7 @@ export const Footer = () => {
             <li>Hebbal Industrial Area, Mysuru</li>
             <li>Karnataka 570016</li>
             <li><a href="https://maps.app.goo.gl/UtBF6FBtw5N9b42j6" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">View on Google Maps</a></li>
-            <li>+91 86488 81888</li>
+            <li>{COMPANY.phoneDisplay}</li>
             <li className="mt-4 font-bold text-zinc-900">Experience Center Open</li>
           </ul>
         </div>

@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Send, Phone, CheckCircle2 } from 'lucide-react';
 import { Button } from './UI';
+import { COMPANY } from '../constants';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -47,6 +48,7 @@ export const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
           {/* Close Button */}
           <button 
             onClick={onClose}
+            aria-label="Close quote form"
             className="absolute top-6 right-6 text-zinc-400 hover:text-zinc-900 z-10 transition-colors"
           >
             <X size={24} />
@@ -76,6 +78,7 @@ export const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <input type="text" name="companyWebsite" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                             <label className="text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-400">Full Name</label>
@@ -83,7 +86,7 @@ export const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                     </div>
                     <div className="space-y-2">
                             <label className="text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-400">Contact Number</label>
-                            <input required type="tel" className="w-full bg-zinc-50 border border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 transition-colors placeholder:text-zinc-300 rounded-sm" placeholder="+91 ..." />
+                            <input required type="tel" inputMode="tel" pattern="^\+?[0-9\s-]{10,15}$" className="w-full bg-zinc-50 border border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 transition-colors placeholder:text-zinc-300 rounded-sm" placeholder="+91 ..." />
                     </div>
                   </div>
 
@@ -120,7 +123,7 @@ export const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                     <span className="text-[10px] uppercase tracking-widest font-black">Fast-track with WhatsApp:</span>
                   </div>
                   <a 
-                    href="https://wa.me/919876543210" 
+                    href={`https://wa.me/${COMPANY.whatsappNumber}`} 
                     target="_blank" 
                     rel="noreferrer"
                     className="flex items-center gap-2 text-accent font-black uppercase tracking-widest text-[10px] bg-zinc-50 px-4 py-2 border border-zinc-100 hover:border-accent transition-all"

@@ -5,6 +5,7 @@
 
 import { SectionHeader, Button, GlassCard } from '../components/UI';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { COMPANY } from '../constants';
 
 const Contact = () => {
   return (
@@ -25,9 +26,9 @@ const Contact = () => {
                 detail: "260/A, Meenakunte, Hebbal Industrial Estate, Hebbal Industrial Area, Mysuru, Hebbalu, Karnataka 570016",
                 href: "https://maps.app.goo.gl/UtBF6FBtw5N9b42j6"
               },
-              { icon: <Phone className="text-accent" />, title: "Contact Number", detail: "+91 86488 81888", href: "tel:+9186488818888" },
-              { icon: <Phone className="text-accent" />, title: "WhatsApp", detail: "+91 86488 81888", href: "https://wa.me/9186488818888" },
-              { icon: <Mail className="text-accent" />, title: "General Queries", detail: "procure@emphz.com", href: "mailto:procure@emphz.com" }
+              { icon: <Phone className="text-accent" />, title: "Contact Number", detail: COMPANY.phoneDisplay, href: `tel:${COMPANY.phoneE164}` },
+              { icon: <Phone className="text-accent" />, title: "WhatsApp", detail: COMPANY.phoneDisplay, href: `https://wa.me/${COMPANY.whatsappNumber}` },
+              { icon: <Mail className="text-accent" />, title: "General Queries", detail: COMPANY.email, href: `mailto:${COMPANY.email}` }
             ].map(item => (
               <div key={item.title} className="flex gap-6 items-start group">
                 <div className="w-14 h-14 bg-zinc-50 border border-zinc-100 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all shadow-sm">
@@ -64,6 +65,7 @@ const Contact = () => {
           <GlassCard className="p-10 md:p-16 border-zinc-100 shadow-xl bg-white/80">
             <h3 className="text-3xl font-display font-black uppercase mb-12 tracking-tighter text-zinc-900">Requirement Brief</h3>
             <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
+              <input type="text" name="companyWebsite" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label htmlFor="full-name" className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Full Name</label>
@@ -71,7 +73,7 @@ const Contact = () => {
                 </div>
                 <div className="space-y-3">
                   <label htmlFor="phone" className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Phone Number</label>
-                  <input id="phone" name="phone" autoComplete="tel" required type="tel" className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold" placeholder="+91 ..." />
+                  <input id="phone" name="phone" autoComplete="tel" required type="tel" inputMode="tel" pattern="^\+?[0-9\s-]{10,15}$" className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold" placeholder="+91 ..." />
                 </div>
               </div>
 
@@ -93,7 +95,7 @@ const Contact = () => {
 
               <div className="space-y-3">
                 <label htmlFor="project-specifics" className="text-[10px] uppercase font-black tracking-[0.2em] text-zinc-400">Project Specifics</label>
-                <textarea id="project-specifics" name="projectSpecifics" rows={4} required className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold resize-none" placeholder="Details of your site and timeline..."></textarea>
+                <textarea id="project-specifics" name="projectSpecifics" rows={4} required minLength={30} className="w-full bg-zinc-50 border-b border-zinc-200 p-4 focus:border-accent outline-none text-zinc-900 font-bold resize-none" placeholder="Details of your site and timeline..."></textarea>
               </div>
 
               <Button size="lg" className="w-full group py-6">

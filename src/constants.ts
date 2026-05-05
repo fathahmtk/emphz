@@ -137,3 +137,12 @@ export const NAV_LINKS = [
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Contact', href: '/contact' }
 ];
+
+export const COMPANY = {
+  name: 'EMPHZ',
+  siteUrl: 'https://emphz.com',
+  phoneDisplay: '+91 86488 81888',
+  phoneE164: '+9186488818888',
+  whatsappNumber: '9186488818888',
+  email: 'procure@emphz.com'
+} as const;
